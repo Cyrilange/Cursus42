@@ -3,11 +3,14 @@
 void    first_word(char *str)
 {
     int i = 0;
-    while (str[i] == 32 || str[i] == 9)
+    while (str[i] == '\t' || str[i] == ' ')
         i++;
-    while (str[i] && (str[i] != 32 && str[i] != 9))
+    while (str[i] != '\0')
     {
-        write(1, &str[i++], 1);
+        write(1, &str[i], 1);
+        if (str[i] == '\t' || str[i] == ' ')
+            break;
+        i++;
     }
     write(1, "\n", 1);
 }
