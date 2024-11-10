@@ -7,23 +7,25 @@ int	main(int argc, char **argv)
 	t_stack_node	*head;
 	char			**args;
 	if (argc < 2) // if less than 2 arguments we return error
-		ft_putstr("Error");
+		ft_putstr("Error\n");
 	t_stack_node *head = NULL;
 	**args = argv + 1;
 	if (!check_no_error(head, args)) // if we find an error we return error
-		ft_putstr("Error");
+		ft_putstr("Error\n");
 	else  // no error so we can now chack hoe many arguments we have
 	{
-		/*if  it is already sorted;
-			print ok;
-		else if we only have 2 numbers
-			function 2 numbers.
-		else if we only have 3 numbers
-			function 3 numbers;
-		else if we only have 5 numbers;
-			function 5 numbers;
+		if  (is_sorted(head))
+			ft_putstr("OK\n");
+		else if (argc - 1 == 2)
+			sort_two_numbers(head);
+		else if (argc - 1 == 3)
+			sort_three_number(head);
+		else if (argc - 1 == 4)
+			sort_four_number(head);
+		else if (argc - 1 == 5)
+			sort_five_numbers(head);
 		else 
-			do the push swap function; */
+			push_swap(head); */
 	}
 	return (0);
 }
