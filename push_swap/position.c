@@ -37,3 +37,49 @@ void move_to_top(t_stack_node **stack, int position)
         position++;
     }
 }
+
+void    move(t_stack_node **stack_a, t_stack_node **stack_b, int cost_a, int cost_b)
+{
+    while (cost_a < 0 && cost_b < 0)
+        {
+			rra(stack_a, 1);
+			rrb(stack_b, 1);
+			cost_a++;
+			cost_b++;
+		}
+    while (cost_a > 0 && cost_b > 0)
+        {
+			ra(stack_a, 1);
+			rb(stack_b, 1);
+			cost_a--;
+			cost_b--;
+		}
+	while (cost_a-- > 0)
+		ra(stack_a, 1);
+	while (cost_a++ < 0)
+		rra(stack_a, 1);
+	while (cost_b-- > 0)
+		rb(stack_b, 1);
+	while (cost_b++ < 0)
+		rrb(stack_b, 1);
+    pa(stack_a, stack_b, 1);
+}
+
+void	move_index_to_stack_b(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+    int	max;
+    int	len;
+    int	i;
+
+    len = stack_len(stack_a);
+    max = len / 2;
+	i = 0;
+	while (i < len)
+    {
+		if ((*stack_a)->index <= max)
+			pb(stack_a, stack_b, 1);
+        else
+			ra(stack_a, 1);
+		i++;
+    }
+}

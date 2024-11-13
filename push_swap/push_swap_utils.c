@@ -51,3 +51,18 @@ void push_to_stack(t_stack_node **head, int value)
         (*head)->prev = new_node;
     *head = new_node;
 }
+
+int	stack_len(t_stack_node **stack)
+{
+	int	len;
+	t_stack_node *current;
+
+	len = 0;
+	current = *stack;
+	while (current != NULL)
+	{
+		len++;
+		current = current;
+	}
+	return (len);
+}

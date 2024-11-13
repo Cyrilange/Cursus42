@@ -7,6 +7,7 @@
 
 typedef struct s_stack_node {
 	int					value;
+	int					index;
 	struct s_stack_node *next;
 	struct s_stack_node *prev;
 } t_stack_node;
@@ -35,7 +36,10 @@ void 			sort_three_numbers(t_stack_node **stack_a);
 void			sort_four_numbers(t_stack_node **stack_a, t_stack_node **stack_b);
 void			sort_five_numbers(t_stack_node **stack_a, t_stack_node **stack_b);
 int				find_min_position(t_stack_node *stack);
+int				stack_len(t_stack_node **stack);
 void			move_to_top(t_stack_node **stack, int position);
+void			move_index_to_stack_b(t_stack_node **stack_a, t_stack_node **stack_b);
+//void			move(t_stack_node **stack_a, t_stack_node **stack_b, int cost_a, int cost_b);
 
 
 
