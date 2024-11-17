@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-17 15:29:12 by csalamit          #+#    #+#             */
+/*   Updated: 2024-11-17 15:29:12 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_putstr(const char *str)
@@ -6,10 +18,10 @@ void	ft_putstr(const char *str)
 		write(1, str++, 1);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atol(const char *str)
 {
 	int	i;
-	int	result;
+	long	result;
 	int	sign;
 
 	i = 0;
@@ -20,12 +32,13 @@ int	ft_atoi(const char *str)
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			sign = -1;
+			sign *= -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + (str[i] - '0');
+		i++;
 	}
 	return (result * sign);
 }

@@ -1,7 +1,18 @@
-//ra rb rr
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate_right.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-17 15:28:24 by csalamit          #+#    #+#             */
+/*   Updated: 2024-11-17 15:28:24 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	ra(t_stack_node **stack_a, int print)
+void	ra(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
@@ -17,11 +28,10 @@ void	ra(t_stack_node **stack_a, int print)
 	second->next = first;
 	first->prev = second;
 	first->next = NULL;
-	if (print == 1)
-		ft_putstr("ra\n");
+	write(1, "RA\n", 1);
 }
 
-void	rb(t_stack_node **stack_b, int print)
+void	rb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
@@ -37,11 +47,10 @@ void	rb(t_stack_node **stack_b, int print)
 	second->next = first;
 	first->prev = second;
 	first->next = NULL;
-	if (print == 1)
-		ft_putstr("rb\n");
+	write(1, "RB\n", 1);
 }
 
-void	rr(t_stack_node **stack_a, t_stack_node **stack_b, int print)
+void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
 	ra(stack_a, 0);
 	rb(stack_b, 0);

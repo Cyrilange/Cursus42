@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-17 15:28:39 by csalamit          #+#    #+#             */
+/*   Updated: 2024-11-17 15:28:39 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <unistd.h>
 
@@ -39,28 +51,4 @@ bool	is_duplicate(t_stack_node *head)
 		current = current->next;
 	}
 	return (false);
-}
-
-bool	check_no_error(t_stack_node *head, char	**args)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	if (is_duplicate(head))
-		return (false);
-	while (args[i])
-	{
-		if (!is_valid_integer(args[i]))
-			return (false);
-		j = 0;
-		while (args[i][j])
-		{
-			if (!ft_is_digit(args[i][j]))
-				return (false);
-			j++;
-		}
-		i++;
-	}
-	return (true);
 }
