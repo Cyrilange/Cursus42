@@ -14,29 +14,30 @@
 
 int main(int argc, char **argv)
 {
-    t_stack_node *a;
-    t_stack_node *b;
+    t_stack_node **a;
+    //t_stack_node *b;
     
     a = NULL;
-    b = NULL;
+    //b = NULL;
    
 
     if (argc < 2 || (argc == 2 && !argv[1][0]))
     {
-        ft_putstr("Error\n");
+        ft_error(1);
         return (1);
     }
-    else if (argc == 2)
-        argv = ft_split(argv[1],' ');
-    stack_init(&a,)
-    if (!is_sorted(&a))
+   // else if (argc == 2)
+       // argv = ft_split(argv[1],' ');
+    //stack_init(&a, argv + 1, argc == 2);
+    if (!is_sorted(a))
     {
-        if (stack_len(&a) == 2)
-            sa(&a, 1);
-        else if (stack_len(&a) == 3)
-            sort_small(&a);
+        if (stack_len(a) == 2)
+            sa(a, 1);
+        else if (stack_len(a) == 3)
+            sort_small(a);
         /*else
 			push_swap(&a, &b);*/
     }
+    free_stack(a);
     return (0);
 }

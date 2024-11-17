@@ -28,7 +28,8 @@ void	ra(t_stack_node **stack_a, bool print)
 	second->next = first;
 	first->prev = second;
 	first->next = NULL;
-	write(1, "RA\n", 1);
+	if (print == 1)
+		write(1, "ra\n", 1);
 }
 
 void	rb(t_stack_node **stack_b, bool print)
@@ -47,7 +48,8 @@ void	rb(t_stack_node **stack_b, bool print)
 	second->next = first;
 	first->prev = second;
 	first->next = NULL;
-	write(1, "RB\n", 1);
+	if (print == 1)
+		write(1, "rb\n", 1);
 }
 
 void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)

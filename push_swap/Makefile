@@ -14,6 +14,7 @@ SRC = main.c \
 	  sort_small.c\
 	  swap.c\
 	  error_free.c\
+	  push_swap_util_aux.c\
 
 
 OBJ = $(SRC:.c=.o)

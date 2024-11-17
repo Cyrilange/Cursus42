@@ -15,7 +15,7 @@
 
 bool	ft_is_digit(int	n)
 {
-	    if (n >= '0' && n <= '9')
+		if (n >= '0' && n <= '9')
 			return (true);
 		return (false);
 }

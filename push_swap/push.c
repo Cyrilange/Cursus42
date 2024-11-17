@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	pa(t_stack_node **stack_a, t_stack_node **stack_b, int print)
+void	pa(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
 	t_stack_node *aux;
 	if (*stack_b == NULL)
@@ -25,7 +25,7 @@ void	pa(t_stack_node **stack_a, t_stack_node **stack_b, int print)
 		ft_putstr("pa\n");
 }
 
-void	pb(t_stack_node **stack_a, t_stack_node **stack_b, int print)
+void	pb(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
 	t_stack_node *aux;
 	if (*stack_a == NULL)
