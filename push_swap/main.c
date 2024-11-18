@@ -15,12 +15,8 @@
 int main(int argc, char **argv)
 {
     t_stack_node **a;
-    //t_stack_node *b;
-    
+  
     a = NULL;
-    //b = NULL;
-   
-
     if (argc < 2 || (argc == 2 && !argv[1][0]))
     {
         ft_error(1);
@@ -28,7 +24,7 @@ int main(int argc, char **argv)
     }
    // else if (argc == 2)
        // argv = ft_split(argv[1],' ');
-    //stack_init(&a, argv + 1, argc == 2);
+    stack_checked(&a, **argv, argc == 2);
     if (!is_sorted(a))
     {
         if (stack_len(a) == 2)

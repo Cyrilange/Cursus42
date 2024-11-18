@@ -37,6 +37,25 @@ void	free_stack(t_stack_node **stack)
 	free(aux);
 }
 
+void	stack_checked(t_stack_node **stack, char **argv, int argc)
+{
+	long	n;
+	int		i;
+
+	while (argv[i])
+	{
+		if (!is_valid_integer(argv[i]))
+			ft_error(1);
+		n = ft_atol(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			ft_error(1);
+		if (is_duplicate(stack))
+			ft_error(1);
+		create_node(n);
+		i++;
+	}
+}
+
 /* -----test_err--------
  #include <stdbool.h>
  #include <unistd.h>
