@@ -6,7 +6,6 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = main.c \
 	  check.c \
 	  is_sorted.c \
-	  position.c \
 	  push_swap_utils.c\
 	  push.c\
 	  rotate_left.c\

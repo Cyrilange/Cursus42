@@ -36,9 +36,9 @@ bool	is_valid_integer(char	*str)
 	return (true);
 }
 
-bool	is_duplicate(t_stack_node *head)
+bool	is_duplicate(t_stack_node **head)
 {
-	t_stack_node *current = head;
+	t_stack_node *current = *head;
 	while (current != NULL)
 	{
 		t_stack_node *check = current->next;

@@ -22,17 +22,18 @@ int main(int argc, char **argv)
         ft_error(1);
         return (1);
     }
-   // else if (argc == 2)
-       // argv = ft_split(argv[1],' ');
-    stack_checked(&a, **argv, argc == 2);
-    if (!is_sorted(a))
+    else if (argc > 2)
     {
-        if (stack_len(a) == 2)
-            sa(a, 1);
-        else if (stack_len(a) == 3)
-            sort_small(a);
-        /*else
-			push_swap(&a, &b);*/
+        stack_checked(a, argv);
+        if (!is_sorted(a))
+        {
+            if (stack_len(a) == 2)
+                sa(a, 1);
+            else if (stack_len(a) == 3)
+                sort_small(a);
+            /*else
+			    push_swap(&a, &b);*/
+        }
     }
     free_stack(a);
     return (0);

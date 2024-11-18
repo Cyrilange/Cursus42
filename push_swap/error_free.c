@@ -21,27 +21,24 @@ bool	ft_error(bool error)
 	return (false);
 }
 
-void	free_stack(t_stack_node **stack)
-{
-	t_stack_node	*aux;
-
-	if (*stack == NULL)
-		return ;
-	while (*stack != NULL)
-	{
-		aux = (*stack)->next;
-		free(*stack);
-		*stack = aux;
-	}
-	*stack = NULL;
-	free(aux);
+void free_stack(t_stack_node **a) {
+    t_stack_node *current = *a;
+    while (current != NULL) {
+        t_stack_node *temp = current;
+        current = current->next;
+        free(temp);
+    }
+    *a = NULL;
 }
 
-void	stack_checked(t_stack_node **stack, char **argv, int argc)
+
+void	stack_checked(t_stack_node **head, char **argv)
 {
+
 	long	n;
 	int		i;
 
+	*head = malloc(sizeof(t_stack_node)); 
 	while (argv[i])
 	{
 		if (!is_valid_integer(argv[i]))
@@ -49,7 +46,7 @@ void	stack_checked(t_stack_node **stack, char **argv, int argc)
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			ft_error(1);
-		if (is_duplicate(stack))
+		if (is_duplicate(head))
 			ft_error(1);
 		create_node(n);
 		i++;
