@@ -35,5 +35,5 @@ void	pb(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 	*stack_b = *stack_a;
 	*stack_a = aux;
 	if (print == 1)
-		ft_putstr("pb/n");
+		ft_putstr("pb\n");
 }

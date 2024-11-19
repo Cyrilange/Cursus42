@@ -59,6 +59,27 @@ long	ft_atol(const char *str)
 	}
 	return (result * sign);
 }
+
+
+
+void move_to_top(t_stack_node **stack, t_stack_node *target)
+{
+    int position = get_position(*stack, target); // Calcule la position du nœud cible
+    int size = stack_len(stack);
+
+    if (position <= size / 2)
+    {
+        while (*stack != target)
+            ra(stack, 1); // Effectue des rotations vers le haut
+    }
+    else
+    {
+        while (*stack != target)
+            rra(stack, 1); // Effectue des rotations vers le bas
+    }
+}
+
+
 /*
 #include <unistd.h>
 

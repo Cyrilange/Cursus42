@@ -27,15 +27,15 @@ t_stack_node *create_node(int value)
 
 int	stack_len(t_stack_node **stack)
 {
-	int	len;
+	int	size;
 	t_stack_node *current;
 
-	len = 0;
+	size = 0;
 	current = *stack;
 	while (current != NULL)
 	{
-		len++;
+		size++;
 		current = current;
 	}
-	return (len);
+	return (size);
 }

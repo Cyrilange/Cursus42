@@ -11,46 +11,33 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-bool	ft_error(bool error)
+void	ft_error(bool error)
 {
-	if (error == 1)
+	if (error)
 	{
-		write(1, "Error\n", 7);
-		return (true);
+		write(1, "Error\n", 6);
+		exit(EXIT_FAILURE);
 	}
-	return (false);
 }
 
+
+
 void free_stack(t_stack_node **a) {
-    t_stack_node *current = *a;
-    while (current != NULL) {
-        t_stack_node *temp = current;
-        current = current->next;
-        free(temp);
-    }
+    t_stack_node *current;
+
+	while (*a)
+	{
+		current = (*a)->next;
+		free(*a);
+		*a = current;
+	}
     *a = NULL;
 }
 
-
-void	stack_checked(t_stack_node **head, char **argv)
+void	free_both(t_stack_node **a, t_stack_node **b)
 {
-
-	long	n;
-	int		i;
-
-	*head = malloc(sizeof(t_stack_node)); 
-	while (argv[i])
-	{
-		if (!is_valid_integer(argv[i]))
-			ft_error(1);
-		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			ft_error(1);
-		if (is_duplicate(head))
-			ft_error(1);
-		create_node(n);
-		i++;
-	}
+	free_stack(a);
+	free_stack(b);
 }
 
 /* -----test_err--------

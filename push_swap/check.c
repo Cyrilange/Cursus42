@@ -52,3 +52,40 @@ bool	is_duplicate(t_stack_node **head)
 	}
 	return (false);
 }
+
+void	stack_checked(t_stack_node **head, char **argv)
+{
+	long	n;
+	int		i;
+	t_stack_node *new_node;
+	t_stack_node *current;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (!is_valid_integer(argv[i]))
+			ft_error(1);
+		n = ft_atol(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			ft_error(1);
+
+		new_node = create_node(n);
+		if (!*head) // Si la pile est vide, on initialise
+			*head = new_node;
+		else
+		{
+			current = *head;
+			while (current->next) // Va au dernier nœud
+				current = current->next;
+			current->next = new_node; // Ajoute le nouveau nœud à la fin
+			new_node->prev = current; // Met à jour le pointeur `prev`
+		}
+
+		if (is_duplicate(head)) // Vérifie les doublons après ajout
+			ft_error(1);
+
+		i++;
+	}
+}
+
+
