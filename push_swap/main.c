@@ -21,7 +21,7 @@ int main(int argc, char **argv)
         ft_error(1);
     else
     {
-        stack_checked(&a, argv + 1); // Ignore le nom du programme
+        stack_checked(&a, argv + 1);
         if (!is_sorted(&a))
         {
             if (stack_len(&a) == 2)
@@ -29,12 +29,11 @@ int main(int argc, char **argv)
             else if (stack_len(&a) == 3)
                 sort_small(&a);
             else
-                push_swap(&a, &b); // Implémente une logique pour les cas plus grands
+                push_swap(&a, &b);
         }
         else
             write(1,"OK\n",3);
     }
 
-    free_both(&a, &b); // Libère les deux piles
-    return (0);
+    free_both(&a, &b);
 }

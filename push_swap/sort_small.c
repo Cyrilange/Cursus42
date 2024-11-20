@@ -14,41 +14,30 @@
 
 void	sort_small(t_stack_node **stack)
 {
-	int	first;
-	int	second;
-	int	third;
+	t_stack_node	*high;
 
-	first = (*stack)->value;
-	second = (*stack)->next->value;
-	third = (*stack)->next->next->value;
-	if (first > second && second < third && first < third)
-		sa(stack, 1);
-	else if (first > second && second > third)
-	{
-		sa(stack, 1);
+	high = find_max_node(*stack);
+	if (*stack == high)
+		ra(stack,1);
+	else if ((*stack)->next == high)
 		rra(stack, 1);
-	}
-	else if (first > second && second < third && first > third)
-		ra(stack, 1);
-	else if (first < second && second > third && first < third)
-	{
+	if ((*stack)->value > (*stack)->next->value)
 		sa(stack, 1);
-		ra(stack, 1);
-	}
-	else if (first < second && second > third && first > third)
-		rra(stack, 1);
 }
 
 void sort_five(t_stack_node **stack_a, t_stack_node **stack_b)
 {
-    while (stack_len(stack_a) > 3)
+	t_stack_node *min_node;
+
+	while (stack_len(stack_a) > 3)
     {
-        t_stack_node *min_node = find_min_node(*stack_a); // Trouve le nœud avec la plus petite valeur
-        move_to_top(stack_a, min_node);                  // Amène le nœud au sommet de A
-        pb(stack_a, stack_b, 1);                         // Pousse le plus petit élément dans B
+        min_node = find_min_node(*stack_a);
+        move_to_top(stack_a, min_node);
+        pb(stack_a, stack_b, 1);
     }
-    sort_small(stack_a); // Trie les 3 éléments restants dans A
+    sort_small(stack_a);
     while (*stack_b)
-        pa(stack_a, stack_b, 1); // Ramène les éléments de B vers A
+        pa(stack_a, stack_b, 1);
 }
+
 
