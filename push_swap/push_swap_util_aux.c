@@ -57,6 +57,8 @@ long	ft_atol(const char *str)
 		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
+	if (result > INT_MAX || result < INT_MIN)
+		ft_error(1);
 	return (result * sign);
 }
 

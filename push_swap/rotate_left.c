@@ -31,7 +31,7 @@ void	rra(t_stack_node **stack_a, bool print)
     (*stack_a)->prev = last;
     *stack_a = last;
 	if (print == 1)
-		write(1, "rra\n", 1);
+		write(1, "rra\n", 5);
 }
 
 void	rrb(t_stack_node **stack_b, bool print)
@@ -53,7 +53,7 @@ void	rrb(t_stack_node **stack_b, bool print)
     (*stack_b)->prev = last;
     *stack_b = last;
 	if (print == 1)
-		write(1, "rrb\n", 1);
+		write(1, "rrb\n", 5);
 }
 
 
@@ -62,6 +62,6 @@ void	rrr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 	rra(stack_a, 0);
 	rrb(stack_b, 0);
 	if (print == 1)
-		write(1, "rrr\n", 1);
+		write(1, "rrr\n", 5);
 }
 

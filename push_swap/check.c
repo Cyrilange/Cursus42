@@ -62,8 +62,7 @@ void	stack_checked(t_stack_node **head, char **argv)
 	while (argv[i])
 	{
 		n = ft_atol(argv[i]);
-		if ((n > INT_MAX || n < INT_MIN) || (!is_valid_integer(argv[i]))
-			|| (is_duplicate(head, (int)n)))
+		if ((!is_valid_integer(argv[i])) || (is_duplicate(head, (int)n)))
 			ft_error(1);
 		new_node = create_node(n);
 		if (!*head)
