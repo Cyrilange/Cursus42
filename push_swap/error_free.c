@@ -20,10 +20,9 @@ void	ft_error(bool error)
 	}
 }
 
-
-
-void free_stack(t_stack_node **a) {
-    t_stack_node *current;
+void	free_stack(t_stack_node **a)
+{
+	t_stack_node	*current;
 
 	while (*a)
 	{
@@ -31,7 +30,7 @@ void free_stack(t_stack_node **a) {
 		free(*a);
 		*a = current;
 	}
-    *a = NULL;
+	*a = NULL;
 }
 
 void	free_both(t_stack_node **a, t_stack_node **b)

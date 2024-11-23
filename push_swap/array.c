@@ -14,32 +14,31 @@
 
 int	*create_sorted_array(t_stack_node *stack, int size)
 {
-    int				*array;
-    t_stack_node	*current;
-    int				i;
+	int				*array;
+	t_stack_node	*current;
+	int				i;
 
-    if (size <= 0 || !stack)
-        return (NULL);
-    array = malloc(size * sizeof(int));
-    if (!array)
-        return (NULL);
-    current = stack;
-    i = 0;
-    while (current && i < size)
-    {
-        array[i] = current->value;
-        current = current->next;
-        i++;
-    }
-    if (i != size)
-    {
-        free(array);
-        ft_error(1);
-    }
-    quicksort(array, 0, size - 1);
-    return (array);
+	if (size <= 0 || !stack)
+		return (NULL);
+	array = malloc(size * sizeof(int));
+	if (!array)
+		return (NULL);
+	current = stack;
+	i = 0;
+	while (current && i < size)
+	{
+		array[i] = current->value;
+		current = current->next;
+		i++;
+	}
+	if (i != size)
+	{
+		free(array);
+		ft_error(1);
+	}
+	quicksort(array, 0, size - 1);
+	return (array);
 }
-
 
 void	quicksort(int *arr, int low, int high)
 {

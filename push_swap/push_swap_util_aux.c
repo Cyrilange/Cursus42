@@ -64,23 +64,25 @@ long	ft_atol(const char *str)
 
 
 
-void move_to_top(t_stack_node **stack, t_stack_node *target)
+void	move_to_top(t_stack_node **stack, t_stack_node *target)
 {
-    int position = get_position(*stack, target); // Calcule la position du nœud cible
-    int size = stack_len(stack);
+	int position;
+	int size;
+	
+	position = get_position(*stack, target);
+	size = stack_len(stack);
 
-    if (position <= size / 2)
-    {
-        while (*stack != target)
-            ra(stack, 1); // Effectue des rotations vers le haut
-    }
-    else
-    {
-        while (*stack != target)
-            rra(stack, 1); // Effectue des rotations vers le bas
-    }
+	if (position <= size / 2)
+	{
+		while (*stack != target)
+			ra(stack, 1);
+	}
+	else
+	{
+		while (*stack != target)
+			rra(stack, 1);
+	}
 }
-
 
 /*
 #include <unistd.h>
