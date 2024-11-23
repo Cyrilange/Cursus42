@@ -15,7 +15,7 @@ void	ft_error(bool error)
 {
 	if (error)
 	{
-		write(1, "Error\n", 6);
+		write(0, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 }
