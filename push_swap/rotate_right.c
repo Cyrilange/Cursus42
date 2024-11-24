@@ -15,19 +15,17 @@
 void	ra(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*first;
-	t_stack_node	*second;
+	t_stack_node	*aux;
 
 	if(!*stack_a || !(*stack_a)->next)
 		return ;
-	first =  *stack_a;
-	*stack_a = first->next;
-	(*stack_a)->prev = NULL;
-	second = *stack_a;
-	while(second->next)
-		second = second->next;
-	second->next = first;
-	first->prev = second;
-	first->next = NULL;
+	aux =  *stack_a;
+	*stack_a = aux->next;
+	first = *stack_a;
+	while(first->next)
+		first = first->next;
+	first->next = aux;
+	aux->next = NULL;
 	if (print == 1)
 		write(1, "ra\n", 3);
 }
@@ -35,21 +33,19 @@ void	ra(t_stack_node **stack_a, bool print)
 void	rb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*first;
-	t_stack_node	*second;
+	t_stack_node	*aux;
 
 	if(!*stack_b || !(*stack_b)->next)
 		return ;
-	first =  *stack_b;
-	*stack_b = first->next;
-	(*stack_b)->prev = NULL;
-	second = *stack_b;
-	while(second->next)
-		second = second->next;
-	second->next = first;
-	first->prev = second;
-	first->next = NULL;
+	aux =  *stack_b;
+	*stack_b = aux->next;
+	first = *stack_b;
+	while(first->next)
+		first = first->next;
+	first->next = aux;
+	aux->next = NULL;
 	if (print == 1)
-		write(1, "rb\n", 3);
+		write(1, "ra\n", 3);
 }
 
 void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)

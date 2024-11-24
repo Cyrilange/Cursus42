@@ -15,21 +15,17 @@
 void	rra(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*last;
-	t_stack_node	*before_last;
+	t_stack_node	*aux;
 
 	if(!*stack_a || !(*stack_a)->next)
 		return ;
 	last =  *stack_a;
 	while(last->next)
-	{
-        before_last = last;
-        last = last->next;
-    }
-	before_last->next = NULL;
+		last = last->next;
+	aux = last->next;
 	last->prev = NULL;
-	last->next = *stack_a;
-    (*stack_a)->prev = last;
-    *stack_a = last;
+	aux->next = *stack_a;
+	*stack_a = aux;
 	if (print == 1)
 		write(1, "rra\n", 5);
 }
@@ -37,23 +33,19 @@ void	rra(t_stack_node **stack_a, bool print)
 void	rrb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*last;
-	t_stack_node	*before_last;
+	t_stack_node	*aux;
 
 	if(!*stack_b || !(*stack_b)->next)
 		return ;
 	last =  *stack_b;
 	while(last->next)
-	{
-        before_last = last;
-        last = last->next;
-    }
-	before_last->next = NULL;
+		last = last->next;
+	aux = last->next;
 	last->prev = NULL;
-	last->next = *stack_b;
-    (*stack_b)->prev = last;
-    *stack_b = last;
+	aux->next = *stack_b;
+	*stack_b = aux;
 	if (print == 1)
-		write(1, "rrb\n", 5);
+		write(1, "rra\n", 5);
 }
 
 

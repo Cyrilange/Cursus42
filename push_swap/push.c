@@ -14,7 +14,8 @@
 
 void	pa(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
-	t_stack_node *aux;
+	t_stack_node	*aux;
+
 	if (*stack_b == NULL)
 		return ;
 	aux = (*stack_b)->next;
@@ -27,7 +28,8 @@ void	pa(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 
 void	pb(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
-	t_stack_node *aux;
+	t_stack_node	*aux;
+
 	if (*stack_a == NULL)
 		return ;
 	aux = (*stack_a)->next;

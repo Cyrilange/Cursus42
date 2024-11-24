@@ -37,7 +37,7 @@ bool	is_valid_integer(char *str)
 
 bool	is_duplicate(t_stack_node **head, int n)
 {
-	t_stack_node *aux;
+	t_stack_node	*aux;
 
 	aux = *head;
 	if (aux == NULL)
