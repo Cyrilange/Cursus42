@@ -24,12 +24,20 @@ void	push_chunk_to_b(t_stack_node **stack_a,
 
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max)
 {
+	t_stack_node	*helper;
 	while (stack)
 	{
 		if (stack->value >= min && stack->value <= max)
+		{
+			while (helper)
+				push(stack, pop(&helper));
 			return (stack);
-		stack = stack->next;
+		}
+		else
+			push(&helper, pop(stack));
 	}
+	while (helper)
+		push(stack, pop(&helper));
 	return (NULL);
 }
 
@@ -43,4 +51,20 @@ void	sort_b(t_stack_node **stack_a, t_stack_node **stack_b)
 		move_to_top(stack_b, max_node);
 		pa(stack_a, stack_b, 1);
 	}
+}
+//i think error is here
+
+void	push(t_stack_node **stack, t_stack_node *node)
+{
+	node->next = *stack;
+	*stack = node;
+}
+
+t_stack_node	*pop(t_stack_node **stack)
+{
+	if (*stack == NULL)
+		return NULL;
+	t_stack_node *top = *stack;
+	*stack = (*stack)->next;
+	return (top);
 }
