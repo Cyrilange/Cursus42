@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_error(bool error)
+void	ft_error(bool err)
 {
-	if (error)
+	if (err)
 	{
-		write(0, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 }

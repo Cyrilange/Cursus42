@@ -16,27 +16,33 @@ int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	t_stack_node	*aux;
+	int	i;
 
+	if (argc < 2)
+		return (1);
 	a = NULL;
 	b = NULL;
-	if (argc < 2 || argc == 2)
-		return (1);
-	else
+	aux = NULL;
+	i = argc - 1;
+	while (i > 0)
 	{
-		stack_checked(&a, argv + 1);
-		if (!is_sorted(&a))
-		{
-			if (stack_len(&a) == 2)
-				sa(&a, 1);
-			else if (stack_len(&a) == 3)
-				sort_small(&a);
-			else if (stack_len(&a) == 5 || stack_len(&a) == 4)
-				sort_five(&a, &b);
-			else
-				push_swap(&a, &b);
-		}
-		else
-			write(1, "OK\n", 3);
+		is_valid_integer(argv[i]);
+		aux = create_node(ft_atol(argv[i]));
+		aux->next = a;
+		a = aux;
+		i--;
 	}
+	is_duplicate(a);
+	if (!is_sorted(&a))
+	{
+		if (stack_len(&a) == 2)
+			sa(&a, 1);
+		else
+			push_swap(&a, &b);
+	}
+	else
+		write(1, "OK\n", 3);
 	free_both(&a, &b);
 }
+

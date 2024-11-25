@@ -12,45 +12,63 @@
 
 #include "push_swap.h"
 
-bool	ft_is_digit(int n)
+bool	ft_is_digit(char n)
 {
 	if (n >= '0' && n <= '9')
 		return (true);
 	return (false);
 }
 
-bool	is_valid_integer(char *str)
+void	is_valid_integer(char *str)
 {
-	int	i;
+	long n;
+    int	i;
+	int		sign;
 
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
-	{
-		if (!ft_is_digit(str[i]))
-			return (false);
-		i++;
-	}
-	return (true);
+    i = 0;
+	sign = 1;
+    if (str[i] == '-' || str[i] == '+')
+    {
+		sign = (str[i] == '-');
+        i++;
+    }
+	if (!str[i])
+		ft_error(1);
+    while (str[i])
+    {
+        if (!ft_is_digit(str[i]) && str[i] != '-' && str[i]!= '+')
+            ft_error(1);
+		if (str[i++] == '+')
+		n = (n * 10) + (str[i] - 48);
+        i++;
+    }
+	if (sign)
+		n = -n;
+	if (n > INT_MAX && n < INT_MIN)
+		ft_error(1);
 }
 
-bool	is_duplicate(t_stack_node **head, int n)
+
+void	is_duplicate(t_stack_node *head)
 {
 	t_stack_node	*aux;
 
-	aux = *head;
-	if (aux == NULL)
-		return (0);
-	while (aux)
+	if (head == NULL)
+		ft_error(1);
+	while (head->next != NULL)
 	{
-		if (aux->value == n)
-			return (1);
-		aux = aux->next;
+		aux = head->next;
+		while (aux)
+		{
+			if (head->value == aux->value)
+				ft_error(1);
+			aux = aux->next;
+		}
+		head = head->next;
 	}
-	return (0);
 }
 
+/*
 void	stack_checked(t_stack_node **head, char **argv)
 {
 	long			n;
@@ -62,9 +80,17 @@ void	stack_checked(t_stack_node **head, char **argv)
 	while (argv[i])
 	{
 		n = ft_atol(argv[i]);
-		if ((!is_valid_integer(argv[i])) || (is_duplicate(head, (int)n)))
+		if (!is_valid_integer(argv[i])))  
+		{
+			free_stack(head);
 			ft_error(1);
+		}
 		new_node = create_node(n);
+		if (!new_node)
+		{
+			free_stack(head);
+			ft_error(1);
+		}
 		if (!*head)
 			*head = new_node;
 		else
@@ -78,3 +104,4 @@ void	stack_checked(t_stack_node **head, char **argv)
 		i++;
 	}
 }
+*/

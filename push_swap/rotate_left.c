@@ -15,37 +15,64 @@
 void	rra(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*last;
-	t_stack_node	*aux;
+	t_stack_node	*second_last;
 
-	if(!*stack_a || !(*stack_a)->next)
+	// Vérifiez si la liste est vide ou n'a qu'un seul élément
+	if (!*stack_a || !(*stack_a)->next)
 		return ;
-	last =  *stack_a;
-	while(last->next)
+
+	// Parcourir la liste pour trouver le dernier et l'avant-dernier élément
+	last = *stack_a;
+	while (last->next)
+	{
+		second_last = last;
 		last = last->next;
-	aux = last->next;
-	last->prev = NULL;
-	aux->next = *stack_a;
-	*stack_a = aux;
-	if (print == 1)
-		write(1, "rra\n", 5);
+	}
+
+	// Déconnecter le dernier élément de l'avant-dernier
+	second_last->next = NULL;
+
+	// Réattacher le dernier élément au début
+	last->next = *stack_a;
+	last->prev = NULL; // Nouveau début de la liste
+	(*stack_a)->prev = last;
+	*stack_a = last;
+
+	// Imprimer si nécessaire
+	if (print == true)
+		write(1, "rra\n", 4);
 }
+
 
 void	rrb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*last;
-	t_stack_node	*aux;
+	t_stack_node	*second_last;
 
-	if(!*stack_b || !(*stack_b)->next)
+	// Vérifiez si la liste est vide ou n'a qu'un seul élément
+	if (!*stack_b || !(*stack_b)->next)
 		return ;
-	last =  *stack_b;
-	while(last->next)
+
+	// Parcourir la liste pour trouver le dernier et l'avant-dernier élément
+	last = *stack_b;
+	while (last->next)
+	{
+		second_last = last;
 		last = last->next;
-	aux = last->next;
-	last->prev = NULL;
-	aux->next = *stack_b;
-	*stack_b = aux;
-	if (print == 1)
-		write(1, "rra\n", 5);
+	}
+
+	// Déconnecter le dernier élément de l'avant-dernier
+	second_last->next = NULL;
+
+	// Réattacher le dernier élément au début
+	last->next = *stack_b;
+	last->prev = NULL; // Nouveau début de la liste
+	(*stack_b)->prev = last;
+	*stack_b = last;
+
+	// Imprimer si nécessaire
+	if (print == true)
+		write(1, "rra\n", 4);
 }
 
 
