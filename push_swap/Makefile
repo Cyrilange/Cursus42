@@ -29,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-@echo "${GREEN}Compiling is done for ${NAME}, you can now use it  ${RED}./push_swap"
+	@echo "${GREEN}Compiling is done for ${NAME}, you can now use it  ${RED}./push_swap"
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
