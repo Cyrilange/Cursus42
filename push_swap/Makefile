@@ -3,6 +3,9 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+GREEN = \033[0;92m
+RED = \033[0;91m
+
 SRC = main.c \
 	  check.c \
 	  is_sorted.c \
@@ -26,6 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+@echo "${GREEN}Compiling is done for ${NAME}, you can now use it  ${RED}./push_swap"
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
