@@ -67,9 +67,9 @@ void	stack_checked(t_stack_node **head, char **argv)
 	{
 		n = ft_atol(argv[i]);
 		if ((!is_valid_integer(argv[i])))  
-			ft_error(1);
+			ft_error(true, head, NULL);
 		if (is_duplicate(*head, n))
-			ft_error(1);
+			ft_error(true, head, NULL);
 		new_node = create_node(n);
 		if (!*head)
 			*head = new_node;

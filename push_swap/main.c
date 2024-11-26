@@ -26,9 +26,16 @@ int	main(int argc, char **argv)
 	if (!is_sorted(&a))
 	{
 		if (stack_len(&a) == 2)
+		{
 			sa(&a, 1);
+			free_stack(&a);
+		}
 		else
+		{
 			push_swap(&a, &b);
+			free_both(&a, &b);
+		}
+			
 	}
 	else
 		write(1, "OK\n", 3);

@@ -34,7 +34,7 @@ int	*create_sorted_array(t_stack_node *stack, int size)
 	if (i != size)
 	{
 		free(array);
-		ft_error(1);
+		ft_error(1, NULL, NULL);
 	}
 	quicksort(array, 0, size - 1);
 	return (array);

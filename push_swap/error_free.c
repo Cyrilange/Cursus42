@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_error(bool err)
+void	ft_error(bool err, t_stack_node **a, t_stack_node **b)
 {
 	if (err)
 	{
 		write(2, "Error\n", 6);
+		free_stack(a);
+		free_stack(b);
 		exit(EXIT_FAILURE);
 	}
 }
