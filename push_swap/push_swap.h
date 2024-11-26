@@ -40,8 +40,8 @@ typedef struct sort_large_s
 }	t_sort_large;
 
 bool			ft_is_digit(char n);
-void			is_valid_integer(char	*str);
-void			is_duplicate(t_stack_node *head);
+int				is_valid_integer(char	*str);
+int				is_duplicate(t_stack_node *head, long value);
 void			ft_error(bool err);
 void			ft_putstr(const char *str);
 long			ft_atol(const char *str);
@@ -77,7 +77,5 @@ t_stack_node	*find_max_node(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max);
 t_stack_node	*create_node(int value);
-void	push(t_stack_node **stack, t_stack_node *node);
-t_stack_node	*pop(t_stack_node **stack);
 
 #endif

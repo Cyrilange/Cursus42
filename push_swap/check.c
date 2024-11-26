@@ -19,56 +19,42 @@ bool	ft_is_digit(char n)
 	return (false);
 }
 
-void	is_valid_integer(char *str)
+int	is_valid_integer(char *str)
 {
-	long n;
-    int	i;
-	int		sign;
+	int		n;
 
-    i = 0;
-	sign = 1;
-    if (str[i] == '-' || str[i] == '+')
-    {
-		sign = (str[i] == '-');
-        i++;
-    }
-	if (!str[i])
-		ft_error(1);
-    while (str[i])
-    {
-        if (!ft_is_digit(str[i]) && str[i] != '-' && str[i]!= '+')
-            ft_error(1);
-		if (str[i++] == '+')
-		n = (n * 10) + (str[i] - 48);
-        i++;
-    }
-	if (sign)
-		n = -n;
+	n = ft_atol(str);
 	if (n > INT_MAX && n < INT_MIN)
-		ft_error(1);
+		return (0);
+    if (*str == '-' || (*str >= '0' && *str <= '9'))
+	{
+		while (*str)
+		{
+			if (*str < 0 && *str > 9)
+				return (0);
+			str++;
+		}
+		return (1);
+	}
+    return (0);
 }
 
 
-void	is_duplicate(t_stack_node *head)
+int	is_duplicate(t_stack_node *head, long value)
 {
 	t_stack_node	*aux;
 
-	if (head == NULL)
-		ft_error(1);
-	while (head->next != NULL)
+	aux = head;
+	while (aux != NULL)
 	{
-		aux = head->next;
-		while (aux)
-		{
-			if (head->value == aux->value)
-				ft_error(1);
-			aux = aux->next;
-		}
-		head = head->next;
+		if (aux->value == value)
+			return (1);
+		aux = aux->next;
 	}
+	return (0);
 }
 
-/*
+
 void	stack_checked(t_stack_node **head, char **argv)
 {
 	long			n;
@@ -76,21 +62,15 @@ void	stack_checked(t_stack_node **head, char **argv)
 	t_stack_node	*new_node;
 	t_stack_node	*current;
 
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		n = ft_atol(argv[i]);
-		if (!is_valid_integer(argv[i])))  
-		{
-			free_stack(head);
+		if ((!is_valid_integer(argv[i])))  
 			ft_error(1);
-		}
+		if (is_duplicate(*head, n))
+			ft_error(1);
 		new_node = create_node(n);
-		if (!new_node)
-		{
-			free_stack(head);
-			ft_error(1);
-		}
 		if (!*head)
 			*head = new_node;
 		else
@@ -104,4 +84,3 @@ void	stack_checked(t_stack_node **head, char **argv)
 		i++;
 	}
 }
-*/

@@ -16,24 +16,13 @@ int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	t_stack_node	*aux;
-	int	i;
+	
 
-	if (argc < 2)
+	if (argc <= 2)
 		return (1);
 	a = NULL;
 	b = NULL;
-	aux = NULL;
-	i = argc - 1;
-	while (i > 0)
-	{
-		is_valid_integer(argv[i]);
-		aux = create_node(ft_atol(argv[i]));
-		aux->next = a;
-		a = aux;
-		i--;
-	}
-	is_duplicate(a);
+	stack_checked(&a, argv);
 	if (!is_sorted(&a))
 	{
 		if (stack_len(&a) == 2)
