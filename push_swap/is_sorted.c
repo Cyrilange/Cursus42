@@ -25,3 +25,23 @@ bool	is_sorted(t_stack_node **head)
 	}
 	return (true);
 }
+
+bool	is_sorted_range(t_stack_node *stack, int start, int end)
+{
+	int	i;
+
+	i = 0;
+
+	if (!stack || start > end)
+		return (false);
+	while (++i < start && stack)
+		stack = stack->next;
+	while (i < end && stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
+		i++;
+	}
+	return (true);
+}

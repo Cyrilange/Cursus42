@@ -77,5 +77,6 @@ t_stack_node	*find_max_node(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max);
 t_stack_node	*create_node(long value);
+bool	is_sorted_range(t_stack_node *stack, int start, int end);
 
 #endif
