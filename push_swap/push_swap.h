@@ -77,6 +77,10 @@ t_stack_node	*find_max_node(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max);
 t_stack_node	*create_node(long value);
-bool	is_sorted_range(t_stack_node *stack, int start, int end);
+bool			is_sorted_range(t_stack_node *stack, int start, int end);
+char	*ft_strndup(const char *src, size_t n);
+int	num_words(const char *s, char c);
+char	*get_next_word(const char **s, char c);
+char	**ft_split(char const *s, char c);
 
 #endif

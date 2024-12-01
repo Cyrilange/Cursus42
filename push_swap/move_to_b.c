@@ -14,16 +14,9 @@
 
 void	push_chunk_to_b(t_stack_node **stack_a, t_stack_node **stack_b, int min, int max)
 {
-	int	start_index;
-	int	end_index;
-	t_stack_node *node_to_move;
-	start_index = 0;
-	end_index = stack_len(stack_a);
-	while ((node_to_move = find_in_range(*stack_a, min, max)) != NULL)
+	while (find_in_range(*stack_a, min, max) != NULL)
 	{
-		if (is_sorted_range(*stack_a, start_index, end_index))
-			return ;
-		move_to_top(stack_a, node_to_move);
+		move_to_top(stack_a, find_in_range(*stack_a, min, max));
 		pb(stack_a, stack_b, 1);
 	}
 }
