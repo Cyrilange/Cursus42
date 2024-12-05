@@ -12,18 +12,36 @@
 
 #include "push_swap.h"
 
-void	sort_small(t_stack_node **stack)
+void sort_small(t_stack_node **stack)
 {
-	t_stack_node	*high;
-
-	high = find_max_node(*stack);
-	if (*stack == high)
-		ra(stack, 1);
-	else if ((*stack)->next == high)
-		rra(stack, 1);
-	if ((*stack)->value > (*stack)->next->value)
-		sa(stack, 1);
+    if (stack_len(stack) == 2)
+    {
+        if ((*stack)->value > (*stack)->next->value)
+        {
+            sa(stack, 1);
+        }
+    }
+    else if (stack_len(stack) == 3)
+    {
+        if ((*stack)->value > (*stack)->next->value && (*stack)->next->value > (*stack)->next->next->value)
+            sa(stack, 1);
+        else if ((*stack)->value > (*stack)->next->value && (*stack)->next->value < (*stack)->next->next->value)
+        {
+            sa(stack, 1);
+            rra(stack, 1);
+        }
+        else if ((*stack)->value > (*stack)->next->next->value)
+        {
+            ra(stack, 1);
+            sa(stack, 1);
+        }
+        else if ((*stack)->next->value > (*stack)->next->next->value)
+        {
+            sa(stack, 1);
+        }
+    }
 }
+
 
 void	sort_five(t_stack_node **stack_a, t_stack_node **stack_b)
 {

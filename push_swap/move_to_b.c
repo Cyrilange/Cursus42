@@ -12,7 +12,8 @@
 
 #include "push_swap.h"
 
-void	push_chunk_to_b(t_stack_node **stack_a, t_stack_node **stack_b, int min, int max)
+void	push_chunk_to_b(t_stack_node **stack_a, t_stack_node **stack_b,
+			int min, int max)
 {
 	while (find_in_range(*stack_a, min, max) != NULL)
 	{
@@ -20,7 +21,6 @@ void	push_chunk_to_b(t_stack_node **stack_a, t_stack_node **stack_b, int min, in
 		pb(stack_a, stack_b, 1);
 	}
 }
-
 
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max)
 {

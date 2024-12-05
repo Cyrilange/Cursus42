@@ -15,20 +15,34 @@ void	ft_error(bool err, t_stack_node **a, t_stack_node **b)
 {
 	if (err)
 	{
-		write(2, "Error\n", 6);
+		write(1, "Error\n", 7);
 		free_stack(a);
 		free_stack(b);
 		exit(EXIT_FAILURE);
 	}
+}
+void free_split(char **split) 
+{
+	int i;
+	
+	i = 0;
+	while (split[i]) {
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
 
 void	free_stack(t_stack_node **a)
 {
 	t_stack_node	*current;
 
+	if (!a || !*a)
+		return;
 	while (*a)
 	{
 		current = (*a)->next;
+		printf("Freeing node with value: %d\n", (*a)->value); 
 		free(*a);
 		*a = current;
 	}

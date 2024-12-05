@@ -12,11 +12,27 @@
 
 #include "push_swap.h"
 
+void	print_stack(t_stack_node *stack)
+{
+	if (!stack)
+	{
+		printf("The stack is empty.\n");
+		return ;
+	}
+	while (stack)
+	{
+		printf("%d ", stack->value);
+		stack = stack->next;
+    }
+	printf("\n");
+}
+
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-
+	
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
@@ -24,22 +40,16 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	stack_checked(&a, argv);
+	print_stack(a); 
 	if (!is_sorted(&a))
 	{
-		if (stack_len(&a) == 2)
-		{
-			sa(&a, 1);
-			free_stack(&a);
-		}
-		else
-		{
-			push_swap(&a, &b);
-			free_both(&a, &b);
-		}
-			
+		push_swap(&a, &b);
+		print_stack(a);
 	}
 	else
 		write(1, "OK\n", 3);
+	print_stack(a);
 	free_both(&a, &b);
+	print_stack(a);
 }
 

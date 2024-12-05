@@ -17,10 +17,8 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 	int	stack_size;
 
 	stack_size = stack_len(stack_a);
-	if (stack_size == 3)
-		sort_small(stack_a);
-	else if (stack_size == 5 || stack_size == 4)
-		sort_five(stack_a,stack_b);
+	if (stack_size <= 5)
+		sort_five(stack_a, stack_b);
 	else
 		sort_large(stack_a, stack_b, stack_size);
 }

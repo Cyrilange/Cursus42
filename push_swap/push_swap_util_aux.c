@@ -62,8 +62,6 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-
-
 void	move_to_top(t_stack_node **stack, t_stack_node *target)
 {
 	int position;
@@ -83,7 +81,6 @@ void	move_to_top(t_stack_node **stack, t_stack_node *target)
 			rra(stack, 1);
 	}
 }
-
 /*
 #include <unistd.h>
 

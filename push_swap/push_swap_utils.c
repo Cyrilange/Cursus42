@@ -25,6 +25,21 @@ t_stack_node	*create_node(long value)
 	return (new_node);
 }
 
+void add_node(t_stack_node **head, int value) {
+    t_stack_node *new_node = create_node(value);
+    if (!new_node)
+        return;
+
+    if (!*head) {
+        *head = new_node;
+    } else {
+        t_stack_node *current = *head;
+        while (current->next)
+            current = current->next;
+        current->next = new_node;
+    }
+}
+
 int	stack_len(t_stack_node **stack)
 {
 	int				size;

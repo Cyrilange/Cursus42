@@ -42,7 +42,7 @@ typedef struct sort_large_s
 bool			ft_is_digit(char n);
 int				is_valid_integer(char	*str);
 int				is_duplicate(t_stack_node *head, long value);
-void	ft_error(bool err, t_stack_node **a, t_stack_node **b);
+void			ft_error(bool err, t_stack_node **a, t_stack_node **b);
 void			ft_putstr(const char *str);
 long			ft_atol(const char *str);
 bool			is_sorted(t_stack_node **head);
@@ -78,9 +78,12 @@ t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max);
 t_stack_node	*create_node(long value);
 bool			is_sorted_range(t_stack_node *stack, int start, int end);
-char	*ft_strndup(const char *src, size_t n);
-int	num_words(const char *s, char c);
-char	*get_next_word(const char **s, char c);
-char	**ft_split(char const *s, char c);
+char			*ft_strndup(const char *src, size_t n);
+int				num_words(const char *s, char c);
+char			*get_next_word(const char **s, char c);
+char			**ft_split(char const *s, char c);
+void			print_stack(t_stack_node *stack);
+void			free_split(char **split);
+void			add_node(t_stack_node **head, int value);
 
 #endif
