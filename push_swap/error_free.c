@@ -26,11 +26,22 @@ void free_split(char **split)
 	int i;
 	
 	i = 0;
+	if (split == NULL || *split == NULL)
+		return ;
 	while (split[i]) {
 		free(split[i]);
 		i++;
 	}
-	free(split);
+	free(split - 1);
+}
+
+void	error_free(t_stack_node **a, char **argv, bool flag_argc_2)
+{
+	free_stack(a);
+	if (flag_argc_2)
+		free_split(argv);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	free_stack(t_stack_node **a)

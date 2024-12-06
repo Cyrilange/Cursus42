@@ -39,10 +39,11 @@ typedef struct sort_large_s
 	int	max;
 }	t_sort_large;
 
-bool			ft_is_digit(char n);
 int				is_valid_integer(char	*str);
-int				is_duplicate(t_stack_node *head, long value);
+int				is_duplicate(t_stack_node *head, int value);
 void			ft_error(bool err, t_stack_node **a, t_stack_node **b);
+void			error_free(t_stack_node **a, char **argv, bool flag_argc_2);
+void			free_split(char **split) ;
 void			ft_putstr(const char *str);
 long			ft_atol(const char *str);
 bool			is_sorted(t_stack_node **head);
@@ -59,7 +60,7 @@ void			pb(t_stack_node **stack_a, t_stack_node **stack_b, bool print);
 void			sort_small(t_stack_node **stack);
 void			free_stack(t_stack_node **stack);
 int				stack_len(t_stack_node **stack);
-void			stack_checked(t_stack_node **head, char **argv);
+void			stack_checked(t_stack_node **head, char **argv, bool argc_2);
 void			free_both(t_stack_node **a, t_stack_node **b);
 int				*create_sorted_array(t_stack_node *stack, int size);
 void			quicksort(int *arr, int low, int high);
@@ -76,6 +77,7 @@ void			sort_b(t_stack_node **stack_a, t_stack_node **stack_b);
 t_stack_node	*find_max_node(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max);
+t_stack_node	*find_last_node(t_stack_node *head);
 t_stack_node	*create_node(long value);
 bool			is_sorted_range(t_stack_node *stack, int start, int end);
 char			*ft_strndup(const char *src, size_t n);
@@ -85,5 +87,6 @@ char			**ft_split(char const *s, char c);
 void			print_stack(t_stack_node *stack);
 void			free_split(char **split);
 void			add_node(t_stack_node **head, int value);
+void	append_node(t_stack_node **stack, int nbr);
 
 #endif

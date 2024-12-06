@@ -56,3 +56,12 @@ t_stack_node	*find_min_node(t_stack_node *stack)
 	}
 	return (min_node);
 }
+
+t_stack_node	*find_last_node(t_stack_node *head)
+{
+	if (NULL == head)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
+}
