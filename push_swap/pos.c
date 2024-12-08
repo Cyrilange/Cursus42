@@ -22,6 +22,8 @@ int	get_position(t_stack_node *stack, t_stack_node *target)
 		stack = stack->next;
 		position++;
 	}
+	if (!stack)
+		return (-1);
 	return (position);
 }
 
@@ -33,6 +35,7 @@ t_stack_node	*find_max_node(t_stack_node *stack)
 	if (!stack)
 		return (NULL);
 	highest = INT_MIN;
+	highest_node = NULL;
 	while (stack)
 	{
 		if (stack->value > highest)
@@ -50,6 +53,8 @@ t_stack_node	*find_min_node(t_stack_node *stack)
 	t_stack_node	*current;
 	t_stack_node	*min_node;
 
+	if (!stack)
+		return (NULL);
 	current = stack;
 	min_node = stack;
 	while (current)

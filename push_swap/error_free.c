@@ -46,17 +46,17 @@ void	error_free(t_stack_node **a, char **argv, bool flag_argc_2)
 
 void	free_stack(t_stack_node **a)
 {
-	t_stack_node	*current;
+    t_stack_node *current;
 
-	if (!a || !*a)
-		return;
-	while (*a)
-	{
-		current = (*a)->next;
-		printf("Freeing node with value: %d\n", (*a)->value); 
-		free(*a);
-		*a = current;
-	}
+    if (!a || !*a)
+        return;
+    while (*a)
+    {
+        current = (*a)->next;
+        printf("Freeing node with value: %d\n", (*a)->value);
+        free(*a);
+        *a = current;
+    }
 	*a = NULL;
 }
 

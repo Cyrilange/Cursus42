@@ -19,6 +19,8 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 	stack_size = stack_len(stack_a);
 	if (stack_size == 3)
 		sort_small(stack_a);
+	else if (stack_size == 4)
+		sort_four(stack_a, stack_b);
 	else
 		sort_large(stack_a, stack_b, stack_size);
 }

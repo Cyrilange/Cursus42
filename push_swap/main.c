@@ -51,12 +51,14 @@ int	main(int argc, char **argv)
 		else
 		{
 			push_swap(&a, &b);
+			printf("stack a: ");
 			print_stack(a);
+			printf("stack b: ");
+			print_stack(b);
 		}
 	}
 	else
 		write(1, "OK\n", 3);
-	print_stack(a);
 	free_both(&a, &b);
 	print_stack(a);
 }

@@ -40,7 +40,10 @@ void	sort_b(t_stack_node **stack_a, t_stack_node **stack_b)
 	while (*stack_b)
 	{
 		max_node = find_max_node(*stack_b);
-		move_to_top(stack_b, max_node);
-		pa(stack_a, stack_b, 1);
+		if (max_node)
+		{
+			move_to_top(stack_b, max_node);
+			pa(stack_a, stack_b, 1);
+		}
 	}
 }
