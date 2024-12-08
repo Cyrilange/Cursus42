@@ -37,29 +37,30 @@ void	ft_putnbr(int n)
 
 long	ft_atol(const char *str)
 {
-	int		i;
-	long	result;
+	long	num;
 	int		sign;
+	int		i;
 
-	i = 0;
-	result = 0;
+	num = 0;
 	sign = 1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	i = 0;
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'
+			|| str[i] == '\n' || str[i] == '\r'
+			|| str[i] == '\v' || str[i] == '\f'))
 		i++;
-	while (str[i] == '+' || str[i] == '-')
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		sign *= -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = (result * 10) + (str[i] - '0');
+		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
-	if (result > INT_MAX || result < INT_MIN)
-		return (0);
-	return (result * sign);
+	return (num * sign);
 }
 
 void	move_to_top(t_stack_node **stack, t_stack_node *target)

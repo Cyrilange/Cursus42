@@ -14,36 +14,32 @@
 
 void	ra(t_stack_node **stack_a, bool print)
 {
-	t_stack_node	*first;
-	t_stack_node	*aux;
+	t_stack_node	*last_node;
 
-	if(!*stack_a || !(*stack_a)->next)
+	if (NULL == stack_a || NULL == *stack_a)
 		return ;
-	aux =  *stack_a;
-	*stack_a = aux->next;
-	first = *stack_a;
-	while(first->next)
-		first = first->next;
-	first->next = aux;
-	aux->next = NULL;
+	last_node = find_last_node(*stack_a);
+	last_node->next = *stack_a;
+	*stack_a = (*stack_a)->next;
+	(*stack_a)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 	if (print == 1)
 		write(1, "ra\n", 3);
 }
 
 void	rb(t_stack_node **stack_b, bool print)
 {
-	t_stack_node	*first;
-	t_stack_node	*aux;
-
-	if(!*stack_b || !(*stack_b)->next)
+	t_stack_node	*last_node;
+	
+	if (NULL == stack_b || NULL == *stack_b)
 		return ;
-	aux =  *stack_b;
-	*stack_b = aux->next;
-	first = *stack_b;
-	while(first->next)
-		first = first->next;
-	first->next = aux;
-	aux->next = NULL;
+	last_node = find_last_node(*stack_b);
+	last_node->next = *stack_b;
+	*stack_b = (*stack_b)->next;
+	(*stack_b)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 	if (print == 1)
 		write(1, "ra\n", 3);
 }

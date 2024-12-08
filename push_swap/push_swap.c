@@ -17,8 +17,8 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 	int	stack_size;
 
 	stack_size = stack_len(stack_a);
-	if (stack_size <= 5)
-		sort_five(stack_a, stack_b);
+	if (stack_size == 3)
+		sort_small(stack_a);
 	else
 		sort_large(stack_a, stack_b, stack_size);
 }
@@ -29,8 +29,8 @@ void	sort_large(t_stack_node **stack_a, t_stack_node **stack_b, int size)
 	int				i;
 	t_sort_large	num;
 
-	if (size <= 100)
-		num.num_chunks = 5;
+	if (size > 5 && size <= 100)
+		num.num_chunks = 3;
 	else
 		num.num_chunks = 10;
 	sorted_array = create_sorted_array(*stack_a, size);

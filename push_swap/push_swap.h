@@ -68,7 +68,6 @@ int				partition(int *arr, int low, int high);
 void			sort_large(t_stack_node **stack_a,
 					t_stack_node **stack_b, int size);
 void			push_swap(t_stack_node **stack_a, t_stack_node **stack_b);
-void			sort_five(t_stack_node **stack_a, t_stack_node **stack_b);
 void			move_to_top(t_stack_node **stack, t_stack_node *target);
 int				get_position(t_stack_node *stack, t_stack_node *target);
 void			push_chunk_to_b(t_stack_node **stack_a,
@@ -87,6 +86,8 @@ char			**ft_split(char const *s, char c);
 void			print_stack(t_stack_node *stack);
 void			free_split(char **split);
 void			add_node(t_stack_node **head, int value);
-void	append_node(t_stack_node **stack, int nbr);
+void			append_node(t_stack_node **stack, int nbr);
+void			sort_four(t_stack_node **stack_a, t_stack_node **stack_b);
+void 			sort_five(t_stack_node **stack_a, t_stack_node **stack_b);
 
 #endif

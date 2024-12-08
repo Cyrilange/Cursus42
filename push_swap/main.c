@@ -43,8 +43,16 @@ int	main(int argc, char **argv)
 	print_stack(a); 
 	if (!is_sorted(&a))
 	{
-		push_swap(&a, &b);
-		print_stack(a);
+		if (stack_len(&a) == 2)
+		{
+			sa(&a, 1);
+			print_stack(a);
+		}
+		else
+		{
+			push_swap(&a, &b);
+			print_stack(a);
+		}
 	}
 	else
 		write(1, "OK\n", 3);
