@@ -25,7 +25,7 @@ void free_split(char **split)
 {
 	int i;
 	
-	i = 0;
+	i = -1;
 	if (split == NULL || *split == NULL)
 		return ;
 	while (split[i]) {
@@ -46,18 +46,19 @@ void	error_free(t_stack_node **a, char **argv, bool flag_argc_2)
 
 void	free_stack(t_stack_node **a)
 {
-    t_stack_node *current;
+    t_stack_node 	*current;
+	t_stack_node	*aux;
 
-    if (!a || !*a)
-        return;
-    while (*a)
-    {
-        current = (*a)->next;
-        printf("Freeing node with value: %d\n", (*a)->value);
-        free(*a);
-        *a = current;
-    }
-	*a = NULL;
+    if (a == NULL)
+		return ;
+	current = *a;
+	while (current)
+	{
+		aux = current->next;
+		free(current);
+		current = aux;
+	}
+	a = NULL;
 }
 
 void	free_both(t_stack_node **a, t_stack_node **b)

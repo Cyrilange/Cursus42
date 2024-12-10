@@ -51,3 +51,11 @@ void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 	if (print)
 		write(1,"rr\n", 3);
 }
+
+void	rot_rr(t_stack_node **stack_a, t_stack_node **stack_b, t_stack_node *priceles)
+{
+	while (*stack_a != priceles->target && *stack_b != priceles)
+		rr(stack_a, stack_b, 1);
+	get_position(*stack_a);
+	get_best_price(*stack_b);
+}

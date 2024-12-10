@@ -12,20 +12,30 @@
 
 #include "push_swap.h"
 
-int	get_position(t_stack_node *stack, t_stack_node *target)
+int	get_position(t_stack_node *stack)
 {
-	int	position;
+	int	position_middle;
+	int i;
 
-	position = 0;
-	while (stack && stack != target)
+	i = 0;
+	if (!stack)
+		return (-1);
+	position_middle = stack_len(stack) / 2;
+	while (stack)
 	{
+		stack->positioned = i;
+		if (i <= position_middle)
+			stack->top_middle_stack = true;
+		else
+			stack->top_middle_stack = false;
 		stack = stack->next;
-		position++;
+		i++;
 	}
 	if (!stack)
 		return (-1);
-	return (position);
+	return (position_middle);
 }
+
 
 t_stack_node	*find_max_node(t_stack_node *stack)
 {
@@ -73,4 +83,31 @@ t_stack_node	*find_last_node(t_stack_node *head)
 	while (head->next)
 		head = head->next;
 	return (head);
+}
+
+void	get_target(t_stack_node *stack_a, t_stack_node *stack_b)
+{
+	t_stack_node	*aux;
+	t_stack_node	*target;
+	long 			choice_index;
+
+	while (stack_b)
+	{
+		choice_index = LONG_MAX;
+		aux = stack_a;
+		while (aux)
+		{
+			if (aux->value > stack_b->value && aux->value < choice_index)
+			{
+				choice_index = aux->value;
+				target = aux;
+			}
+			aux = aux->next;
+		}
+		if (choice_index == LONG_MAX)
+			stack_b->target = find_min_node(stack_a);
+		else
+		stack_b->target = target;
+		stack_b = stack_b->next;
+	}
 }

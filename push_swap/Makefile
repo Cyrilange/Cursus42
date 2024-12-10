@@ -18,7 +18,7 @@ SRC = main.c \
 	  error_free.c\
 	  push_swap_util_aux.c\
 	  pos.c\
-	  array.c\
+	  cost.c\
 	  push_swap.c\
 	  move_to_b.c\
 	  ft_split.c \

@@ -12,32 +12,38 @@
 
 #include "push_swap.h"
 
+void	swap(t_stack_node **stack_a)
+{
+	t_stack_node *first;
+	t_stack_node *second;
+
+	// Check if there are fewer than two nodes
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
+		return ;
+
+	// Assign first and second node to swap
+	first = *stack_a;
+	second = first->next;
+
+	// Swap the nodes by updating the pointers
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	*stack_a = second;
+	
+}
 void	sa(t_stack_node **stack_a, bool print)
 {
-	t_stack_node	*first;
-	t_stack_node	*second;
-
-	if (!*stack_a || !(*stack_a)->next)
-		return ;
-	first = *stack_a;
-	second = (*stack_a)->next;
-	first->next = second->next;
-	*stack_a = second;
+	swap(stack_a);
 	if (print == 1)
 		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack_node **stack_b, bool print)
 {
-	t_stack_node	*first;
-	t_stack_node	*second;
-
-	if (!*stack_b || !(*stack_b)->next)
-		return ;
-	first = *stack_b;
-	second = (*stack_b)->next;
-	first->next = second->next;
-	*stack_b = second;
+	swap(stack_b);
 	if (print == 1)
 		write(1, "sb\n", 3);
 }

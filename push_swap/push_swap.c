@@ -16,35 +16,48 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	int	stack_size;
 
-	stack_size = stack_len(stack_a);
-	if (stack_size == 3)
+	stack_size = stack_len(*stack_a);
+	if (stack_size == 2)
+		sa(stack_a, 1);
+	else if (stack_size == 3)
 		sort_small(stack_a);
 	else if (stack_size == 4)
 		sort_four(stack_a, stack_b);
+	else if (stack_size == 5)
+		sort_five(stack_a, stack_b);
 	else
-		sort_large(stack_a, stack_b, stack_size);
+		sort_large(stack_a, stack_b);
 }
 
-void	sort_large(t_stack_node **stack_a, t_stack_node **stack_b, int size)
+void	sort_large(t_stack_node **stack_a, t_stack_node **stack_b)
 {
-	int				*sorted_array;
-	int				i;
-	t_sort_large	num;
-
-	if (size > 5 && size <= 100)
-		num.num_chunks = 3;
-	else
-		num.num_chunks = 10;
-	sorted_array = create_sorted_array(*stack_a, size);
-	num.chunk_size = size / num.num_chunks;
-	i = 0;
-	while (i < num.num_chunks)
+	t_stack_node *min_node;
+	int			size_a;
+	
+	size_a = stack_len(*stack_a);
+	while (size_a> 3)
 	{
-		num.min = sorted_array[i * num.chunk_size];
-		num.max = sorted_array[(i + 1) * num.chunk_size - 1];
-		push_chunk_to_b(stack_a, stack_b, num.min, num.max);
-		i++;
+		pb(stack_b, stack_a, 1);
+		size_a--;
 	}
-	sort_b(stack_a, stack_b);
-	free(sorted_array);
+	sort_small(stack_a);
+	while (*stack_b)
+	{
+		get_position(*stack_a);
+		get_position(*stack_b);
+		get_target(*stack_a, *stack_b);
+		get_price(*stack_a, *stack_b);
+		get_best_price(*stack_b);
+		move_to_top(stack_a, stack_b);
+	}
+	get_position(*stack_a);
+	min_node = find_min_node(*stack_a);
+	if (min_node->top_middle_stack)
+		while (*stack_a != min_node)
+			ra(stack_a, 1);
+	else
+		while (*stack_a != min_node)
+			rra(stack_a, 1);
+
+
 }

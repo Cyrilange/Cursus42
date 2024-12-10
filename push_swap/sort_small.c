@@ -12,24 +12,26 @@
 
 #include "push_swap.h"
 
-void sort_small(t_stack_node **stack)
+void sort_small(t_stack_node **stack_a)
 {
-   t_stack_node *max_node;
-
-    max_node = find_max_node(*stack);
-    if (*stack == max_node)
-        ra(stack, 1);
-    else if ((*stack)->next == max_node)
-        rra(stack, 1);
-    if ((*stack)->value > (*stack)->next->value)
-        sa(stack, 1);
+    if ((*stack_a)->value > (*stack_a)->next->value) 
+    {
+        if ((*stack_a)->next->value > (*stack_a)->next->next->value)
+            sa(stack_a, 1);
+        else if ((*stack_a)->value > (*stack_a)->next->next->value)
+            ra(stack_a, 1);
+        else
+            sa(stack_a, 1);
+    }
+    if (!is_sorted(stack_a))
+        rra(stack_a, 1);
 }
 
 void sort_four(t_stack_node **stack_a, t_stack_node **stack_b)
 {
     t_stack_node *min_node;
 
-     while (stack_len(stack_a) > 3)
+     while (stack_len(*stack_a) > 3)
     {
         min_node = find_min_node(*stack_a);
         if (*stack_a == min_node)
@@ -46,7 +48,7 @@ void sort_four(t_stack_node **stack_a, t_stack_node **stack_b)
 void sort_five(t_stack_node **stack_a, t_stack_node **stack_b)
 {
     t_stack_node *min_node;
-    while (stack_len(stack_a) > 3)
+    while (stack_len(*stack_a) > 3)
     {
         min_node = find_min_node(*stack_a);
         if (*stack_a == min_node)

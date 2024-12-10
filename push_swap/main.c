@@ -14,16 +14,18 @@
 
 void	print_stack(t_stack_node *stack)
 {
-	if (!stack)
+	t_stack_node *current = stack; // Use a temporary pointer to traverse the stack
+
+	if (!current)
 	{
 		printf("The stack is empty.\n");
 		return ;
 	}
-	while (stack)
+	while (current)
 	{
-		printf("%d ", stack->value);
-		stack = stack->next;
-    }
+		printf("%d ", current->value);
+		current = current->next; // Move to the next node
+	}
 	printf("\n");
 }
 
@@ -43,23 +45,26 @@ int	main(int argc, char **argv)
 	print_stack(a); 
 	if (!is_sorted(&a))
 	{
-		if (stack_len(&a) == 2)
+		if (stack_len(a) == 2)
 		{
 			sa(&a, 1);
 			print_stack(a);
 		}
+		else if (stack_len(a) == 3)
+		{
+			sort_small(&a);
+			print_stack(a);
+		}
+			
 		else
 		{
-			push_swap(&a, &b);
+			sort_large(&a, &b);
 			printf("stack a: ");
 			print_stack(a);
-			printf("stack b: ");
-			print_stack(b);
 		}
 	}
 	else
 		write(1, "OK\n", 3);
-	free_both(&a, &b);
-	print_stack(a);
+	free_stack(&a);
 }
 

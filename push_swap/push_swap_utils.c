@@ -24,22 +24,6 @@ t_stack_node	*create_node(long value)
 	new_node->prev = NULL;
 	return (new_node);
 }
-
-void add_node(t_stack_node **head, int value) {
-    t_stack_node *new_node = create_node(value);
-    if (!new_node)
-        return;
-
-    if (!*head) {
-        *head = new_node;
-    } else {
-        t_stack_node *current = *head;
-        while (current->next)
-            current = current->next;
-        current->next = new_node;
-    }
-}
-
 void	append_node(t_stack_node **stack, int nbr)
 {
 	t_stack_node	*node;
@@ -65,17 +49,17 @@ void	append_node(t_stack_node **stack, int nbr)
 	}
 }
 
-int	stack_len(t_stack_node **stack)
+int	stack_len(t_stack_node *stack)
 {
 	int				size;
-	t_stack_node	*current;
 
+	if (!stack)
+		return (0);
 	size = 0;
-	current = *stack;
-	while (current != NULL)
+	while (stack != NULL)
 	{
 		size++;
-		current = current->next;
+		stack = stack->next;
 	}
 	return (size);
 }

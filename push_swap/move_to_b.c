@@ -12,16 +12,6 @@
 
 #include "push_swap.h"
 
-void	push_chunk_to_b(t_stack_node **stack_a, t_stack_node **stack_b,
-			int min, int max)
-{
-	while (find_in_range(*stack_a, min, max) != NULL)
-	{
-		move_to_top(stack_a, find_in_range(*stack_a, min, max));
-		pb(stack_a, stack_b, 1);
-	}
-}
-
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max)
 {
 	while (stack)
@@ -33,17 +23,39 @@ t_stack_node	*find_in_range(t_stack_node *stack, int min, int max)
 	return (NULL);
 }
 
-void	sort_b(t_stack_node **stack_a, t_stack_node **stack_b)
+void	move_to_top(t_stack_node **stack, t_stack_node **stack_b)
 {
-	t_stack_node	*max_node;
+	t_stack_node *smallest_node;
 
-	while (*stack_b)
+	smallest_node = best_node_to_choose(*stack_b);
+	if (smallest_node->cost && smallest_node->target->top_middle_stack)
+		rot_rr(stack, stack_b, smallest_node);
+	else if (!(smallest_node->cost) && !(smallest_node->target->cost))
+		rot_rrr(stack, stack_b, smallest_node);
+	pivot(stack_b, smallest_node, 'b');
+	pivot(stack, smallest_node, 'a');
+	pa(stack, stack_b, 1);
+
+
+}
+
+void	pivot(t_stack_node **stack, t_stack_node *hightest_node, char str)
+{
+	while (*stack != hightest_node)
 	{
-		max_node = find_max_node(*stack_b);
-		if (max_node)
+		if (str == 'a')
 		{
-			move_to_top(stack_b, max_node);
-			pa(stack_a, stack_b, 1);
+			if (hightest_node->top_middle_stack)
+				ra(stack, 1);
+			else
+				rra(stack, 1);
+		}
+		else if (str == 'b')
+		{
+			if (hightest_node->top_middle_stack)
+				rb(stack, 1);
+			else
+				rrb(stack, 1);
 		}
 	}
 }

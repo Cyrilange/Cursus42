@@ -63,26 +63,6 @@ long	ft_atol(const char *str)
 	return (num * sign);
 }
 
-void	move_to_top(t_stack_node **stack, t_stack_node *target)
-{
-	int position;
-	int size;
-	if (!target || !*stack)
-        return;
-	position = get_position(*stack, target);
-	size = stack_len(stack);
-
-	if (position <= size / 2)
-	{
-		while (*stack != target)
-			ra(stack, 1);
-	}
-	else
-	{
-		while (*stack != target)
-			rra(stack, 1);
-	}
-}
 /*
 #include <unistd.h>
 
