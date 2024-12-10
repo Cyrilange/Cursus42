@@ -50,15 +50,9 @@ int	main(int argc, char **argv)
 			sa(&a, 1);
 			print_stack(a);
 		}
-		else if (stack_len(a) == 3)
-		{
-			sort_small(&a);
-			print_stack(a);
-		}
-			
 		else
 		{
-			sort_large(&a, &b);
+			push_swap(&a, &b);
 			printf("stack a: ");
 			print_stack(a);
 		}

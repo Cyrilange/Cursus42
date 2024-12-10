@@ -29,35 +29,36 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 		sort_large(stack_a, stack_b);
 }
 
-void	sort_large(t_stack_node **stack_a, t_stack_node **stack_b)
+void    helper_push_swap(t_stack_node *stack_a, t_stack_node *stack_b)
 {
-	t_stack_node *min_node;
-	int			size_a;
-	
-	size_a = stack_len(*stack_a);
-	while (size_a> 3)
-	{
-		pb(stack_b, stack_a, 1);
-		size_a--;
-	}
-	sort_small(stack_a);
-	while (*stack_b)
-	{
-		get_position(*stack_a);
-		get_position(*stack_b);
-		get_target(*stack_a, *stack_b);
-		get_price(*stack_a, *stack_b);
-		get_best_price(*stack_b);
-		move_to_top(stack_a, stack_b);
-	}
-	get_position(*stack_a);
-	min_node = find_min_node(*stack_a);
-	if (min_node->top_middle_stack)
-		while (*stack_a != min_node)
-			ra(stack_a, 1);
-	else
-		while (*stack_a != min_node)
-			rra(stack_a, 1);
+    get_position(stack_a);
+    get_position(stack_b);
+    get_target(stack_a, stack_b);
+    get_price(stack_a, stack_b);
+    get_best_price(stack_b);
+}
+void sort_large(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+    t_stack_node    *bottom;
+    int             len;
 
-
+    len = stack_len(*stack_a);
+    pb(stack_b, stack_a, 1);
+    if ( len == 3)
+        sort_small(stack_a);
+    while (*stack_b)
+    {
+        helper_push_swap(*stack_a, *stack_b);
+        move_to_top(stack_a, stack_b);
+    }
+    get_position(*stack_a);
+    bottom = find_min_node(*stack_a);
+    if (bottom->top_middle_stack)
+    {
+        while (*stack_a != bottom)
+            ra(stack_a, 1);     
+    }
+    else
+        while (*stack_a != bottom)
+            rra(stack_a, 1);
 }

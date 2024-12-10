@@ -85,6 +85,7 @@ void			sort_large(t_stack_node **stack_a,
 void			push_swap(t_stack_node **stack_a, t_stack_node **stack_b);
 void			move_to_top(t_stack_node **stack, t_stack_node **stack_b);
 void			pivot(t_stack_node **stack, t_stack_node *hightest_node, char str);
+void    		helper_push_swap(t_stack_node *stack_a, t_stack_node *stack_b);
 t_stack_node	*find_max_node(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_in_range(t_stack_node *stack, int min, int max);
