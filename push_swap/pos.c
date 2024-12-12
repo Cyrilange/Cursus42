@@ -12,29 +12,21 @@
 
 #include "push_swap.h"
 
-int	get_position(t_stack_node *stack)
+int get_position(t_stack_node *stack)
 {
-	int	position_middle;
-	int i;
+    int position;
 
-	i = 0;
-	if (!stack)
-		return (-1);
-	position_middle = stack_len(stack) / 2;
+	position = 0;
 	while (stack)
 	{
-		stack->positioned = i;
-		if (i <= position_middle)
-			stack->top_middle_stack = true;
-		else
-			stack->top_middle_stack = false;
+		stack->positioned = position;
+		position++;
 		stack = stack->next;
-		i++;
 	}
-	if (!stack)
-		return (-1);
-	return (position_middle);
+	return (position);
 }
+
+
 
 
 t_stack_node	*find_max_node(t_stack_node *stack)
@@ -94,6 +86,7 @@ void	get_target(t_stack_node *stack_a, t_stack_node *stack_b)
 	while (stack_b)
 	{
 		choice_index = LONG_MAX;
+		target = NULL;
 		aux = stack_a;
 		while (aux)
 		{
@@ -108,6 +101,38 @@ void	get_target(t_stack_node *stack_a, t_stack_node *stack_b)
 			stack_b->target = find_min_node(stack_a);
 		else
 		stack_b->target = target;
+
+		printf("Node %d -> Target %d\n",
+		       stack_b->value,
+		       stack_b->target ? stack_b->target->value : -1);
+		
 		stack_b = stack_b->next;
 	}
+}
+
+int get_hight_index(t_stack_node *stack)
+{
+	int	index;
+
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->index > index)
+			index = stack->index;
+		stack = stack->next;
+	}
+	printf("index : %d\n", index);
+	return (index);
+}
+
+int get_lowest_index(t_stack_node *stack)
+{
+    int lowest = stack->index;
+    while (stack)
+    {
+        if (stack->index < lowest)
+            lowest = stack->index;
+        stack = stack->next;
+    }
+    return lowest;
 }

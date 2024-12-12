@@ -18,50 +18,49 @@ void	ft_putstr(const char *str)
 		write(1, str++, 1);
 }
 
-void	ft_putnbr(int n)
+int	ft_atoi(const char *str)
 {
-	long	nbr;
-	char	c;
+	int	i;
+	int	result;
+	int	sign;
 
-	nbr = n;
-	if (nbr < 0)
-	{
-		write(1, "-", 1);
-		nbr = -nbr;
-	}
-	if (nbr > 9)
-		ft_putnbr(nbr / 10);
-	c = (nbr % 10) + '0';
-	write(1, &c, 1);
-}
-
-long	ft_atol(const char *str)
-{
-	long	num;
-	int		sign;
-	int		i;
-
-	num = 0;
-	sign = 1;
 	i = 0;
-	while (str[i] && (str[i] == ' ' || str[i] == '\t'
-			|| str[i] == '\n' || str[i] == '\r'
-			|| str[i] == '\v' || str[i] == '\f'))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	result = 0;
+	sign = 1 ;
+	while ((str[i] == 32) || (str[i] <= 13 && str[i] >= 9))
 	{
-		sign *= -1;
 		i++;
 	}
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		num = (num * 10) + (str[i] - '0');
+		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
-	return (num * sign);
+	return (sign * result);
 }
+
+void	last_node_plus(t_stack_node **stack, t_stack_node *new)
+{
+	t_stack_node	*tail;
+
+	if (!new)
+		return ;
+	if (!*stack)
+	{
+		*stack = new;
+		return ;
+	}
+	tail = find_last_node(*stack);
+	tail->next = new;
+}
+
 
 /*
 #include <unistd.h>

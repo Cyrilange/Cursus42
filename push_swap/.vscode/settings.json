@@ -1,5 +1,6 @@
 {
-    "files.associations": {
-        "push_swap.h": "c"
-    }
+	"files.associations": {
+		"libft.h": "c",
+		"get_next_line.c": "cpp"
+	}
 }

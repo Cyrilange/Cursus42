@@ -23,20 +23,29 @@ t_stack_node	*find_in_range(t_stack_node *stack, int min, int max)
 	return (NULL);
 }
 
-void move_to_top(t_stack_node **stack, t_stack_node **stack_b)
+void sort_b(t_stack_node **stack_b, t_stack_node **stack_a)
 {
-	t_stack_node *cheap;
-
-	cheap = best_node_to_choose(*stack_b);
-	if (cheap->top_middle_stack && cheap->target->top_middle_stack)
-		rot_rr(stack, stack_b, cheap);
-	else if (!(cheap->top_middle_stack) && !(cheap->target->top_middle_stack))
-		rot_rrr(stack, stack_b, cheap);
-	pivot(stack_b, cheap, 'b');
-	pivot(stack, cheap->target, 'a' );
-	pa(stack, stack_b, 1);
+    t_stack_node	*min_node;
+	int				cost;
     
+    while (*stack_b)
+    {
+		min_node = find_min_node(*stack_b);
+        cost = calculate_cost(stack_b, min_node);
+		if (cost > 0)
+		{
+			while (cost--)
+				rb(stack_b, 1);
+		}
+		else
+		{
+			while (cost++)
+				rrb(stack_b, 1);
+		}
+		pa(stack_b, stack_a, 1);
+	}
 }
+
 
 void	pivot(t_stack_node **stack, t_stack_node *hightest_node, char str)
 {

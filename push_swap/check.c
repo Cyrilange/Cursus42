@@ -45,24 +45,50 @@ int	is_duplicate(t_stack_node *head, int n)
 }
 
 
-void	stack_checked(t_stack_node **head, char **argv, bool argc_2)
+void	index_checked(t_stack_node *stack_a, int size)
 {
-	long	nbr;
-	int		i;
+	t_stack_node	*stack;
+	t_stack_node	*hight;
+	int				value;
 
-	i = 0;
-	while (argv[i])
+	while (--size > 0)
 	{
-		if (is_valid_integer(argv[i]))
-			error_free(head, argv, argc_2);
-		nbr = ft_atol(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(head, argv, argc_2);
-		if (is_duplicate(*head, (int)nbr))
-			error_free(head, argv, argc_2);
-		append_node(head, (int)nbr);
-		++i;
+		stack = stack_a;
+		value = INT_MIN;
+		hight = NULL;
+		while (stack)
+		{
+			if (stack->value > value && stack->index == 0)
+			{
+				value = stack->value;
+				hight = stack;
+			}
+			stack = stack->next;
+		}
+		if (hight)
+			hight->index = size;
 	}
-	if (argc_2)
-		free_split(argv);
+}
+
+t_stack_node *stack_value(int n, char **str)
+{
+    t_stack_node		*stack_a;
+	long int	nb;
+	int			i;
+
+	stack_a = NULL;
+	nb = 0;
+	i = 1;
+	while (i < n)
+	{
+		nb = ft_atoi(str[i]);
+		if (nb > INT_MAX || nb < INT_MIN)
+			ft_error(&stack_a);
+		if (i == 1)
+			stack_a = create_node((int)nb);
+		else
+			last_node_plus(&stack_a, create_node((int)nb));
+		i++;
+	}
+	return (stack_a);
 }

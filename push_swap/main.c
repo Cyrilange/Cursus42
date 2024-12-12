@@ -34,31 +34,21 @@ int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	int				size;
 
-	a = NULL;
+	a = stack_value(argc, argv);
 	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	size = stack_len(a);
+	if (argc < 2)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	stack_checked(&a, argv + 1, argc == 2);
+	index_checked(a, size + 1);
 	print_stack(a); 
-	if (!is_sorted(&a))
-	{
-		if (stack_len(a) == 2)
-		{
-			sa(&a, 1);
-			print_stack(a);
-		}
-		else
-		{
-			push_swap(&a, &b);
-			printf("stack a: ");
-			print_stack(a);
-		}
-	}
-	else
-		write(1, "OK\n", 3);
+	push_swap(&a, &b, size);
+	printf("stack a: ");
+	print_stack(a);
 	free_stack(&a);
+	free_stack(&b);
 }
 

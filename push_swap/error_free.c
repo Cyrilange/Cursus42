@@ -11,15 +11,10 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_error(bool err, t_stack_node **a, t_stack_node **b)
+void	ft_error(t_stack_node *a)
 {
-	if (err)
-	{
-		write(1, "Error\n", 7);
-		free_stack(a);
-		free_stack(b);
+		free_stack(&a);
 		exit(EXIT_FAILURE);
-	}
 }
 void free_split(char **split) 
 {
