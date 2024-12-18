@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int is_valid_integer(char *str)
+static int is_valid_integer(char *str)
 {
     if (!(*str == '+'
 			|| *str == '-'
@@ -31,13 +31,13 @@ int is_valid_integer(char *str)
 }
 
 
-int	is_duplicate(t_stack_node *head, int n)
+static int	is_duplicate(t_stack_node *head, int n)
 {
-	if (NULL == head)
+	if (!head)
 		return (0);
 	while (head)
 	{
-		if (head->value == n)
+		if (head->number == n)
 			return (1);
 		head = head->next;
 	}
@@ -45,50 +45,22 @@ int	is_duplicate(t_stack_node *head, int n)
 }
 
 
-void	index_checked(t_stack_node *stack_a, int size)
+void	stack_checked(t_stack_node **stack_a, char **str)
 {
-	t_stack_node	*stack;
-	t_stack_node	*hight;
-	int				value;
+	long	n;
+	int		i;
 
-	while (--size > 0)
+	i = 0;
+	while (str[i])
 	{
-		stack = stack_a;
-		value = INT_MIN;
-		hight = NULL;
-		while (stack)
-		{
-			if (stack->value > value && stack->index == 0)
-			{
-				value = stack->value;
-				hight = stack;
-			}
-			stack = stack->next;
-		}
-		if (hight)
-			hight->index = size;
-	}
-}
-
-t_stack_node *stack_value(int n, char **str)
-{
-    t_stack_node		*stack_a;
-	long int	nb;
-	int			i;
-
-	stack_a = NULL;
-	nb = 0;
-	i = 1;
-	while (i < n)
-	{
-		nb = ft_atoi(str[i]);
-		if (nb > INT_MAX || nb < INT_MIN)
-			ft_error(&stack_a);
-		if (i == 1)
-			stack_a = create_node((int)nb);
-		else
-			last_node_plus(&stack_a, create_node((int)nb));
+		if (is_valid_integer(str[i]))
+			ft_error(stack_a);
+		n = ft_atol(str[i]);
+		if (n > INT_MAX && n < INT_MIN)
+			ft_error(stack_a);
+		if (is_duplicate(*stack_a, (int)n))
+			ft_error(stack_a);
+		append_node(stack_a, (int)n);
 		i++;
 	}
-	return (stack_a);
 }

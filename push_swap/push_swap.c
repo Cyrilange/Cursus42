@@ -42,3 +42,24 @@ void sort_large(t_stack_node **stack_a, t_stack_node **stack_b)
     }
     
 }
+
+void	pivot(t_stack_node **stack, t_stack_node *hightest_node, char str)
+{
+	while (*stack != hightest_node)
+	{
+		if (str == 'a')
+		{
+			if (hightest_node->top_middle_stack)
+				ra(stack, 1);
+			else
+				rra(stack, 1);
+		}
+		else if (str == 'b')
+		{
+			if (hightest_node->top_middle_stack)
+				rb(stack, 1);
+			else
+				rrb(stack, 1);
+		}
+	}
+}

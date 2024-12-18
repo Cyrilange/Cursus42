@@ -18,10 +18,10 @@ void	ft_putstr(const char *str)
 		write(1, str++, 1);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atol(const char *str)
 {
 	int	i;
-	int	result;
+	long	result;
 	int	sign;
 
 	i = 0;

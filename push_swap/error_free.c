@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_error(t_stack_node *a)
+void	ft_error(t_stack_node **a)
 {
-		free_stack(&a);
+		free_stack(a);
+		write(1, "Error\n", 1);
 		exit(EXIT_FAILURE);
 }
 void free_split(char **split) 
@@ -30,15 +31,6 @@ void free_split(char **split)
 	free(split - 1);
 }
 
-void	error_free(t_stack_node **a, char **argv, bool flag_argc_2)
-{
-	free_stack(a);
-	if (flag_argc_2)
-		free_split(argv);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
 void	free_stack(t_stack_node **a)
 {
     t_stack_node 	*current;
@@ -50,10 +42,11 @@ void	free_stack(t_stack_node **a)
 	while (current)
 	{
 		aux = current->next;
+		current->number = 0;
 		free(current);
 		current = aux;
 	}
-	a = NULL;
+	*a = NULL;
 }
 
 void	free_both(t_stack_node **a, t_stack_node **b)

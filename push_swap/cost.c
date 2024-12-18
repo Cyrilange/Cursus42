@@ -12,21 +12,22 @@
 
 #include "push_swap.h"
 
-
-
-int calculate_cost(t_stack_node **stack, t_stack_node *node)
+void    calculate_cheapest(t_stack_node *stack)
 {
-    int cost;
-	int stack_size;
+    long			cheap_value;
+    t_stack_node	*cheap_node;
 
-	stack_size = stack_len(*stack);
-    if (!stack || !*stack || !node)
-    		return (-1);
-	if (node->positioned <= stack_size / 2)
-        cost = node->positioned;
-    else
-        cost = node->positioned - stack_size;
-
-    return cost;
+	if (!stack)
+		return ;
+	cheap_value = LONG_MAX;
+	while (stack)
+	{
+		if (stack->push < cheap_value)
+		{
+			cheap_value = stack->push;
+			cheap_node = stack;
+		}
+		stack = stack->next;
+	}
+	cheap_node->cheap = true;
 }
-

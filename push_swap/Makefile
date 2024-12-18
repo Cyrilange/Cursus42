@@ -22,6 +22,7 @@ SRC = main.c \
 	  push_swap.c\
 	  move_to_b.c\
 	  ft_split.c \
+	  move_back_to_a.c \
 
 
 OBJ = $(SRC:.c=.o)

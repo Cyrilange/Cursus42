@@ -30,7 +30,7 @@ char	*ft_strndup(const char *src, size_t n)
 	return (dup);
 }
 
-int	num_words(const char *s, char c)
+static int	num_words(const char *s, char c)
 {
 	int	num;
 
@@ -50,7 +50,7 @@ int	num_words(const char *s, char c)
 	return (num);
 }
 
-char	*get_next_word(const char **s, char c)
+static char	*get_next_word(const char **s, char c)
 {
 	const char	*start;
 	const char	*end;

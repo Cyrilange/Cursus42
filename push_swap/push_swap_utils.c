@@ -12,18 +12,17 @@
 
 #include "push_swap.h"
 
-t_stack_node	*create_node(long value)
+t_stack_node	*get_cheapest(t_stack_node *stack)
 {
-	t_stack_node	*new_node;
-
-	new_node = (t_stack_node *)malloc(sizeof(t_stack_node));
-	if (!new_node)
+	if (!stack)
 		return (NULL);
-	new_node->value = value;
-	new_node->index = 0;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	return (new_node);
+	while (stack)
+	{
+		if (stack->cheap)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }
 void	append_node(t_stack_node **stack, int nbr)
 {

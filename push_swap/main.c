@@ -14,7 +14,7 @@
 
 void	print_stack(t_stack_node *stack)
 {
-	t_stack_node *current = stack; // Use a temporary pointer to traverse the stack
+	t_stack_node *current = stack;
 
 	if (!current)
 	{
@@ -24,7 +24,7 @@ void	print_stack(t_stack_node *stack)
 	while (current)
 	{
 		printf("%d ", current->value);
-		current = current->next; // Move to the next node
+		current = current->next;
 	}
 	printf("\n");
 }
@@ -34,16 +34,16 @@ int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	int				size;
-
-	a = stack_value(argc, argv);
+	long				size;
+	
+	a = NULL;
 	b = NULL;
 	size = stack_len(a);
 	if (argc < 2)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	index_checked(a, size + 1);
+	stack_checked(&a, argv + 1);
 	print_stack(a); 
 	push_swap(&a, &b, size);
 	printf("stack a: ");
