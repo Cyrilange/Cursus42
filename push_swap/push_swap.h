@@ -77,5 +77,6 @@ void			last_node_plus(t_stack_node **stack, t_stack_node *new);
 int				get_lowest_index(t_stack_node *stack);
 void			calculate_cheapest(t_stack_node *stack);
 void			initiation(t_stack_node *stack_a, t_stack_node *stack_b);
+void			initiation_b(t_stack_node *stack_a, t_stack_node *stack_b);
 
 # endif 

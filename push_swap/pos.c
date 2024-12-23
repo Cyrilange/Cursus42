@@ -31,18 +31,17 @@ int get_position(t_stack_node *stack)
 
 t_stack_node	*find_max_node(t_stack_node *stack)
 {
-	int				highest;
+	long				highest;
 	t_stack_node	*highest_node;
 
 	if (!stack)
 		return (NULL);
-	highest = INT_MIN;
-	highest_node = NULL;
+	highest = LONG_MIN;
 	while (stack)
 	{
-		if (stack->value > highest)
+		if (stack->number > highest)
 		{
-			highest = stack->value;
+			highest = stack->number;
 			highest_node = stack;
 		}
 		stack = stack->next;

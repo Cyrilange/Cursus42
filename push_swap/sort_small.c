@@ -14,14 +14,14 @@
 
 void sort_small(t_stack_node **stack_a)
 {
-    int hight;
+    t_stack_node *hight;
 
-    hight = get_hight_index(*stack_a);
-        if ((*stack_a)->index == hight)
+    hight = find_max_node(*stack_a);
+        if (hight == *stack_a)
             ra(stack_a, 1);
-        if ((*stack_a)->next->index == hight)
+        if ((*stack_a)->next == hight)
             rra(stack_a, 1);
-        if ((*stack_a)->index > (*stack_a)->next->index)
+        if ((*stack_a)->number > (*stack_a)->next->number)
             sa(stack_a, 1);
     
 }

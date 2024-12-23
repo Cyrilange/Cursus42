@@ -15,7 +15,7 @@
 void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b,int  stack_size)
 {
     stack_size = stack_len(*stack_a);
-    if (!(is_sorted(*stack_a)))
+    while (!(is_sorted(*stack_a)))
     {
         if (stack_size == 2)
 	        sa(stack_a, 1);
@@ -37,7 +37,6 @@ void sort_large(t_stack_node **stack_a, t_stack_node **stack_b)
         if (len > 3)
             pb(stack_a, stack_b, 1);
         sort_small(stack_a);
-        sort_b(stack_b, stack_a);
         aux->index--;
     }
     
