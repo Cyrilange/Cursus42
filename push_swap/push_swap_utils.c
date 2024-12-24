@@ -12,18 +12,6 @@
 
 #include "push_swap.h"
 
-t_stack_node	*get_cheapest(t_stack_node *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack)
-	{
-		if (stack->cheap)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
-}
 void	append_node(t_stack_node **stack, int nbr)
 {
 	t_stack_node	*node;
@@ -62,4 +50,20 @@ int	stack_len(t_stack_node *stack)
 		stack = stack->next;
 	}
 	return (size);
+}
+
+void	rr_both(t_stack_node **stack_a, t_stack_node **stack_b, t_stack_node *cheap_node)
+{
+	while (*stack_b != cheap_node->target && *stack_a != cheap_node)
+		rr(stack_a, stack_b, 1);
+	current_index(*stack_a);
+	current_index(*stack_b);
+}
+
+void	rrr_both(t_stack_node **stack_a, t_stack_node **stack_b, t_stack_node *cheap_node)
+{
+	while (*stack_b != cheap_node->target && *stack_a != cheap_node)
+		rrr(stack_a, stack_b, 1);
+	current_index(*stack_a);
+	current_index(*stack_b);
 }

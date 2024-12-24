@@ -90,3 +90,19 @@ void	initiation(t_stack_node *stack_a, t_stack_node *stack_b)
 	calculate_cost(stack_a, stack_b);
 	calculate_cheapest(stack_a);
 }
+
+void	move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	t_stack_node *cheap_node;
+
+	cheap_node = get_cheapest(*stack_a);
+	if (cheap_node->top_middle_stack && cheap_node->target->top_middle_stack)
+		rr_both(stack_a, stack_b, cheap_node);
+	else if (!(cheap_node->target->top_middle_stack))
+		rrr_both(stack_a, stack_b, cheap_node);
+	pivot(stack_a, cheap_node, 'a');
+	pivot(stack_b, cheap_node->target, 'b');
+	pb(stack_b, stack_a, 1);
+
+
+}

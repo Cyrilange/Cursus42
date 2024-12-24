@@ -31,3 +31,16 @@ void    calculate_cheapest(t_stack_node *stack)
 	}
 	cheap_node->cheap = true;
 }
+
+t_stack_node	*get_cheapest(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheap)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}

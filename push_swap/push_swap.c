@@ -12,33 +12,36 @@
 
 #include "push_swap.h"
 
-void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b,int  stack_size)
+void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 {
-    stack_size = stack_len(*stack_a);
-    while (!(is_sorted(*stack_a)))
-    {
-        if (stack_size == 2)
-	        sa(stack_a, 1);
-	    else if (stack_size == 3)
-		    sort_small(stack_a);
-	    else
-		    sort_large(stack_a, stack_b);
-    }	
+    int stack_size = stack_len(*stack_a);
+    if (stack_size-- > 3 && !is_sorted(*stack_a))
+		pb(stack_b, stack_a, 1);
+	if	(stack_size-- > 3 && !is_sorted(*stack_a))
+		pb(stack_b, stack_a, 1);
+	while (stack_size-- > 3 && !is_sorted(*stack_a))
+		{
+			initiation(*stack_a, *stack_b);
+			move_a_to_b(stack_a, stack_b);
+		}
+	sort_small(stack_a);
+	while (*stack_b)
+	{
+		initiation_b(*stack_a, *stack_b);
+	}
+	current_index(*stack_a);
+	sort_large(stack_a);
 }
 
-void sort_large(t_stack_node **stack_a, t_stack_node **stack_b)
+void sort_large(t_stack_node **stack_a)
 {
-    t_stack_node *aux;
-    int             len;
-    aux = *stack_a;
-    len = stack_len(aux);
-    while (aux->index > 0)
-    {
-        if (len > 3)
-            pb(stack_a, stack_b, 1);
-        sort_small(stack_a);
-        aux->index--;
-    }
+    while ((*stack_a)->number != find_min_node(*stack_a)->number)
+	{
+		if (find_min_node(*stack_a)->top_middle_stack)
+			ra(stack_a, 1);
+		else
+			rra(stack_a, 1);
+	}
     
 }
 
