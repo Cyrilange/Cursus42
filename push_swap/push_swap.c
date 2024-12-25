@@ -15,11 +15,11 @@
 void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 {
     int stack_size = stack_len(*stack_a);
-    if (stack_size-- > 3 && !is_sorted(*stack_a))
+    if (stack_size-- > 3)
 		pb(stack_b, stack_a, 1);
-	if	(stack_size-- > 3 && !is_sorted(*stack_a))
+	if	(stack_size-- > 3)
 		pb(stack_b, stack_a, 1);
-	while (stack_size-- > 3 && !is_sorted(*stack_a))
+	while (stack_size-- > 3)
 		{
 			initiation(*stack_a, *stack_b);
 			move_a_to_b(stack_a, stack_b);
@@ -28,6 +28,7 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 	while (*stack_b)
 	{
 		initiation_b(*stack_a, *stack_b);
+		move_b_to_a(stack_a, stack_b);
 	}
 	current_index(*stack_a);
 	sort_large(stack_a);
@@ -35,7 +36,7 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 
 void sort_large(t_stack_node **stack_a)
 {
-    while ((*stack_a)->number != find_min_node(*stack_a)->number)
+    while ((*stack_a)->value != find_min_node(*stack_a)->value)
 	{
 		if (find_min_node(*stack_a)->top_middle_stack)
 			ra(stack_a, 1);

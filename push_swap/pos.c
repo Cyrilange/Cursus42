@@ -12,23 +12,6 @@
 
 #include "push_swap.h"
 
-int get_position(t_stack_node *stack)
-{
-    int position;
-
-	position = 0;
-	while (stack)
-	{
-		stack->positioned = position;
-		position++;
-		stack = stack->next;
-	}
-	return (position);
-}
-
-
-
-
 t_stack_node	*find_max_node(t_stack_node *stack)
 {
 	long				highest;
@@ -39,9 +22,9 @@ t_stack_node	*find_max_node(t_stack_node *stack)
 	highest = LONG_MIN;
 	while (stack)
 	{
-		if (stack->number > highest)
+		if (stack->value > highest)
 		{
-			highest = stack->number;
+			highest = stack->value;
 			highest_node = stack;
 		}
 		stack = stack->next;

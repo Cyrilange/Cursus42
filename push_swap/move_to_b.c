@@ -45,9 +45,9 @@ static	void	calculate_target(t_stack_node *stack_a, t_stack_node *stack_b)
 		aux = stack_b;
 		while (aux)
 		{
-			if (aux->number < stack_a->number && aux->number > match_for_closest_smallest_number)
+			if (aux->value < stack_a->value && aux->value > match_for_closest_smallest_number)
 			{
-				match_for_closest_smallest_number = aux->number;
+				match_for_closest_smallest_number = aux->value;
 				target_node = aux;
 			}
 			aux = aux->next;

@@ -21,12 +21,8 @@
 
 typedef struct s_stack_node
 {
-	int					value;
 	int					index;
-	int					positioned;
-	int					size;
-	int					number;
-	int					cost;
+	int					value;
 	bool				print;
 	bool				top_middle_stack;
 	bool				cheap;
@@ -38,7 +34,6 @@ typedef struct s_stack_node
 
 int				ft_atol(const char *str);
 int				stack_len(t_stack_node *stack);
-int				get_position(t_stack_node *stack);
 int				get_hight_index(t_stack_node *stack);
 bool			is_sorted(t_stack_node *head);
 void			current_index(t_stack_node *stack);

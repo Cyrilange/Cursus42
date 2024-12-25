@@ -37,7 +37,7 @@ static int	is_duplicate(t_stack_node *head, int n)
 		return (0);
 	while (head)
 	{
-		if (head->number == n)
+		if (head->value == n)
 			return (1);
 		head = head->next;
 	}

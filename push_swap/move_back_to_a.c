@@ -12,9 +12,9 @@ static	void	calculate_target_b(t_stack_node *stack_a, t_stack_node *stack_b)
 		aux = stack_a;
 		while (aux)
 		{
-			if (aux->number > stack_b->number && aux->number < match_for_closest_smallest_number)
+			if (aux->value > stack_b->value && aux->value < match_for_closest_smallest_number)
 			{
-				match_for_closest_smallest_number = aux->number;
+				match_for_closest_smallest_number = aux->value;
 				target_node = aux;
 			}
 			aux = aux->next;
@@ -35,8 +35,8 @@ void	initiation_b(t_stack_node *stack_a, t_stack_node *stack_b)
 	calculate_target_b(stack_a, stack_b);
 }
 
-void	move_b_to_a(t_stack_node **stack_a, t_stack_node	**stack_b)
+void	move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	pivot(stack_a, (*stack_b)->target, 'a');
-	pb(stack_a, stack_b, 1);
+	pa(stack_a, stack_b, 1);
 }

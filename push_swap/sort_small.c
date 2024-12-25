@@ -21,7 +21,7 @@ void sort_small(t_stack_node **stack_a)
             ra(stack_a, 1);
         else if ((*stack_a)->next == hight)
             rra(stack_a, 1);
-        if ((*stack_a)->number > (*stack_a)->next->number)
+        if ((*stack_a)->value > (*stack_a)->next->value)
             sa(stack_a, 1);
     
 }

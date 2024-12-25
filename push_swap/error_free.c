@@ -42,7 +42,7 @@ void	free_stack(t_stack_node **a)
 	while (current)
 	{
 		aux = current->next;
-		current->number = 0;
+		current->value = 0;
 		free(current);
 		current = aux;
 	}
