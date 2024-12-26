@@ -12,10 +12,9 @@
 
 #include "push_swap.h"
 
-static int is_valid_integer(char *str)
+static int	is_valid_integer(char *str)
 {
-    if (!(*str == '+'
-			|| *str == '-'
+	if (!(*str == '+' || *str == '-'
 			|| (*str >= '0' && *str <= '9')))
 		return (1);
 	if ((*str == '+'
@@ -30,7 +29,6 @@ static int is_valid_integer(char *str)
 	return (0);
 }
 
-
 static int	is_duplicate(t_stack_node *head, int n)
 {
 	if (!head)
@@ -43,7 +41,6 @@ static int	is_duplicate(t_stack_node *head, int n)
 	}
 	return (0);
 }
-
 
 void	stack_checked(t_stack_node **stack_a, char **str)
 {

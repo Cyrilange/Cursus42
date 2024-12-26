@@ -16,7 +16,7 @@ void	rra(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*last;
 
-	if (!*stack_a || !(*stack_a)->next)
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
 	last = find_last_node(*stack_a);
 	last->prev->next = NULL;

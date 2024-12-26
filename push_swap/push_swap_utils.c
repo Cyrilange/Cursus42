@@ -24,6 +24,7 @@ void	append_node(t_stack_node **stack, int nbr)
 		return ;
 	node->next = NULL;
 	node->value = nbr;
+	node->cheap = 0;
 	if (NULL == *stack)
 	{
 		*stack = node;

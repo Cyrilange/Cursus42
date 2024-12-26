@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void    calculate_cheapest(t_stack_node *stack)
+void	calculate_cheapest(t_stack_node *stack)
 {
-    long			cheap_value;
-    t_stack_node	*cheap_node;
+	long			cheap_value;
+	t_stack_node	*cheap_node;
 
 	if (!stack)
 		return ;
