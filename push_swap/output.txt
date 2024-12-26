@@ -1,6 +1,0 @@
-rra
-ra
-ra
-ra
-5 9 0 2 56 1 
-stack a: 0 2 56 1 5 9 

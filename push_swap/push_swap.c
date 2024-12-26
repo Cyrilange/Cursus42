@@ -15,14 +15,15 @@
 void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 {
     int stack_size = stack_len(*stack_a);
-    if (stack_size-- > 3)
+    if (stack_size > 3)
 		pb(stack_b, stack_a, 1);
 	if	(stack_size-- > 3)
 		pb(stack_b, stack_a, 1);
-	while (stack_size-- > 3)
+	while (stack_size > 3)
 		{
 			initiation(*stack_a, *stack_b);
 			move_a_to_b(stack_a, stack_b);
+			stack_size--;
 		}
 	sort_small(stack_a);
 	while (*stack_b)
@@ -36,6 +37,10 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 
 void sort_large(t_stack_node **stack_a)
 {
+	if (!stack_a || !*stack_a)
+        return;
+    if (find_min_node(*stack_a) == NULL)
+        return;
     while ((*stack_a)->value != find_min_node(*stack_a)->value)
 	{
 		if (find_min_node(*stack_a)->top_middle_stack)
@@ -43,12 +48,12 @@ void sort_large(t_stack_node **stack_a)
 		else
 			rra(stack_a, 1);
 	}
-    
+       
 }
 
 void	pivot(t_stack_node **stack, t_stack_node *hightest_node, char str)
 {
-	while (*stack != hightest_node)
+	while (*stack != hightest_node && *stack && hightest_node)
 	{
 		if (str == 'a')
 		{

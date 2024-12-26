@@ -72,7 +72,7 @@ static void	calculate_cost(t_stack_node *stack_a, t_stack_node *stack_b)
 	{
 		stack_a->push = stack_a->index;
 		if (!(stack_a->top_middle_stack))
-			stack_a->push = len_a;
+			stack_a->push = len_a - (stack_a->index);
 		if (stack_a->target->top_middle_stack)
 			stack_a->push += stack_a->target->index;
 		else
