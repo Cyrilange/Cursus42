@@ -34,7 +34,7 @@ void    epur_str(char *str)
         if (!word && (str[i] != ' ' && str[i] != '\t'))
             write(1, " ", 1);
        
-        while (str[i] && str[i] != ' ' || str[i] == '\t')
+        while (str[i] && str[i] != ' ' && str[i] != '\t')
         {
             write(1, &str[i], 1);
             i++;
