@@ -20,18 +20,24 @@ $>*/
 
 void    last_word(char *str)
 {
-    int i = 0;
-    while (str[i])
+        int i = 0;
+        while (str[i])
+                i++;
+        while (str[i] == '\0' && (str[i - 1] == ' ' || str[i - 1] == '\t'))
+                i--;
+        while (i >= 0 && (str[i] == ' ' || str[i] == '\t'))
+                i--;
+        int end = i;
+        while (i >= 0 && str[i] != ' ' && str[i] != '\t')
+                i--;
         i++;
-    while (i >= 0 && (str[i] == ' ' || str[i] == '\t'))
-        i--;
-    int end = i;
-    while (i >= 0 && str[i] != ' ' && str[i] != '\t')
-        i--;
-    i++;
-    while (i < end)
-        write(1, &str[i++], 1);
+        while (i <= end )
+        {
+                write(1, &str[i], 1);
+                i++;
+        }
 }
+
 
 int main(int argc, char **argv)
 {
