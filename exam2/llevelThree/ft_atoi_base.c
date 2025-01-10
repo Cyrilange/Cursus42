@@ -7,6 +7,7 @@ example, base 4 recognizes "0123" and base 16 recognizes "0123456789abcdef".
 
 Uppercase letters must also be recognized: "12fdb3" is the same as "12FDB3".
 
+
 Minus signs ('-') are interpreted only if they are the first character of the
 string.
 
@@ -23,13 +24,17 @@ int     ft_atoi_base(const char *str, int str_base)
         return 0;
     while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
         i++;
-    if (str[i] == ' ')
+    if (str[i] == '-')
     {
         sign = -1;
         i++;
     }
+    else if (str[i] == '+')
+    {
+        i++;
+    }
     
-    while ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= 'f') || str[i] >= 'A' && str[i] <= 'F')
+    while ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= 'f') || (str[i] >= 'A' && str[i] <= 'F'))
     {
         int value;
         if (str[i] >= '0' && str[i] <= '9')
@@ -38,25 +43,25 @@ int     ft_atoi_base(const char *str, int str_base)
             value = (str[i] - 'a') + 10;
         if (str[i] >= 'A' && str[i] <= 'F')
             value = (str[i] - 'A') + 10;
-        if (value > str_base)
+        if (value >= str_base)
             return 0;
-        result = (result * str_base) - value;
+        result = (result * str_base) + value;
         i++;
     }
     return (result * sign);
 }
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv)
 {
     if (argc == 3)
         {
-            int base = ft_atoi_base(argv[2], 10);
+            int base = atoi(argv[2]);
             int result = ft_atoi_base(argv[1], base);
             printf("%d", result);
         }
     printf("\n");
     return 0;
 }
-
