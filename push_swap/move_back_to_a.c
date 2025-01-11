@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_back_to_a.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-01-11 15:06:15 by csalamit          #+#    #+#             */
+/*   Updated: 2025-01-11 15:06:15 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static	void	calculate_target_b(t_stack_node *stack_a, t_stack_node *stack_b)
@@ -12,7 +24,8 @@ static	void	calculate_target_b(t_stack_node *stack_a, t_stack_node *stack_b)
 		aux = stack_a;
 		while (aux)
 		{
-			if (aux->value > stack_b->value && aux->value < match_for_closest_smallest_number)
+			if (aux->value > stack_b->value
+				&& aux->value < match_for_closest_smallest_number)
 			{
 				match_for_closest_smallest_number = aux->value;
 				target_node = aux;
@@ -24,7 +37,6 @@ static	void	calculate_target_b(t_stack_node *stack_a, t_stack_node *stack_b)
 		else
 			stack_b->target = target_node;
 		stack_b = stack_b->next;
-		
 	}
 }
 

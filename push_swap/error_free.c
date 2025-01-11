@@ -14,7 +14,7 @@
 void	ft_error(t_stack_node **a)
 {
 	free_stack(a);
-	write(1, "Error\n", 1);
+	write(1, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -34,6 +34,12 @@ void	free_stack(t_stack_node **a)
 		current = aux;
 	}
 	*a = NULL;
+}
+
+void	free_both(t_stack_node **a, t_stack_node **b)
+{
+	free_stack(a);
+	free_stack(b);
 }
 
 /* -----test_err--------

@@ -14,26 +14,21 @@
 
 void	swap(t_stack_node **stack_a)
 {
-	t_stack_node *first;
-	t_stack_node *second;
+	t_stack_node	*first;
+	t_stack_node	*second;
 
-	// Check if there are fewer than two nodes
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
-
-	// Assign first and second node to swap
 	first = *stack_a;
 	second = first->next;
-
-	// Swap the nodes by updating the pointers
 	first->next = second->next;
 	if (second->next)
 		second->next->prev = first;
 	second->prev = NULL;
 	second->next = first;
 	*stack_a = second;
-	
 }
+
 void	sa(t_stack_node **stack_a, bool print)
 {
 	swap(stack_a);

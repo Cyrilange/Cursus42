@@ -14,8 +14,8 @@
 
 void	current_index(t_stack_node *stack)
 {
-	int i;
-	int middle;
+	int	i;
+	int	middle;
 
 	i = 0;
 	if (!stack)
@@ -45,7 +45,8 @@ static	void	calculate_target(t_stack_node *stack_a, t_stack_node *stack_b)
 		aux = stack_b;
 		while (aux)
 		{
-			if (aux->value < stack_a->value && aux->value > match_for_closest_smallest_number)
+			if (aux->value < stack_a->value
+				&& aux->value > match_for_closest_smallest_number)
 			{
 				match_for_closest_smallest_number = aux->value;
 				target_node = aux;
@@ -57,7 +58,6 @@ static	void	calculate_target(t_stack_node *stack_a, t_stack_node *stack_b)
 		else
 			stack_a->target = target_node;
 		stack_a = stack_a->next;
-		
 	}
 }
 
@@ -79,7 +79,6 @@ static void	calculate_cost(t_stack_node *stack_a, t_stack_node *stack_b)
 			stack_a->push += len_b -(stack_a->target->index);
 		stack_a = stack_a->next;
 	}
-
 }
 
 void	initiation(t_stack_node *stack_a, t_stack_node *stack_b)
@@ -93,7 +92,7 @@ void	initiation(t_stack_node *stack_a, t_stack_node *stack_b)
 
 void	move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 {
-	t_stack_node *cheap_node;
+	t_stack_node	*cheap_node;
 
 	cheap_node = get_cheapest(*stack_a);
 	if (cheap_node->top_middle_stack && cheap_node->target->top_middle_stack)
@@ -103,6 +102,4 @@ void	move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 	pivot(stack_a, cheap_node, 'a');
 	pivot(stack_b, cheap_node->target, 'b');
 	pb(stack_b, stack_a, 1);
-
-
 }

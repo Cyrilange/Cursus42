@@ -17,7 +17,7 @@ void	ra(t_stack_node **stack_a, bool print)
 	t_stack_node	*last_node;
 
 	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
-        return;
+		return ;
 	last_node = find_last_node(*stack_a);
 	last_node->next = *stack_a;
 	*stack_a = (*stack_a)->next;
@@ -31,9 +31,9 @@ void	ra(t_stack_node **stack_a, bool print)
 void	rb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*last_node;
-	
+
 	if (!stack_b || !(*stack_b) || !(*stack_b)->next)
-        return;
+		return ;
 	last_node = find_last_node(*stack_b);
 	last_node->next = *stack_b;
 	*stack_b = (*stack_b)->next;
@@ -49,5 +49,5 @@ void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 	ra(stack_a, 0);
 	ra(stack_b, 0);
 	if (print)
-		write(1,"rr\n", 3);
+		write(1, "rr\n", 3);
 }

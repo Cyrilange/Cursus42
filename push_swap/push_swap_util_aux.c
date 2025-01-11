@@ -20,9 +20,9 @@ void	ft_putstr(const char *str)
 
 int	ft_atol(const char *str)
 {
-	int	i;
+	int		i;
 	long	result;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	result = 0;
@@ -60,7 +60,6 @@ void	last_node_plus(t_stack_node **stack, t_stack_node *new)
 	tail = find_last_node(*stack);
 	tail->next = new;
 }
-
 
 /*
 #include <unistd.h>
