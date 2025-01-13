@@ -23,7 +23,6 @@ typedef struct s_stack_node
 {
 	int					index;
 	int					value;
-	bool				print;
 	bool				top_middle_stack;
 	bool				cheap;
 	int					push;
@@ -55,8 +54,8 @@ void			rrr(t_stack_node **stack_a,
 					t_stack_node **stack_b, bool print);
 void			rrr_both(t_stack_node **stack_a,
 					t_stack_node **stack_b, t_stack_node *cheap_node);
-void			pa(t_stack_node **a, t_stack_node **b, bool print);
-void			pb(t_stack_node **a, t_stack_node **b, bool print);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **a, t_stack_node **b);
 void			sort_small(t_stack_node **stack);
 void			free_stack(t_stack_node **stack);
 void			print_stack(t_stack_node *stack);
