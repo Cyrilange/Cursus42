@@ -58,6 +58,7 @@ int	main(int argc, char **argv)
 			//print_stack(a);
 			push_swap(&a, &b);
 			print_stack(a);
+			free_stack(&a);
 		}
 	}
 	free_both(&a, &b);

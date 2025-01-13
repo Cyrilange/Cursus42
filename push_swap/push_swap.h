@@ -77,5 +77,6 @@ void			move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b);
 void			move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b);
 void			pivot(t_stack_node **stack,
 					t_stack_node *hightest_node, char str);
+int	get_lowest_index(t_stack_node *stack);
 
 #endif

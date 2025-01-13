@@ -20,7 +20,7 @@ void	current_index(t_stack_node *stack)
 	i = 0;
 	if (!stack)
 		return ;
-	middle = stack_len(stack) / 2;
+	middle = stack_len(stack) - get_lowest_index(stack);
 	while (stack)
 	{
 		stack->index = i;

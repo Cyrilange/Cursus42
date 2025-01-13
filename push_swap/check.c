@@ -53,7 +53,7 @@ void	stack_checked(t_stack_node **stack_a, char **str)
 		if (is_valid_integer(str[i]))
 			ft_error(stack_a);
 		n = ft_atol(str[i]);
-		if (n > INT_MAX && n < INT_MIN)
+		if (n >= INT_MAX && n <= INT_MIN)
 			ft_error(stack_a);
 		if (is_duplicate(*stack_a, (int)n))
 			ft_error(stack_a);

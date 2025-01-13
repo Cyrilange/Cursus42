@@ -15,7 +15,7 @@
 void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	int	stack_size;
-
+	
 	stack_size = stack_len(*stack_a);
 	if (stack_size-- > 3 && !(is_sorted(*stack_a)))
 		pb(stack_b, stack_a);
@@ -30,7 +30,7 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 	while (*stack_b)
 	{
 		initiation_b(*stack_a, *stack_b);
-		move_b_to_a(stack_a, stack_b); //segmentation en pivot
+		move_b_to_a(stack_a, stack_b);
 	}
 	current_index(*stack_a);
 	sort_large(stack_a);
@@ -43,9 +43,9 @@ void	sort_large(t_stack_node **stack_a)
 	while ((*stack_a)->value != find_min_node(*stack_a)->value)
 	{
 		if (find_min_node(*stack_a)->top_middle_stack)
-			ra(stack_a, 0);
+			ra(stack_a, 1);
 		else
-			rra(stack_a, 0);
+			rra(stack_a, 1);
 	}
 }
 
@@ -56,16 +56,16 @@ void	pivot(t_stack_node **stack, t_stack_node *hightest_node, char str)
 		if (str == 'a')
 		{
 			if (hightest_node->top_middle_stack)
-				ra(stack, 0);
+				ra(stack, 1);
 			else
-				rra(stack, 0);
+				rra(stack, 1);
 		}
 		else if (str == 'b')
 		{
 			if (hightest_node->top_middle_stack)
-				rb(stack, 0);
+				rb(stack, 1);
 			else
-				rrb(stack, 0);
+				rrb(stack, 1);
 		}
 	}
 }

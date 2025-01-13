@@ -14,13 +14,30 @@
 
 void	sort_small(t_stack_node **stack_a)
 {
-	t_stack_node	*hight;
-
-	hight = find_max_node(*stack_a);
-	if (hight == *stack_a)
-		ra(stack_a, 1);
-	else if ((*stack_a)->next == hight)
+	if (find_min_node(*stack_a) == (*stack_a))
+	{
 		rra(stack_a, 1);
-	if ((*stack_a)->value > (*stack_a)->next->value)
 		sa(stack_a, 1);
+	}
+	else if (find_max_node(*stack_a) == (*stack_a))
+	{
+		ra(stack_a, 1);
+		if (!is_sorted(*stack_a))
+			sa(stack_a, 1);
+	}
+	else
+	{
+		if (find_max_node(*stack_a) == (*stack_a)->next 
+			&& find_min_node(*stack_a) == (*stack_a)->next->next)
+			{
+				rra(stack_a, 1);
+			}
+		else
+			sa(stack_a, 1);
+	}
+	
 }
+/*First = 1 3 2 -> 2 1 3 -> 1 2 3
+Second = 3 2 1 -> 2 1 3 -> 1 2 3
+Third = 2 3 1 -> 1 2 3
+      = 2 1 3 -> 1 2 3*/
