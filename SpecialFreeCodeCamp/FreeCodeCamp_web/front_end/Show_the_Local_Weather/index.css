@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgb(43, 43, 104);
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 10px solid slateblue;
+    padding: 7rem;
+    border-radius: 20px;
+}
+
+button {
+    margin: 4rem auto;
+    padding: 0.5rem;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: rgb(43, 43, 104);
+    color: rgb(255,255,255);
+}
+

@@ -20,6 +20,7 @@ void	calculate_cheapest(t_stack_node *stack)
 	if (!stack)
 		return ;
 	cheap_value = LONG_MAX;
+	cheap_node = NULL;
 	while (stack)
 	{
 		if (stack->push < cheap_value)

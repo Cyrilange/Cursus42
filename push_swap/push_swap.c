@@ -17,9 +17,8 @@ void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
 	int	stack_size;
 	
 	stack_size = stack_len(*stack_a);
-	if (stack_size-- > 3 && !(is_sorted(*stack_a)))
-		pb(stack_b, stack_a);
-	if (stack_size-- > 3 && !(is_sorted(*stack_a)))
+	current_index(*stack_a);
+	if (stack_size > 3 && !(is_sorted(*stack_a)))
 		pb(stack_b, stack_a);
 	while (stack_size-- > 3 && !(is_sorted(*stack_a)))
 	{
