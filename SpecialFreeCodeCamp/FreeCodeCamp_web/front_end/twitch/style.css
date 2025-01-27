@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("./twicht.jpg");
+    background-size: cover;
+    background-position: right;
+    color: #61dafb;
+    text-align: left;
+    margin-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #282c34a3;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 10px;
+    width: 60%;
+}
+
+ul li a {
+    color: #61dafb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: green;
+    text-decoration: underline;
+}
