@@ -1,23 +1,28 @@
 
 char *ft_rev(char *str)
 {
-    char start = *str;
-    char end = *str;
+    char *start = str;
+    char *end = str;
+    while (*end)
+        end++;
+    end--;
     char temp;
-    while (*str)
+    while (start < end)
     {
-        temp = start;
-        start = end;
-        end = temp;
+        temp = *end;
+        *end = *start;
+        *start = temp;
         start++;
         end--;
     }
     return str;
 }
 
-int main()
+
+#include <stdio.h>
+int main(int argc, char **argv)
 {
-    printf("%s", ft_rev("hello wordl"));
+    printf("%s", ft_rev(argv[1]));
     return 0;
 
 }
