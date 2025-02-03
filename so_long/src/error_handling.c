@@ -9,17 +9,17 @@ void	free_map(char **map)
 	i = 0;
 	while (map[i])
 	{
-		free(map[i]); // Libère chaque ligne de la map
+		free(map[i]);
 		i++;
 	}
-	free(map); // Libère le tableau de pointeurs
+	free(map);
 }
 
 void	free_all(t_map *game, int error)
 {
 	if (error)
 	{
-		free_map(game->map);  // Appelle la fonction pour libérer la map
-		free(game);           // Libère la structure `t_map`
+		free_map(game->map);
+		free(game);
 	}
 }

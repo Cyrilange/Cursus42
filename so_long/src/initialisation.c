@@ -2,22 +2,22 @@
 
 char *get_map_path(const char *map_name)
 {
-    // Dossier contenant les cartes
-    const char *map_dir = "../includes/maps/";
-
-    // Allocation de mémoire pour stocker le chemin complet
+    const char *map_dir = "./includes/maps/";
+    if (strncmp(map_name, map_dir, strlen(map_dir)) == 0)
+        return strdup(map_name);
     char *map_path = malloc(strlen(map_dir) + strlen(map_name) + 1);
     if (!map_path) {
         printf("Error: Memory allocation failed\n");
         exit(EXIT_FAILURE);
     }
-
-    // Construction du chemin complet
     strcpy(map_path, map_dir);
     strcat(map_path, map_name);
 
+    printf("route: %s\n", map_path);
+
     return map_path;
 }
+
 
 void init_game(t_map *game, const char *map_name)
 {
