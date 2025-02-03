@@ -34,9 +34,10 @@ void	sort_small(t_stack_node **stack_a)
 			}
 		else
 			sa(stack_a, 1);
-	}
-	
+	}	
 }
+
+
 /*First = 1 3 2 -> 2 1 3 -> 1 2 3
 Second = 3 2 1 -> 2 1 3 -> 1 2 3
 Third = 2 3 1 -> 1 2 3
