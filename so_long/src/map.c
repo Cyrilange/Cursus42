@@ -4,46 +4,32 @@ static inline int get_x_pos(int x, t_map *game) { return (x * WIDTH / game->widt
 static inline int get_y_pos(int y, t_map *game) { return (y * HEIGHT / game->height); }
 
 
-
-char **load_map(char *file, int *width, int *height)
+void	read_map(t_map *game, char *file)
 {
-    int fd = open(file, O_RDONLY);
-    char *line;
-    char **map;
-    int i;
+	int		fd;
+	char	*line;
+	char	*holder;
+	char	*all_lines;
 
-    i = 0;
-    *height = 0;
-    *width = 0;
-    file = get_map_path(file);
-    printf("Generated path: %s\n", file);
-
-    if (fd < 0)
-    {
-        return (NULL);
-        perror("Error opening file");
-    }
-    while ((line = get_next_line(fd)))
-    {
-        printf("Reading line: %s", line);
-        if (*width == 0)
-            *width = ft_strlen(line) - 1;
-        (*height)++;
-        free(line);
-    }
-    close(fd);
-    fd = open(file, O_RDONLY);
-    map = malloc(sizeof(char *) * (*height + 1));
-    if (!map)
-    {
-        ft_printf("Error: Memory allocation for map failed\n");
-        return NULL;
-    }
-    while (i++ < *height)
-        map[i] = get_next_line(fd);
-    map[*height] = NULL;
-    close(fd);
-    return (map);
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		exit(EXIT_FAILURE);
+	line = get_next_line(fd);
+	if (line)
+		game->width = ft_strlen(line) - 1;
+	all_lines = ft_strdup("");
+	while (line)
+	{
+		game->height++;
+		holder = all_lines;
+		all_lines = ft_strjoin(holder, line);
+		free(line);
+		free(holder);
+		line = get_next_line(fd);
+	}
+	game->map = ft_split(all_lines, '\n');
+	free(line);
+	close(fd);
 }
 
 void    init_images(t_map *game)

@@ -2,15 +2,10 @@
 
 void move_player(t_map *game, int new_x, int new_y)
 {
-    // Si c'est un mur ('1'), on ne bouge pas
     if (game->map[new_y][new_x] == '1')
         return;
-
-    // Si on ramasse un collectible ('C'), on met à jour le compteur
     if (game->map[new_y][new_x] == 'C')
         game->collectibles--;
-
-    // Si on atteint la sortie ('E') mais qu'il reste des collectibles, on ne sort pas
     if (game->map[new_y][new_x] == 'E' && game->collectibles != 0)
     {
         printf("Il reste encore des collectibles !\n");
@@ -21,21 +16,16 @@ void move_player(t_map *game, int new_x, int new_y)
         printf("Bravo ! Vous avez terminé le jeu !\n");
         exit(EXIT_SUCCESS);
     }
-
-    // Mise à jour du tableau de la map
-    game->map[game->player_pos.y][game->player_pos.x] = '0'; // Ancienne position
-    game->map[new_y][new_x] = 'P'; // Nouvelle position
-
-    // Mise à jour des coordonnées du joueur
+    game->map[game->player_pos.y][game->player_pos.x] = '0';
+    game->map[new_y][new_x] = 'P';
     game->player_pos.x = new_x;
     game->player_pos.y = new_y;
-
-    // Rafraîchir l'affichage
     render_game(game);
 }
 
-void key_press(void *param)
+void key_press(mlx_key_data_t keydata, void *param)
 {
+    (void)keydata;
     t_map *game = param;
     int new_x = game->player_pos.x;
     int new_y = game->player_pos.y;
@@ -53,3 +43,4 @@ void key_press(void *param)
 
     move_player(game, new_x, new_y);
 }
+
