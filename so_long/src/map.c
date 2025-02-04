@@ -43,7 +43,7 @@ t_map *read_map(const char *file)
     if (!map->grid)
     {
         free(map);
-        return (NULL);
+        exit(EXIT_FAILURE);
     }
     fd = open(file, O_RDONLY);
     if (fd < 0) // Vérifie que le fichier s'ouvre bien
@@ -112,7 +112,7 @@ void display_map(t_map *game)
         {
             tile = game->grid[y][x];
 
-            if (tile == '1')  // Mur
+            if (tile == '1')
                 mlx_image_to_window(game->mlx, game->wall, x * WIDHT, y * HEIGHT);
             else if (tile == '0')  // Sol
                 mlx_image_to_window(game->mlx, game->floor, x * WIDHT, y * HEIGHT);

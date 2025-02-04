@@ -33,7 +33,7 @@ $(MLX42_LIB):
 
 # Compilation des fichiers objets
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(MLX42_LIB)
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)/get_next_line
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 # Compilation finale pour générer l'exécutable

@@ -30,7 +30,7 @@ typedef enum s_dir
 typedef struct s_coord
 {
 	int	x;
-	int	y
+	int	y;
 }	t_coord;
 
 typedef struct s_map 
@@ -48,15 +48,18 @@ typedef struct s_map
 	t_coord			player_coord;
 } t_map;
 
+
 void free_map(t_map *map);
 t_map *read_map(const char *file);
 int count_line(const char *file);
 int validate_map(t_map *map);
 void key_press(mlx_key_data_t keydata, void *param);
-t_map *init_game(const char *map_file);
+t_map *init_game(t_map *game, char *map_file);
 void display_map(t_map *game);
 void load_textures(t_map *game);
 void free_game(t_map *game);
+int ft_strlen_so(char *str);
+
 
 
 
