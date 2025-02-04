@@ -1,7 +1,7 @@
 NAME = so_long
 
 CC              = gcc
-CFLAGS          = -Wall -Werror -Wextra -I includes -I get_next_line
+CFLAGS          = -Wall -Werror -Wextra 
 MLX42_LIB       = ./MLX42/build/libmlx42.a
 MLX42_INCLUDE   = ./MLX42/include
 LIBFT           = ./includes/libft
@@ -13,12 +13,11 @@ SRC_DIR         = ./src
 OBJ_DIR         = ./obj
 
 SRC_FILES       = 	so_long.c \
-					checker.c \
-  					error_handling.c \
-					initialisation.c \
 					map.c \
-					mouvment.c \
 					get_next_line/get_next_line.c \
+					initialisation.c \
+					mouvment.c \
+					error_handling.c\
 					
 
 
@@ -34,7 +33,7 @@ $(MLX42_LIB):
 
 # Compilation des fichiers objets
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(MLX42_LIB)
-	@mkdir -p $(OBJ_DIR) $(OBJ_DIR)/get_next_line
+	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 # Compilation finale pour générer l'exécutable

@@ -1,102 +1,132 @@
 #include "../includes/so_long.h"
 
-static inline int get_x_pos(int x, t_map *game) { return (x * WIDTH / game->width); }
-static inline int get_y_pos(int y, t_map *game) { return (y * HEIGHT / game->height); }
-
-
-void	read_map(t_map *game, char *file)
+int count_line(const char *file)
 {
 	int		fd;
-	char	*line;
-	char	*holder;
-	char	*all_lines;
+	int		count;
+	char	buffer;
 
 	fd = open(file, O_RDONLY);
+	count = 0;
 	if (fd < 0)
-		exit(EXIT_FAILURE);
-	line = get_next_line(fd);
-	if (line)
-		game->width = ft_strlen(line) - 1;
-	all_lines = ft_strdup("");
-	while (line)
-	{
-		game->height++;
-		holder = all_lines;
-		all_lines = ft_strjoin(holder, line);
-		free(line);
-		free(holder);
-		line = get_next_line(fd);
-	}
-	game->map = ft_split(all_lines, '\n');
-	free(line);
+		return (-1);
+	while (read(fd, &buffer, 1))
+		if (buffer == '\n')
+			count++;
 	close(fd);
+	return (count + 1);
 }
 
-void    init_images(t_map *game)
+t_map *create_map(void)
 {
-    mlx_texture_t *texture;
+	t_map *map;
 
-    texture = mlx_load_png("./includes/images/player.png");
-    if (!texture)
-        return;
-    game->player = mlx_texture_to_image(game->mlx, texture);
-    mlx_delete_texture(texture);
+	map = malloc(sizeof(t_map));
+	if (!map)
+		return (NULL);
+	map->width = 10;
+	map->height = 5;
+	return (map);
+}
+t_map *read_map(const char *file)
+{
+    int fd;
+    int i;
+    char *line;
+    t_map *map;
 
-    texture = mlx_load_png("./includes/images/floor.png");
-    if (!texture)
-        return ;
-    game->floor = mlx_texture_to_image(game->mlx, texture);
-    mlx_delete_texture(texture);
-
-    texture = mlx_load_png("./includes/images/wall.png");
-    if (!texture)
-        return;
-    game->wall = mlx_texture_to_image(game->mlx, texture);
-    mlx_delete_texture(texture);
-
-    texture = mlx_load_png("./includes/images/collective.png");
-    if (!texture)
-        return ;
-    game->collectible = mlx_texture_to_image(game->mlx, texture);
-    mlx_delete_texture(texture);
-
-    texture = mlx_load_png("./includes/images/exit.png");
-    if (!texture)
-        return ;
-    game->exit = mlx_texture_to_image(game->mlx, texture);
-    mlx_delete_texture(texture);
-
-    if (!game->player || !game->floor || !game->wall || !game->collectible || !game->exit)
+    map = malloc(sizeof(t_map));
+    if (!map)
+        return (NULL);
+    map->height = count_line(file);
+    map->grid = malloc(sizeof(char *) * (map->height + 1));
+    if (!map->grid)
     {
-        ft_printf("Issue with graphics textures\n");
-        free_all(game, 1);
-        exit(EXIT_FAILURE);
+        free(map);
+        return (NULL);
     }
+    fd = open(file, O_RDONLY);
+    if (fd < 0) // Vérifie que le fichier s'ouvre bien
+    {
+        free(map->grid);
+        free(map);
+        return (NULL);
+    }
+    i = 0;
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        map->grid[i++] = line;
+    }
+    map->grid[i] = NULL;
+
+    if (i > 0)
+        map->width = strlen(map->grid[0]) - 1;
+    else
+        map->width = 0;
+
+    close(fd);
+    return (map);
 }
 
-void    render_game(t_map *game)
+void free_map(t_map *map)
 {
-    int y;
-    int x;
+    int i = 0;
+    while (map->grid[i])
+        free(map->grid[i++]);
+    free(map->grid);
+    free(map);
+}
+
+int validate_map(t_map *map)
+{
+	int	i;
+	
+	i = 0;
+    while (i < map->width)
+    {
+        if (map->grid[0][i] != '1' || map->grid[map->height - 1][i] != '1')
+            return 0;
+		i++;
+    }
+    while (i < map->height - 1)
+    {
+        if (map->grid[i][0] != '1' || map->grid[i][map->width - 1] != '1')
+            return 0;
+		i++;
+    }
+
+    return 1;
+}
+
+void display_map(t_map *game)
+{
+    int     y;
+    int     x;
+    char    tile;
 
     y = 0;
-    x = 0;
     while (y < game->height)
     {
+        x = 0;
         while (x < game->width)
         {
-            if (game->map[y][x] == '1')
-                mlx_image_to_window(game->mlx, game->wall, get_x_pos(x, game), get_y_pos(y, game));
-            else if (game->map[y][x] == '0')
-                mlx_image_to_window(game->mlx, game->floor, get_x_pos(x, game), get_y_pos(y, game));
-            else if (game->map[y][x] == 'P')
-                mlx_image_to_window(game->mlx, game->player, get_x_pos(x, game), get_y_pos(y, game));
-            else if (game->map[y][x] == 'C')
-                mlx_image_to_window(game->mlx, game->collectible, get_x_pos(x, game), get_y_pos(y, game));
-            else if (game->map[y][x] == 'E')
-                mlx_image_to_window(game->mlx, game->exit, get_x_pos(x, game), get_y_pos(y, game));
+            tile = game->grid[y][x];
+
+            if (tile == '1')  // Mur
+                mlx_image_to_window(game->mlx, game->wall, x * WIDHT, y * HEIGHT);
+            else if (tile == '0')  // Sol
+                mlx_image_to_window(game->mlx, game->floor, x * WIDHT, y * HEIGHT);
+            else if (tile == 'P')  // Joueur
+                mlx_image_to_window(game->mlx, game->player, x * WIDHT, y * HEIGHT);
+            else if (tile == 'C')  // Collectible
+                mlx_image_to_window(game->mlx, game->collectible, x * WIDHT, y * HEIGHT);
+            else if (tile == 'E')  // Sortie
+                mlx_image_to_window(game->mlx, game->exit, x * WIDHT, y * HEIGHT);
             x++;
         }
         y++;
     }
+    
+    
+    
 }
