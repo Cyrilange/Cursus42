@@ -33,11 +33,9 @@ typedef struct s_stack_node
 
 int				ft_atol(const char *str);
 int				stack_len(t_stack_node *stack);
-int				get_hight_index(t_stack_node *stack);
 bool			is_sorted(t_stack_node *head);
 void			current_index(t_stack_node *stack);
 void			ft_error(t_stack_node **a);
-void			free_split(char **split);
 void			ft_putstr(const char *str);
 void			swap(t_stack_node **stack_a);
 void			sa(t_stack_node **stack_a, bool print);
@@ -77,6 +75,6 @@ void			move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b);
 void			move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b);
 void			pivot(t_stack_node **stack,
 					t_stack_node *hightest_node, char str);
-int	get_lowest_index(t_stack_node *stack);
+					int find_min_position(t_stack_node *stack);
 
 #endif

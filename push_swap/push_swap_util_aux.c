@@ -27,7 +27,7 @@ int	ft_atol(const char *str)
 	i = 0;
 	result = 0;
 	sign = 1 ;
-	while ((str[i] == 32) || (str[i] <= 13 && str[i] >= 9))
+	if ((str[i] == 32) || (str[i] <= 13 && str[i] >= 9))
 	{
 		i++;
 	}
@@ -44,21 +44,6 @@ int	ft_atol(const char *str)
 		i++;
 	}
 	return (sign * result);
-}
-
-void	last_node_plus(t_stack_node **stack, t_stack_node *new)
-{
-	t_stack_node	*tail;
-
-	if (!new)
-		return ;
-	if (!*stack)
-	{
-		*stack = new;
-		return ;
-	}
-	tail = find_last_node(*stack);
-	tail->next = new;
 }
 
 /*

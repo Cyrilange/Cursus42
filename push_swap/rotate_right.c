@@ -24,7 +24,7 @@ void	ra(t_stack_node **stack_a, bool print)
 	(*stack_a)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-	if (print == 1)
+	if (!print)
 		write(1, "ra\n", 3);
 }
 
@@ -40,14 +40,14 @@ void	rb(t_stack_node **stack_b, bool print)
 	(*stack_b)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-	if (print == 1)
+	if (!print)
 		write(1, "rb\n", 3);
 }
 
 void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
-	ra(stack_a, 0);
-	ra(stack_b, 0);
-	if (print == 1)
+	ra(stack_a, 1);
+	ra(stack_b, 1);
+	if (!print)
 		write(1, "rr\n", 3);
 }

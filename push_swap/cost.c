@@ -46,31 +46,3 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-int	get_hight_index(t_stack_node *stack)
-{
-	int	index;
-
-	index = stack->index;
-	while (stack)
-	{
-		if (stack->index > index)
-			index = stack->index;
-		stack = stack->next;
-	}
-	printf("index : %d\n", index);
-	return (index);
-}
-
-int	get_lowest_index(t_stack_node *stack)
-{
-	int	lowest;
-
-	lowest = stack->index;
-	while (stack)
-	{
-		if (stack->index < lowest)
-			lowest = stack->index;
-		stack = stack->next;
-	}
-	return (lowest);
-}

@@ -29,14 +29,16 @@ static void	rrotate(t_stack_node **stack)
 void	rra(t_stack_node **stack_a, bool print)
 {
 	rrotate(stack_a);
-	if (print == 1)
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return ;
+	if (!print)
 		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack_node **stack_b, bool print)
 {
 	rrotate(stack_b);
-	if (print == 1)
+	if (!print)
 		write(1, "rrb\n", 4);
 }
 
@@ -44,6 +46,6 @@ void	rrr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
 	rrotate(stack_a);
 	rrotate(stack_b);
-	if (print == 1)
+	if (!print)
 		write(1, "rrr\n", 5);
 }

@@ -57,7 +57,7 @@ void	rr_both(t_stack_node **stack_a,
 			t_stack_node **stack_b, t_stack_node *cheap_node)
 {
 	while (*stack_b != cheap_node->target && *stack_a != cheap_node)
-		rr(stack_a, stack_b, 1);
+		rr(stack_a, stack_b, false);
 	current_index(*stack_a);
 	current_index(*stack_b);
 }
@@ -66,7 +66,7 @@ void	rrr_both(t_stack_node **stack_a,
 			t_stack_node **stack_b, t_stack_node *cheap_node)
 {
 	while (*stack_b != cheap_node->target && *stack_a != cheap_node)
-		rrr(stack_a, stack_b, 1);
+		rrr(stack_a, stack_b, false);
 	current_index(*stack_a);
 	current_index(*stack_b);
 }

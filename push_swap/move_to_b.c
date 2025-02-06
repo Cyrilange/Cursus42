@@ -20,16 +20,16 @@ void	current_index(t_stack_node *stack)
 	i = 0;
 	if (!stack)
 		return ;
-	middle = stack_len(stack) - get_lowest_index(stack);
+	middle = stack_len(stack) / 2;
 	while (stack)
 	{
 		stack->index = i;
-		if (i < middle)
+		if (i <= middle)
 			stack->top_middle_stack = true;
 		else
 			stack->top_middle_stack = false;
 		stack = stack->next;
-		i++;
+		++i;
 	}
 }
 
@@ -54,7 +54,7 @@ static	void	calculate_target(t_stack_node *stack_a, t_stack_node *stack_b)
 			aux = aux->next;
 		}
 		if (match_for_closest_smallest_number == LONG_MIN)
-			stack_a->target = find_max_node(stack_b);
+			stack_a->target = find_max_node(stack_a);
 		else
 			stack_a->target = target_node;
 		stack_a = stack_a->next;
@@ -72,11 +72,11 @@ static void	calculate_cost(t_stack_node *stack_a, t_stack_node *stack_b)
 	{
 		stack_a->push = stack_a->index;
 		if (!(stack_a->top_middle_stack))
-			stack_a->push = len_a - stack_a->index;
+			stack_a->push = len_a - (stack_a->index);
 		if (stack_a->target->top_middle_stack)
 			stack_a->push += stack_a->target->index;
 		else
-			stack_a->push += len_b - stack_a->target->index;
+			stack_a->push += len_b - (stack_a->target->index);
 		stack_a = stack_a->next;
 	}
 }
