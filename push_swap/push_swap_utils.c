@@ -17,15 +17,15 @@ void	append_node(t_stack_node **stack, int nbr)
 	t_stack_node	*node;
 	t_stack_node	*last_node;
 
-	if (NULL == stack)
+	if (!stack)
 		return ;
 	node = malloc(sizeof(t_stack_node));
-	if (NULL == node)
+	if (!node)
 		return ;
 	node->next = NULL;
 	node->value = nbr;
 	node->cheap = 0;
-	if (NULL == *stack)
+	if (!(*stack))
 	{
 		*stack = node;
 		node->prev = NULL;
@@ -45,10 +45,10 @@ int	stack_len(t_stack_node *stack)
 	if (!stack)
 		return (0);
 	size = 0;
-	while (stack != NULL)
+	while (stack)
 	{
-		size++;
 		stack = stack->next;
+		size++;
 	}
 	return (size);
 }

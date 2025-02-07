@@ -52,8 +52,8 @@ void			rrr(t_stack_node **stack_a,
 					t_stack_node **stack_b, bool print);
 void			rrr_both(t_stack_node **stack_a,
 					t_stack_node **stack_b, t_stack_node *cheap_node);
-void			pa(t_stack_node **a, t_stack_node **b);
-void			pb(t_stack_node **a, t_stack_node **b);
+void			pa(t_stack_node **a, t_stack_node **b, bool print);
+void			pb(t_stack_node **a, t_stack_node **b, bool print);
 void			sort_small(t_stack_node **stack);
 void			free_stack(t_stack_node **stack);
 void			print_stack(t_stack_node *stack);
@@ -67,7 +67,6 @@ t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_last_node(t_stack_node *head);
 t_stack_node	*get_cheapest(t_stack_node *stack);
 char			**ft_split(char const *s, char c);
-char			*ft_strndup(const char *src, size_t n);
 void			calculate_cheapest(t_stack_node *stack);
 void			initiation(t_stack_node *stack_a, t_stack_node *stack_b);
 void			initiation_b(t_stack_node *stack_a, t_stack_node *stack_b);
@@ -75,6 +74,10 @@ void			move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b);
 void			move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b);
 void			pivot(t_stack_node **stack,
 					t_stack_node *hightest_node, char str);
-					int find_min_position(t_stack_node *stack);
+int				is_valid_integer(char *str);
+int				is_duplicate(t_stack_node *head, int n);
+void			calculate_target_b(t_stack_node *stack_a, t_stack_node *stack_b);
+void			calculate_cost(t_stack_node *stack_a, t_stack_node *stack_b);
+void			calculate_target(t_stack_node *stack_a, t_stack_node *stack_b);
 
 #endif

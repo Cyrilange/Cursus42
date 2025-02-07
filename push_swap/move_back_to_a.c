@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static	void	calculate_target_b(t_stack_node *stack_a, t_stack_node *stack_b)
+void	calculate_target_b(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	t_stack_node	*aux;
 	t_stack_node	*target_node;
@@ -50,5 +50,5 @@ void	initiation_b(t_stack_node *stack_a, t_stack_node *stack_b)
 void	move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	pivot(stack_a, (*stack_b)->target, 'a');
-	pa(stack_a, stack_b);
+	pa(stack_a, stack_b, false);
 }

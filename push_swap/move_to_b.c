@@ -33,7 +33,7 @@ void	current_index(t_stack_node *stack)
 	}
 }
 
-static	void	calculate_target(t_stack_node *stack_a, t_stack_node *stack_b)
+void	calculate_target(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	t_stack_node	*aux;
 	t_stack_node	*target_node;
@@ -54,14 +54,14 @@ static	void	calculate_target(t_stack_node *stack_a, t_stack_node *stack_b)
 			aux = aux->next;
 		}
 		if (match_for_closest_smallest_number == LONG_MIN)
-			stack_a->target = find_max_node(stack_a);
+			stack_a->target = find_max_node(stack_b);
 		else
 			stack_a->target = target_node;
 		stack_a = stack_a->next;
 	}
 }
 
-static void	calculate_cost(t_stack_node *stack_a, t_stack_node *stack_b)
+void	calculate_cost(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	int	len_a;
 	int	len_b;
@@ -101,5 +101,5 @@ void	move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 		rrr_both(stack_a, stack_b, cheap_node);
 	pivot(stack_a, cheap_node, 'a');
 	pivot(stack_b, cheap_node->target, 'b');
-	pb(stack_b, stack_a);
+	pb(stack_b, stack_a, false);
 }

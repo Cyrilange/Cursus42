@@ -2,11 +2,11 @@
 
 #include "../includes/so_long.h"
 
-static void init_player_position(t_map *game)
+void init_player_position(t_map *game)
 {
 	int32_t	y;
 	int32_t	x;
-
+	ft_printf("fonction pour trouver le joueur");
 	y = 0;
     while (y < game->height)  // Parcours des lignes (y)
     {
@@ -17,12 +17,14 @@ static void init_player_position(t_map *game)
             {
                 game->player_coord.x = x;  // Stocke la position X
                 game->player_coord.y = y;  // Stocke la position Y
+				ft_printf("Position du joueur initialisée à : (%d, %d)\n", x, y);
                 return;  // On arrête la recherche dès qu'on trouve le joueur
             }
 			x++;
         }
 		y++;
     }
+	 printf("Erreur : joueur non trouvé sur la carte !\n");
 }
 
 int main(int argc, char **argv)
@@ -34,9 +36,11 @@ int main(int argc, char **argv)
         fprintf(stderr, "Utilisation : ./so_long <map.ber>\n");
         return (EXIT_FAILURE);
     }
+	
     init_game(&game, argv[1]);
+	init_player_position(&game);
 
-    init_player_position(&game);
+    
     load_textures(&game);
     display_map(&game);
     mlx_key_hook(game.mlx, key_press, &game);

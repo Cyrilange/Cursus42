@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2 || (argc == 2 && !argv[1][0]))
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	if (!is_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, 1);
+			sa(&a, false);
 		else if (stack_len(a) == 3)
 		{
 			//print_stack(a);
@@ -58,10 +58,9 @@ int	main(int argc, char **argv)
 			//print_stack(a);
 			push_swap(&a, &b);
 			print_stack(a);
-			free_stack(&a);
 		}
 	}
-	free_both(&a, &b);
+	free_stack(&a);
 	return (0);
 }
 

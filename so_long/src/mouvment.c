@@ -8,6 +8,8 @@ static void player_moving(t_map *game, t_dir direction)
 
     new_x = game->player_coord.x;
     new_y = game->player_coord.y;
+    if (new_x < 0 || new_x >= game->height || new_y < 0 || new_y >= game->width)
+        return;
     if (direction == UP)
         new_x--;
     else if (direction == DOWN)

@@ -59,6 +59,7 @@ void display_map(t_map *game);
 void load_textures(t_map *game);
 void free_game(t_map *game);
 int ft_strlen_so(char *str);
+void init_player_position(t_map *game);
 
 
 

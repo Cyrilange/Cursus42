@@ -16,7 +16,7 @@ static void	rrotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
 
-	if (!stack || !*stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	last = find_last_node(*stack);
 	last->prev->next = NULL;
@@ -29,8 +29,6 @@ static void	rrotate(t_stack_node **stack)
 void	rra(t_stack_node **stack_a, bool print)
 {
 	rrotate(stack_a);
-	if (!stack_a || !*stack_a || !(*stack_a)->next)
-		return ;
 	if (!print)
 		write(1, "rra\n", 4);
 }

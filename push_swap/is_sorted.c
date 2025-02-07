@@ -14,7 +14,9 @@
 
 bool	is_sorted(t_stack_node *head)
 {
-	while (head && head->next)
+	if (!head)
+		return (1);
+	while (head->next)
 	{
 		if (head->value > head->next->value)
 			return (false);

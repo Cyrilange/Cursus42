@@ -36,14 +36,16 @@ static void	push(t_stack_node **stack_d, t_stack_node **stack_s)
 	}
 }
 
-void	pa(t_stack_node **a, t_stack_node **b)
+void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
 	push(a, b);
-	write(1, "pa\n", 3);
+	if(!print)
+		write(1, "pa\n", 3);
 }
 
-void	pb(t_stack_node **b, t_stack_node **a)
+void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
 	push(b, a);
-	write(1, "pb\n", 3);
+	if(!print)
+		write(1, "pb\n", 3);
 }

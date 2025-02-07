@@ -38,8 +38,6 @@ t_stack_node	*find_min_node(t_stack_node *stack)
 	t_stack_node	*min_node;
 
 	min = LONG_MAX;
-	if (!stack)
-		return (NULL);
 	while (stack)
 	{
 		if (stack->value < min)
@@ -79,7 +77,7 @@ int find_min_position(t_stack_node *stack)
 
 t_stack_node	*find_last_node(t_stack_node *head)
 {
-	if (NULL == head)
+	if (!head)
 		return (NULL);
 	while (head->next)
 		head = head->next;

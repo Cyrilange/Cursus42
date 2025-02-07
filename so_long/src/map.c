@@ -94,6 +94,7 @@ int validate_map(t_map *map)
             return 0;
 		i++;
     }
+	
 
     return 1;
 }
@@ -113,15 +114,15 @@ void display_map(t_map *game)
             tile = game->grid[y][x];
 
             if (tile == '1')
-                mlx_image_to_window(game->mlx, game->wall, x * WIDHT, y * HEIGHT);
+                mlx_image_to_window(game->mlx, game->wall, x * 32, y * 32);
             else if (tile == '0')  // Sol
-                mlx_image_to_window(game->mlx, game->floor, x * WIDHT, y * HEIGHT);
+                mlx_image_to_window(game->mlx, game->floor, x * 32, y * 32);
             else if (tile == 'P')  // Joueur
-                mlx_image_to_window(game->mlx, game->player, x * WIDHT, y * HEIGHT);
+                mlx_image_to_window(game->mlx, game->player, x * 32, y * 32);
             else if (tile == 'C')  // Collectible
-                mlx_image_to_window(game->mlx, game->collectible, x * WIDHT, y * HEIGHT);
+                mlx_image_to_window(game->mlx, game->collectible, x * 32, y * 32);
             else if (tile == 'E')  // Sortie
-                mlx_image_to_window(game->mlx, game->exit, x * WIDHT, y * HEIGHT);
+                mlx_image_to_window(game->mlx, game->exit, x * 32, y * 32);
             x++;
         }
         y++;

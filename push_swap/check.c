@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	is_valid_integer(char *str)
+int	is_valid_integer(char *str)
 {
 	if (!(*str == '+' || *str == '-'
 			|| (*str >= '0' && *str <= '9')))
@@ -29,7 +29,7 @@ static int	is_valid_integer(char *str)
 	return (0);
 }
 
-static int	is_duplicate(t_stack_node *head, int n)
+int	is_duplicate(t_stack_node *head, int n)
 {
 	if (!head)
 		return (0);
@@ -53,7 +53,7 @@ void	stack_checked(t_stack_node **stack_a, char **str)
 		if (is_valid_integer(str[i]))
 			ft_error(stack_a);
 		n = ft_atol(str[i]);
-		if (n >= INT_MAX && n <= INT_MIN)
+		if (n > INT_MAX && n < INT_MIN)
 			ft_error(stack_a);
 		if (is_duplicate(*stack_a, (int)n))
 			ft_error(stack_a);
