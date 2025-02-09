@@ -28,14 +28,14 @@ typedef struct s_stack_node
 	int					push;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
-	struct s_stack_node	*target;
+	struct s_stack_node	*target_node;
 }	t_stack_node;
 
 int				ft_atol(const char *str);
 int				stack_len(t_stack_node *stack);
 bool			is_sorted(t_stack_node *head);
 void			current_index(t_stack_node *stack);
-void			ft_error(t_stack_node **a);
+void			ft_error(t_stack_node **a, char **str, bool flag);
 void			ft_putstr(const char *str);
 void			swap(t_stack_node **stack_a);
 void			sa(t_stack_node **stack_a, bool print);
@@ -58,9 +58,7 @@ void			sort_small(t_stack_node **stack);
 void			free_stack(t_stack_node **stack);
 void			print_stack(t_stack_node *stack);
 void			append_node(t_stack_node **stack, int nbr);
-void			stack_checked(t_stack_node **stack_a, char **str);
-void			free_both(t_stack_node **a, t_stack_node **b);
-void			sort_large(t_stack_node **stack_a);
+void			stack_checked(t_stack_node **stack_a, char **str, bool flag);
 void			push_swap(t_stack_node **stack_a, t_stack_node **stack_b);
 t_stack_node	*find_max_node(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
@@ -69,15 +67,17 @@ t_stack_node	*get_cheapest(t_stack_node *stack);
 char			**ft_split(char const *s, char c);
 void			calculate_cheapest(t_stack_node *stack);
 void			initiation(t_stack_node *stack_a, t_stack_node *stack_b);
-void			initiation_b(t_stack_node *stack_a, t_stack_node *stack_b);
-void			move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b);
 void			move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b);
 void			pivot(t_stack_node **stack,
 					t_stack_node *hightest_node, char str);
 int				is_valid_integer(char *str);
 int				is_duplicate(t_stack_node *head, int n);
-void			calculate_target_b(t_stack_node *stack_a, t_stack_node *stack_b);
-void			calculate_cost(t_stack_node *stack_a, t_stack_node *stack_b);
+void			calculate_cost(t_stack_node *a, t_stack_node *b);
 void			calculate_target(t_stack_node *stack_a, t_stack_node *stack_b);
+void			rrotate(t_stack_node **stack);
+void			rotate(t_stack_node **stack);
+void			free_array(char **arr);
+void			sort_five(t_stack_node **stack_a, t_stack_node **stack_b);
+void	free_split(char **str);
 
 #endif

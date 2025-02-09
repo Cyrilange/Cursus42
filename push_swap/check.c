@@ -42,7 +42,7 @@ int	is_duplicate(t_stack_node *head, int n)
 	return (0);
 }
 
-void	stack_checked(t_stack_node **stack_a, char **str)
+void	stack_checked(t_stack_node **stack_a, char **str, bool flag)
 {
 	long	n;
 	int		i;
@@ -51,13 +51,15 @@ void	stack_checked(t_stack_node **stack_a, char **str)
 	while (str[i])
 	{
 		if (is_valid_integer(str[i]))
-			ft_error(stack_a);
+			ft_error(stack_a, str, flag);
 		n = ft_atol(str[i]);
-		if (n > INT_MAX && n < INT_MIN)
-			ft_error(stack_a);
+		if (n > INT_MAX || n < INT_MIN)
+			ft_error(stack_a, str, flag);
 		if (is_duplicate(*stack_a, (int)n))
-			ft_error(stack_a);
+			ft_error(stack_a, str, flag);
 		append_node(stack_a, (int)n);
 		i++;
 	}
+	if (flag)
+		free_split(str);
 }

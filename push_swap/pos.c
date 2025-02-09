@@ -37,6 +37,8 @@ t_stack_node	*find_min_node(t_stack_node *stack)
 	long			min;
 	t_stack_node	*min_node;
 
+	if (!stack)
+		return (NULL);
 	min = LONG_MAX;
 	while (stack)
 	{
@@ -49,31 +51,6 @@ t_stack_node	*find_min_node(t_stack_node *stack)
 	}
 	return (min_node);
 }
-int find_min_position(t_stack_node *stack)
-{
-    t_stack_node *min_node;
-    int          position;
-
-    // Appel à la fonction pour récupérer le nœud avec la valeur minimale
-    min_node = find_min_node(stack);
-
-    // Si la pile est vide, retourne une valeur d'erreur (par exemple -1)
-    if (!min_node)
-        return (-1);
-
-    // Parcours de la pile pour trouver la position de min_node
-    position = 0;
-    while (stack)
-    {
-        if (stack == min_node)  // Si le nœud actuel est min_node, retourne la position
-            return (position);
-        stack = stack->next;
-        position++;
-    }
-
-    return (-1);  // Au cas où quelque chose ne va pas
-}
-
 
 t_stack_node	*find_last_node(t_stack_node *head)
 {

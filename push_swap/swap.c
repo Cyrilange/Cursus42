@@ -32,21 +32,21 @@ void	swap(t_stack_node **stack_a)
 void	sa(t_stack_node **stack_a, bool print)
 {
 	swap(stack_a);
-	if (print == 1)
+	if (!print)
 		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack_node **stack_b, bool print)
 {
 	swap(stack_b);
-	if (print == 1)
+	if (!print)
 		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
-	sa(stack_a, 0);
-	sb(stack_b, 0);
-	if (print == 1)
+	swap(stack_a);
+	swap(stack_b);
+	if (!print)
 		write(1, "ss\n", 3);
 }

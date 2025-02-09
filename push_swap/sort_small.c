@@ -16,25 +16,35 @@ void	sort_small(t_stack_node **stack_a)
 {
 	if (find_min_node(*stack_a) == (*stack_a))
 	{
-		rra(stack_a, 1);
-		sa(stack_a, 1);
+		rra(stack_a, false);
+		sa(stack_a, false);
 	}
 	else if (find_max_node(*stack_a) == (*stack_a))
 	{
-		ra(stack_a, 1);
+		ra(stack_a, false);
 		if (!is_sorted(*stack_a))
-			sa(stack_a, 1);
+			sa(stack_a, false);
 	}
 	else
 	{
 		if (find_max_node(*stack_a) == (*stack_a)->next 
 			&& find_min_node(*stack_a) == (*stack_a)->next->next)
 			{
-				rra(stack_a, 1);
+				rra(stack_a, false);
 			}
 		else
-			sa(stack_a, 1);
+			sa(stack_a, false);
 	}	
+}
+
+void	sort_five(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	while (stack_len(*stack_a) > 3)
+	{
+		initiation(*stack_a, *stack_b);
+		pivot(stack_a, find_min_node(*stack_a), 'a');
+		pb(stack_b, stack_a, 1);
+	}
 }
 
 

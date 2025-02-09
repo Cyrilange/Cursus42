@@ -12,39 +12,28 @@
 
 #include "push_swap.h"
 
-void	push_swap(t_stack_node **stack_a, t_stack_node **stack_b)
+void	push_swap(t_stack_node **a, t_stack_node **b)
 {
-	int	stack_size;
-	
-	stack_size = stack_len(*stack_a);
-	if (stack_size-- > 3 && !(is_sorted(*stack_a)))
-		pb(stack_b, stack_a, false);
-	if (stack_size-- > 3 && !(is_sorted(*stack_a)))
-		pb(stack_b, stack_a, false);
-	while (stack_size-- > 3 && !(is_sorted(*stack_a)))
-	{
-		initiation(*stack_a, *stack_b);
-		move_a_to_b(stack_a, stack_b);
-	}
-	sort_small(stack_a);
-	while (*stack_b)
-	{
-		initiation_b(*stack_a, *stack_b);
-		move_b_to_a(stack_a, stack_b);
-	}
-	current_index(*stack_a);
-	sort_large(stack_a);
-}
+	t_stack_node	*smallest;
+	int				len_a;
 
-void	sort_large(t_stack_node **stack_a)
-{
-	while ((*stack_a)->value != find_min_node(*stack_a)->value)
+	len_a = stack_len(*a);
+	while (len_a-- > 3)
+		pb(b, a, 1);
+	sort_small(a);
+	while (*b)
 	{
-		if (find_min_node(*stack_a)->top_middle_stack)
-			ra(stack_a, false);
-		else
-			rra(stack_a, false);
+		initiation(*a, *b);
+		move_a_to_b(a, b);
 	}
+	current_index(*a);
+	smallest = find_min_node(*a);
+	if (smallest->top_middle_stack)
+		while (*a != smallest)
+			ra(a, 1);
+	else
+		while (*a != smallest)
+			rra(a, 1);
 }
 
 void	pivot(t_stack_node **stack, t_stack_node *hightest_node, char str)

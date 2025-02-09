@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_error(t_stack_node **a)
+void	ft_error(t_stack_node **a, char **str, bool flag)
 {
 	free_stack(a);
+	if (flag)
+		free_split(str);
 	write(1, "Error\n", 6);
 	exit(1);
 }
@@ -36,10 +38,25 @@ void	free_stack(t_stack_node **a)
 	*a = NULL;
 }
 
-void	free_both(t_stack_node **a, t_stack_node **b)
+void	free_split(char **str)
 {
-	free_stack(a);
-	free_stack(b);
+	int	i;
+
+	i = -1;
+	if (!str || *str == NULL)
+		return ;
+	while (str[i])
+		free(str[i++]);
+	free(str - 1);
+}
+
+void free_array(char **arr) {
+    if (!arr)
+        return;
+    for (int i = 0; arr[i] != NULL; i++) {
+        free(arr[i]);
+    }
+    free(arr);
 }
 
 /* -----test_err--------

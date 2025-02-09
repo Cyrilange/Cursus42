@@ -12,13 +12,15 @@
 
 #include "push_swap.h"
 
-static void	rrotate(t_stack_node **stack)
+void	rrotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
 	last = find_last_node(*stack);
+	if (!last || !last->prev)
+    return;
 	last->prev->next = NULL;
 	last->next = *stack;
 	last->prev = NULL;

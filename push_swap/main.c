@@ -42,17 +42,19 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	stack_checked(&a, argv + 1);
+	stack_checked(&a, argv + 1, argc == 2);
 	if (!is_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, false);
+			sa(&a, 1);
 		else if (stack_len(a) == 3)
 		{
 			//print_stack(a);
 			sort_small(&a);
 			print_stack(a);
 		}
+		else if (stack_len(a) == 5)
+			sort_five(&a, &b);
 		else
 		{
 			//print_stack(a);
