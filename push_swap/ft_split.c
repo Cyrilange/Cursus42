@@ -85,10 +85,8 @@ char	**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			res[i] = get_next_word(&s, c);
-			if (!res[i]) 
-			{
-				return NULL;
-			}
+			if (!res[i])
+				return (NULL);
 			i++;
 		}
 		else

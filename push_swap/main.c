@@ -51,7 +51,9 @@ int	main(int argc, char **argv)
 			sort_small(&a);
 		else
 			push_swap(&a, &b);
+		print_stack(a);
 	}
 	free_stack(&a);
+	free_stack(&b);
 }
 //print stack is used to check if number is well structed, need to put 2 3 et pushswap
