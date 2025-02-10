@@ -19,7 +19,7 @@ void	pos_index(t_stack_node *stack)
 
 	i = 0;
 	if (!stack)
-	return ;
+		return ;
 	median = stack_len(stack) / 2;
 	while (stack)
 	{
@@ -38,14 +38,15 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	t_stack_node	*current_b;
 	t_stack_node	*target_node;
 	long			best_match_index;
-	
+
 	while (a)
 	{
 		best_match_index = LONG_MIN;
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->number < a->number && current_b->number > best_match_index)
+			if (current_b->number < a->number
+				&& current_b->number > best_match_index)
 			{
 				best_match_index = current_b->number;
 				target_node = current_b;
@@ -62,25 +63,25 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 
 static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
-        int	len_a;
-        int	len_b;
+	int	len_a;
+	int	len_b;
 
-        len_a = stack_len(a);
-        len_b = stack_len(b);
-        while (a)
-        {
-			a->push_cost = a->index;
-			if (!(a->above_median))
-				a->push_cost = len_a - (a->index);
-			if (a->target_node->above_median)
-				a->push_cost += a->target_node->index;
-			else
-				a->push_cost += len_b - (a->target_node->index);
-			a = a->next;
-		}
+	len_a = stack_len(a);
+	len_b = stack_len(b);
+	while (a)
+	{
+		a->push_cost = a->index;
+		if (!(a->above_median))
+			a->push_cost = len_a - (a->index);
+		if (a->target_node->above_median)
+			a->push_cost += a->target_node->index;
+		else
+			a->push_cost += len_b - (a->target_node->index);
+		a = a->next;
+	}
 }
 
-void    set_cheapest(t_stack_node *stack)
+void	set_cheapest(t_stack_node *stack)
 {
 	long			cheapest_value;
 	t_stack_node	*cheapest_node;

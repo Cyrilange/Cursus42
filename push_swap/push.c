@@ -39,13 +39,13 @@ static void	push(t_stack_node **stack_d, t_stack_node **stack_s)
 void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
 	push(a, b);
-	if(!print)
+	if (!print)
 		write(1, "pa\n", 3);
 }
 
 void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
 	push(b, a);
-	if(!print)
+	if (!print)
 		write(1, "pb\n", 3);
 }

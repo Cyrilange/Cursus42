@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void rrotate(t_stack_node **stack)
+static void	rrotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
 	t_stack_node	*second_last;
@@ -30,7 +30,6 @@ static void rrotate(t_stack_node **stack)
 	last->next = *stack;
 	*stack = last;
 }
-
 
 void	rra(t_stack_node **stack_a, bool print)
 {
