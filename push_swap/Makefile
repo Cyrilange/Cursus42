@@ -8,17 +8,13 @@ RED = \033[0;91m
 
 SRC = main.c \
 	  check.c \
-	  is_sorted.c \
 	  push_swap_utils.c\
 	  push.c\
 	  rotate_left.c\
 	  rotate_right.c\
 	  sort_small.c\
 	  swap.c\
-	  error_free.c\
 	  push_swap_util_aux.c\
-	  pos.c\
-	  cost.c\
 	  push_swap.c\
 	  move_to_b.c\
 	  ft_split.c \

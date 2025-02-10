@@ -12,30 +12,36 @@
 
 #include "push_swap.h"
 
-void	calculate_target(t_stack_node *stack_a, t_stack_node *stack_b)
+static void     set_target_b(t_stack_node *a, t_stack_node *b)
 {
-	t_stack_node	*aux;
-	t_stack_node	*target_node;
-	long			match_for_closest_smallest_number;
-
-	while (stack_b)
-	{
-		match_for_closest_smallest_number = LONG_MAX;
-		aux = stack_a;
-		while (aux)
-		{
-			if (aux->value > stack_b->value
-				&& aux->value < match_for_closest_smallest_number)
+	t_stack_node	*current_a;
+    t_stack_node	*target_node;
+    long			best_match;
+        while (b)
+        {
+			best_match = LONG_MAX;
+			current_a = a;
+			while (current_a)
 			{
-				match_for_closest_smallest_number = aux->value;
-				target_node = aux;
+				if (current_a->number > b->number 
+					&& current_a->number < best_match)
+						{
+							best_match = current_a->number;
+							target_node = current_a;	
+						}
+			current_a = current_a->next;
 			}
-			aux = aux->next;
+			if (best_match == LONG_MAX)
+				b->target_node = find_min_node(a);
+			else
+				b->target_node = target_node;
+			b = b->next;
 		}
-		if (match_for_closest_smallest_number == LONG_MAX)
-			stack_b->target_node = find_min_node(stack_a);
-		else
-			stack_b->target_node = target_node;
-		stack_b = stack_b->next;
-	}
+}
+
+void   	prep_for_b(t_stack_node *a, t_stack_node *b)
+{
+	pos_index(a);
+	pos_index(b);
+	set_target_b(a, b);
 }

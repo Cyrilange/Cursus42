@@ -12,62 +12,79 @@
 
 #include "push_swap.h"
 
-void	append_node(t_stack_node **stack, int nbr)
-{
-	t_stack_node	*node;
-	t_stack_node	*last_node;
-
-	if (!stack)
-		return ;
-	node = malloc(sizeof(t_stack_node));
-	if (!node)
-		return ;
-	node->next = NULL;
-	node->value = nbr;
-	node->cheap = 0;
-	if (!(*stack))
-	{
-		*stack = node;
-		node->prev = NULL;
-	}
-	else
-	{
-		last_node = find_last_node(*stack);
-		last_node->next = node;
-		node->prev = last_node;
-	}
-}
-
 int	stack_len(t_stack_node *stack)
 {
-	int				size;
+	int	i;
 
 	if (!stack)
 		return (0);
-	size = 0;
+	i = 0;
 	while (stack)
 	{
 		stack = stack->next;
-		size++;
+		i++;
 	}
-	return (size);
+	return (i);
 }
 
-void	rr_both(t_stack_node **stack_a,
-			t_stack_node **stack_b, t_stack_node *cheap_node)
+t_stack_node	*find_last_node(t_stack_node *stack)
 {
-	while (*stack_b != cheap_node->target_node && *stack_a != cheap_node)
-		rr(stack_a, stack_b, false);
-	current_index(*stack_a);
-	current_index(*stack_b);
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }
 
-void	rrr_both(t_stack_node **stack_a,
-			t_stack_node **stack_b, t_stack_node *cheap_node)
+bool	is_sorted(t_stack_node *stack)
 {
-	while (*stack_b != cheap_node->target_node && *stack_a != cheap_node)
-		rrr(stack_a, stack_b, false);
-	current_index(*stack_a);
-	current_index(*stack_b);
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->number > stack->next->number)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
 }
- 
+
+t_stack_node	*find_min_node(t_stack_node *stack)
+{
+	long			min;
+	t_stack_node	*min_node;
+
+	if (!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
+	{
+		if (stack->number < min)
+		{
+			min = stack->number;
+			min_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (min_node);
+}
+
+t_stack_node	*find_max_node(t_stack_node *stack)
+{
+	long			max;
+	t_stack_node	*max_node;
+
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack->number > max)
+		{
+			max = stack->number;
+			max_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_node);
+}

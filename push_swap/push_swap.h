@@ -22,62 +22,49 @@
 typedef struct s_stack_node
 {
 	int					index;
-	int					value;
-	bool				top_middle_stack;
-	bool				cheap;
-	int					push;
+	int					number;
+	bool				above_median;
+	bool				cheapest;
+	int					push_cost;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 	struct s_stack_node	*target_node;
 }	t_stack_node;
 
-int				ft_atol(const char *str);
 int				stack_len(t_stack_node *stack);
-bool			is_sorted(t_stack_node *head);
-void			current_index(t_stack_node *stack);
-void			ft_error(t_stack_node **a, char **str, bool flag);
-void			ft_putstr(const char *str);
-void			swap(t_stack_node **stack_a);
+int				is_not_duplicate(t_stack_node *a, int n);
+int				is_not_number(char *str_n);
+bool			is_sorted(t_stack_node *stack);
+void			free_stack(t_stack_node **stack);
+void			free_errors(t_stack_node **a);
+void			stacked_checked(t_stack_node **a, char **str);
+char			**ft_split(char const *s, char c);
+void			pos_index(t_stack_node *stack);
+void			prep_for_b(t_stack_node *a, t_stack_node *b);
+void			prep_for_a(t_stack_node *a, t_stack_node *b);
+t_stack_node	*get_cheapest(t_stack_node *stack);
+void			init_push(t_stack_node **stack,t_stack_node *top_node,char stack_name);
+t_stack_node	*find_last_node(t_stack_node *stack);
+t_stack_node	*find_min_node(t_stack_node *stack);
+t_stack_node	*find_max_node(t_stack_node *stack);
+void			sort_small(t_stack_node **a);
+void			push_swap(t_stack_node **a, t_stack_node **b);
 void			sa(t_stack_node **stack_a, bool print);
 void			sb(t_stack_node **stack_b, bool print);
 void			ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print);
+void			pa(t_stack_node **a, t_stack_node **b, bool print);
+void			pb(t_stack_node **b, t_stack_node **a, bool print);
+void			rra(t_stack_node **stack_a, bool print);
+void			rrb(t_stack_node **stack_b, bool print);
+void			rrr(t_stack_node **stack_a, t_stack_node **stack_b, bool print);
 void			ra(t_stack_node **stack_a, bool print);
 void			rb(t_stack_node **stack_b, bool print);
 void			rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print);
-void			rr_both(t_stack_node **stack_a,
-					t_stack_node **stack_b, t_stack_node *cheap_node);
-void			rra(t_stack_node **stack_a, bool print);
-void			rrb(t_stack_node **stack_b, bool print);
-void			rrr(t_stack_node **stack_a,
-					t_stack_node **stack_b, bool print);
-void			rrr_both(t_stack_node **stack_a,
-					t_stack_node **stack_b, t_stack_node *cheap_node);
-void			pa(t_stack_node **a, t_stack_node **b, bool print);
-void			pb(t_stack_node **a, t_stack_node **b, bool print);
-void			sort_small(t_stack_node **stack);
-void			free_stack(t_stack_node **stack);
-void			print_stack(t_stack_node *stack);
-void			append_node(t_stack_node **stack, int nbr);
-void			stack_checked(t_stack_node **stack_a, char **str, bool flag);
-void			push_swap(t_stack_node **stack_a, t_stack_node **stack_b);
-t_stack_node	*find_max_node(t_stack_node *stack);
-t_stack_node	*find_min_node(t_stack_node *stack);
-t_stack_node	*find_last_node(t_stack_node *head);
-t_stack_node	*get_cheapest(t_stack_node *stack);
-char			**ft_split(char const *s, char c);
-void			calculate_cheapest(t_stack_node *stack);
-void			initiation(t_stack_node *stack_a, t_stack_node *stack_b);
-void			move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b);
-void			pivot(t_stack_node **stack,
-					t_stack_node *hightest_node, char str);
-int				is_valid_integer(char *str);
-int				is_duplicate(t_stack_node *head, int n);
-void			calculate_cost(t_stack_node *a, t_stack_node *b);
-void			calculate_target(t_stack_node *stack_a, t_stack_node *stack_b);
-void			rrotate(t_stack_node **stack);
-void			rotate(t_stack_node **stack);
-void			free_array(char **arr);
-void			sort_five(t_stack_node **stack_a, t_stack_node **stack_b);
-void	free_split(char **str);
+
+
+
+
+
+
 
 #endif

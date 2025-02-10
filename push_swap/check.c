@@ -12,54 +12,56 @@
 
 #include "push_swap.h"
 
-int	is_valid_integer(char *str)
+int	is_not_number(char *str_n)
 {
-	if (!(*str == '+' || *str == '-'
-			|| (*str >= '0' && *str <= '9')))
-		return (1);
-	if ((*str == '+'
-			|| *str == '-')
-		&& !(str[1] >= '0' && str[1] <= '9'))
-		return (1);
-	while (*++str)
-	{
-		if (!(*str >= '0' && *str <= '9'))
-			return (1);
-	}
-	return (0);
-}
-
-int	is_duplicate(t_stack_node *head, int n)
-{
-	if (!head)
+		if (!(*str_n == '+'|| *str_n == '-'
+			|| (*str_n >= '0' && *str_n <= '9')))
+				return (1);
+		if ((*str_n == '+' || *str_n == '-')
+			&& !(str_n[1] >= '0' && str_n[1] <= '9'))
+				return (1);
+		while (*++str_n)
+		{
+			if (!(*str_n >= '0' && *str_n <= '9'))
+				return (1);
+		}
 		return (0);
-	while (head)
-	{
-		if (head->value == n)
-			return (1);
-		head = head->next;
-	}
-	return (0);
 }
 
-void	stack_checked(t_stack_node **stack_a, char **str, bool flag)
+int	is_not_duplicate(t_stack_node *a, int n)
 {
-	long	n;
-	int		i;
+		if (!a)
+			return (0);
+		while (a)
+        {
+			if (a->number == n)
+				return (1);
+			a = a->next;
+		}
+		return (0);
+}
 
-	i = 0;
-	while (str[i])
-	{
-		if (is_valid_integer(str[i]))
-			ft_error(stack_a, str, flag);
-		n = ft_atol(str[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			ft_error(stack_a, str, flag);
-		if (is_duplicate(*stack_a, (int)n))
-			ft_error(stack_a, str, flag);
-		append_node(stack_a, (int)n);
-		i++;
-	}
-	if (flag)
-		free_split(str);
+void	free_stack(t_stack_node **stack)
+{
+        t_stack_node	*tmp;
+        t_stack_node	*current;
+
+		if (!stack)
+			return ;
+		current = *stack;
+		while (current)
+		{
+			tmp = current->next;
+			current->number = 0;
+			free(current);
+			current = tmp;
+		}
+		*stack = NULL;
+}
+
+void	free_errors(t_stack_node **a)
+{
+	free_stack(a);
+	write(1, "Error\n", 6);
+	exit(1);
 }

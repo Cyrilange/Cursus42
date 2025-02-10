@@ -87,7 +87,6 @@ char	**ft_split(char const *s, char c)
 			res[i] = get_next_word(&s, c);
 			if (!res[i]) 
 			{
-				free_array(res);
 				return NULL;
 			}
 			i++;
