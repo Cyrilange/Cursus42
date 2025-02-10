@@ -43,7 +43,8 @@ void			pos_index(t_stack_node *stack);
 void			prep_for_b(t_stack_node *a, t_stack_node *b);
 void			prep_for_a(t_stack_node *a, t_stack_node *b);
 t_stack_node	*get_cheapest(t_stack_node *stack);
-void			init_push(t_stack_node **stack,t_stack_node *top_node,char stack_name);
+void			init_push(t_stack_node **stack,
+					t_stack_node *top_node, char stack_name);
 t_stack_node	*find_last_node(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_max_node(t_stack_node *stack);
@@ -60,11 +61,6 @@ void			rrr(t_stack_node **stack_a, t_stack_node **stack_b, bool print);
 void			ra(t_stack_node **stack_a, bool print);
 void			rb(t_stack_node **stack_b, bool print);
 void			rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print);
-
-
-
-
-
-
+void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 
 #endif

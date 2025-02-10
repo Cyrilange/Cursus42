@@ -45,3 +45,9 @@ void   	prep_for_b(t_stack_node *a, t_stack_node *b)
 	pos_index(b);
 	set_target_b(a, b);
 }
+
+void	move_b_to_a(t_stack_node **a, t_stack_node **b)
+{
+	init_push(a, (*b)->target_node, 'a');
+	pa(a, b, false);
+}
