@@ -15,6 +15,7 @@ OBJ_DIR         = ./obj
 SRC_FILES       = 	so_long.c \
 					map.c \
 					get_next_line/get_next_line.c \
+					get_next_line/get_next_line_utils.c \
 					initialisation.c \
 					mouvment.c \
 					error_handling.c\

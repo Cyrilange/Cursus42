@@ -1,15 +1,20 @@
 #include "../includes/so_long.h"
 
-static void player_moving(t_map *game, t_dir direction)
+static void player_moving(t_game *game, t_dir direction)
 {
     int new_x;
     int new_y;
     char next_tile;
 
-    new_x = game->player_coord.x;
-    new_y = game->player_coord.y;
-    if (new_x < 0 || new_x >= game->height || new_y < 0 || new_y >= game->width)
+    // Récupère les coordonnées du joueur
+    new_x = game->map->player_coord.x;
+    new_y = game->map->player_coord.y;
+
+    // Vérification des limites de la carte
+    if (new_x < 0 || new_x >= game->map->height || new_y < 0 || new_y >= game->map->width)
         return;
+
+    // Déplacement du joueur selon la direction
     if (direction == UP)
         new_x--;
     else if (direction == DOWN)
@@ -18,40 +23,46 @@ static void player_moving(t_map *game, t_dir direction)
         new_y--;
     else if (direction == RIGHT)
         new_y++;
-    next_tile = game->grid[new_x][new_y];
-    if (next_tile == '1')
+
+    // Vérification de la case suivante
+    next_tile = game->map->grid[new_x][new_y];
+    if (next_tile == '1')  // Mur
         return;
-    if (next_tile == 'C')
-        game->grid[new_x][new_y] = '0';
-    if (next_tile == 'E')
+    if (next_tile == 'C')  // Collectible
+        game->map->grid[new_x][new_y] = '0';
+    if (next_tile == 'E')  // Sortie
     {
-        // (Optionnel : Vérifier si tous les collectibles ont été pris avant de gagner)
+        // Optionnel : Vérifier si tous les collectibles ont été pris avant de gagner
         mlx_close_window(game->mlx);
         return;
     }
-    game->grid[game->player_coord.x][game->player_coord.y] = '0';
-    game->grid[new_x][new_y] = 'P';
-    game->player_coord.x = new_x;
-    game->player_coord.y = new_y;
+
+    // Met à jour la position du joueur sur la carte
+    game->map->grid[game->map->player_coord.x][game->map->player_coord.y] = '0';
+    game->map->grid[new_x][new_y] = 'P';
+    game->map->player_coord.x = new_x;
+    game->map->player_coord.y = new_y;
 }
 
-
-void    key_press(mlx_key_data_t keydata, void *param)
+void key_press(mlx_key_data_t keydata, void *param)
 {
-    t_map *map = (t_map *)param;
+    t_game *game = (t_game *)param;
 
+    // Gestion de la touche ESC pour fermer la fenêtre
     if (keydata.key == MLX_KEY_ESCAPE)
-        mlx_close_window(map->mlx);
+        mlx_close_window(game->mlx);
+
+    // Gestion des touches de déplacement
     if ((keydata.key == MLX_KEY_UP || keydata.key == MLX_KEY_W)
             && keydata.action == MLX_PRESS)
-        player_moving(map, UP);
+        player_moving(game, UP);
     else if ((keydata.key == MLX_KEY_DOWN || keydata.key == MLX_KEY_S)
             && keydata.action == MLX_PRESS)
-        player_moving(map, DOWN);
+        player_moving(game, DOWN);
     else if ((keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_A)
             && keydata.action == MLX_PRESS)
-        player_moving(map, LEFT);
+        player_moving(game, LEFT);
     else if ((keydata.key == MLX_KEY_RIGHT || keydata.key == MLX_KEY_D)
             && keydata.action == MLX_PRESS)
-        player_moving(map, RIGHT);
+        player_moving(game, RIGHT);
 }

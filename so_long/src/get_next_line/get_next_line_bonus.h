@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-06-27 13:51:42 by csalamit          #+#    #+#             */
-/*   Updated: 2024-06-27 13:51:42 by csalamit         ###   ########.fr       */
+/*   Created: 2024-09-03 08:59:30 by csalamit          #+#    #+#             */
+/*   Updated: 2024-09-03 08:59:30 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
 # include <string.h>
 # include <fcntl.h>
+# include <limits.h>
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 256
+# endif
+
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 13214637
+#  define BUFFER_SIZE 1000
 # endif
 
 char		*get_next_line(int fd);

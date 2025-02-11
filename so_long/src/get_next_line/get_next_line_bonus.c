@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-06-27 13:51:51 by csalamit          #+#    #+#             */
-/*   Updated: 2024-06-27 13:51:51 by csalamit         ###   ########.fr       */
+/*   Created: 2024-09-03 08:59:24 by csalamit          #+#    #+#             */
+/*   Updated: 2024-09-03 08:59:24 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_free(char *buffer)
 {
@@ -96,19 +96,20 @@ char	*ft_update(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*buffer[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer = ft_fill_line(buffer, fd);
-	if (!buffer)
+	buffer[fd] = ft_fill_line(buffer[fd], fd);
+	if (!buffer[fd])
 		return (NULL);
-	line = ft_read_line(buffer);
-	buffer = ft_update(buffer);
+	line = ft_read_line(buffer[fd]);
+	buffer[fd] = ft_update(buffer[fd]);
 	return (line);
 }
-/*#include <stdio.h>
+/*
+#include <stdio.h>
 
 
 int main()
