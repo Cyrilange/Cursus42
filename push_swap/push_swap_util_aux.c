@@ -58,7 +58,8 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	stacked_checked(t_stack_node **a, char **str)
+void	stacked_checked(t_stack_node **a, char **str,
+			char **argv, bool flag_split)
 {
 	long	n;
 	int		i;
@@ -67,12 +68,12 @@ void	stacked_checked(t_stack_node **a, char **str)
 	while (str[i])
 	{
 		if (is_not_number(str[i]))
-			free_errors(a);
+			free_errors(a, argv, flag_split);
 		n = ft_atol(str[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			free_errors(a);
+			free_errors(a, argv, flag_split);
 		if (is_not_duplicate(*a, (int)n))
-			free_errors(a);
+			free_errors(a, argv, flag_split);
 		append_node(a, (int)n);
 		i++;
 	}

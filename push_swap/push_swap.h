@@ -36,8 +36,9 @@ int				is_not_duplicate(t_stack_node *a, int n);
 int				is_not_number(char *str_n);
 bool			is_sorted(t_stack_node *stack);
 void			free_stack(t_stack_node **stack);
-void			free_errors(t_stack_node **a);
-void			stacked_checked(t_stack_node **a, char **str);
+void			free_errors(t_stack_node **a, char **argv, bool flag_split);
+void			stacked_checked(t_stack_node **a, char **str,
+					char **argv, bool flag_split);
 char			**ft_split(char *str, char separator);
 void			pos_index(t_stack_node *stack);
 void			prep_for_b(t_stack_node *a, t_stack_node *b);
@@ -62,5 +63,6 @@ void			ra(t_stack_node **stack_a, bool print);
 void			rb(t_stack_node **stack_b, bool print);
 void			rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print);
 void			move_b_to_a(t_stack_node **a, t_stack_node **b);
+void			free_matrix(char **matrix);
 
 #endif

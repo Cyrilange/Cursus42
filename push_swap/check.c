@@ -59,9 +59,11 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **a)
+void	free_errors(t_stack_node **a, char **argv, bool flag_split)
 {
 	free_stack(a);
+	if (flag_split)
+		free_matrix(argv);
 	write(1, "Error\n", 6);
 	exit(1);
 }
