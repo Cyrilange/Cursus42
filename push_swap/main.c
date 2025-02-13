@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 	if (!is_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, 1);
+			sa(&a, false);
 		else if (stack_len(a) == 3)
 			sort_small(&a);
 		else

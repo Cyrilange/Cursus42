@@ -38,7 +38,7 @@ bool			is_sorted(t_stack_node *stack);
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
 void			stacked_checked(t_stack_node **a, char **str);
-char			**ft_split(char const *s, char c);
+char			**ft_split(char *str, char separator);
 void			pos_index(t_stack_node *stack);
 void			prep_for_b(t_stack_node *a, t_stack_node *b);
 void			prep_for_a(t_stack_node *a, t_stack_node *b);

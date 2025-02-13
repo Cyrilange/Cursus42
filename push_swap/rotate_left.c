@@ -50,5 +50,5 @@ void	rrr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 	rrotate(stack_a);
 	rrotate(stack_b);
 	if (!print)
-		write(1, "rrr\n", 5);
+		write(1, "rrr\n", 4);
 }

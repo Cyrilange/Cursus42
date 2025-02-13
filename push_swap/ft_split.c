@@ -12,86 +12,77 @@
 
 #include "push_swap.h"
 
-static char	*ft_strndup(const char *src, size_t n)
+static int	count_words(char *str, char separator)
 {
-	char	*dup;
-	size_t	i;
+	int		count;
+	bool	inside_word;
 
-	dup = malloc(n + 1);
-	if (!dup)
-		return (NULL);
-	i = 0;
-	while (i < n && src[i])
+	count = 0;
+	while (*str)
 	{
-		dup[i] = src[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
-}
-
-static int	num_words(const char *s, char c)
-{
-	int	num;
-
-	num = 0;
-	while (*s)
-	{
-		if (*s != c)
+		inside_word = false;
+		while (*str == separator && *str)
+			++str;
+		while (*str != separator && *str)
 		{
-			num++;
-			while (*s && *s != c)
-				s++;
-			if (!*s)
-				break ;
+			if (!inside_word)
+			{
+				++count;
+				inside_word = true;
+			}
+			++str;
 		}
-		s++;
 	}
-	return (num);
+	return (count);
 }
 
-static char	*get_next_word(const char **s, char c)
+static char	*get_next_word(char *str, char separator)
 {
-	const char	*start;
-	const char	*end;
+	static int	cursor = 0;
+	char		*next_str;
+	int			len;
+	int			i;
 
-	start = *s;
-	while (*start && *start == c)
-		start++;
-	end = start;
-	while (*end && *end != c)
-		end++;
-	if (start == end)
+	len = 0;
+	i = 0;
+	while (str[cursor] == separator)
+		++cursor;
+	while ((str[cursor + len] != separator) && str[cursor + len])
+		++len;
+	next_str = malloc((size_t)len * sizeof(char) + 1);
+	if (NULL == next_str)
 		return (NULL);
-	*s = end;
-	return (ft_strndup(start, end - start));
+	while ((str[cursor] != separator) && str[cursor])
+		next_str[i++] = str[cursor++];
+	next_str[i] = '\0';
+	return (next_str);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *str, char separator)
 {
-	int		word_num;
-	char	**res;
+	int		words_number;
+	char	**string;
 	int		i;
 
-	if (!s)
-		return (NULL);
-	word_num = num_words(s, c);
-	res = malloc((word_num + 1) * sizeof(char *));
-	if (!res)
-		return (NULL);
 	i = 0;
-	while (*s)
+	words_number = count_words(str, separator);
+	if (!words_number)
+		exit(1);
+	string = malloc(sizeof(char *) * (size_t)(words_number + 2));
+	if (NULL == string)
+		return (NULL);
+	while (words_number-- >= 0)
 	{
-		if (*s != c)
+		if (0 == i)
 		{
-			res[i] = get_next_word(&s, c);
-			if (!res[i])
+			string[i] = malloc(sizeof(char));
+			if (NULL == string[i])
 				return (NULL);
-			i++;
+			string[i++][0] = '\0';
+			continue ;
 		}
-		else
-			s++;
+		string[i++] = get_next_word(str, separator);
 	}
-	res[i] = NULL;
-	return (res);
+	string[i] = NULL;
+	return (string);
 }
