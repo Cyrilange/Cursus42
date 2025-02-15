@@ -1,53 +1,48 @@
 #include "../includes/so_long.h"
 
-int ft_strlen_so(char *str)
+t_game  int_game_function(t_game *game)
 {
-    int i = 0;
-    if (str == NULL) {  // Handle NULL input!
-        return 0;
-    }
-    while (str[i] && str[i] != '\n')
-        i++;
-    return (i);
+    game->mlx = NULL;
+    game->map = NULL;
+    game->path = NULL;
+    game->grid_b = 0;
+    game->grid_y = NULL;
+    game->player.x = 0;
+    game->player.y = 0;
+    game->size_pix.x = 0;
+    game->size_pix.y = 0;
+    game->mouv = 0;
+    game->collect_taken = 0;
 }
 
-t_game *init_game(t_game *game, char *map_file)
+void	init_game_object(t_grid *obj)
 {
-    // Allocation mémoire pour la structure t_game
-    game = malloc(sizeof(t_game));
-    if (!game)
-    {
-        ft_printf("Erreur : impossible d'initialiser le jeu.\n");
-        exit(EXIT_FAILURE);
-    }
+	obj->player = 0;
+	obj->collectible = 0;
+	obj->exit = 0;
+}
 
-    // Initialisation de MLX
-    game->mlx = mlx_init(1280, 640, "so_long", false);
-    if (!game->mlx)
-    {
-        ft_printf("Problème lors de l'initialisation de MLX\n");
-        free(game);  // Libération de la mémoire allouée si MLX échoue
-        exit(EXIT_FAILURE);
-    }
+void	init_textures(t_game *game)
+{
+	game->textures.wall = mlx_load_png("./includes/images/wall.png");
+	game->textures.player = mlx_load_png("./includes/images/player.png");
+	game->textures.floor = mlx_load_png("./includes/images/floor.png");
+	game->textures.collectible = mlx_load_png("./includes/images/collective.png");
+	game->textures.exit = mlx_load_png("./includes/images/exit.png");
+	if (!game->textures.wall || !game->textures.floor || !game->textures.player
+		|| !game->textures.exit || !game->textures.collectible)
+	{
+		ft_printf("The textures could not be loaded..\n");
+		ft_free_all(game, 1);
+		exit(FAIL);
+	}
+}
 
-    // Lecture de la carte
-    game->map = read_map(map_file);
-    if (!game->map)
-    {
-        ft_printf("Erreur de lecture de la carte\n");
-        free(game);  // Libération de la mémoire allouée si la lecture échoue
-        exit(EXIT_FAILURE);
-    }
-/*
-    // Comptage des lignes et des colonnes de la carte
-    game->map->height = count_line(map_file);
-    game->map->width = ft_strlen_so(game->map->grid[0]); // Correction : accéder à game->map->grid
-*/
-    // Initialisation de la position du joueur
-    init_player_position(game);
-
-    // Affichage d'un message pour vérifier l'initialisation
-    ft_printf("Jeu initialisé avec succès !\n");
-
-    return game;
+void	init_images(t_game *game)
+{
+	game->images.wall_img = mlx_texture_to_image(game->mlx, game->textures.wall);
+    game->images.player_img = mlx_texture_to_image(game->mlx, game->textures.player);
+    game->images.floor_img = mlx_texture_to_image(game->mlx, game->textures.floor);
+    game->images.exit_img = mlx_texture_to_image(game->mlx, game->textures.exit);
+    game->images.collectible_img = mlx_texture_to_image(game->mlx, game->textures.collectible);
 }
