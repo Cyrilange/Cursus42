@@ -12,13 +12,9 @@ LIBS            = -L./MLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -L$(LIBFT) -
 SRC_DIR         = ./src
 OBJ_DIR         = ./obj
 
-SRC_FILES       = 	so_long.c \
-					map.c \
-					get_next_line/get_next_line.c \
+SRC_FILES       = 	get_next_line/get_next_line.c \
 					get_next_line/get_next_line_utils.c \
-					initialisation.c \
-					mouvment.c \
-					error_handling.c\
+					check.c  flood.c  free_game.c  images.c  main.c  map.c  mouvement.c \
 					
 
 

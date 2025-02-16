@@ -14,116 +14,66 @@
 # include "libft/libft.h"
 # include "../src/get_next_line/get_next_line.h"
 # include "ft_printf/ft_printf.h"
-
-//# define HEIGHT 640
-//# define WIDHT 820
-#define TILE_SIZE 40
-#define WIDTH  1920
-#define HEIGHT 1080
+# include "../src/get_next_line/get_next_line.h"
 
 
-# define PLAYER 'P'
-# define WALL '1'
-# define FLOOR '0'
-# define COLLECTIBLE 'C'   
-# define EXIT 'E'
+# define TS 32
 
-# define ERR -1
-# define FAIL 1
-# define SUCCESS 0
+////////////////////
+// struct : point //
+////////////////////
 
-# define TRUE 1
-# define FALSE 0
-# define bool
-
-typedef enum s_dir
+typedef struct s_point
 {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
-}	t_dir;
+	int		x;
+	int		y;
+}			t_point;
 
-typedef enum e_action
+////////////////////
+// struct : data  //
+////////////////////
+
+typedef struct s_data
 {
-	NO_ACTION,
-	MOVE_UP,
-	MOVE_DOWN,
-	MOVE_LEFT,
-	MOVE_RIGHT,
-	EXIT_GAME
-}	t_action;
+	char	**map;
+	void	*wall;
+	void	*empty;
+	void	*object;
+	void	*player;
+	void	*exit;
+	void	*mlx;
+	void	*win;
+	int		count_move;
+	int		count_star;
+	int		total_star;
+	t_point	exit_position;
+}			t_data;
 
-typedef struct s_coord
+typedef struct s_count
 {
-	int	x;
-	int	y;
-}	t_coord;
+	int		c;
+	int		e;
+	int		p;
+}			t_count;
 
-typedef struct s_graphics
-{
-    mlx_texture_t *floor;
-    mlx_texture_t *wall;
-    mlx_texture_t *player;
-    mlx_texture_t *exit;
-    mlx_texture_t *collectible;
-    mlx_image_t *floor_img;
-    mlx_image_t *wall_img;
-    mlx_image_t *player_img;
-    mlx_image_t *exit_img;
-    mlx_image_t *collectible_img;
-} t_graphics;
+void		cleanup(t_data *data);
+char		**ft_free_map(char **map);
+void		ft_check_fd(int fd);
+void		ft_error_map_init(void);
+void		load_images(t_data *params);
+void		init_window(t_data *params, char **argv);
+void		render_map(t_data *game);
+void        exit_map(t_data *game);
+int			exit_hook(void *params);
+t_point		ft_locate(char **map, char c);
 
-typedef struct s_grid
-{
-	int	*floor;
-	int	*wall;
-	int	*player;
-	int	*exit;
-	int	*collectible;
-}	t_grid;
+int			key_press(int keycode, void *param);
 
-typedef struct s_map_node
-{
-	char				*map;
-	struct	s_map_node	*next;
+int			ft_count_char(char **map, char c);
+int			main_extension(char **argv);
 
-}	t_map_node;
-
-typedef	struct	s_key_mouv
-{
-	int	key;
-}	t_key_mouv;
-
-typedef struct s_game
-{
-	mlx_t		*mlx;
-	t_graphics	images;
-	t_graphics	textures;
-	t_grid		grid;
-	t_map_node	*map;
-	t_coord		player;
-	t_coord		size_pix;
-	char		**grid_b;
-	char		**grid_y;
-	char		*path;
-	int			mouv;
-	int			collect_taken;
-	t_dir		direction_player;
-}	t_game;
-
-t_game  int_game_function(t_game *game);
-t_game	*init_flood_fill(t_game *game);
-int		error_init_game(t_game *game, t_grid objects);
-void	ft_game_loop(void *param);
-void	init_textures(t_game *game);
-void	init_images(t_game *game);
-void	ft_handle_input(t_game *game);
-void	init_textures(t_game *game);
-void	init_images(t_game *game);
-t_grid	*read_map(t_game *game);
-
-
-
+size_t		ft_count_line(char **argv);
+char		**ft_map(char **argv);
+char		**ft_check_map(char **map, char **argv);
 
 #endif

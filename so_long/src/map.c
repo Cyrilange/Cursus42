@@ -1,68 +1,108 @@
 #include "../includes/so_long.h"
 
-static int	ber_file(char *file)
+size_t	ft_count_line(char **argv)
 {
-	size_t	len;
+	int		fd;
+	size_t	count;
+	char	*line;
 
-	len = ft_strlen(file);
-	if ((file[len - 4] != '.' || file[len - 3] != 'b'
-			|| file[len -2] != 'e' || file[len -1] != 'r'))
-		return (FAIL);
-	return (SUCCESS);
+	fd = open(argv[1], O_RDONLY);
+	ft_check_fd(fd);
+	count = 0;
+	line = get_next_line(fd);
+	if (!line)
+	{
+		ft_printf("Error\nFile is empty\n");
+		exit(0);
+	}
+	while (line)
+	{
+		count++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (count);
 }
 
-static char	**ft_status_map(t_game *game)
+static void	ft_check_endl(char **argv)
 {
-	t_game	*tmp;
-	char	**status;
+	int		fd;
+	char	*line;
 	int		i;
+	size_t	count_endl;
+
+	count_endl = 0;
+	fd = open(argv[1], O_RDONLY);
+	ft_check_fd(fd);
+	line = get_next_line(fd);
+	while (line)
+	{
+		i = 0;
+		while (line[i])
+		{
+			if (line[i] == '\n')
+				count_endl++;
+			i++;
+		}
+		free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
+	close (fd);
+	if (count_endl == ft_count_line(argv))
+		ft_error_map_init();
+}
+
+static char	*ft_map_extension(int j, char *line, char **map)
+{
+	int	i;
 
 	i = 0;
-	tmp = game->map;
-	status = malloc(sizeof(char *) * (game->size_pix.y + 1));
-	if (!status)
-		return (NULL);
-	while (game->map)
+	map[j] = malloc(sizeof(char) * (ft_strlen(line) + 1));
+	if (!map[j])
 	{
-		status[i] = ft_strdup(game->map->map);
-		if (!status[i])
-		{
-			ft_free_status(status, i);
-			return (NULL);
-		}
-		i++;
-		game->map = game->map->next;
+		while (j-- > 0)
+			free(map[j]);
+		free(map);
+		return (NULL);
 	}
-	game->map = tmp;
-	status[i] = NULL;
-	return (status);
+	i = 0;
+	while (line[i] && line[i] != '\n')
+	{
+		map[j][i] = line[i];
+		i++;
+	}
+	map[j][i] = '\0';
+	free(line);
+	return (map[j]);
 }
 
-int	ft_map(t_game **game)
+char	**ft_map(char **argv)
 {
-	t_game	*tmp;
+	char	**map;
+	int		j;
+	int		line_count;
+	int		fd;
+	char	*line;
 
-	tmp = *game;
-	tmp->map = ft_map_init(tmp);
-	if (!tmp->map)
+	ft_check_endl(argv);
+	fd = open(argv[1], O_RDONLY);
+	ft_check_fd(fd);
+	j = 0;
+	line_count = ft_count_line(argv);
+	map = malloc(sizeof(char *) * (line_count + 1));
+	if (!map)
+		return (NULL);
+	while (j < line_count || get_next_line(fd))
 	{
-		free(tmp);
-		return (1);
+		line = get_next_line(fd);
+		map[j] = ft_map_extension(j, line, map);
+		if (!map[j])
+			return (NULL);
+		j++;
 	}
-	tmp->size_pix.x = ft_map_x(tmp->map);
-	tmp->size_pix.y = ft_map_y(tmp->map);
-	tmp->grid_y = ft_status_map(tmp);
-	if (!tmp->grid_y)
-	{
-		ft_free_all(tmp, 2);
-		return (FAIL);
-	}
-	tmp->grid_b = ft_status_map(tmp);
-	if (!tmp->grid_b)
-	{
-		ft_free_all(tmp, 1);
-		return (FAIL);
-	}
-	*game = tmp;
-	return (SUCCESS);
+	map[j] = NULL;
+	close(fd);
+	return (ft_check_map(map, argv));
 }
