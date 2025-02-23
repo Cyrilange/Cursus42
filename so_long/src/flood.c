@@ -21,44 +21,43 @@ int	flood_fill(t_game *game, int x, int y, char **valid)
 	static bool	exit_flag = false;
 
 	if (x < 0 || y < 0 || x >= game->file.map_width || y >= game->file.map_height)
-		return (0);
-	else if (valid[y][x] == '1')
-		return (0);
-	else if (valid[y][x] == 'C')
+		return (ERROR);
+	if (valid[y][x] == '1') // Case déjà visitée ou mur
+		return (ERROR);
+	if (valid[y][x] == 'C')
 		loves++;
-	else if (valid[y][x] == 'E')
+	if (valid[y][x] == 'E')
 		exit_flag = true;
-	valid[y][x] = '1';
 
-	// Appels récursifs
-	flood_fill(game, x + 1, y, valid);
-	flood_fill(game, x - 1, y, valid);
-	flood_fill(game, x, y + 1, valid);
-	flood_fill(game, x, y - 1, valid);
-	return (1);
+	valid[y][x] = '1'; // Marquer la case comme visitée
+
+	// Vérifier si un des appels récursifs retourne SUCCESS
+	if (flood_fill(game, x + 1, y, valid) == SUCCESS ||
+		flood_fill(game, x - 1, y, valid) == SUCCESS ||
+		flood_fill(game, x, y + 1, valid) == SUCCESS ||
+		flood_fill(game, x, y - 1, valid) == SUCCESS)
+		return (SUCCESS);
+
+	// Vérifier si on a atteint toutes les conditions de victoire
+	if (loves == game->count.n_loves && exit_flag == true)
+		return (SUCCESS);
+
+	return (ERROR);
 }
+
 
 static char	**init_map(t_game *game)
 {
-	int		i;
-	char	**copy_map;
-
-	copy_map = ft_calloc((game->file.map_height + 1), sizeof(char *));
-	if (!copy_map)
-		return (NULL);
-	
-	i = 0;
-	while (i < game->file.map_height)
 	{
-		copy_map[i] = ft_strdup(game->file.map[i]);
-		if (!copy_map[i])  // Si l'allocation échoue, on libère tout et on retourne NULL
-		{
-			free_map(copy_map);
-			return (NULL);
-		}
-		i++;
+		int		i;
+		char	**check_map;
+	
+		i = -1;
+		check_map = ft_calloc((game->file.map_height + 1), sizeof(char *));
+		while (++i < game->file.map_height)
+			check_map[i] = ft_strdup(game->file.map[i]);
+		return (check_map);
 	}
-	return (copy_map);
 }
 
 int	flood_check(t_game *game)
@@ -67,16 +66,19 @@ int	flood_check(t_game *game)
 
 	valid = init_map(game);
 	if (!valid)
-		return (1); // Erreur d'allocation mémoire
+		return (ERROR); // Erreur d'allocation mémoire
 
-	if (!flood_fill(game, game->position.player_x_pos, game->position.player_y_pos, valid))
+	// Si flood_fill retourne SUCCESS, on retourne aussi SUCCESS
+	if (flood_fill(game, game->position.player_x_pos, game->position.player_y_pos, valid) == SUCCESS)
 	{
 		free_map(valid);
-		return (1);
+		return (SUCCESS);
 	}
+
 	free_map(valid);
-	return (0);
+	return (ERROR);
 }
+
 
 
 

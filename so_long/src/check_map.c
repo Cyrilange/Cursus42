@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-static int	ft_count_char(const char *str, char c)
+/*static int	ft_count_char(const char *str, char c)
 {
 	int	count = 0;
 
@@ -11,7 +11,7 @@ static int	ft_count_char(const char *str, char c)
 		str++;
 	}
 	return (count);
-}
+}*/
 
 static int	init_checks(t_game *game)
 {
@@ -34,7 +34,7 @@ static int	init_checks(t_game *game)
 	return (SUCCESS);
 }
 
-static int	check_player_exit(t_game *game)
+/*int	check_player_exit(t_game *game)
 {
 	int	i;
 
@@ -54,7 +54,7 @@ static int	check_player_exit(t_game *game)
 	}
 	return (game->count.n_player != 1 || game->count.n_exit != 1
 		|| game->count.n_loves < 1);
-}
+}*/
 
 static int	check_wall(t_game *game)
 {
@@ -68,20 +68,20 @@ static int	check_wall(t_game *game)
 	while (game->file.map[i])
 	{
 		if (game->file.map[i][0] != '1')
-			return (1);
+			return (ERROR);
 		if (game->file.map[i][game->file.map_width - 1] != '1')
-			return (1);
+			return (ERROR);
 		i++;
 	}
-	return (0);
+	return (SUCCESS);
 }
 
 int	check_map(t_game *game)
 {
-	if (!game->file.map)
+	/*if (!game->file.map)
     	return (ERROR);
-	game->file.map_width = lign_map(game->file.map[0]);
-	if (check_player_exit(game) || check_wall(game) || init_checks(game)
+	game->file.map_width = lign_map(game->file.map[0]);*/
+	if (check_wall(game) || init_checks(game)
 		|| is_map_playable(game))
 		return (ERROR);
 	player_exit_position(game);

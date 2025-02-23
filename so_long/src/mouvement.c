@@ -3,7 +3,7 @@
 static int	event_checker(t_game *game, int y, int x)
 {
 	if (game->file.map[y][x] == '1')
-		return (1);
+		return (ERROR);
 	if (game->file.map[y][x] == 'C')
 		game->count.n_loves--;
 	if (game->file.map[y][x] == 'E' && game->count.n_loves != 0)

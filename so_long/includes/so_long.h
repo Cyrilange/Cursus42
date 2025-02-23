@@ -86,11 +86,12 @@ typedef struct s_game
 	t_dir		dir;
 }				t_game;
 
-void			flood_fill(t_game *game, int x, int y, char **valid, int *loves, bool *exit_flag);
+int	flood_fill(t_game *game, int x, int y, char **valid);
 int	flood_check(t_game *game);
 int 			read_map(t_game *game, char *file);
 int				check_map(t_game *game);
 int				error_message(t_game *game, char str);
+//int	check_player_exit(t_game *game);
 //void			checked_error_game(t_game *game, char *argv);
 size_t			lign_map(char *file_lign);
 void			move_player(t_game *game, int to_y, int to_x);
