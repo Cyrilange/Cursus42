@@ -1,54 +1,45 @@
 #include "../includes/so_long.h"
 
-void cleanup(t_data *data) {
-    if (!data) return; // Safeguard against NULL data
-
-    if (data->wall)
-        mlx_delete_image(data->mlx, data->wall); // Use mlx_delete_image
-    if (data->empty)
-        mlx_delete_image(data->mlx, data->empty);
-    if (data->object)
-        mlx_delete_image(data->mlx, data->object);
-    if (data->player)
-        mlx_delete_image(data->mlx, data->player);
-    if (data->exit)
-        mlx_delete_image(data->mlx, data->exit);
-
-    if (data->mlx) {
-        mlx_terminate(data->mlx); // Use mlx_terminate to free all mlx resources
+static void delete_textures(t_game *game)
+{
+    if (game->img.floor.t)
+    {
+        mlx_delete_texture(game->img.floor.t);
+        game->img.floor.t = NULL;
     }
-
-    ft_free_map(data->map); // Assuming ft_free_map is defined elsewhere and frees the map data
-    free(data); // Free the data structure itself (if it was dynamically allocated)
+    if (game->img.wall.t)
+    {
+        mlx_delete_texture(game->img.wall.t);
+        game->img.wall.t = NULL;
+    }
+    if (game->img.player.t)
+    {
+        mlx_delete_texture(game->img.player.t);
+        game->img.player.t = NULL;
+    }
+    if (game->img.collectable.t)
+    {
+        mlx_delete_texture(game->img.collectable.t);
+        game->img.collectable.t = NULL;
+    }
+    if (game->img.exit.t)
+    {
+        mlx_delete_texture(game->img.exit.t);
+        game->img.exit.t = NULL;
+    }
 }
 
-char	**ft_free_map(char **map)
+void terminate_game(t_game *game)
 {
 	int	i;
 
-	i = 0;
-	if (!map)
-		return (NULL);
-	while (map[i])
+	i = -1;
+	while (++i < game->file.map_height)
+		free(game->file.map[i]);
+	free(game->file.map);
+	if (game->img.wall.i)
 	{
-		free(map[i]);
-		i++;
+		delete_textures(game);
+		mlx_terminate(game->mlx);
 	}
-	free(map);
-	return (NULL);
-}
-
-void	ft_check_fd(int fd)
-{
-	if (fd < 0)
-	{
-		ft_printf("Error\nFailed to read file (fd error)\n");
-		exit(0);
-	}
-}
-
-void	ft_error_map_init(void)
-{
-	ft_printf("Error\nMap ends with an empty line\n");
-	exit(0);
 }

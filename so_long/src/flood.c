@@ -1,97 +1,104 @@
 #include "../includes/so_long.h"
 
-
-static void	flood_fill_recursive(char **map, t_point start)
-{
-	if (map[start.x][start.y] == '1')
-		return ;
-	map[start.x][start.y] = '1';
-	flood_fill_recursive(map, (t_point){start.x + 1, start.y});
-	flood_fill_recursive(map, (t_point){start.x - 1, start.y});
-	flood_fill_recursive(map, (t_point){start.x, start.y + 1});
-	flood_fill_recursive(map, (t_point){start.x, start.y - 1});
-	return ;
-}
-
-static int	flood_fill(char **map, t_point start)
+static void	free_map(char **map)
 {
 	int	i;
-	int	j;
 
-	flood_fill_recursive(map, start);
+	if (!map)
+		return;
 	i = 0;
 	while (map[i])
 	{
-		j = 0;
-		while (map[i][j])
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
+int	flood_fill(t_game *game, int x, int y, char **valid)
+{
+	static int	loves = 0;
+	static bool	exit_flag = false;
+
+	if (x < 0 || y < 0 || x >= game->file.map_width || y >= game->file.map_height)
+		return (0);
+	else if (valid[y][x] == '1')
+		return (0);
+	else if (valid[y][x] == 'C')
+		loves++;
+	else if (valid[y][x] == 'E')
+		exit_flag = true;
+	valid[y][x] = '1';
+
+	// Appels récursifs
+	flood_fill(game, x + 1, y, valid);
+	flood_fill(game, x - 1, y, valid);
+	flood_fill(game, x, y + 1, valid);
+	flood_fill(game, x, y - 1, valid);
+	return (1);
+}
+
+static char	**init_map(t_game *game)
+{
+	int		i;
+	char	**copy_map;
+
+	copy_map = ft_calloc((game->file.map_height + 1), sizeof(char *));
+	if (!copy_map)
+		return (NULL);
+	
+	i = 0;
+	while (i < game->file.map_height)
+	{
+		copy_map[i] = ft_strdup(game->file.map[i]);
+		if (!copy_map[i])  // Si l'allocation échoue, on libère tout et on retourne NULL
 		{
-			if (map[i][j] == 'E' || map[i][j] == 'C')
-				return (0);
-			j++;
+			free_map(copy_map);
+			return (NULL);
 		}
 		i++;
 	}
-	return (1);
+	return (copy_map);
 }
 
-int	ft_count_char(char **map, char c)
+int	flood_check(t_game *game)
+{
+	char	**valid;
+
+	valid = init_map(game);
+	if (!valid)
+		return (1); // Erreur d'allocation mémoire
+
+	if (!flood_fill(game, game->position.player_x_pos, game->position.player_y_pos, valid))
+	{
+		free_map(valid);
+		return (1);
+	}
+	free_map(valid);
+	return (0);
+}
+
+
+
+
+int	is_map_playable(t_game *game)
 {
 	int	i;
-	int	j;
-	int	count;
 
-	i = 0;
-	j = 0;
-	count = 0;
-	while (map[j])
+	i = -1;
+	while (game->file.map[++i])
 	{
-		i = 0;
-		while (map[j][i])
-		{
-			if (map[j][i] == c)
-				count++;
-			i++;
-		}
-		j++;
+		if (lign_map(game->file.map[i]) != (size_t)game->file.map_width)
+			return (1);
+		if (ft_strchr(game->file.map[i], 'P'))
+			game->count.n_player++;
+		if (ft_strchr(game->file.map[i], 'E'))
+			game->count.n_exit++;
 	}
-	return (count);
-}
-
-static int	ft_check_count_char(char **map)
-{
-	t_count	count;
-
-	count.c = ft_count_char(map, 'C');
-	count.e = ft_count_char(map, 'E');
-	count.p = ft_count_char(map, 'P');
-	if (count.c == 0 || count.e != 1 || count.p != 1)
-	{
-		ft_printf("Error\nInvalid count of required chars\n");
-		ft_free_map(map);
-		return (0);
-	}
-	return (1);
-}
-
-int	main_extension(char **argv)
-{
-	char	**map;
-	int		flood;
-	t_point	start;
-
-	map = ft_map(argv);
-	if (!map)
-		return (0);
-	if (!ft_check_count_char(map))
-		return (0);
-	start = ft_locate(map, 'P');
-	flood = flood_fill(map, (t_point){start.x, start.y});
-	if (flood == 0)
-	{
-		ft_printf("Error\nPathfinding failed for items\n");
-		ft_free_map(map);
-		return (0);
-	}
-	ft_free_map(map);
-	return (1);
+	loves_numbers(game);
+	if (game->count.n_loves < 1)
+		return (1);
+	if (game->count.n_player != 1 || game->count.n_exit != 1)
+		return (1);
+	return (0);
 }

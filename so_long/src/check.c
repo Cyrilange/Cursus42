@@ -1,98 +1,115 @@
 #include "../includes/so_long.h"
 
-static int	ft_check_line(char *line)
+int error_message(t_game *game, char str)
+{
+	ft_printf("\033[33m");
+	ft_printf("Error\n");
+	ft_printf("\033[31m");
+	if (str == 'M')
+		ft_printf("Invalid map: Issue with map content or structure.\n");
+	else if (str == 'P')
+        ft_printf("Unplayable map: No valid path found.\n");
+	else if (str == 'W')
+        ft_printf("Window initialization failed.\n");
+	terminate_game(game);
+    return (ERROR);
+}
+
+void	image_towindow_size(t_game *game, t_texture *img, int x, int y)
+{
+	mlx_image_to_window(game->mlx, game->img.floor.i, WIDTH * x, HEIGHT
+		* y);
+	mlx_image_to_window(game->mlx, img->i, WIDTH * x, HEIGHT * y);
+	img->i->enabled = 1;
+}
+
+static void	init_window(t_game *game)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	if (line[0] != '1' || line[ft_strlen(line) - 1] != '1')
+	i = -1;
+	while (game->file.map[++i])
 	{
-		ft_printf("Error\nFirst or last caracter is invalid\n");
-		return (0);
-	}
-	while (line[i])
-	{
-		if (line[i] != '1' && line[i] != '0' && line[i] != 'C' && line[i] != 'E'
-			&& line[i] != 'P')
+		j = -1;
+		while (game->file.map[i][++j])
 		{
-			ft_printf("Error\nInvalid characters in map\n");
-			return (0);
+			if (game->file.map[i][j] == '1')
+				image_towindow_size(game, &game->img.wall, j, i);
+			if (game->file.map[i][j] == '0')
+				image_towindow_size(game, &game->img.floor, j, i);
+			if (game->file.map[i][j] == 'P')
+				image_towindow_size(game, &game->img.player, j, i);
+			if (game->file.map[i][j] == 'E')
+				image_towindow_size(game, &game->img.exit, j, i);
+			if (game->file.map[i][j] == 'C')
+				image_towindow_size(game, &game->img.collectable, j, i);
 		}
-		i++;
 	}
-	return (1);
 }
 
-static int	ft_check_start_last(char **map, char **argv)
+static void	ft_keyhook(mlx_key_data_t keydata, void *param)
+{
+	t_game	*game;
+
+	game = param;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+	{
+		mlx_close_window(game->mlx);
+		ft_printf("You escaped the game\nSee you!!!!\n");
+	}
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+		move_player(game, -1, 0);
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+		move_player(game, 0, -1);
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+		move_player(game, +1, 0);
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+		move_player(game, 0, +1);
+	if (keydata.key == MLX_KEY_C && keydata.action == MLX_PRESS)
+		ft_printf("There is %i loves to pick up!\n", game->count.n_loves);
+}
+
+int	window_control(t_game *game)
+{
+	int	window_width;
+	int	window_height;
+
+	window_width = WIDTH * game->file.map_width;
+	window_height = HEIGHT * game->file.map_height;
+	if (window_width > 1920)
+		window_width = 1920;
+	if (window_height > 1080)
+		window_height = 1080;
+	game->window_size.max_width = window_width / WIDTH;
+	game->window_size.max_height = window_height / HEIGHT;
+	game->mlx = mlx_init(window_width, window_height, "so_long", false);
+	if (!game->mlx)
+	{
+		return (ERROR);
+	}
+	load_images(game);
+	init_window(game);
+	mlx_key_hook(game->mlx, &ft_keyhook, game);
+	mlx_loop(game->mlx);
+	return (SUCCESS);
+}
+
+
+
+void	loves_numbers(t_game *game)
 {
 	int	i;
-	int	last;
+	int	j;
 
-	last = ft_count_line(argv);
-	i = 0;
-	while (map[0][i])
+	i = -1;
+	while (game->file.map[++i])
 	{
-		if (map[0][i] != '1')
-			return (0);
-		i++;
+		j = -1;
+		while (game->file.map[i][++j])
+		{
+			if (game->file.map[i][j] == 'C')
+				game->count.n_loves++;
+		}
 	}
-	i = 0;
-	while (map[last - 1][i])
-	{
-		if (map[last - 1][i] != '1')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-static int	ft_check_len(char **map)
-{
-	size_t	original_len;
-	int		j;
-
-	j = 1;
-	original_len = ft_strlen(map[0]);
-	while (map[j])
-	{
-		if (ft_strlen(map[j]) != original_len)
-			return (0);
-		j++;
-	}
-	return (1);
-}
-
-static int	ft_check_map_extension(char **map, char **argv)
-{
-	if (ft_check_len(map) == 0)
-	{
-		ft_printf("Error\nInconsistent line length\n");
-		return (0);
-	}
-	if (ft_strlen(map[0]) + 1 > 60 || ft_count_line(argv) > 30)
-	{
-		ft_printf("Error\nMap size exceeds limit\n");
-		return (0);
-	}
-	if (ft_check_start_last(map, argv) == 0)
-	{
-		ft_printf("Error\nFirst or last line is invalid\n");
-		return (0);
-	}
-	return (1);
-}
-
-void ft_check_map(t_data *game, char **argv)
-{
-    game->map = ft_map(argv);
-    if (!game->map)
-    {
-        ft_printf("Error: Invalid map\n");
-        exit(EXIT_FAILURE);
-    }
-    if (!ft_check_map_extension(&game->map, argv[1]))  // Vérifier l'extension avant de charger la map pourrait éviter une ouverture de fichier inutile.
-    {
-        ft_printf("Error: Invalid map extension\n");
-        exit(EXIT_FAILURE);
-    }
 }

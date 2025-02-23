@@ -1,7 +1,7 @@
 NAME = so_long
 
 CC              = gcc
-CFLAGS          = -Wall -Werror -Wextra 
+CFLAGS          = -Wall -Werror -Wextra -g
 MLX42_LIB       = ./MLX42/build/libmlx42.a
 MLX42_INCLUDE   = ./MLX42/include
 LIBFT           = ./includes/libft
@@ -14,7 +14,7 @@ OBJ_DIR         = ./obj
 
 SRC_FILES       = 	get_next_line/get_next_line.c \
 					get_next_line/get_next_line_utils.c \
-					check.c  flood.c  free_game.c  images.c  main.c  map.c  mouvement.c \
+					check.c  flood.c  free_game.c  images.c  main.c  map.c  mouvement.c check_map.c \
 					
 
 

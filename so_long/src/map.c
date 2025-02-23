@@ -1,108 +1,53 @@
 #include "../includes/so_long.h"
 
-size_t	ft_count_line(char **argv)
+static int add_to_map(t_game *game, char *line)
 {
-	int		fd;
-	size_t	count;
-	char	*line;
-
-	fd = open(argv[1], O_RDONLY);
-	ft_check_fd(fd);
-	count = 0;
-	line = get_next_line(fd);
-	if (!line)
-	{
-		ft_printf("Error\nFile is empty\n");
-		exit(0);
-	}
-	while (line)
-	{
-		count++;
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return (count);
-}
-
-static void	ft_check_endl(char **argv)
-{
-	int		fd;
-	char	*line;
+    char	**temp;
 	int		i;
-	size_t	count_endl;
 
-	count_endl = 0;
-	fd = open(argv[1], O_RDONLY);
-	ft_check_fd(fd);
-	line = get_next_line(fd);
-	while (line)
-	{
-		i = 0;
-		while (line[i])
-		{
-			if (line[i] == '\n')
-				count_endl++;
-			i++;
-		}
-		free(line);
-		line = get_next_line(fd);
-	}
-	free(line);
-	close (fd);
-	if (count_endl == ft_count_line(argv))
-		ft_error_map_init();
-}
-
-static char	*ft_map_extension(int j, char *line, char **map)
-{
-	int	i;
-
+	if (!line)
+		return (1);
 	i = 0;
-	map[j] = malloc(sizeof(char) * (ft_strlen(line) + 1));
-	if (!map[j])
+	game->file.map_height++;
+	temp = ft_calloc(game->file.map_height + 1, sizeof(char *));
+	temp[game->file.map_height] = NULL;
+	while (i < game->file.map_height - 1)
 	{
-		while (j-- > 0)
-			free(map[j]);
-		free(map);
-		return (NULL);
-	}
-	i = 0;
-	while (line[i] && line[i] != '\n')
-	{
-		map[j][i] = line[i];
+		temp[i] = game->file.map[i];
 		i++;
 	}
-	map[j][i] = '\0';
-	free(line);
-	return (map[j]);
+	if (game->file.map)
+		free(game->file.map);
+	temp[i] = line;
+	game->file.map = temp;
+	return (0);
 }
 
-char	**ft_map(char **argv)
+int	read_map(t_game *game, char *file)
 {
-	char	**map;
-	int		j;
-	int		line_count;
-	int		fd;
-	char	*line;
+	char	*temp_line;
 
-	ft_check_endl(argv);
-	fd = open(argv[1], O_RDONLY);
-	ft_check_fd(fd);
-	j = 0;
-	line_count = ft_count_line(argv);
-	map = malloc(sizeof(char *) * (line_count + 1));
-	if (!map)
-		return (NULL);
-	while (j < line_count || get_next_line(fd))
+	if (!ft_strnstr(file, ".ber", ft_strlen(file)))
+		return (1);
+	game->file.fd = open(file, O_RDONLY);
+	if (game->file.fd < 0)
+		return (1);
+	while (true)
 	{
-		line = get_next_line(fd);
-		map[j] = ft_map_extension(j, line, map);
-		if (!map[j])
-			return (NULL);
-		j++;
+		temp_line = get_next_line(game->file.fd);
+		if (add_to_map(game, temp_line))
+			break ;
 	}
-	map[j] = NULL;
-	close(fd);
-	return (ft_check_map(map, argv));
+	close(game->file.fd);
+	game->file.map_width = lign_map(game->file.map[0]);
+	return (0);
+}
+
+
+void	update_map(t_game *game, int next_y, int next_x)
+{
+	game->file.map[game->dir.y][game->dir.x] = '0';
+	game->file.map[next_y][next_x] = 'P';
+	image_towindow_size(game, &game->img.player, next_x, next_y);
+	image_towindow_size(game, &game->img.floor, game->dir.x, game->dir.y);
 }
