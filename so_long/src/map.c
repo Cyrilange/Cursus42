@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-26 17:14:46 by csalamit          #+#    #+#             */
+/*   Updated: 2025-02-26 17:14:46 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
-static int add_to_map(t_game *game, char *line)
+static int	helper_read_map(t_game *game, char *line)
 {
-    char	**temp;
+	char	**temp;
 	int		i;
 
 	if (!line)
@@ -35,14 +47,13 @@ int	read_map(t_game *game, char *file)
 	while (true)
 	{
 		temp_line = get_next_line(game->file.fd);
-		if (add_to_map(game, temp_line))
+		if (helper_read_map(game, temp_line))
 			break ;
 	}
 	close(game->file.fd);
 	game->file.map_width = lign_map(game->file.map[0]);
 	return (0);
 }
-
 
 void	update_map(t_game *game, int next_y, int next_x)
 {

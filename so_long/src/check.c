@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-26 17:13:28 by csalamit          #+#    #+#             */
+/*   Updated: 2025-02-26 17:13:28 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
 void	image_towindow_size(t_game *game, t_texture *img, int x, int y)
@@ -39,8 +51,10 @@ static void	ft_keyhook(mlx_key_data_t keydata, void *param)
 	game = param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
-		mlx_close_window(game->mlx);
 		ft_printf("You escaped the game\nSee you!!!!\n");
+		mlx_close_window(game->mlx);
+		terminate_game(game);
+		exit(EXIT_FAILURE);
 	}
 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 		move_player(game, -1, 0);

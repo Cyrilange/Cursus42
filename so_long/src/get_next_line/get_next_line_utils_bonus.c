@@ -31,7 +31,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	join = (char *)malloc((ft_strlen_get(s1) + ft_strlen_get(s2) + 1) * sizeof(char));
+	join = (char *)malloc((ft_strlen_get(s1)
+				+ ft_strlen_get(s2) + 1) * sizeof(char));
 	if (!join)
 		return (NULL);
 	while (s1[i])

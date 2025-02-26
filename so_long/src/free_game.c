@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_game.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-26 17:14:10 by csalamit          #+#    #+#             */
+/*   Updated: 2025-02-26 17:14:10 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
 int	error_message(t_game *game, char str)
@@ -63,4 +75,5 @@ void	terminate_game(t_game *game)
 		mlx_terminate(game->mlx);
 		game->mlx = NULL;
 	}
+	ft_memset(game, 0, sizeof(t_game));
 }

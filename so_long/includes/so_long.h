@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-26 17:15:14 by csalamit          #+#    #+#             */
+/*   Updated: 2025-02-26 17:15:14 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -21,7 +33,7 @@
 
 typedef struct s_texture
 {
-	void		*t;
+	mlx_texture_t		*t;
 	mlx_image_t	*i;
 }				t_texture;
 
@@ -85,6 +97,7 @@ typedef struct s_game
 /* ---- Fonctions principales ---- */
 int				flood_fill(t_game *game, int x, int y, char **valid);
 int				flood_check(t_game *game);
+void			init_game(t_game	*game);
 int				read_map(t_game *game, char *file);
 int				check_map(t_game *game);
 int				error_message(t_game *game, char str);

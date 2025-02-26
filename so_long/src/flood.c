@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flood.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-26 17:13:53 by csalamit          #+#    #+#             */
+/*   Updated: 2025-02-26 17:13:53 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
 static void	free_map(char **map)
@@ -5,7 +17,7 @@ static void	free_map(char **map)
 	int	i;
 
 	if (!map)
-		return;
+		return ;
 	i = 0;
 	while (map[i])
 	{
@@ -20,44 +32,36 @@ int	flood_fill(t_game *game, int x, int y, char **valid)
 	static int	loves = 0;
 	static bool	exit_flag = false;
 
-	if (x < 0 || y < 0 || x >= game->file.map_width || y >= game->file.map_height)
+	if (x < 0 || y < 0 || x >= game->file.map_width
+		|| y >= game->file.map_height)
 		return (ERROR);
-	if (valid[y][x] == '1') // Case déjà visitée ou mur
+	if (valid[y][x] == '1')
 		return (ERROR);
 	if (valid[y][x] == 'C')
 		loves++;
 	if (valid[y][x] == 'E')
 		exit_flag = true;
-
-	valid[y][x] = '1'; // Marquer la case comme visitée
-
-	// Vérifier si un des appels récursifs retourne SUCCESS
-	if (flood_fill(game, x + 1, y, valid) == SUCCESS ||
-		flood_fill(game, x - 1, y, valid) == SUCCESS ||
-		flood_fill(game, x, y + 1, valid) == SUCCESS ||
-		flood_fill(game, x, y - 1, valid) == SUCCESS)
+	valid[y][x] = '1';
+	if (flood_fill(game, x + 1, y, valid) == SUCCESS
+		|| flood_fill(game, x - 1, y, valid) == SUCCESS
+		|| flood_fill(game, x, y + 1, valid) == SUCCESS
+		|| flood_fill(game, x, y - 1, valid) == SUCCESS)
 		return (SUCCESS);
-
-	// Vérifier si on a atteint toutes les conditions de victoire
 	if (loves == game->count.n_loves && exit_flag == true)
 		return (SUCCESS);
-
 	return (ERROR);
 }
 
-
 static char	**init_map(t_game *game)
 {
-	{
-		int		i;
-		char	**check_map;
-	
-		i = -1;
-		check_map = ft_calloc((game->file.map_height + 1), sizeof(char *));
-		while (++i < game->file.map_height)
-			check_map[i] = ft_strdup(game->file.map[i]);
-		return (check_map);
-	}
+	int		i;
+	char	**check_map;
+
+	i = -1;
+	check_map = ft_calloc((game->file.map_height + 1), sizeof(char *));
+	while (++i < game->file.map_height)
+		check_map[i] = ft_strdup(game->file.map[i]);
+	return (check_map);
 }
 
 int	flood_check(t_game *game)
@@ -66,22 +70,16 @@ int	flood_check(t_game *game)
 
 	valid = init_map(game);
 	if (!valid)
-		return (ERROR); // Erreur d'allocation mémoire
-
-	// Si flood_fill retourne SUCCESS, on retourne aussi SUCCESS
-	if (flood_fill(game, game->position.player_x_pos, game->position.player_y_pos, valid) == SUCCESS)
+		return (ERROR);
+	if (flood_fill(game, game->position.player_x_pos,
+			game->position.player_y_pos, valid) == SUCCESS)
 	{
 		free_map(valid);
 		return (SUCCESS);
 	}
-
 	free_map(valid);
 	return (ERROR);
 }
-
-
-
-
 
 int	is_map_playable(t_game *game)
 {

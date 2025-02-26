@@ -43,39 +43,33 @@ char	*ft_read_line(char *buffer)
 	return (left);
 }
 
-char    *ft_fill_line(char *buffer, int fd)
+char	*ft_fill_line(char *buffer, int fd)
 {
-    ssize_t reed;
-    char    *temp;
+	ssize_t	reed;
+	char	*temp;
 
-    if (!buffer)
-    {
-        buffer = ft_calloc(1, 1);
-        if (!buffer)
-            return (NULL);
-    }
-    temp = ft_calloc(BUFFER_SIZE + 1, 1);
-    if (!temp)
-        return (NULL); // Just return NULL; caller is responsible for buffer
-    reed = 1;
-    while ((!ft_strchr(temp, '\n')) && reed > 0)
-    {
-        reed = read(fd, temp, BUFFER_SIZE);
-        if (reed == -1)
-        {
-            free(temp); // Free temp before returning
-            return (NULL); // Just return NULL; caller is responsible for buffer
-        }
-        temp[reed] = '\0';
-        buffer = ft_joinfree(buffer, temp);
-        if (!buffer)
-        {
-            free(temp); // Free temp before returning
-            return (NULL); // Just return NULL; caller is responsible for buffer
-        }
-    }
-    free(temp); // Free temp in the success path
-    return (buffer);
+	if (!buffer)
+	{
+		buffer = ft_calloc(1, 1);
+		if (!buffer)
+			return (NULL);
+	}
+	temp = ft_calloc(BUFFER_SIZE + 1, 1);
+	if (!temp)
+		return (ft_free(buffer));
+	reed = 1;
+	while ((!ft_strchr(temp, '\n')) && reed > 0)
+	{
+		reed = read(fd, temp, BUFFER_SIZE);
+		if (reed == -1)
+			return (ft_free(buffer));
+		temp[reed] = '\0';
+		buffer = ft_joinfree(buffer, temp);
+		if (!buffer)
+			return (NULL);
+	}
+	free(temp);
+	return (buffer);
 }
 
 char	*ft_update(char *buffer)
@@ -114,21 +108,3 @@ char	*get_next_line(int fd)
 	buffer = ft_update(buffer);
 	return (line);
 }
-/*#include <stdio.h>
-
-
-int main()
-{
-	char *line;
-	int fd;
-	fd = open("prueba.txt", O_RDONLY);
-
-	//esto imprime todas las lineas
-	while((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line);
-		free(line);
-	} 
-	return(0);
-}
-*/

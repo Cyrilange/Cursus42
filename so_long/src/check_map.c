@@ -1,17 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-26 17:13:02 by csalamit          #+#    #+#             */
+/*   Updated: 2025-02-26 17:13:02 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/so_long.h"
-
-/*static int	ft_count_char(const char *str, char c)
-{
-	int	count = 0;
-
-	while (*str)
-	{
-		if (*str == c)
-			count++;
-		str++;
-	}
-	return (count);
-}*/
 
 static int	init_checks(t_game *game)
 {
@@ -33,28 +32,6 @@ static int	init_checks(t_game *game)
 	}
 	return (SUCCESS);
 }
-
-/*int	check_player_exit(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	game->count.n_player = 0;
-	game->count.n_exit = 0;
-	game->count.n_loves = 0;
-
-	while (game->file.map[i])
-	{
-		if (lign_map(game->file.map[i]) != (size_t)game->file.map_width)
-			return (1);
-		game->count.n_player += ft_count_char(game->file.map[i], 'P');
-		game->count.n_exit += ft_count_char(game->file.map[i], 'E');
-		game->count.n_loves += ft_count_char(game->file.map[i], 'C');
-		i++;
-	}
-	return (game->count.n_player != 1 || game->count.n_exit != 1
-		|| game->count.n_loves < 1);
-}*/
 
 static int	check_wall(t_game *game)
 {
@@ -78,9 +55,9 @@ static int	check_wall(t_game *game)
 
 int	check_map(t_game *game)
 {
-	/*if (!game->file.map)
-    	return (ERROR);
-	game->file.map_width = lign_map(game->file.map[0]);*/
+	if (!game->file.map)
+		return (ERROR);
+	game->file.map_width = lign_map(game->file.map[0]);
 	if (check_wall(game) || init_checks(game)
 		|| is_map_playable(game))
 		return (ERROR);

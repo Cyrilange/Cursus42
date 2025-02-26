@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mouvement.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-26 17:14:56 by csalamit          #+#    #+#             */
+/*   Updated: 2025-02-26 17:14:56 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
 static int	event_checker(t_game *game, int y, int x)
@@ -28,7 +40,8 @@ void	move_player(t_game *game, int to_y, int to_x)
 		{
 			if (game->file.map[game->dir.y][game->dir.x] == 'P')
 			{
-				if (!event_checker(game, game->dir.y + to_y, game->dir.x + to_x))
+				if (!event_checker(game, game->dir.y
+						+ to_y, game->dir.x + to_x))
 				{
 					update_map(game, game->dir.y + to_y, game->dir.x + to_x);
 					game->count.moves++;

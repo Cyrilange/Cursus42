@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-26 17:14:35 by csalamit          #+#    #+#             */
+/*   Updated: 2025-02-26 17:14:35 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
 void	player_exit_position(t_game *game)
@@ -39,7 +51,7 @@ int	main(int argc, char **argv)
 	ft_memset(&game, 0, sizeof(t_game));
 	ft_printf("\033[94m");
 	if (argc != 2)
-		return (ft_printf("Error\nYou need to provide a valid map file\n"), ERROR);
+		return (ft_printf("Error\nProvide a valid map file\n"), ERROR);
 	init_count(&game);
 	if (read_map(&game, argv[1]) == ERROR)
 		return (error_message(&game, 'M'), ERROR);

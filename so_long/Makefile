@@ -1,7 +1,7 @@
 NAME = so_long
 
 CC              = gcc -g
-CFLAGS          = -Wall -Werror -Wextra -g
+CFLAGS          = -Wall -Werror -Wextra 
 MLX42_LIB       = ./MLX42/build/libmlx42.a
 MLX42_INCLUDE   = ./MLX42/include
 LIBFT           = ./includes/libft
