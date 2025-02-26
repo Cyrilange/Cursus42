@@ -1,4 +1,3 @@
-
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -12,13 +11,11 @@
 # include <memory.h>
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "libft/libft.h"
-# include "../src/get_next_line/get_next_line.h"
 # include "ft_printf/ft_printf.h"
 # include "../src/get_next_line/get_next_line.h"
 
 # define WIDTH 36
 # define HEIGHT 38
-
 # define SUCCESS 0
 # define ERROR 1
 
@@ -57,7 +54,6 @@ typedef struct s_play_pos
 	int			player_y_pos;
 	int			exit_x_pos;
 	int			exit_y_pos;
-
 }				t_play_pos;
 
 typedef struct s_count
@@ -86,13 +82,12 @@ typedef struct s_game
 	t_dir		dir;
 }				t_game;
 
-int	flood_fill(t_game *game, int x, int y, char **valid);
-int	flood_check(t_game *game);
-int 			read_map(t_game *game, char *file);
+/* ---- Fonctions principales ---- */
+int				flood_fill(t_game *game, int x, int y, char **valid);
+int				flood_check(t_game *game);
+int				read_map(t_game *game, char *file);
 int				check_map(t_game *game);
 int				error_message(t_game *game, char str);
-//int	check_player_exit(t_game *game);
-//void			checked_error_game(t_game *game, char *argv);
 size_t			lign_map(char *file_lign);
 void			move_player(t_game *game, int to_y, int to_x);
 void			player_exit_position(t_game *game);

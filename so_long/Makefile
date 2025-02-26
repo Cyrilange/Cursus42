@@ -1,13 +1,13 @@
 NAME = so_long
 
-CC              = gcc
+CC              = gcc -g
 CFLAGS          = -Wall -Werror -Wextra -g
 MLX42_LIB       = ./MLX42/build/libmlx42.a
 MLX42_INCLUDE   = ./MLX42/include
 LIBFT           = ./includes/libft
 FT_PRINTF       = ./includes/ft_printf
 INCLUDES        = -I$(MLX42_INCLUDE) -Iincludes
-LIBS            = -L./MLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -L$(LIBFT) -lft -L$(FT_PRINTF) -lftprintf
+LIBS            = -L./MLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -L$(LIBFT) -lft -L$(FT_PRINTF) -lftprintf -g
 
 SRC_DIR         = ./src
 OBJ_DIR         = ./obj

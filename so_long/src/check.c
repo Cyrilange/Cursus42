@@ -1,24 +1,8 @@
 #include "../includes/so_long.h"
 
-int error_message(t_game *game, char str)
-{
-	ft_printf("\033[33m");
-	ft_printf("Error\n");
-	ft_printf("\033[31m");
-	if (str == 'M')
-		ft_printf("Invalid map: Issue with map content or structure.\n");
-	else if (str == 'P')
-        ft_printf("Unplayable map: No valid path found.\n");
-	else if (str == 'W')
-        ft_printf("Window initialization failed.\n");
-	terminate_game(game);
-    return (ERROR);
-}
-
 void	image_towindow_size(t_game *game, t_texture *img, int x, int y)
 {
-	mlx_image_to_window(game->mlx, game->img.floor.i, WIDTH * x, HEIGHT
-		* y);
+	mlx_image_to_window(game->mlx, game->img.floor.i, WIDTH * x, HEIGHT * y);
 	mlx_image_to_window(game->mlx, img->i, WIDTH * x, HEIGHT * y);
 	img->i->enabled = 1;
 }
@@ -36,13 +20,13 @@ static void	init_window(t_game *game)
 		{
 			if (game->file.map[i][j] == '1')
 				image_towindow_size(game, &game->img.wall, j, i);
-			if (game->file.map[i][j] == '0')
+			else if (game->file.map[i][j] == '0')
 				image_towindow_size(game, &game->img.floor, j, i);
-			if (game->file.map[i][j] == 'P')
+			else if (game->file.map[i][j] == 'P')
 				image_towindow_size(game, &game->img.player, j, i);
-			if (game->file.map[i][j] == 'E')
+			else if (game->file.map[i][j] == 'E')
 				image_towindow_size(game, &game->img.exit, j, i);
-			if (game->file.map[i][j] == 'C')
+			else if (game->file.map[i][j] == 'C')
 				image_towindow_size(game, &game->img.collectable, j, i);
 		}
 	}
@@ -86,6 +70,7 @@ int	window_control(t_game *game)
 	game->mlx = mlx_init(window_width, window_height, "so_long", false);
 	if (!game->mlx)
 	{
+		terminate_game(game);
 		return (ERROR);
 	}
 	load_images(game);
@@ -94,8 +79,6 @@ int	window_control(t_game *game)
 	mlx_loop(game->mlx);
 	return (SUCCESS);
 }
-
-
 
 void	loves_numbers(t_game *game)
 {
