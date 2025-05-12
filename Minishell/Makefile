@@ -19,7 +19,7 @@ src/built_ins/export_command.c \
 src/built_ins/pwd_command.c \
 src/built_ins/unset_command.c \
 
-src/cleaning \
+src/user_input/opening_minishell.c \
 
 src/parsing \
 
