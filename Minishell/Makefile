@@ -1,34 +1,22 @@
-NAME        = Minishell
+NAME        = minishell
 
 LIBFT       = ./includes/libft
 
 CC          = gcc
-CFLAGS      = -g -Wall -Werror -Wextra
+CFLAGS      = -g -Wall -Werror -Wextra -I$(LIBFT) -I./includes
+LDFLAGS     = -lreadline
+
 
 SRC_DIR     = ./src
 OBJ_DIR     = ./obj
 
 # List source files with path
-SRC_FILES   = src/main.c \
-
-src/built_ins/cd_command.c \
-src/built_ins/echo_command.c \
-src/built_ins/env_command.c \
-src/built_ins/exit_command.c \
-src/built_ins/export_command.c \
-src/built_ins/pwd_command.c \
-src/built_ins/unset_command.c \
-
-src/user_input/opening_minishell.c \
-
-src/parsing \
-
-src/pipe \
-
-src/signal \
-
-src/tokanisation \
-
+SRC_FILES = \
+	src/main.c \
+	src/built_ins/cd_command.c \
+	src/built_ins/pwd_command.c \
+	src/built_ins/echo_command.c \
+	src/user_input/opening_minishell.c \
 
 # Convert source files into object files
 OBJS        = $(SRC_FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -41,8 +29,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -I$(LIBFT) -c $< -o $@
 
 # Rule to build final executable
-$(NAME): $(OBJS) $(LIBFT)/libft.a 
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)/libft.a 
+$(NAME): $(OBJS) $(LIBFT)/libft.a
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)/libft.a $(LDFLAGS)
+
 
 # Rule to build libft
 $(LIBFT)/libft.a:

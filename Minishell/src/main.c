@@ -1,10 +1,15 @@
+#include "../includes/minishell.h"
 #include <unistd.h>
 
-int main(int argc, char *argv[]) {
-	if (argc == 2) 
-	{
-		write(1, argv[1], 1);
-		write(1, "\n", 1);
-	}
-	return 0;
+int main(void)
+{
+    while (1)
+    {
+        char *input = get_input();
+
+        command(input);
+
+        free(input);
+    }
+    return 0;
 }

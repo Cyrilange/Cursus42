@@ -1,4 +1,4 @@
-//#include "../includes/minishell.h"
+#include "../includes/minishell.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -22,31 +22,45 @@ int	is_builtin(const char *cmd)
 		strcmp(cmd, "env") == 0
 	);
 }
+int	execute_builtin(char **args)
+{
+	if (strcmp(args[0], "cd") == 0)
+		return ft_cd(args[1]);
+	else if (strcmp(args[0], "echo") == 0)
+        return ft_echo(args);
+	else if (strcmp(args[0], "pwd") == 0)
+        return ft_pwd();
+	return 0;
+}
+
 
 void command(char *input)
 {
 	if (!input || !*input) 
 		return;
-
-	char **args = malloc(sizeof(char *) * 2);
-	if (!args)
+	char *token = strtok(input, " \t\n");
+	if (!token)
 		return;
-	args[0] = strtok(input, " \t\n");
-	args[1] = NULL;
 
-	if (!args[0])
-	{
-		free(args);
-		return;
-	}
+	char *word = strtok(input, " \t\n");
+	int i = 0;
+	char **args = malloc(sizeof(char *) * (MAX_ARGS + 1));
+	while (word && i < MAX_ARGS)
+		{
+			args[i++] = word;
+			word = strtok(NULL, " \t\n");
+		}
+	args[i] = NULL;
 
 	if (is_builtin(args[0]))
 	{
-		printf("Builtin command: %s\n", args[0]);
+		execute_builtin(args);
 	}
 	else
 	{
-		printf("minishell: %s: command not found\n", args[0]);
+		write(2, "minishell: ", 11);
+		write(2, args[0], ft_strlen(args[0]));
+		write(2, ": command not found\n", 21);
 	}
 
 	free(args);
@@ -56,8 +70,19 @@ void command(char *input)
 char *get_input(void)
 {
     char *input;
+    char *cwd = getenv("PWD");
 
-    input = readline("minishell> ");//opening minishell
+    if (cwd)
+    {
+        printf("\033[0;32mminishell> \033[0;34m%s\033[0m $ ", cwd);
+    }
+    else
+    {
+        printf("\033[0;32mminishell> \033[0m$ ");
+    }
+
+    input = readline(NULL);
+
     if (!input)
     {
         printf("exit\n");
@@ -68,17 +93,4 @@ char *get_input(void)
         add_history(input);
 
     return input;
-}
-
-int main(void)
-{
-    while (1)
-    {
-        char *input = get_input();
-
-        command(input);
-
-        free(input);
-    }
-    return 0;
 }
