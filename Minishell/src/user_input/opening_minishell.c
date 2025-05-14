@@ -70,7 +70,7 @@ void command(char *input)
 
 	free(args);
 }
-
+//acascws
 
 char	*get_input()
 {
