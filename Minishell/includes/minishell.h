@@ -14,10 +14,17 @@
 #include <errno.h>
 #include "./libft.h"
 
+typedef struct s_data
+{
+	char	*input;
+	char	**args;
+	int		i;
+}	t_data;
+
 
 int	is_builtin(const char *cmd);
 void command(char *input);
-char *get_input(void);
+char *get_input();
 
 
 

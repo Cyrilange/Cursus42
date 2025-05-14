@@ -38,20 +38,25 @@ void command(char *input)
 {
 	if (!input || !*input) 
 		return;
-	char *token = strtok(input, " \t\n");
+	char *token = strtok(input, " \t\n"); //need praseing
 	if (!token)
 		return;
-
-	char *word = strtok(input, " \t\n");
+	char *word = strtok(input, " \t\n"); //need parsing
 	int i = 0;
 	char **args = malloc(sizeof(char *) * (MAX_ARGS + 1));
 	while (word && i < MAX_ARGS)
-		{
-			args[i++] = word;
-			word = strtok(NULL, " \t\n");
-		}
+	{
+		args[i] = word;
+		i++;
+		word = strtok(word + ft_strlen(args[i - 1]), " \t\n"); //need parsing
+	}
 	args[i] = NULL;
-
+	i = 0;
+	/*while (args[i])
+	{
+		printf("%s\n", args[i]);
+		i++;
+	}*/
 	if (is_builtin(args[0]))
 	{
 		execute_builtin(args);
@@ -67,9 +72,9 @@ void command(char *input)
 }
 
 
-char *get_input(void)
+char	*get_input()
 {
-    char *input;
+	t_data input;
     char *cwd = getenv("PWD");
 
     if (cwd)
@@ -81,16 +86,18 @@ char *get_input(void)
         printf("\033[0;32mminishell> \033[0m$ ");
     }
 
-    input = readline(NULL);
+    input.input = readline(NULL);
 
-    if (!input)
+	//printf("%s\n", input.input);
+
+    if (!input.input)
     {
         printf("exit\n");
         exit(0);
     }
 
-    if (input && *input)
-        add_history(input);
+    if (input.input && *(input.input))
+        add_history(input.input);
 
-    return input;
+    return input.input;
 }
