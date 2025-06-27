@@ -51,9 +51,9 @@ typedef struct s_data
 
 
 void    error_function(const char *message);
-void    check_malloc(size_t *memory);
-void parsing(t_data *data, char **argv);
-int validate_time(int time, const char *message);
+void    *check_malloc(size_t size);
+void    parsing(t_data *data, char **argv);
+int     validate_time(int time, const char *message);
 
 
 

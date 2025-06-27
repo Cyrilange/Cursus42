@@ -6,13 +6,12 @@ void    error_function(const char *message)
     exit(EXIT_FAILURE);
 }
 
-void check_malloc(size_t *memory)
+void *check_malloc(size_t size)
 {
-    void *message;
-    message = malloc(memory);
-    if (!message)
+    void *ptr = malloc(size);
+    if (!ptr)
         error_function("Error: Memory allocation failed.");
-    return (message);
+    return ptr;
 }
 
 int validate_time(int time, const char *message)
