@@ -1,7 +1,7 @@
 NAME = philosopher
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -pthread -g
-SRCS = main.c  error_functions.c initialisation.c executor.c parseing.c mutex_and_phtread_safety.c philosophers_routine_describe.c
+SRCS = main.c print_status.c error_functions.c initialisation.c executor.c parseing.c mutex_and_phtread_safety.c philosophers_routine_describe.c
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
 LIBS = -lpthread

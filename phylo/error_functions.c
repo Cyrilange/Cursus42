@@ -14,9 +14,8 @@ void *check_malloc(size_t size)
     return ptr;
 }
 
-int validate_time(int time, const char *message)
+void validate_time(int time, const char *message)
 {
     if (time <= 0)
         error_function(message);
-    return 0;
 }

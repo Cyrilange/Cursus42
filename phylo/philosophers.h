@@ -69,8 +69,9 @@ typedef struct s_data
 
 void	error_function(const char *message);
 void	*check_malloc(size_t size);
+void print_status(t_philosopher *philo, const char *message);
 void	parsing(t_data *data, char **argv);
-int		validate_time(int time, const char *message);
+void		validate_time(int time, const char *message);
 void	safety_mutex(t_mutex *mutex, t_safety action);
 void	mutex_error(int action, t_safety safety);
 void	safety_phread(pthread_t *thread,void *(*foo)(void *),void *data, t_safety action);
@@ -81,6 +82,7 @@ void    philosopher_eat(t_philosopher *philosopher);
 void    philosopher_sleep(t_philosopher *philosopher);
 void    philosopher_think(t_philosopher *philosopher);
 long	ft_get_time(void);
+
 
 
 

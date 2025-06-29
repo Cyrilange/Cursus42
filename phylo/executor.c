@@ -14,47 +14,41 @@ static void routine_from_philosophers(t_philosopher *philosopher)
     philosopher_think(philosopher);
 }
 
-void *philosopher_routine(void *arg)
+static void  philo_alone(t_data *data)
 {
-    t_philosopher *philosopher = (t_philosopher *)arg;
-    t_data *data = philosopher->data;
 
-    while (!data->is_finished)
+    safety_mutex(&data->protect_mutex, LOCK);
+    data->philosophers[0].last_meal_time = ft_get_time();
+    safety_mutex(&data->protect_mutex, UNLOCK);
+    usleep(data->time_to_die * 1000);
+    safety_mutex(&data->protect_mutex, LOCK);
+    print_status(data->philosophers, "has died.\n" RESET); // Time is 0 as per example output
+    data->philosophers[0].is_full = true; // Mark as full if single philosopher logic implies
+    data->is_finished = true;
+    safety_mutex(&data->protect_mutex, UNLOCK);
+}
+
+
+void	*philosopher_routine(void *arg)
+{
+    t_philosopher *philosopher;
+
+    philosopher = (t_philosopher *)arg;
+    while (1)
     {
         safety_mutex(&philosopher->data->protect_mutex, LOCK);
-        if (philosopher->data->is_finished)
+        if (philosopher->data->is_finished || philosopher->is_full)
         {
             safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
             break;
         }
         safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
         routine_from_philosophers(philosopher);
-        if (data->meals_required > 0 && philosopher->meals_counter >= data->meals_required)
-        {
-            philosopher->is_full = true;
-            data->is_finished = true;
-            return NULL;
-        }
-        if (ft_get_time() - philosopher->last_meal_time > data->time_to_die)
-        {
-            printf(RED "Philosopher %d has died.\n" RESET, philosopher->id);
-            data->is_finished = true;
-            return NULL;
-        }
     }
     return NULL;
 }
 
-static void  philo_alone(t_data *data)
-{
 
-    usleep(data->time_to_die * 1000);
-    printf("Philosopher %d has died.\n", 1);
-    data->philosophers[0].is_full = true;
-    safety_mutex(&data->protect_mutex, LOCK);
-    data->is_finished = true;
-    safety_mutex(&data->protect_mutex, UNLOCK);
-}
 
 
 void    executor(t_data *data)
@@ -83,5 +77,5 @@ void    executor(t_data *data)
             safety_phread(&data->philosophers[i].philo_thread, NULL, NULL, JOIN);
             i++;
         }
-    }        
+    }            
 }
