@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "deque": "c",
+        "string": "c",
+        "unordered_map": "c",
+        "vector": "c",
+        "memory": "c"
+    }
+}

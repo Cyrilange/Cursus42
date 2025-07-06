@@ -1,5 +1,38 @@
 #include "philosophers.h"
 
+static void	routine_from_philosophers(t_philosopher *philosopher)
+{
+	philosopher_eat(philosopher);
+	philosopher_sleep(philosopher);
+	philosopher_think(philosopher);
+}
+
+void	*philosopher_routine(void *arg)
+{
+	t_philosopher	*philosopher;
+
+	philosopher = (t_philosopher *)arg;
+	while (1)
+	{
+		safety_mutex(&philosopher->data->protect_mutex, LOCK);
+		if (philosopher->data->is_finished || philosopher->is_full)
+		{
+			safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
+			break ;
+		}
+		if (philosopher->data->meals_required != -1
+			&& philosopher->meals_counter >= philosopher->data->meals_required)
+		{
+			philosopher->is_full = true;
+			safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
+			break ;
+		}
+		safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
+		routine_from_philosophers(philosopher);
+	}
+	return (NULL);
+}
+
 void philosopher_eat(t_philosopher *philosopher)
 {
     t_fork *first_fork;
@@ -17,28 +50,8 @@ void philosopher_eat(t_philosopher *philosopher)
     }
     if (philosopher->data->meals_required > 0
         && philosopher->meals_counter == philosopher->data->meals_required)
-    {
-        philosopher->is_full = true;
-    }
-
-    safety_mutex(&first_fork->fork, LOCK);
-    print_status(philosopher, ROSE"has taken a fork"RESET);
-    safety_mutex(&second_fork->fork, LOCK);
-    print_status(philosopher, PURPLE"has taken a fork"RESET);
-    
-    // Update last meal time, eat...
-    safety_mutex(&philosopher->data->protect_mutex, LOCK);
-    philosopher->last_meal_time = ft_get_time();
-    safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
-    
-    philosopher->meals_counter++;
-    print_status(philosopher, YELLOW"is eating 🍽️"RESET);
-    usleep(philosopher->data->time_to_eat);
-
-   
-
-    safety_mutex(&second_fork->fork, UNLOCK);
-    safety_mutex(&first_fork->fork, UNLOCK);
+			philosopher->is_full = true;
+    philo_is_eating(philosopher, first_fork, second_fork);
 }
 
 
@@ -52,5 +65,4 @@ void philosopher_sleep(t_philosopher *philosopher)
 void philosopher_think(t_philosopher *philosopher)
 {
     print_status(philosopher,GREEN"is thinking.  🤔"RESET);
-    usleep(1000); // Facultatif, ou ajuste pour ton projet
 }
