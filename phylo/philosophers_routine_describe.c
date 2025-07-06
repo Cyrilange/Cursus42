@@ -15,32 +15,37 @@ void philosopher_eat(t_philosopher *philosopher)
         first_fork = philosopher->right_fork;
         second_fork = philosopher->left_fork;
     }
+    if (philosopher->data->meals_required > 0
+        && philosopher->meals_counter == philosopher->data->meals_required)
+    {
+        philosopher->is_full = true;
+    }
 
-    pthread_mutex_lock(&first_fork->fork);
+    safety_mutex(&first_fork->fork, LOCK);
     print_status(philosopher, ROSE"has taken a fork"RESET);
-    pthread_mutex_lock(&second_fork->fork);
+    safety_mutex(&second_fork->fork, LOCK);
     print_status(philosopher, PURPLE"has taken a fork"RESET);
-
+    
     // Update last meal time, eat...
     safety_mutex(&philosopher->data->protect_mutex, LOCK);
     philosopher->last_meal_time = ft_get_time();
     safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
-
+    
+    philosopher->meals_counter++;
     print_status(philosopher, YELLOW"is eating 🍽️"RESET);
     usleep(philosopher->data->time_to_eat);
 
-    philosopher->meals_counter++;
-    if (philosopher->data->meals_required != -1 && philosopher->meals_counter >= philosopher->data->meals_required)
-        philosopher->is_full = true;
+   
 
-    pthread_mutex_unlock(&second_fork->fork);
-    pthread_mutex_unlock(&first_fork->fork);
+    safety_mutex(&second_fork->fork, UNLOCK);
+    safety_mutex(&first_fork->fork, UNLOCK);
 }
 
 
 void philosopher_sleep(t_philosopher *philosopher)
 {
-    print_status(philosopher, BLUE "is sleeping  😴");
+    
+    print_status(philosopher, BLUE "is sleeping  😴"RESET);
     usleep(philosopher->data->time_to_sleep);
 }
 

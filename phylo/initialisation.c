@@ -36,6 +36,21 @@ static void philosophers_initialisation(t_data *data)
 	}
 }
 
+bool check_all_philos_full(t_data *data)
+{
+    int i;
+
+    i = 0;
+    while (i < data->nbr_philo)
+    {
+        if (!data->philosophers[i].is_full)
+            return false;
+        i++;
+    }
+    return true;
+}
+
+
 void	ft_initialisation(t_data *data)
 {
 	int i;

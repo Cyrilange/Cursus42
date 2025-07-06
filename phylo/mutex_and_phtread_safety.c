@@ -13,8 +13,8 @@ void mutex_error(int action, t_safety safety)
         error_function("Error: A deadlock condition was detected.");
     else if (action == EPERM )
         error_function("Error: The current thread does not own the mutex.");
-    else if (action == EBUSY)
-        error_function("Error: The mutex is already locked by another thread.");
+   // else if (action == EBUSY)
+      //  error_function("Error: The mutex is already locked by another thread.");
     else if (action == ENOMEM)
         error_function("Error: Insufficient memory to create the mutex.");
 }
