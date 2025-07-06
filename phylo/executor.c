@@ -4,16 +4,16 @@ static void *monitor_death(void *arg);
 
 long ft_get_time(void)
 {
-    struct timeval tv;
-    gettimeofday(&tv, NULL);
-    return (tv.tv_sec * 1000 + tv.tv_usec / 1000); // Return time in milliseconds
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000 + tv.tv_usec / 1000); // Return time in milliseconds
 }
 
 static void routine_from_philosophers(t_philosopher *philosopher)
 {
-    philosopher_eat(philosopher);
-    philosopher_sleep(philosopher);
-    philosopher_think(philosopher);
+	philosopher_eat(philosopher);
+	philosopher_sleep(philosopher);
+	philosopher_think(philosopher);
 }
 
 void	*philosopher_routine(void *arg)
@@ -41,13 +41,29 @@ void	*philosopher_routine(void *arg)
 	return (NULL);
 }
 
+static void ft_solo(t_philosopher *philosopher)
+{
+	print_status(philosopher, ROSE"has taken a fork"RESET);
+	usleep(philosopher->data->time_to_die);
+	print_status(philosopher, RED "died" RESET);
+	safety_mutex(&philosopher->data->protect_mutex, LOCK);
+	philosopher->data->is_finished = true;
+	safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
+}
+
 void executor(t_data *data)
 {
     int i;
     pthread_t monitor_thread;
 
     i = -1;
-    data->start_time = ft_get_time();
+	data->start_time = ft_get_time();
+	if (data->nbr_philo == 1)
+	{
+		ft_solo(data->philosophers);
+		return ;
+	}
+    
     while (++i < data->nbr_philo)
         data->philosophers[i].last_meal_time = data->start_time;
     safety_phread(&monitor_thread, monitor_death, data, CREATE);
