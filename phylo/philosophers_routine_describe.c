@@ -12,6 +12,7 @@ void	*philosopher_routine(void *arg)
 	t_philosopher	*philosopher;
 
 	philosopher = (t_philosopher *)arg;
+	philosopher->last_meal_time = ft_get_time();
 	while (1)
 	{
 		safety_mutex(&philosopher->data->protect_mutex, LOCK);

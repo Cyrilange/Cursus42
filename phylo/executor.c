@@ -53,7 +53,7 @@ void	*monitor_death(void *arg)
 			if (ft_get_time()
 				- data->philosophers[i].last_meal_time > data->time_to_die)
 			{
-				print_status(&data->philosophers[i], RED "died "EMOJI_SKULL RESET);
+				print_status(&data->philosophers[i], RED "died  💀   ☠️   🏴‍☠️" RESET);
 				safety_mutex(&data->protect_mutex, LOCK);
 				data->is_finished = true;
 				safety_mutex(&data->protect_mutex, UNLOCK);
