@@ -2,13 +2,11 @@
 
 static	void	*monitor_death(void *arg);
 
-
-
 static void	ft_solo(t_philosopher *philosopher)
 {
 	print_status(philosopher, ROSE"has taken a fork"RESET);
 	usleep(philosopher->data->time_to_die);
-	print_status(philosopher, RED "died" RESET);
+	print_status(philosopher, RED "died " EMOJI_SKULL RESET);
 	safety_mutex(&philosopher->data->protect_mutex, LOCK);
 	philosopher->data->is_finished = true;
 	safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
@@ -41,9 +39,9 @@ void	executor(t_data *data)
 
 void	*monitor_death(void *arg)
 {
-    t_data *data;
-	int i;
-	int full_count;
+	t_data	*data;
+	int		i;
+	int		full_count;
 
 	data = (t_data *)arg;
 	while (1)
@@ -52,13 +50,14 @@ void	*monitor_death(void *arg)
 		full_count = 0;
 		while (++i < data->nbr_philo)
 		{
-			if (ft_get_time() - data->philosophers[i].last_meal_time > data->time_to_die)
+			if (ft_get_time()
+				- data->philosophers[i].last_meal_time > data->time_to_die)
 			{
-				print_status(&data->philosophers[i], RED "died" RESET);
+				print_status(&data->philosophers[i], RED "died "EMOJI_SKULL RESET);
 				safety_mutex(&data->protect_mutex, LOCK);
 				data->is_finished = true;
 				safety_mutex(&data->protect_mutex, UNLOCK);
-				return NULL;
+				return (NULL);
 			}
 			if (data->philosophers[i].is_full)
 				full_count++;
@@ -68,9 +67,8 @@ void	*monitor_death(void *arg)
 			safety_mutex(&data->protect_mutex, LOCK);
 			data->is_finished = true;
 			safety_mutex(&data->protect_mutex, UNLOCK);
-			return NULL;
+			return (NULL);
 		}
-		usleep(1000);
 	}
-	return NULL;
+	return (NULL);
 }

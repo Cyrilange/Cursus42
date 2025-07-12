@@ -1,6 +1,5 @@
 #include "philosophers.h"
 
-
 static void	clear_data(t_data *data)
 {
 	if (data->forks)
