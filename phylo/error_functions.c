@@ -9,11 +9,11 @@ void	error_function(const char *message)
 void	*check_malloc(size_t size)
 {
 	void	*ptr;
-	
+
 	ptr = malloc(size);
 	if (!ptr)
 		error_function("Error: Memory allocation failed.");
-	return ptr;
+	return (ptr);
 }
 
 void	validate_time(int time, const char *message)

@@ -10,7 +10,7 @@ void	mutex_error(int action, t_safety safety)
 		error_function("Error: The mutex is already initialized or destroyed.");
 	else if (action == EDEADLK)
 		error_function("Error: A deadlock condition was detected.");
-	else if (action == EPERM )
+	else if (action == EPERM)
 		error_function("Error: The current thread does not own the mutex.");
 	else if (action == EBUSY)
 		error_function("Error: The mutex is already locked by another thread.");
@@ -23,10 +23,11 @@ void	safety_mutex(t_mutex *mutex, t_safety action)
 	if (action == INIT)
 		mutex_error(pthread_mutex_init(mutex, NULL), action);
 	else if (action == LOCK)
-	   mutex_error(pthread_mutex_lock(mutex), action);
+		mutex_error(pthread_mutex_lock(mutex), action);
 	else if (action == UNLOCK)
 		mutex_error(pthread_mutex_unlock(mutex), action);
 	else if (action == DESTROY)
+	{
 		if (pthread_mutex_trylock(mutex) == 0)
 		{
 			pthread_mutex_unlock(mutex);
@@ -34,12 +35,13 @@ void	safety_mutex(t_mutex *mutex, t_safety action)
 		}
 		else
 			mutex_error(EBUSY, action);
+	}
 	else
 		error_function("Error: Invalid mutex action.");
-
 }
 
-void	safety_phread(pthread_t *thread,void *(*foo)(void *),void *data, t_safety action)
+void	safety_phread(pthread_t *thread, void *(*foo)(void *),
+		void *data, t_safety action)
 {
 	if (action == CREATE)
 		mutex_error(pthread_create(thread, NULL, foo, data), action);
@@ -48,5 +50,5 @@ void	safety_phread(pthread_t *thread,void *(*foo)(void *),void *data, t_safety a
 	else if (action == DETACH)
 		mutex_error(pthread_detach(*thread), action);
 	else
-		error_function("Error: Invalid pthread action.use <CREATE>, <JOIN>, <DETACH>.");
+		error_function("Error: Invalid <CREATE>, <JOIN>, <DETACH>.");
 }
