@@ -37,38 +37,49 @@ void	executor(t_data *data)
 		safety_phread(&data->philosophers[i].philo_thread, NULL, NULL, JOIN);
 }
 
+static bool	check_philosopher_death(t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (++i < data->nbr_philo)
+	{
+		if (ft_get_time()
+			- data->philosophers[i].last_meal_time > data->time_to_die)
+		{
+			print_status(&data->philosophers[i], RED "died 💀" RESET);
+			safety_mutex(&data->protect_mutex, LOCK);
+			data->is_finished = true;
+			safety_mutex(&data->protect_mutex, UNLOCK);
+			return (true);
+		}
+	}
+	return (false);
+}
+
+static bool	check_all_full(t_data *data)
+{
+	if (data->meals_required <= 0)
+		return (false);
+	if (check_all_philos_full(data))
+	{
+		safety_mutex(&data->protect_mutex, LOCK);
+		data->is_finished = true;
+		safety_mutex(&data->protect_mutex, UNLOCK);
+		return (true);
+	}
+	return (false);
+}
+
 void	*monitor_death(void *arg)
 {
 	t_data	*data;
-	int		i;
-	int		full_count;
 
 	data = (t_data *)arg;
 	while (1)
 	{
-		i = -1;
-		full_count = 0;
-		while (++i < data->nbr_philo)
-		{
-			if (ft_get_time()
-				- data->philosophers[i].last_meal_time > data->time_to_die)
-			{
-				print_status(&data->philosophers[i], RED "died  💀   ☠️   🏴‍☠️" RESET);
-				safety_mutex(&data->protect_mutex, LOCK);
-				data->is_finished = true;
-				safety_mutex(&data->protect_mutex, UNLOCK);
-				return (NULL);
-			}
-			if (data->philosophers[i].is_full)
-				full_count++;
-		}
-		if (data->meals_required > 0 && full_count == data->nbr_philo)
-		{
-			safety_mutex(&data->protect_mutex, LOCK);
-			data->is_finished = true;
-			safety_mutex(&data->protect_mutex, UNLOCK);
-			return (NULL);
-		}
+		if (check_philosopher_death(data) || check_all_full(data))
+			break ;
 	}
 	return (NULL);
 }

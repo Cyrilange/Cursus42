@@ -1,8 +1,9 @@
 #include "philosophers.h"
 
-static void initialisation_forks(t_philosopher *philosophers,t_fork *forks, int id_philo)
+static void	initialisation_forks(t_philosopher *philosophers,
+	t_fork *forks, int id_philo)
 {
-	int number_philosophers;
+	int	number_philosophers;
 
 	number_philosophers = philosophers->data->nbr_philo;
 	if (philosophers->id % 2 == 0)
@@ -15,19 +16,18 @@ static void initialisation_forks(t_philosopher *philosophers,t_fork *forks, int 
 		philosophers->left_fork = &forks[id_philo];
 		philosophers->right_fork = &forks[(id_philo + 1) % number_philosophers];
 	}
-
 }
 
-static void philosophers_initialisation(t_data *data)
+static void	philosophers_initialisation(t_data *data)
 {
-	int i;
-	t_philosopher *philosophers;
+	int				i;
+	t_philosopher	*philosophers;
 
 	i = 0;
 	while (i < data->nbr_philo)
 	{
 		philosophers = data->philosophers + i;
-		philosophers->id = i + 1; // Philosopher IDs start from 1
+		philosophers->id = i + 1;
 		philosophers->meals_counter = 0;
 		philosophers->is_full = false;
 		philosophers->data = data;
@@ -36,28 +36,27 @@ static void philosophers_initialisation(t_data *data)
 	}
 }
 
-bool check_all_philos_full(t_data *data)
+bool	check_all_philos_full(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < data->nbr_philo)
 	{
 		if (!data->philosophers[i].is_full)
-			return false;
+			return (false);
 		i++;
 	}
-	return true;
+	return (true);
 }
-
 
 void	ft_initialisation(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	data->is_finished = false;
-	data->forks = check_malloc(sizeof(t_fork) * data->nbr_philo);	
+	data->forks = check_malloc(sizeof(t_fork) * data->nbr_philo);
 	data->philosophers = check_malloc(sizeof(t_philosopher) * data->nbr_philo);
 	safety_mutex(&data->protect_mutex, INIT);
 	while (i < data->nbr_philo)

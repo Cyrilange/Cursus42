@@ -1,7 +1,6 @@
 #include "philosophers.h"
 
-
-void mutex_error(int action, t_safety safety)
+void	mutex_error(int action, t_safety safety)
 {
 	if (action == 0)
 		return ;
@@ -13,13 +12,13 @@ void mutex_error(int action, t_safety safety)
 		error_function("Error: A deadlock condition was detected.");
 	else if (action == EPERM )
 		error_function("Error: The current thread does not own the mutex.");
-   // else if (action == EBUSY)
-	  //  error_function("Error: The mutex is already locked by another thread.");
+	else if (action == EBUSY)
+		error_function("Error: The mutex is already locked by another thread.");
 	else if (action == ENOMEM)
 		error_function("Error: Insufficient memory to create the mutex.");
 }
 
-void safety_mutex(t_mutex *mutex, t_safety action)
+void	safety_mutex(t_mutex *mutex, t_safety action)
 {
 	if (action == INIT)
 		mutex_error(pthread_mutex_init(mutex, NULL), action);
@@ -34,15 +33,13 @@ void safety_mutex(t_mutex *mutex, t_safety action)
 			mutex_error(pthread_mutex_destroy(mutex), action);
 		}
 		else
-		{
 			mutex_error(EBUSY, action);
-		}
 	else
 		error_function("Error: Invalid mutex action.");
 
 }
 
-void safety_phread(pthread_t *thread,void *(*foo)(void *),void *data, t_safety action)
+void	safety_phread(pthread_t *thread,void *(*foo)(void *),void *data, t_safety action)
 {
 	if (action == CREATE)
 		mutex_error(pthread_create(thread, NULL, foo, data), action);

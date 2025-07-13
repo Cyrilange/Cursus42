@@ -84,7 +84,7 @@ void	philosopher_eat(t_philosopher *philosopher);
 void	philosopher_sleep(t_philosopher *philosopher);
 void	philosopher_think(t_philosopher *philosopher);
 long	ft_get_time(void);
-void	ft_usleep(long time_in_ms);
+void	 ft_usleep(long time_in_ms);
 void	ft_exit(t_data *data);
 bool	check_all_philos_full(t_data *data);
 void	philo_is_eating(t_philosopher *philosopher,
