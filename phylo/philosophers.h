@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosophers.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-07-13 15:42:17 by csalamit          #+#    #+#             */
+/*   Updated: 2025-07-13 15:42:17 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS
+# define PHILOSOPHERS_H
 
 # include <pthread.h>
 # include <stdio.h>
@@ -17,7 +29,7 @@
 # define GREEN	"\033[1;32m"
 # define BLUE	"\033[1;34m"
 # define YELLOW 	"\033[1;33m"
-# define EMOJI_SKULL "💀 ☠️ 🏴‍☠️  💀 ☠️ 🏴‍☠️  💀 ☠️ 🏴‍☠️  💀 ☠️ 🏴‍☠️  💀 ☠️ 🏴‍☠️"
+# define EMOJI_SKULL "💀"
 # define EMOJI_FORK  "🍴"
 # define EMOJI_EAT   "🍝"
 
@@ -84,7 +96,7 @@ void	philosopher_eat(t_philosopher *philosopher);
 void	philosopher_sleep(t_philosopher *philosopher);
 void	philosopher_think(t_philosopher *philosopher);
 long	ft_get_time(void);
-void	ft_usleep(long time_in_ms);
+void	ft_usleep(t_data *data, long time_in_ms);
 void	ft_exit(t_data *data);
 bool	check_all_philos_full(t_data *data);
 void	philo_is_eating(t_philosopher *philosopher,

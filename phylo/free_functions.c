@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_functions.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-07-13 16:06:02 by csalamit          #+#    #+#             */
+/*   Updated: 2025-07-13 16:06:02 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 static void	clear_data(t_data *data)
@@ -8,13 +20,28 @@ static void	clear_data(t_data *data)
 		free(data->philosophers);
 }
 
-void	ft_usleep(long time_in_ms)
+void	ft_usleep(t_data *data, long time_in_ms)
 {
 	long	start;
+	long	current_time;
 
 	start = ft_get_time();
-	while ((ft_get_time() - start) < time_in_ms)
-		usleep(100);
+	current_time = start;
+	while ((current_time - start) < time_in_ms)
+	{
+		current_time = ft_get_time();
+		if (data->is_finished)
+		{
+			return ;
+		}
+		if (time_in_ms - (current_time - start) <= 100)
+		{
+			while ((current_time - start) < time_in_ms)
+				current_time = ft_get_time();
+			break ;
+		}
+		usleep(10);
+	}
 }
 
 void	ft_exit(t_data *data)

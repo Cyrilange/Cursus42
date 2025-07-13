@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_status.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-07-13 15:42:23 by csalamit          #+#    #+#             */
+/*   Updated: 2025-07-13 15:42:23 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 void	print_status(t_philosopher *philo, const char *message)
@@ -23,9 +35,9 @@ void	philo_is_eating(t_philosopher *philosopher,
 	safety_mutex(&philosopher->data->protect_mutex, LOCK);
 	philosopher->last_meal_time = ft_get_time();
 	safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
-	philosopher->meals_counter++;
 	print_status(philosopher, YELLOW"is eating     "EMOJI_EAT RESET);
-	usleep(philosopher->data->time_to_eat);
+	ft_usleep(philosopher->data, philosopher->data->time_to_eat);
+	philosopher->meals_counter++;
 	safety_mutex(&second_fork->fork, UNLOCK);
 	safety_mutex(&first_fork->fork, UNLOCK);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   executor.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-07-13 16:05:55 by csalamit          #+#    #+#             */
+/*   Updated: 2025-07-13 16:05:55 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 static	void	*monitor_death(void *arg);
@@ -26,6 +38,7 @@ void	executor(t_data *data)
 	}
 	while (++i < data->nbr_philo)
 		data->philosophers[i].last_meal_time = data->start_time;
+	usleep(1);
 	safety_phread(&monitor_thread, monitor_death, data, CREATE);
 	i = -1;
 	while (++i < data->nbr_philo)
@@ -80,6 +93,7 @@ void	*monitor_death(void *arg)
 	{
 		if (check_philosopher_death(data) || check_all_full(data))
 			break ;
+		usleep(1);
 	}
 	return (NULL);
 }

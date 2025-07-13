@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosophers_routine_describe.c                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-07-13 15:42:11 by csalamit          #+#    #+#             */
+/*   Updated: 2025-07-13 15:42:11 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 static void	routine_from_philosophers(t_philosopher *philosopher)
@@ -58,10 +70,11 @@ void	philosopher_eat(t_philosopher *philosopher)
 void	philosopher_sleep(t_philosopher *philosopher)
 {
 	print_status(philosopher, BLUE "is sleeping   😴"RESET);
-	usleep(philosopher->data->time_to_sleep);
+	ft_usleep(philosopher->data, philosopher->data->time_to_sleep);
 }
 
 void	philosopher_think(t_philosopher *philosopher)
 {
 	print_status(philosopher, GREEN"is thinking.  🤔"RESET);
+	usleep(5);
 }
