@@ -75,6 +75,7 @@ typedef struct s_data
 	long			meals_required; // ? av[5] : nothing
 	long			start_time;
 	bool			is_finished;
+	bool			someone_died;
 	t_mutex			protect_mutex;
 	t_fork			*forks;
 	t_philosopher	*philosophers;

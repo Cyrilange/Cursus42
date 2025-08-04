@@ -68,6 +68,7 @@ void	ft_initialisation(t_data *data)
 
 	i = 0;
 	data->is_finished = false;
+	data->someone_died = false;
 	data->forks = check_malloc(sizeof(t_fork) * data->nbr_philo);
 	data->philosophers = check_malloc(sizeof(t_philosopher) * data->nbr_philo);
 	safety_mutex(&data->protect_mutex, INIT);
