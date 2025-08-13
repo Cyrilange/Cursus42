@@ -15,12 +15,12 @@
 bool	validate_times_die(t_data *data)
 {
 	if (data->time_to_die <= data->time_to_eat + data->time_to_sleep)
-		return (false);  // temps incohérents, ne pas lancer
+		return (false);
 	return (true);
 }
 
 static void	initialisation_forks(t_philosopher *philosophers,
-	t_fork *forks, int id_philo)
+	t_fork	*forks, int id_philo)
 {
 	int	number_philosophers;
 

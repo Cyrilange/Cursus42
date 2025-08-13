@@ -105,6 +105,6 @@ void	philo_is_eating(t_philosopher *philosopher,
 			t_fork *first_fork, t_fork *second_fork);
 void	ft_alone(t_philosopher *philosopher);
 bool	validate_times_die(t_data *data);
-bool it_started_or_not(t_philosopher *philosopher);
+bool	it_started_or_not(t_philosopher *philosopher);
 
 #endif

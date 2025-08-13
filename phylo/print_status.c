@@ -65,3 +65,16 @@ void	philo_is_eating(t_philosopher *philosopher,
 	safety_mutex(&second_fork->fork, UNLOCK);
 	safety_mutex(&first_fork->fork, UNLOCK);
 }
+
+void	philosopher_sleep(t_philosopher *philosopher)
+{
+	safety_mutex(&philosopher->data->protect_mutex, LOCK);
+	if (philosopher->data->is_finished)
+	{
+		safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
+		return ;
+	}
+	safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
+	print_status(philosopher, BLUE "is sleeping   😴"RESET);
+	ft_usleep(philosopher->data, philosopher->data->time_to_sleep);
+}

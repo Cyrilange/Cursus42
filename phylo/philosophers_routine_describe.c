@@ -93,19 +93,6 @@ void	philosopher_eat(t_philosopher *philosopher)
 	philo_is_eating(philosopher, first_fork, second_fork);
 }
 
-void	philosopher_sleep(t_philosopher *philosopher)
-{
-	safety_mutex(&philosopher->data->protect_mutex, LOCK);
-	if (philosopher->data->is_finished)
-	{
-		safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
-		return ;
-	}
-	safety_mutex(&philosopher->data->protect_mutex, UNLOCK);	
-	print_status(philosopher, BLUE "is sleeping   😴"RESET);
-	ft_usleep(philosopher->data, philosopher->data->time_to_sleep);
-}
-
 void	philosopher_think(t_philosopher *philosopher)
 {
 	long	time_left;
