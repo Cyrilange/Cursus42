@@ -22,27 +22,32 @@ static void	clear_data(t_data *data)
 
 void	ft_usleep(t_data *data, long time_in_ms)
 {
-	long	start;
-	long	current_time;
+    long	start;
+    long	current_time;
+	long	time_left;
 
 	start = ft_get_time();
 	current_time = start;
-	while ((current_time - start) < time_in_ms)
-	{
-		current_time = ft_get_time();
-		if (data->is_finished)
-		{
-			return ;
-		}
-		if (time_in_ms - (current_time - start) <= 100)
-		{
-			while ((current_time - start) < time_in_ms)
-				current_time = ft_get_time();
-			break ;
-		}
+    while ((current_time - start) < time_in_ms)
+    {
+        safety_mutex(&data->protect_mutex, LOCK);
+        bool finished = data->is_finished;
+        safety_mutex(&data->protect_mutex, UNLOCK);
+        if (finished)
+            return ;
+        current_time = ft_get_time();
+        time_left = time_in_ms - (current_time - start);
+        if (time_left <= 100)
+        {
+            while ((ft_get_time() - start) < time_in_ms)
+                ;
+            break ;
+        }
 		usleep(10);
-	}
+        current_time = ft_get_time();
+    }
 }
+
 
 void	ft_exit(t_data *data)
 {

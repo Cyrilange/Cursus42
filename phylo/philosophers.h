@@ -50,19 +50,20 @@ typedef enum safety
 
 typedef struct s_fork
 {
-	int		id_fork;
-	t_mutex	fork;
+	int		id_fork; // Fork's ID
+	t_mutex	fork; // Mutex for the fork
 }	t_fork;
 
 typedef struct s_philosopher
 {
-	int			id;
-	int			meals_counter;
-	long		last_meal_time;
-	t_fork		*left_fork;
-	t_fork		*right_fork;
-	pthread_t	philo_thread;
-	bool		is_full;
+	int			id; // Philosopher's ID
+	int			meals_counter; // Number of meals eaten
+	long		last_meal_time; // Time of the last meal
+	t_fork		*left_fork; // Forks held by the philosopher
+	t_fork		*right_fork; // Forks held by the philosopher
+	pthread_t	philo_thread; // Thread for the philosopher
+	bool		is_full; // if the philosopher has eaten enough meals
+	bool		is_eating; // Indicates if the philosopher is currently eating
 	t_data		*data; // Pointer to shared data structure
 }	t_philosopher;
 
@@ -73,12 +74,12 @@ typedef struct s_data
 	long			time_to_eat; //av[3]
 	long			time_to_sleep;//av[4]
 	long			meals_required; // ? av[5] : nothing
-	long			start_time;
-	bool			is_finished;
-	bool			someone_died;
-	t_mutex			protect_mutex;
-	t_fork			*forks;
-	t_philosopher	*philosophers;
+	long			start_time; // Time when the simulation started
+	bool			is_finished; // Indicates if the simulation is finished
+	bool			someone_died; // Indicates if a philosopher has died
+	t_mutex			protect_mutex; // Mutex for protecting shared data
+	t_fork			*forks; // Array of forks
+	t_philosopher	*philosophers; // Array of philosophers
 }					t_data;
 
 void	error_function(const char *message);
@@ -102,5 +103,8 @@ void	ft_exit(t_data *data);
 bool	check_all_philos_full(t_data *data);
 void	philo_is_eating(t_philosopher *philosopher,
 			t_fork *first_fork, t_fork *second_fork);
+void	ft_alone(t_philosopher *philosopher);
+bool	validate_times_die(t_data *data);
+bool it_started_or_not(t_philosopher *philosopher);
 
 #endif

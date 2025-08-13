@@ -41,5 +41,5 @@ long	ft_get_time(void)
 	gettimeofday(&tv, NULL);
 	if (tv.tv_sec < 0 || tv.tv_usec < 0)
 		return (-1);
-	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
+	return ((tv.tv_sec * 1000LL) + (tv.tv_usec / 1000LL));
 }

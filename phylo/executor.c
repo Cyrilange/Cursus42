@@ -14,98 +14,98 @@
 
 static	void	*monitor_death(void *arg);
 
-static void	ft_solo(t_philosopher *philosopher)
+void ft_alone(t_philosopher *philosopher)
 {
-	print_status(philosopher, ROSE"has taken a fork"RESET);
-	usleep(philosopher->data->time_to_die * 1000);
+	safety_mutex(&philosopher->left_fork->fork, LOCK);
+	print_status(philosopher, PURPLE"has taken a fork"RESET);
+	ft_usleep(philosopher->data, philosopher->data->time_to_die);
+	safety_mutex(&philosopher->left_fork->fork, UNLOCK);
 	print_status(philosopher, RED "died " EMOJI_SKULL RESET);
 	safety_mutex(&philosopher->data->protect_mutex, LOCK);
 	philosopher->data->is_finished = true;
 	safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
 }
 
-void	executor(t_data *data)
+void executor(t_data *data)
 {
-	int			i;
-	pthread_t	monitor_thread;
+	int i;
+	pthread_t monitor_thread;
 
-	i = -1;
 	data->start_time = ft_get_time();
 	if (data->nbr_philo == 1)
 	{
-		ft_solo(data->philosophers);
+		ft_alone(data->philosophers);
 		return ;
 	}
-	while (++i < data->nbr_philo)
+	for (i = 0; i < data->nbr_philo; i++)
 		data->philosophers[i].last_meal_time = data->start_time;
-	usleep(4);
+	usleep(10);
 	safety_phread(&monitor_thread, monitor_death, data, CREATE);
-	i = -1;
-	while (++i < data->nbr_philo)
+	for (i = 0; i < data->nbr_philo; i++)
 		safety_phread(&data->philosophers[i].philo_thread,
 			philosopher_routine, &data->philosophers[i], CREATE);
-	safety_phread(&monitor_thread, NULL, NULL, JOIN);
-	i = -1;
-	while (++i < data->nbr_philo)
+	for (i = 0; i < data->nbr_philo; i++)
 		safety_phread(&data->philosophers[i].philo_thread, NULL, NULL, JOIN);
+	safety_phread(&monitor_thread, NULL, NULL, JOIN);
 }
 
 static bool check_philosopher_death(t_data *data)
 {
-    int i;
-    long now = ft_get_time();
-    
-    safety_mutex(&data->protect_mutex, LOCK);
-    for (i = 0; i < data->nbr_philo; i++)
-    {
-        if (data->meals_required > 0 && 
-            data->philosophers[i].meals_counter >= data->meals_required)
-        {
-            continue;
-        }
-        
-        long diff = now - data->philosophers[i].last_meal_time;
-        
-        if (!data->someone_died && diff > (data->time_to_die + 1))
-        {
-            data->someone_died = true;
-            data->is_finished = true;
-            printf(RED"%ld philosopher %d died 💀\n"RESET, 
-                   now - data->start_time, data->philosophers[i].id);
-            safety_mutex(&data->protect_mutex, UNLOCK);
-            return (true);
-        }
-    }
-    safety_mutex(&data->protect_mutex, UNLOCK);
-    return (false);
+	int i;
+
+	for (i = 0; i < data->nbr_philo; i++)
+	{
+		long last_meal;
+		bool is_eating;
+		bool someone_died_loc;
+
+		safety_mutex(&data->protect_mutex, LOCK);
+		last_meal = data->philosophers[i].last_meal_time;
+		is_eating = data->philosophers[i].is_eating;
+		someone_died_loc = data->someone_died;
+		safety_mutex(&data->protect_mutex, UNLOCK);
+		if (!someone_died_loc && !is_eating &&  data->time_to_die < (ft_get_time() - last_meal))
+		{
+			safety_mutex(&data->protect_mutex, LOCK);
+			data->someone_died = true;
+			data->is_finished = true;
+			safety_mutex(&data->protect_mutex, UNLOCK);
+			long timestamp = ft_get_time() - data->start_time;
+			printf(RED "%ld philosopher %d died 💀\n" RESET, timestamp, data->philosophers[i].id);
+
+			return true;
+		}
+	}
+	return false;
 }
+
+
 
 static bool check_all_full(t_data *data)
 {
-    if (data->meals_required <= 0)
-        return (false);
-
-    if (check_all_philos_full(data))
-    {
-        safety_mutex(&data->protect_mutex, LOCK);
-        data->is_finished = true;
-        safety_mutex(&data->protect_mutex, UNLOCK);
-        return (true);
-    }
-    return (false);
+	if (data->meals_required <= 0)
+		return (false);
+	if (check_all_philos_full(data))
+	{
+		safety_mutex(&data->protect_mutex, LOCK);
+		data->is_finished = true;
+		safety_mutex(&data->protect_mutex, UNLOCK);
+		return (true);
+	}
+	return (false);
 }
 
 void *monitor_death(void *arg)
 {
-    t_data *data = (t_data *)arg;
+	t_data *data = (t_data *)arg;
 
-    while (1)
-    {
-        if (check_all_full(data))
-            break ;
-        else if (check_philosopher_death(data))
-            break ;
-        usleep(10);
-    }
-    return (NULL);
+	while (1)
+	{
+		if (check_all_full(data))
+			break ;
+		else if (check_philosopher_death(data))
+			break ;
+		usleep(1000);
+	}
+	return (NULL);
 }
