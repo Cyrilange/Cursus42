@@ -27,7 +27,7 @@ static void philosophers_initialisation(t_data *data)
 	while (i < data->nbr_philo)
 	{
 		philosophers = data->philosophers + i;
-		philosophers->id = i + 1; // Philosopher IDs start from 1
+		philosophers->id = i + 1;
 		philosophers->meals_counter = 0;
 		philosophers->is_full = false;
 		philosophers->data = data;

@@ -5,10 +5,10 @@ void print_status(t_philosopher *philo, const char *message)
     safety_mutex(&philo->data->protect_mutex, LOCK);
     if (!philo->data->is_finished)
     {
-        long timestamp = ft_get_time() - philo->data->start_time;
-        printf("%ld philosopher %d %s\n", timestamp, philo->id, message);
+        printf("%ld philosopher %d %s\n", ft_get_time() - philo->data->start_time, philo->id, message);
     }
-    safety_mutex(&philo->data->protect_mutex, UNLOCK);
+	printf("%ld philosopher %d %s\n", ft_get_time() - philo->data->start_time, philo->id, message);
+	safety_mutex(&philo->data->protect_mutex, UNLOCK);
 }
 
 void philo_is_eating(t_philosopher *philosopher, t_fork *first_fork, t_fork *second_fork)
@@ -25,4 +25,16 @@ void philo_is_eating(t_philosopher *philosopher, t_fork *first_fork, t_fork *sec
     usleep(philosopher->data->time_to_eat);
     safety_mutex(&second_fork->fork, UNLOCK);
     safety_mutex(&first_fork->fork, UNLOCK);
+}
+
+void	ft_alone(t_philosopher *philosopher)
+{
+	safety_mutex(&philosopher->left_fork->fork, LOCK);
+	print_status(philosopher, PURPLE"has taken a fork"RESET);
+	ft_usleep(philosopher->data->time_to_die);
+	safety_mutex(&philosopher->left_fork->fork, UNLOCK);
+	print_status(philosopher, RED "died " EMOJI_SKULL RESET);
+	safety_mutex(&philosopher->data->protect_mutex, LOCK);
+	philosopher->data->is_finished = true;
+	safety_mutex(&philosopher->data->protect_mutex, UNLOCK);
 }

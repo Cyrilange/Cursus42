@@ -1,25 +1,23 @@
 #include "philosophers.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_data data;
-    //int i;
+	t_data	data;
 
-    if (argc == 5 || argc == 6)
-    {
-        //i = -1;
-        parsing(&data, argv);
-        ft_initialisation(&data);
-        executor(&data);
-        ft_exit(&data);
-
-       /* while (++i < data.nbr_philo)
-            safety_mutex(&data.forks[i].fork, DESTROY);
-
-        free(data.forks);
-        free(data.philosophers); */
-    }
-    else
-        error_function("Error: Invalid number of arguments. Usage: ./philosophers <nbr_philo> <time_to_die> <time_to_eat> <time_to_sleep> [meals_required]\n");   
-    return 0;
+	if (argc == 5 || argc == 6)
+	{
+		parsing(&data, argv);
+		ft_initialisation(&data);
+		data.start_time = ft_get_time();
+		executor(&data);
+		ft_exit(&data);
+	}
+	else
+	{
+		error_function("Error: Invalid number of arguments\n"
+			"Usage: ./philosophers <number_of_philosophers> "
+			"<time_to_die> <time_to_eat> <time_to_sleep> "
+			"[number_of_meals_required]");
+	}
+	return (0);
 }

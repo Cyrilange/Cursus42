@@ -1,5 +1,5 @@
 #ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS
+# define PHILO
 
 # include <pthread.h>
 # include <stdio.h>
@@ -17,7 +17,10 @@
 # define PURPLE	"\033[1;36m"
 # define GREEN	"\033[1;32m"
 # define BLUE	"\033[1;34m"
-#define YELLOW 	"\033[1;33m"
+# define YELLOW 	"\033[1;33m"
+# define EMOJI_SKULL "💀"
+# define EMOJI_FORK  "🍴"
+# define EMOJI_EAT   "🍝"
 
 typedef pthread_mutex_t t_mutex;
 typedef struct s_data t_data;
