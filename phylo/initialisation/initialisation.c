@@ -40,27 +40,15 @@ static void	philosophers_initialisation(t_data *data)
 	{
 		philosophers = data->philosophers + i;
 		philosophers->id = i + 1;
+		philosophers->nbr_of_meals = false;
 		philosophers->meals_counter = 0;
 		philosophers->is_full = false;
+		philosophers->last_meal_time = data->start_time;
 		safety_mutex(&philosophers->protect_mutex, INIT);
 		philosophers->data = data;
 		initialisation_forks(philosophers, data->forks, i);
 		i++;
 	}
-}
-
-bool	check_all_philos_full(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->nbr_philo) 
-	{
-		if (!data->philosophers[i].is_full)
-			return (false);
-		i++;
-	}
-	return (true);
 }
 
 void	ft_initialisation(t_data *data)

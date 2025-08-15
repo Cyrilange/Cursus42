@@ -11,47 +11,67 @@
 /* ************************************************************************** */
 #include "../philosophers.h"
 
-void ft_alone(t_philosopher *philosopher)
+void	ft_alone(t_philosopher *philosopher)
 {
-    print_status(philosopher, TAKEN_LEFT_FORK);
-    ft_usleep(philosopher->data, philosopher->data->time_to_die);
-    print_status(philosopher, DIED);
+	print_status(philosopher, TAKEN_LEFT_FORK);
+	ft_usleep(philosopher->data, philosopher->data->time_to_die);
+	print_status(philosopher, DIED);
 }
 
-static bool check_philosopher_death(t_philosopher *philo)
+static bool	check_philosopher_death(t_philosopher *philo)
 {
-    long now = ft_get_time(MILLISECONDS);
-    long last_meal;
+	long	now;
+	long	last_meal;
 
-    last_meal = take_off_long(&philo->protect_mutex, &philo->last_meal_time);
-    if (now - last_meal > philo->data->time_to_die)
-        return (true);
-    return (false);
+	if (take_off_bool(&philo->protect_mutex, &philo->nbr_of_meals))
+		return (false);
+	now = ft_get_time(MILLISECONDS) -  take_off_long(&philo->protect_mutex, &philo->last_meal_time);
+	last_meal = philo->data->time_to_die / 1000;
+	if (now > last_meal)
+		return (true);
+	return (false);
 }
 
-void *monitor_death(void *arg)
+static bool	all_philosophers_full(t_data *data)
+{
+	int	i;
+	
+	i = 0;
+	while (i < data->nbr_philo)
+	{
+		if (!take_off_bool(&data->philosophers[i].protect_mutex,
+						   &data->philosophers[i].nbr_of_meals))
+			return false;
+		i++;
+	}
+	return true;
+}
+
+void	*monitor_death(void *arg)
 {
     t_data *data = (t_data *)arg;
-    long i;
+    int i;
 
-    while (!take_off_bool(&data->protect_data_races, &data->someone_died))
+    while (1)
     {
-        i = 0;
+		i = 0;
         while (i < data->nbr_philo)
         {
             if (check_philosopher_death(&data->philosophers[i]))
             {
-                // On met à jour le booléen directement
-                safety_mutex(&data->protect_data_races, LOCK);
-                data->someone_died = true;
-                safety_mutex(&data->protect_data_races, UNLOCK);
-
+                no_repeat_mutexes(&data->protect_data_races, &data->someone_died, true);
+                no_repeat_mutexes(&data->protect_data_races, &data->is_finished, true);
                 print_status(&data->philosophers[i], DIED);
-                return (NULL);
+                return NULL;
             }
-            i++;
+			i++;
         }
-        ft_usleep(data, 1); // pause pour éviter CPU 100%
+        if (data->meals_required > 0 && all_philosophers_full(data))
+        {
+            no_repeat_mutexes(&data->protect_data_races, &data->is_finished, true);
+            return NULL;
+        }
+        ft_usleep(data, 10);
     }
-    return (NULL);
+    return NULL;
 }

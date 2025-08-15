@@ -81,6 +81,7 @@ typedef struct s_philosopher
 	pthread_t	philo_thread; // Thread for the philosopher
 	bool		is_full; // if the philosopher has eaten enough meals, Maximum number of meals to eat
 	bool		is_eating; // Indicates if the philosopher is currently eating
+	bool		nbr_of_meals; // numbers of meal philo must eat 
 	t_mutex		protect_mutex; // Mutex to protect philosopher's data
 	t_data		*data; // Pointer to shared data structure
 }	t_philosopher;
@@ -92,6 +93,7 @@ typedef struct s_data
 	long			time_to_eat; //av[3]
 	long			time_to_sleep;//av[4]
 	long			meals_required; // ? av[5] : nothing
+	long			nbr_of_meals; // Number of meals each philosopher must eat
 	long			start_time; // Time when the simulation started
 	long			philo_running; // how many philo are running the routine simulation 
 	bool			is_ready; // Indicates if the simulation is ready to start
@@ -115,17 +117,17 @@ void	safety_phread(pthread_t *thread, void *(*foo)(void *),
 			void *data, t_safety action);
 void	no_repeat_mutexes(t_mutex *mutex, bool *dest, bool value);
 bool	take_off_bool(t_mutex *mutex, bool *value);
-void	set_value(t_mutex *mutex, long *value, bool new_value);
+void	set_value(t_mutex *mutex, long *value, long new_value);
 long	take_off_long(t_mutex *mutex, long *value);
 void	ft_initialisation(t_data *data);
 void	routine(t_data *data);
-void	philosopher_eat(void *arg);
-void philosopher_think(t_philosopher *philo, bool routine_think);
+void	*philosopher_eat(void *arg);
+void	philosopher_think(t_philosopher *philo, bool routine_think);
 long	ft_get_time(t_unit unit);
 void	ft_usleep(t_data *data, long time_in_ms);
 void	ft_exit(t_data *data);
 bool	check_all_philos_full(t_data *data);
-int	philo_is_eating(t_philosopher *philosopher);
+int		philo_is_eating(t_philosopher *philosopher);
 void	ft_alone(t_philosopher *philosopher);
 bool	validate_times_die(t_data *data);
 void	*monitor_death(void *arg);

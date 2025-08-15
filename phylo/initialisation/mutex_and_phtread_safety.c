@@ -39,7 +39,7 @@ void	safety_mutex(t_mutex *mutex, t_safety action)
 	else if (action == UNLOCK)
 		mutex_error(pthread_mutex_unlock(mutex), action);
 	else if (action == DESTROY)
-		mutex_error(pthread_mutex_unlock(mutex), action);
+		mutex_error(pthread_mutex_destroy(mutex), action);
 	else
 		error_function("Error: Invalid mutex action.");
 }

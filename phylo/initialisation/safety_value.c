@@ -1,37 +1,37 @@
 #include "../philosophers.h"
 
-void no_repeat_mutexes(t_mutex *mutex, bool *dest, bool value) //setbool
+void	no_repeat_mutexes(t_mutex *mutex, bool *dest, bool value)
 {
-    safety_mutex(mutex, LOCK);
-    *dest = value;
-    safety_mutex(mutex, UNLOCK);    
+	safety_mutex(mutex, LOCK);
+	*dest = value;
+	safety_mutex(mutex, UNLOCK);    
 }
 
-bool take_off_bool(t_mutex *mutex, bool *value) //getbool
+bool take_off_bool(t_mutex *mutex, bool *value)
 {
-    bool taken;
+	bool	taken;
 
-    safety_mutex(mutex, LOCK);
-    *value = false;
-    safety_mutex(mutex, UNLOCK);
-    return (taken);
+	safety_mutex(mutex, LOCK);
+	taken = *value;
+	safety_mutex(mutex, UNLOCK);
+	return (taken);
 }
 
-void set_value(t_mutex *mutex, long *value, bool new_value)
+void	set_value(t_mutex *mutex, long *value, long new_value)
 {
-    safety_mutex(mutex, LOCK);
-    *value = new_value;
-    safety_mutex(mutex, UNLOCK);
+	safety_mutex(mutex, LOCK);
+	*value = new_value;
+	safety_mutex(mutex, UNLOCK);
 }
 
-long take_off_long(t_mutex *mutex, long *value)
+long	take_off_long(t_mutex *mutex, long *value)
 {
-    long taken;
+	long	taken;
 
-    safety_mutex(mutex, LOCK);
-    taken = *value;
-    safety_mutex(mutex, UNLOCK);
-    return (taken);
+	safety_mutex(mutex, LOCK);
+	taken = *value;
+	safety_mutex(mutex, UNLOCK);
+	return (taken);
 }
 
 bool	validate_times_die(t_data *data)

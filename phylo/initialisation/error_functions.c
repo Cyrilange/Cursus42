@@ -34,41 +34,19 @@ void	validate_time(int time, const char *message)
 		error_function(message);
 }
 
-long	ft_get_time(t_unit unit)
-{
-	struct timeval	tv;
-
-	gettimeofday(&tv, NULL);
-	if (unit == SECONDS)
-		return (tv.tv_sec + (tv.tv_usec / 1000000));
-	else if (unit == MILLISECONDS)
-		return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
-	else if (unit == MICROSECONDS)
-		return ( tv.tv_usec + (tv.tv_sec * 1000000));
-	else
-	{
-		error_function("Error: Invalid time unit specified.");
-		return (-1);
-	}
-	return (-1);
-}
 void	ft_usleep(t_data *data, long time_in_ms)
 {
-	long	start;
-	long	now;
-	long	current;
-
-	start = ft_get_time(MICROSECONDS);
+	long start = ft_get_time(MICROSECONDS);
 	while ((ft_get_time(MICROSECONDS) - start) < time_in_ms)
 	{
-		if (data->is_finished)
-			break ;
-		now = ft_get_time(MICROSECONDS);
-		current = time_in_ms - now;
-		if (current > 10000)
-			usleep(current / 2);
+		if (data->is_finished) break;
+		long now = ft_get_time(MICROSECONDS);
+		long elapsed = now - start;
+		long remaining = time_in_ms - elapsed;
+		if (remaining > 10000)
+			usleep(remaining / 2);
 		else
-			while (ft_get_time(MICROSECONDS) - start < time_in_ms)
-				;
+			while (ft_get_time(MICROSECONDS) - start < time_in_ms) ;
 	}
+	
 }

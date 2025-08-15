@@ -12,91 +12,77 @@
 
 #include "../philosophers.h"
 
-// helper pour incrémenter une valeur protégée par mutex
-void helper_philo_eat(t_mutex *mut, long *value)
+void	helper_philo_eat(t_mutex *mut, long *value)
 {
-    safety_mutex(mut, LOCK);
-    (*value)++;
-    safety_mutex(mut, UNLOCK);
+	safety_mutex(mut, LOCK);
+	(*value)++;
+	safety_mutex(mut, UNLOCK);
 }
 
-void philosopher_eat(void *arg)
+void	*philosopher_eat(void *arg)
 {
-    t_philosopher *philo = (t_philosopher *)arg;
-
-    // Attente du démarrage de la simulation
-    while (!take_off_bool(&philo->data->protect_data_races, &philo->data->is_ready))
-        ;
-
-    // Marquer le philosophe comme mangeant
-    set_value(&philo->protect_mutex, &philo->is_eating, true);
-    philo->last_meal_time = ft_get_time(MILLISECONDS);
-
-    helper_philo_eat(&philo->data->protect_data_races, &philo->data->philo_running);
-
-    // Décalage pour alterner les philosophes pairs/impairs
-    if (philo->id % 2 == 0)
-        ft_usleep(philo->data, philo->data->time_to_eat / 2);
-    else
-        print_status(philo, THINKING);
-
-    while (!take_off_bool(&philo->data->protect_data_races, &philo->data->is_finished))
-    {
-        philo_is_eating(philo);
-        print_status(philo, SLEEPING);
-        ft_usleep(philo->data, philo->data->time_to_sleep);
-        philosopher_think(philo, false);
-    }
+	t_philosopher *philo;
+	
+	philo = (t_philosopher *)arg;
+	while (!take_off_bool(&philo->data->protect_data_races, &philo->data->is_ready))
+		;
+	if (philo->data->nbr_philo % 2 != 0)
+		ft_usleep(philo->data, philo->id * 10);
+	set_value(&philo->protect_mutex, &philo->last_meal_time, ft_get_time(MILLISECONDS));    
+	while (!take_off_bool(&philo->data->protect_data_races, &philo->data->is_finished))
+	{
+		if (take_off_bool(&philo->protect_mutex, &philo->nbr_of_meals))
+			break ;
+		philo_is_eating(philo);
+		print_status(philo, SLEEPING);
+		ft_usleep(philo->data, philo->data->time_to_sleep);
+		philosopher_think(philo, false);
+	}
+	return NULL;
 }
 
-void philosopher_think(t_philosopher *philo, bool routine_think)
+void philosopher_think(t_philosopher *philo, bool routine_start)
 {
-    long eat_t = philo->data->time_to_eat;
-    long sleep_t = philo->data->time_to_sleep;
-    long think_t;
+	long	eat_t;
+	long	sleep_t;
+	long	think_t;
 
-    if (philo->data->is_ready)
-        print_status(philo, THINKING);
-
-    if (philo->data->nbr_philo % 2 == 0)
-        return;
-
-    think_t = (eat_t * 2) - sleep_t;
-    if (think_t < 0)
-        think_t = 0;
-
-    ft_usleep(philo->data, think_t * 0.3);
+	sleep_t = philo->data->time_to_sleep;
+	eat_t = philo->data->time_to_eat;
+	if (!routine_start)
+		print_status(philo, THINKING);
+	if (philo->data->nbr_philo % 2 == 0)
+		return ;
+	else
+	{
+		think_t = (eat_t * 2) - sleep_t;
+		if (think_t < 0)
+			think_t = 0;
+		ft_usleep(philo->data, think_t);
+	}
 }
 
 void routine(t_data *data)
 {
-    int i = 0;
+	int i;
 
-    if (data->meals_required == 0)
-        return;
-
-    if (data->nbr_philo == 1)
-    {
-        ft_alone(data->philosophers);
-        return;
-    }
-
-    while (i < data->nbr_philo)
-    {
-        safety_phread(&data->philosophers[i].philo_thread,
-                      philosopher_eat,
-                      &data->philosophers[i], CREATE);
-        i++;
-    }
-
-    safety_phread(&data->philo_death, monitor_death, data, CREATE);
-    data->start_time = ft_get_time(MILLISECONDS);
-    take_off_bool(&data->protect_data_races, &data->is_finished);
-
-    i = 0;
-    while (i < data->nbr_philo)
-        safety_phread(&data->philosophers[i++].philo_thread, NULL, NULL, JOIN);
-
-    no_repeat_mutexes(&data->protect_data_races, &data->philo_death, true);
-    safety_phread(&data->philo_death, NULL, NULL, JOIN);
+	if (data->nbr_philo == 1)
+	{
+		ft_alone(data->philosophers);
+		return;
+	}
+	data->start_time = ft_get_time(MILLISECONDS);
+	for (i = 0; i < data->nbr_philo; i++)
+		set_value(&data->philosophers[i].protect_mutex,
+				  &data->philosophers[i].last_meal_time,
+				  data->start_time);
+	for (i = 0; i < data->nbr_philo; i++)
+		safety_phread(&data->philosophers[i].philo_thread,
+					  philosopher_eat, &data->philosophers[i], CREATE);
+	no_repeat_mutexes(&data->protect_data_races, &data->is_ready, true);
+	safety_phread(&data->philo_death, monitor_death, data, CREATE);
+	for (i = 0; i < data->nbr_philo; i++)
+		safety_phread(&data->philosophers[i].philo_thread, NULL, NULL, JOIN);
+	no_repeat_mutexes(&data->protect_data_races, &data->is_finished, true);
+	safety_phread(&data->philo_death, NULL, NULL, JOIN);
 }
