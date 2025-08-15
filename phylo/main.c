@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	{
 		parsing(&data, argv);
 		ft_initialisation(&data);
-		data.start_time = ft_get_time();
+		data.start_time = ft_get_time(MILLISECONDS);
 		executor(&data);
 		ft_exit(&data);
 	}

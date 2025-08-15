@@ -5,7 +5,18 @@ RESET = \033[0m
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread -g
-SRCS = main.c free_functions.c print_status.c error_functions.c initialisation.c executor.c parseing.c mutex_and_phtread_safety.c philosophers_routine_describe.c
+
+SRCS = main.c \
+initialisation/free_functions.c \
+execution/print_status.c \
+initialisation/error_functions.c \
+initialisation/initialisation.c \
+execution/executor.c \
+initialisation/parseing.c \
+initialisation/mutex_and_phtread_safety.c \
+execution/philosophers_routine_describe.c \
+initialisation/safety_value.c \
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

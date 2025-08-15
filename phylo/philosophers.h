@@ -37,6 +37,16 @@ typedef pthread_mutex_t			t_mutex;
 typedef struct s_data			t_data;
 typedef struct s_philosopher	t_philosopher;
 
+typedef enum message
+{
+	TAKEN_LEFT_FORK,
+	TAKEN_RIGHT_FORK,
+	EATING,
+	SLEEPING,
+	THINKING,
+	DIED,
+} t_message;
+
 typedef enum safety
 {
 	CREATE,
@@ -45,8 +55,15 @@ typedef enum safety
 	INIT,
 	LOCK,
 	UNLOCK,
-	DETACH,
+	DETACH
 }	t_safety;
+
+typedef enum e_unit
+{
+	MILLISECONDS,
+	SECONDS,
+	MICROSECONDS,
+}	t_unit;
 
 typedef struct s_fork
 {
@@ -62,8 +79,9 @@ typedef struct s_philosopher
 	t_fork		*left_fork; // Forks held by the philosopher
 	t_fork		*right_fork; // Forks held by the philosopher
 	pthread_t	philo_thread; // Thread for the philosopher
-	bool		is_full; // if the philosopher has eaten enough meals
+	bool		is_full; // if the philosopher has eaten enough meals, Maximum number of meals to eat
 	bool		is_eating; // Indicates if the philosopher is currently eating
+	t_mutex		protect_mutex; // Mutex to protect philosopher's data
 	t_data		*data; // Pointer to shared data structure
 }	t_philosopher;
 
@@ -75,36 +93,41 @@ typedef struct s_data
 	long			time_to_sleep;//av[4]
 	long			meals_required; // ? av[5] : nothing
 	long			start_time; // Time when the simulation started
+	long			philo_running; // how many philo are running the routine simulation 
+	bool			is_ready; // Indicates if the simulation is ready to start
 	bool			is_finished; // Indicates if the simulation is finished
 	bool			someone_died; // Indicates if a philosopher has died
-	t_mutex			protect_mutex; // Mutex for protecting shared data
+	pthread_t		philo_death; // Thread for monitoring philosophers death
+	t_mutex			protect_data_races; // Mutex to protect shared data
+	t_mutex			protect_output; // Mutex to protect output from multiple threads
 	t_fork			*forks; // Array of forks
 	t_philosopher	*philosophers; // Array of philosophers
 }					t_data;
 
 void	error_function(const char *message);
 void	*check_malloc(size_t size);
-void	print_status(t_philosopher *philo, const char *message);
+void	print_status(t_philosopher *philo, t_message message);
 void	parsing(t_data *data, char **argv);
 void	validate_time(int time, const char *message);
 void	safety_mutex(t_mutex *mutex, t_safety action);
 void	mutex_error(int action, t_safety safety);
 void	safety_phread(pthread_t *thread, void *(*foo)(void *),
 			void *data, t_safety action);
+void	no_repeat_mutexes(t_mutex *mutex, bool *dest, bool value);
+bool	take_off_bool(t_mutex *mutex, bool *value);
+void	set_value(t_mutex *mutex, long *value, bool new_value);
+long	take_off_long(t_mutex *mutex, long *value);
 void	ft_initialisation(t_data *data);
-void	executor(t_data	*data);
-void	*philosopher_routine(void *arg);
-void	philosopher_eat(t_philosopher *philosopher);
-void	philosopher_sleep(t_philosopher *philosopher);
-void	philosopher_think(t_philosopher *philosopher);
-long	ft_get_time(void);
+void	routine(t_data *data);
+void	philosopher_eat(void *arg);
+void philosopher_think(t_philosopher *philo, bool routine_think);
+long	ft_get_time(t_unit unit);
 void	ft_usleep(t_data *data, long time_in_ms);
 void	ft_exit(t_data *data);
 bool	check_all_philos_full(t_data *data);
-void	philo_is_eating(t_philosopher *philosopher,
-			t_fork *first_fork, t_fork *second_fork);
+int	philo_is_eating(t_philosopher *philosopher);
 void	ft_alone(t_philosopher *philosopher);
 bool	validate_times_die(t_data *data);
-bool	it_started_or_not(t_philosopher *philosopher);
+void	*monitor_death(void *arg);
 
 #endif
