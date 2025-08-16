@@ -1,6 +1,14 @@
 
 ROSE = \033[38;5;205m
 RESET = \033[0m
+YELLOW = \033[1;33m
+RED = \033[1;31m
+BROWN = \033[1;33m
+PURPLE = \033[1;35m
+GOLD = \033[1;33m
+BLUE = \033[1;34m
+GREEN = \033[1;32m
+MAGENTA = \033[1;35m
 
 NAME = philo
 CC = cc
@@ -20,8 +28,18 @@ initialisation/safety_value.c \
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
-	@echo "$(ROSE)philo is ready !!! to use: ./philo <numbers of philos> <time to die> <time to eat> <time to sleep> [number of meals]$(RESET)" \
-	
+	@clear
+	@echo "$(ROSE) <USAGE> $(RESET) $(BROWN)./philo $(RESET) $(GREEN)<numbers of philos>$(RESET) $(RED) <time to die> $(RESET) $(MAGENTA) <time to eat> $(RESET) $(BLUE) <time to sleep> $(RESET) $(GOLD) [number of meals]$(RESET)" \
+	&& echo "" \
+	&& echo "$(YELLOW)" \
+	&& echo "██████╗ ██╗  ██╗██╗██╗      ██████╗ " \
+	&& echo "██╔══██╗██║  ██║██║██║     ██╔═══██╗" \
+	&& echo "██████╔╝███████║██║██║     ██║   ██║" \
+	&& echo "██╔═══╝ ██╔══██║██║██║     ██║   ██║" \
+	&& echo "██║     ██║  ██║██║███████╗╚██████╔╝" \
+	&& echo "╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝ ╚═════╝ " \
+	&& echo "$(RESET)"
+
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^

@@ -36,17 +36,23 @@ void	validate_time(int time, const char *message)
 
 void	ft_usleep(t_data *data, long time_in_ms)
 {
-	long start = ft_get_time(MICROSECONDS);
+	long	start;
+	long	now;
+	long	elapsed;
+	long	remaining;
+
+	start = ft_get_time(MICROSECONDS);
 	while ((ft_get_time(MICROSECONDS) - start) < time_in_ms)
 	{
-		if (data->is_finished) break;
-		long now = ft_get_time(MICROSECONDS);
-		long elapsed = now - start;
-		long remaining = time_in_ms - elapsed;
+		if (data->is_finished)
+			break ;
+		now = ft_get_time(MICROSECONDS);
+		elapsed = now - start;
+		remaining = time_in_ms - elapsed;
 		if (remaining > 10000)
 			usleep(remaining / 2);
 		else
-			while (ft_get_time(MICROSECONDS) - start < time_in_ms) ;
+			while (ft_get_time(MICROSECONDS) - start < time_in_ms)
+				;
 	}
-	
 }

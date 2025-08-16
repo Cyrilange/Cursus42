@@ -4,10 +4,10 @@ void	no_repeat_mutexes(t_mutex *mutex, bool *dest, bool value)
 {
 	safety_mutex(mutex, LOCK);
 	*dest = value;
-	safety_mutex(mutex, UNLOCK);    
+	safety_mutex(mutex, UNLOCK);
 }
 
-bool take_off_bool(t_mutex *mutex, bool *value)
+bool	take_off_bool(t_mutex *mutex, bool *value)
 {
 	bool	taken;
 

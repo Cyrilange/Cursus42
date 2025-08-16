@@ -41,37 +41,37 @@ static bool	all_philosophers_full(t_data *data)
 	{
 		if (!take_off_bool(&data->philosophers[i].protect_mutex,
 						   &data->philosophers[i].nbr_of_meals))
-			return false;
+			return (false);
 		i++;
 	}
-	return true;
+	return (true);
 }
 
 void	*monitor_death(void *arg)
 {
-    t_data *data = (t_data *)arg;
-    int i;
+	t_data	*data;
+	int		i;
 
-    while (1)
-    {
-		i = 0;
-        while (i < data->nbr_philo)
-        {
-            if (check_philosopher_death(&data->philosophers[i]))
-            {
-                no_repeat_mutexes(&data->protect_data_races, &data->someone_died, true);
-                no_repeat_mutexes(&data->protect_data_races, &data->is_finished, true);
-                print_status(&data->philosophers[i], DIED);
-                return NULL;
-            }
-			i++;
-        }
-        if (data->meals_required > 0 && all_philosophers_full(data))
-        {
-            no_repeat_mutexes(&data->protect_data_races, &data->is_finished, true);
-            return NULL;
-        }
-        ft_usleep(data, 10);
-    }
-    return NULL;
+	data = (t_data *)arg;
+	while (1)
+	{
+		i = -1;
+		while (++i < data->nbr_philo)
+		{
+			if (check_philosopher_death(&data->philosophers[i]))
+			{
+				no_repeat_mutexes(&data->protect_data_races, &data->someone_died, true);
+				no_repeat_mutexes(&data->protect_data_races, &data->is_finished, true);
+				print_status(&data->philosophers[i], DIED);
+				return NULL;
+			}
+		}
+		if (data->meals_required > 0 && all_philosophers_full(data))
+		{
+			no_repeat_mutexes(&data->protect_data_races, &data->is_finished, true);
+			return NULL;
+		}
+		ft_usleep(data, 10);
+	}
+	return NULL;
 }

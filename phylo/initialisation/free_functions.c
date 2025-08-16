@@ -35,7 +35,6 @@ long	ft_get_time(t_unit unit)
 	return (-1);
 }
 
-
 void	ft_exit(t_data *data)
 {
 	long	i;
