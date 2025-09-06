@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-08-26 16:59:05 by csalamit          #+#    #+#             */
-/*   Updated: 2025-08-26 16:59:05 by csalamit         ###   ########.fr       */
+/*   Created: 2025-09-06 15:31:25 by csalamit          #+#    #+#             */
+/*   Updated: 2025-09-06 15:31:25 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <cctype>
+#include "phonebook.hpp"
 
-int main(int argc, char *argv[])
-{
 
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		for (int i = 1; i < argc; i++) {
-		for (int j = 0; i < argv[i][j]; j++)  {
-			std::cout << static_cast<char>(toupper(argv[i][j]));
+
+int main(void) {
+	std::string prompt;
+	while (true) {
+		std::cout << "Choose an option between ADD SEARCH EXIT : ";
+		std::getline(std::cin, prompt);
+		if (prompt == "ADD" || prompt == "SEARCH" || prompt == "EXIT") {
+			std::cout << "your choose : " << prompt << std::endl;
+			break;
 		}
-		std::cout << std::endl;
+		else {
+		std::cout << "Invalid option : " << std::endl;
 		}
 	}
+
+	
 	return 0;
 }

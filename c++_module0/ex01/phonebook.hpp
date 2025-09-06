@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-08-26 16:59:05 by csalamit          #+#    #+#             */
-/*   Updated: 2025-08-26 16:59:05 by csalamit         ###   ########.fr       */
+/*   Created: 2025-09-06 15:31:21 by csalamit          #+#    #+#             */
+/*   Updated: 2025-09-06 15:31:21 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PHONEBOOK_CPP
+#define PHONEBOOK_CPP
+
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <cctype>
+#include <ctype.h>
 
-int main(int argc, char *argv[])
-{
+class Contact {
+	private:
+		std::string firstName;
+		std::string lastName;
+		std::string nickName;
+		std::string darkestSecret;
+		std::string	phoneNumber;
 
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		for (int i = 1; i < argc; i++) {
-		for (int j = 0; i < argv[i][j]; j++)  {
-			std::cout << static_cast<char>(toupper(argv[i][j]));
-		}
-		std::cout << std::endl;
-		}
-	}
-	return 0;
-}
+
+};
+
+class PhoneBook {
+	Contact contacts[8];
+	//int		index;
+};
+
+#endif 

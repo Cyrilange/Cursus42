@@ -1,5 +1,5 @@
-NAME = megaphone
-SRC = megaphone.cpp
+NAME = phonebook
+SRC = phonebook.cpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
