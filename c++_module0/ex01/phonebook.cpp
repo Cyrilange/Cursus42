@@ -18,7 +18,7 @@ std::string prompt_enter() {
 		std::cout << "Choose between ADD SEARCH EXIT : ";
 		std::getline(std::cin, prompt);
 		if (prompt == "ADD" || prompt == "SEARCH" || prompt == "EXIT") {
-			std::cout << "your choose : " << prompt << std::endl;
+			std::cout <<  prompt << std::endl;
 			break;
 		}
 		else {
@@ -30,6 +30,16 @@ std::string prompt_enter() {
 
 int main(void) {
 	std::string input = prompt_enter();
+	Contact phonebook;
+	if (input == "ADD") {
+		std::cout << "Enter first Name :" << std::endl;
+		std::cin >> phonebook.firstName;
+		std::cout << "Enter last Name :" << std::endl;
+		std::cout << "Enter nickname :" << std::endl;
+		std::cout << "Enter phone number :" << std::endl;
+		std::cout << "Enter your darkest secret :" << std::endl;
+	}
+
 
 	
 	return 0;
