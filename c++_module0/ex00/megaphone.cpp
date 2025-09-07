@@ -26,8 +26,10 @@ int main(int argc, char *argv[])
 		for (int j = 0; i < argv[i][j]; j++)  {
 			std::cout << static_cast<char>(toupper(argv[i][j]));
 		}
-		std::cout << std::endl;
+		if (argv[i + 1]  != NULL)
+			std::cout << " ";
 		}
+		std::cout << std::endl;
 	}
 	return 0;
 }
