@@ -12,35 +12,46 @@
 
 #include "phonebook.hpp"
 
+PhoneBook::PhoneBook() : index(0) {}
+Contact::Contact() : 
+			firstName(""),
+			lastName(""),
+			nickName(""),
+			phoneNumber(""),
+			darkestSecret("") 
+			{}
+
+
+PhoneBook::~PhoneBook() {}
+Contact::~Contact() {}
+
 std::string prompt_enter() {
 	std::string prompt;
 	while (true) {
-		std::cout << "Choose between ADD SEARCH EXIT : ";
+		std::cout << "Choice : ADD SEARCH EXIT : ";
 		std::getline(std::cin, prompt);
 		if (prompt == "ADD" || prompt == "SEARCH" || prompt == "EXIT") {
 			std::cout <<  prompt << std::endl;
 			break;
 		}
 		else {
-		std::cout << "Invalid option : " << std::endl;
+		//std::cout << "Invalid option : " << std::endl;
+		return "\0";
 		}
 	}
 	return (prompt);
 }
 
 int main(void) {
-	std::string input = prompt_enter();
-	Contact phonebook;
-	if (input == "ADD") {
-		std::cout << "Enter first Name :" << std::endl;
-		std::cin >> phonebook.firstName;
-		std::cout << "Enter last Name :" << std::endl;
-		std::cout << "Enter nickname :" << std::endl;
-		std::cout << "Enter phone number :" << std::endl;
-		std::cout << "Enter your darkest secret :" << std::endl;
-	}
-
-
-	
+	PhoneBook phonebook;
+	while (true)
+	{
+		std::string input = prompt_enter();
+		if (input == "ADD") {
+			fn_add(phonebook);
+		}
+		else if (input == "EXIT")
+			break;	
+	}	
 	return 0;
 }

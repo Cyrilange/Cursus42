@@ -1,17 +1,27 @@
 NAME = phonebook
-SRC = phonebook.cpp
+SRC = phonebook.cpp add.cpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+YELLOW := \033[1;33m
+RESET  := \033[0m
 
+RM = rm -f
+
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME): $(SRC)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(SRC)
+	@clear
+	@echo "$(YELLOW)Compiling...$(RESET)\n"
+	@$(CXX) $(CXXFLAGS) -o $(NAME) $(SRC)
+	@echo "$(YELLOW)$(NAME) compiled$(RESET)"
 
 clean:
-	rm -f $(NAME)
+	@echo "$(YELLOW)Cleaning...$(RESET)\n"
+	@$(RM) $(NAME)
+	@echo "$(YELLOW)All clean!$(RESET)"
 
-re: clean all
+fclean: clean
 
-.PHONY: all clean re
+re: fclean all
