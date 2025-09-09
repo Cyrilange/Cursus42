@@ -1,6 +1,6 @@
 #include "phonebook.hpp"
 
-bool  is_validate_phone(std::string& number) {
+bool  is_validate_phone(const std::string& number) {
 	for (std::string::size_type i = 0; i < number.length(); i++) {
 		if (!isdigit(number[i])) {
 			return false;

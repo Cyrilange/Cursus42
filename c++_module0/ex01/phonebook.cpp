@@ -29,13 +29,15 @@ std::string prompt_enter() {
 	std::string prompt;
 	while (true) {
 		std::cout << "Choice : ADD SEARCH EXIT : ";
-		std::getline(std::cin, prompt);
+		if (!std::getline(std::cin, prompt)) {
+			std::cout << "\nEnd of file" << std::endl;
+			return "EXIT";
+		}
 		if (prompt == "ADD" || prompt == "SEARCH" || prompt == "EXIT") {
-			std::cout <<  prompt << std::endl;
+			
 			break;
 		}
 		else {
-		//std::cout << "Invalid option : " << std::endl;
 		return "\0";
 		}
 	}
@@ -48,10 +50,16 @@ int main(void) {
 	{
 		std::string input = prompt_enter();
 		if (input == "ADD") {
+			if (std::cin.eof()) {break ;}
 			fn_add(phonebook);
+			phonebook.next_index();
+		}
+		else if (input == "SEARCH") {
+			search(phonebook);
 		}
 		else if (input == "EXIT")
-			break;	
+			break;
+		
 	}	
 	return 0;
 }

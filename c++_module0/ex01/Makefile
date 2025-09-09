@@ -1,5 +1,5 @@
 NAME = phonebook
-SRC = phonebook.cpp add.cpp
+SRC = phonebook.cpp add.cpp search.cpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 YELLOW := \033[1;33m

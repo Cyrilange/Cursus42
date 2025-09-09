@@ -16,34 +16,12 @@
 #include <iostream>
 #include <ctype.h>
 #include <string>
-
-class Contact {
-	private:
-		std::string firstName;
-		std::string lastName;
-		std::string nickName;
-		std::string	phoneNumber;
-		std::string darkestSecret;
+#include "contact.hpp"
+#include <iomanip>
+#define yl  "\033[1;33m"
+#define rst "\033[0m"
 
 
-	public:
-		Contact();
-		~Contact();
-
-	       //set 
-		void setFirstName(const std::string& value) {this->firstName = value;};
-		void setLastName(const std::string& value) {this->lastName = value;};
-		void setNickName(const std::string& value) {this->nickName = value;};
-		void setPhoneNumber(const std::string& value) {this->phoneNumber = value;};
-		void setDarkestSecret(const std::string& value) {this->darkestSecret = value;};
-
-			//get
-		std::string getFirstName() const {return this->firstName;}
-		std::string getLastName() const {return this->lastName;}
-		std::string getNickName() const {return this->nickName;}
-		std::string getPhoneNumber() const {return this->phoneNumber;}
-		std::string getDarkestSecret() const {return this->darkestSecret;}
-};
 
 class PhoneBook {
 	private:
@@ -56,10 +34,44 @@ class PhoneBook {
 		Contact& get_current_contact() {
             return this->contacts[this->index];
         }
+
+		Contact& get_contact(int i) {
+			return contacts[i];
+		}
+
+		void next_index() {
+			this->index = (this->index + 1) % 8;
+		}
+
+		std::string format_cell(const std::string &s) {
+			if (s.length() > 10)
+				return s.substr(0, 9) + ".";
+			return std::string(10 - s.length(), ' ') + s;
+		}
+
+		void display() {
+			std::cout << yl << std::right << std::setw(10) << "Index" << rst << "|"
+					  << yl << std::right << std::setw(10) << "First Name" << rst << "|"
+					  << yl << std::right << std::setw(10) << "Last Name" << rst << "|"
+					  << yl << std::right << std::setw(10) << "Nickname" << rst << "|\n";
+		
+			for (int i = 0; i < 8; i++) {
+				Contact &c = contacts[i];
+				if (c.getFirstName().empty() && c.getLastName().empty()) continue;
+		
+				std::cout << std::right << std::setw(10) << i << "|"
+						  << format_cell(c.getFirstName()) << "|"
+						  << format_cell(c.getLastName()) << "|"
+						  << format_cell(c.getNickName()) << "|\n";
+			}
+		}
+		
+
 };
 
 
-bool  is_validate_phone(std::string& number);
+bool  is_validate_phone(const std::string& number);
 void fn_add(PhoneBook &pb);
+void search(PhoneBook &pb);
 
 #endif 
