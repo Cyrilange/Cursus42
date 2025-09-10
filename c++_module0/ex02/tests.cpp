@@ -12,6 +12,14 @@
 #include <functional>
 #include "Account.hpp"
 
+Account::Account(int initial_deposit) {
+Account::makeDeposit(initial_deposit);
+}
+
+Account::~Account() {
+
+}
+
 
 int		main( void ) {
 

@@ -1,6 +1,6 @@
-NAME = megaphone
-SRC = megaphone.cpp
-OBJ = $(SRC:.cpp=.o)
+NAME = BraiiiiiiinnnzzzZ
+SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+OBJ = $(SRC:.cpp=.o) # This line creates the list of object files
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

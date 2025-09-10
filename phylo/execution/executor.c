@@ -31,10 +31,7 @@ static bool	check_philosopher_death(t_philosopher *philo)
 		return (true);
 	return (false);
 }
-
-static bool	all_philosophers_full(t_data *data)
-{
-	int	i;
+  
 	
 	i = 0;
 	while (i < data->nbr_philo)
