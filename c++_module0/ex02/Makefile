@@ -1,5 +1,5 @@
-NAME = megaphone
-SRC = megaphone.cpp
+NAME = your_dream_job
+SRC = tests.cpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 YELLOW := \033[1;33m

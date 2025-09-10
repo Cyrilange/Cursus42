@@ -1,6 +1,6 @@
 #include "phonebook.hpp"
 
-bool  is_validate_phone(const std::string& number) {
+bool PhoneBook::is_validate_phone(const std::string& number) {
 	for (std::string::size_type i = 0; i < number.length(); i++) {
 		if (!isdigit(number[i])) {
 			return false;
@@ -28,7 +28,7 @@ void fn_add(PhoneBook &pb) {
 	do {
 		std::cout << "Enter phone number : " ;
 		std::getline(std::cin, input);
-		if (is_validate_phone(input) == false) {
+		if (PhoneBook::is_validate_phone(input) == false) {
 			std::cout << "wrong number" <<std::endl;
 		} else {
 			break ;
@@ -38,6 +38,7 @@ void fn_add(PhoneBook &pb) {
 	newContact.setPhoneNumber(input);
 
 	std::cout << "Enter your darkest secret : " ;
-	std::getline(std::cin, input);
+	if (!std::getline(std::cin, input))
+        std::cout << "EOF\n";  
 	newContact.setDarkestSecret(input);
 }

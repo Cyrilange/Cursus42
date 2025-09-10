@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CPP
-#define PHONEBOOK_CPP
+#ifndef PHONEBOOK_H
+#define PHONEBOOK_H
 
 #include <iostream>
 #include <ctype.h>
@@ -30,6 +30,8 @@ class PhoneBook {
 	public:
 		PhoneBook();
 		~PhoneBook();
+
+		static bool is_validate_phone(const std::string& number);
 
 		Contact& get_current_contact() {
             return this->contacts[this->index];
@@ -70,7 +72,6 @@ class PhoneBook {
 };
 
 
-bool  is_validate_phone(const std::string& number);
 void fn_add(PhoneBook &pb);
 void search(PhoneBook &pb);
 

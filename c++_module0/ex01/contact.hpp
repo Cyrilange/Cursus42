@@ -1,5 +1,5 @@
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef CONTACT_H
+#define CONTACT_H
 
 #include <iostream>
 #include <ctype.h>
