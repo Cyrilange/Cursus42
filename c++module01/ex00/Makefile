@@ -1,6 +1,6 @@
 NAME = BraiiiiiiinnnzzzZ
 SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
-OBJ = $(SRC:.cpp=.o) # This line creates the list of object files
+OBJ = $(SRC:.cpp=.o)
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
