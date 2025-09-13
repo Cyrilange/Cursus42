@@ -1,8 +1,9 @@
 #include "Zombie.hpp"
 
+Zombie::Zombie() :name("") {};
 Zombie::Zombie(std::string n) : name(n) {
 };
-Zombie::Zombie() {};
+
 Zombie::~Zombie() {
 std::cout << "The zombie called " << this->name << " is destroyed!!!!" << std::endl;
 };
