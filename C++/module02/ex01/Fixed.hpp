@@ -5,16 +5,14 @@
 #include <cmath>
 
 class Fixed {
-    private:
-        int value;
-        static const int   fixed_int   = 8;
+
     public:
         Fixed();
         Fixed(const int n);
         Fixed(const float f);
         Fixed(const Fixed &other);
         Fixed& operator=(const Fixed& other);
-        void setvalue();
+        void setvalue(int v);
         int getValue();
         static int getFixed_int();
         float toFloat( void ) const; // that converts the fixed-point value to a floating-point value.
@@ -26,6 +24,11 @@ class Fixed {
         of the fixed-point number into the output stream object passed as a parameter.*/
         
         ~Fixed();
+    private:
+        int value;
+        static const int   fixed_int   = 8;
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& obj);
 
 #endif
