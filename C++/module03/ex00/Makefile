@@ -3,7 +3,7 @@ SRC = main.cpp ClapTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -g -Wextra -Werror -std=c++98 -fsanitize=address
 
 YELLOW := \033[1;33m
 RESET  := \033[0m

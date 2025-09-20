@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-09-20 14:21:32 by csalamit          #+#    #+#             */
+/*   Updated: 2025-09-20 14:21:32 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()  {
+ClapTrap::ClapTrap()  : Name("") , HitPoints(10) , EnergyPoints(10) , AttackDamage(0)   {
     std::cout << "Default constuctor called" << std::endl;
 }
 
@@ -51,6 +63,30 @@ void ClapTrap::setHitpoints(int hp) {
 
 void ClapTrap::setAttackDamage(int at) {
     this->AttackDamage = at;
+}
+
+void ClapTrap::attack(const std::string& target) {
+    if (this->getEnergyPoints() > 1 ) {
+        std::cout << "ClapTrap" << this->getName() << " attacks " << target << " causing " << this->getAttackDamage() << std::endl;
+    }
+    else {
+        std::cout << "ClapTrap trying to attack " << target << " but does not have enought energy points" << std::endl;
+    }
+}
+
+void ClapTrap::takeDamage(unsigned int amount) {
+std::cout << "ClapTrap got " << amount << " points of damage" << std::endl;
+
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+    if (this->getHitPoints() > 1) {
+        std::cout << "ClapTrap got " << amount << " points of repair" << std::endl;
+    }
+    else {
+        std::cout << "ClapTrap cannot repair points" << std::endl;
+    }
+
 }
 
 ClapTrap::~ClapTrap() {
