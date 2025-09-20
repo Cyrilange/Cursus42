@@ -13,17 +13,20 @@
 #include "ClapTrap.hpp"
 
 int main() {
-    ClapTrap c;
-    ClapTrap m;
-    c.setName(" Cyril");
-    m.setName(" Martin");
-    ClapTrap z(c);
-   c.setAttackDamage(1);
-    c.setEnergyPoints(3);
-    c.setHitpoints(1);
-    m.setHitpoints(1);
-    c.attack(m.getName());
-    m.takeDamage(1);
+    ClapTrap c("Cyril");
+    ClapTrap m("Martin");
+    std::cout << "\n";
+    for (int i = 1; i <= 11; i++) {
+        c.setAttackDamage(1);
+
+        c.attack(m.getName());
+        m.takeDamage(c.getAttackDamage());
+        std::cout << "\n";
+    }
+
     m.beRepaired(1);
+    std::cout << "\n";
+
+
     return 0;
 }
