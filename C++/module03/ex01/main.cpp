@@ -11,22 +11,35 @@
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
-    ClapTrap c("Cyril");
-    ClapTrap m("Martin");
-    std::cout << "\n";
-    for (int i = 1; i <= 11; i++) {
-        c.setAttackDamage(1);
+    ClapTrap c("Baba Boss");
+    c.setHitpoints(200);
 
-        c.attack(m.getName());
-        m.takeDamage(c.getAttackDamage());
+    ScavTrap r("Robot I92Lpq12");
+    r.setAttackDamage(20);
+
+    bool gateModeActivated = false;
+
+    std::cout << "\n";
+
+    while (c.getHitPoints() > 0 && r.getEnergyPoints() > 0) {
+        r.attack(c.getName());
+        c.takeDamage(r.getAttackDamage());
+
+        if (!gateModeActivated && r.getEnergyPoints() < 48) {
+            r.guardGate();
+            gateModeActivated = true;
+        }
+
         std::cout << "\n";
     }
 
-    m.beRepaired(1);
-    std::cout << "\n";
-
+    if (c.getHitPoints() <= 0)
+        std::cout << c.getName() << " has been defeated!\n";
+    else
+        std::cout << r.getName() << " has no more energy!\n";
 
     return 0;
 }

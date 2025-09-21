@@ -51,6 +51,7 @@ class ClapTrap {
         int HitPoints;
         int EnergyPoints;
         int AttackDamage;
+        bool isScav;
 };
 
 #endif

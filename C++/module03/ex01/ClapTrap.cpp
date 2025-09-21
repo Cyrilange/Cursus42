@@ -12,11 +12,11 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()  : Name("") , HitPoints(10) , EnergyPoints(10) , AttackDamage(0)   {
+ClapTrap::ClapTrap()  : Name("") , HitPoints(10) , EnergyPoints(10) , AttackDamage(0), isScav(false)   {
     std::cout << "\033[94m" << "Default constuctor called" << "\033[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : Name(name) , HitPoints(10) , EnergyPoints(10) , AttackDamage(0)   {
+ClapTrap::ClapTrap(std::string name) : Name(name) , HitPoints(10) , EnergyPoints(10) , AttackDamage(0) , isScav(false)  {
     std::cout << "\033[94m" << name << " Parameterized constuctor called" << "\033[0m" << std::endl;
 }
 
@@ -68,7 +68,7 @@ void ClapTrap::setAttackDamage(int at) {
 void ClapTrap::attack(const std::string& target) {
     if (this->EnergyPoints > 0 && this->HitPoints > 0) {
         this->EnergyPoints--;
-        std::cout << "ClapTrap " << this->Name 
+        std::cout << (isScav ? "ScavTrap " : "ClapTrap ")  << this->Name 
                   << " attacks " << target 
                   << " causing " << this->AttackDamage 
                   << (this->AttackDamage == 1 ? " point" : " points")
@@ -76,10 +76,10 @@ void ClapTrap::attack(const std::string& target) {
                   << this->EnergyPoints << std::endl;
     } else {
         if (this->HitPoints <= 0)
-            std::cout << "ClapTrap " << this->Name 
+            std::cout << (isScav ? "ScavTrap " : "ClapTrap ")  << this->Name 
                       << " cannot attack because it has no hit points." << std::endl;
         else
-            std::cout << "ClapTrap " << this->Name 
+            std::cout << (isScav ? "ScavTrap " : "ClapTrap ")  << this->Name 
                       << " cannot attack because it has no energy points." << std::endl;
     }
 }
@@ -89,7 +89,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
     this->HitPoints -= amount;
     if (this->HitPoints <= 0) this->HitPoints = 0;
 
-    std::cout << "ClapTrap " << this->Name << " took " << amount << " damage, HP now: " << this->HitPoints << std::endl;
+    std::cout << (isScav ? "ScavTrap " : "ClapTrap ") << this->Name << " took " << amount << " damage, HP now: " << this->HitPoints << std::endl;
 }
 
 
@@ -98,9 +98,9 @@ void ClapTrap::beRepaired(unsigned int amount) {
     if (this->EnergyPoints > 0 && this->HitPoints > 0) {
         this->HitPoints += amount;
         this->EnergyPoints--;
-        std::cout << "ClapTrap " << this->Name << " is repaired by " << amount << ", HP now: " << this->HitPoints << std::endl;
+        std::cout << (isScav ? "ScavTrap " : "ClapTrap ")  << this->Name << " is repaired by " << amount << ", HP now: " << this->HitPoints << std::endl;
     } else {
-        std::cout << "ClapTrap " << this->Name << " cannot repair " << std::endl;
+        std::cout << (isScav ? "ScavTrap " : "ClapTrap ")  << this->Name << " cannot repair " << std::endl;
     }
 }
 
