@@ -52,6 +52,7 @@ class ClapTrap {
         int EnergyPoints;
         int AttackDamage;
         bool isScav;
+        bool isFrag;
 };
 
 #endif

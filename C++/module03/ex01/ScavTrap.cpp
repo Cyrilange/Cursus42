@@ -36,15 +36,6 @@ ScavTrap::ScavTrap(const ScavTrap& other) :ClapTrap(other) {
 void ScavTrap::guardGate() {
     std::cout << "ScavTrap " << this->getName() 
               << " is now in Gate keeper mode" << std::endl;
-
-    this->AttackDamage = static_cast<int>(this->AttackDamage * 1.5);
-
-    if (this->EnergyPoints > 0)
-        this->EnergyPoints = this->EnergyPoints - 4;
-
-    std::cout << "ScavTrap " << this->getName() 
-              << " now has AttackDamage: " << this->AttackDamage
-              << " and EnergyPoints: " << this->EnergyPoints << std::endl;
 }
 
 

@@ -17,10 +17,10 @@ int main() {
     ClapTrap a;
     a.setName("Cyril"); //call default constructor
     ClapTrap c("Baba Boss");
-    c.setHitpoints(200);
+    c.setHitpoints(60);
 
     ScavTrap r("Robot I92Lpq12");
-    r.setAttackDamage(20);
+    
 
     bool gateModeActivated = false;
 
