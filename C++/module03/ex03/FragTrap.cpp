@@ -16,7 +16,7 @@ FragTrap::FragTrap() : ClapTrap("Default") {
     HitPoints = 100;
     EnergyPoints = 100;
     AttackDamage = 30;
-    std::cout << "\033[94m" << this->getName() << " ScavTrap default constructor called" << "\033[0m" << std::endl;
+    std::cout << "\033[94m" << this->getName() << " FragTrap default constructor called" << "\033[0m" << std::endl;
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
@@ -24,11 +24,11 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
     HitPoints = 100;
     EnergyPoints = 100;
     AttackDamage = 30;
-    std::cout << "\033[94m" << this->getName() << " ScavTrap parameterized constructor called for " << Name << "\033[0m" << std::endl;
+    std::cout << "\033[94m" << this->getName() << " FragTrap parameterized constructor called for " << Name << "\033[0m" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) :ClapTrap(other) {
-    std::cout << "\033[94m" << this->getName() << " ScavTrap copy constructor called for " << Name << "\033[0m" << std::endl;
+    std::cout << "\033[94m" << this->getName() << " FragTrap copy constructor called for " << Name << "\033[0m" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) {
@@ -38,6 +38,6 @@ std::cout << "\033[1;35m" << "FragTrap " << this->getName() << " ask positive hi
 
 
 FragTrap::~FragTrap() {
-    std::cout << "\033[94m" << this->getName() << " ScavTrap destructor called for " << Name << "\033[0m" << std::endl; 
+    std::cout << "\033[94m" << this->getName() << " FragTrap destructor called for " << Name << "\033[0m" << std::endl; 
 }
 

@@ -68,7 +68,7 @@ void ClapTrap::setAttackDamage(int at) {
 void ClapTrap::attack(const std::string& target) {
     if (this->EnergyPoints > 0 && this->HitPoints > 0) {
         this->EnergyPoints--;
-        std::cout << (isFrag? "fragTrap " : (isScav ? "ScavTrap " : "ClapTrap "))  << this->Name 
+        std::cout << (isDia ? "DiamondTrap " : (isFrag ? "FragTrap " : (isScav ? "ScavTrap " : "ClapTrap "))) <<  this->Name 
                   << " attacks " << target 
                   << " causing " << this->AttackDamage 
                   << (this->AttackDamage == 1 ? " point" : " points")
@@ -89,7 +89,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
     this->HitPoints -= amount;
     if (this->HitPoints <= 0) this->HitPoints = 0;
 
-    std::cout << (isFrag? "fragTrap " : (isScav ? "ScavTrap " : "ClapTrap ")) << this->Name << " took " << amount << " damage, HP now: " << this->HitPoints << std::endl;
+    std::cout << (isDia ? "DiamondTrap " : (isFrag ? "FragTrap " : (isScav ? "ScavTrap " : "ClapTrap "))) << this->Name << " took " << amount << " damage, HP now: " << this->HitPoints << std::endl;
 }
 
 
@@ -98,9 +98,9 @@ void ClapTrap::beRepaired(unsigned int amount) {
     if (this->EnergyPoints > 0 && this->HitPoints > 0) {
         this->HitPoints += amount;
         this->EnergyPoints--;
-        std::cout << (isFrag? "fragTrap " : (isScav ? "ScavTrap " : "ClapTrap "))  << this->Name << " is repaired by " << amount << ", HP now: " << this->HitPoints << std::endl;
+        std::cout << (isDia ? "DiamondTrap " : (isFrag ? "FragTrap " : (isScav ? "ScavTrap " : "ClapTrap ")))  << this->Name << " is repaired by " << amount << ", HP now: " << this->HitPoints << std::endl;
     } else {
-        std::cout << (isFrag? "fragTrap " : (isScav ? "ScavTrap " : "ClapTrap "))  << this->Name << " cannot repair " << std::endl;
+        std::cout << (isDia ? "DiamondTrap " : (isFrag ? "FragTrap " : (isScav ? "ScavTrap " : "ClapTrap ")))  << this->Name << " cannot repair " << std::endl;
     }
 }
 
@@ -108,5 +108,5 @@ void ClapTrap::beRepaired(unsigned int amount) {
 
 
 ClapTrap::~ClapTrap() {
-    std::cout << "\033[94m" << "Desstuctor called" << "\033[0m" << std::endl;
+    std::cout << "\033[94m" << this->getName() << " ClapTrap Destructor called" << "\033[0m" << std::endl;
 }

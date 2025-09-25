@@ -8,7 +8,7 @@
 class DiamondTrap : public FragTrap, public ScavTrap {
     public:
     DiamondTrap();
-        DiamondTrap(std::string& name);
+        DiamondTrap(const std::string& name);
         DiamondTrap(const DiamondTrap& other);
         using ClapTrap::operator=;
         using ClapTrap::attack;
