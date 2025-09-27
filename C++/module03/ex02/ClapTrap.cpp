@@ -108,5 +108,5 @@ void ClapTrap::beRepaired(unsigned int amount) {
 
 
 ClapTrap::~ClapTrap() {
-    std::cout << "\033[94m" << "Desstuctor called" << "\033[0m" << std::endl;
+    std::cout << "\033[94m" << "ClapTrap Desstuctor called" << "\033[0m" << std::endl;
 }
