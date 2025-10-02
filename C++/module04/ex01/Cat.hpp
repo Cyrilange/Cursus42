@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 #define BOLD_YELLOW "\033[1;33m"
 #define RESET       "\033[0m"
@@ -16,8 +17,13 @@ class Cat : public Animal {
     Cat(const Cat& other);
     virtual ~Cat();
 
-    using Animal::operator=;
+    Animal& operator=(const Cat& other);
+    Brain& getBrain() const;
     void makeSound() const;
+
+    private:
+
+    Brain* brain;
 };
 
 #endif

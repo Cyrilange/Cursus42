@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "Brain.hpp"
 #define GREEN_BOLD_ITALIC "\033[1;3;92m"
 #define RESET "\033[0m"
 
