@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-10-04 13:53:41 by csalamit          #+#    #+#             */
-/*   Updated: 2025-10-04 13:53:41 by csalamit         ###   ########.fr       */
+/*   Created: 2025-10-04 13:54:47 by csalamit          #+#    #+#             */
+/*   Updated: 2025-10-04 13:54:47 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,28 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 #define PINK_BOLD_ITALIC "\033[1;3;95m"
 #define RESET "\033[0m"
+#define YELLOW "\033[1;33m"
+#define PINK "\033[1;35m"
 
 
-int main()
-{
-std::cout << PINK_BOLD_ITALIC << "TEST WITH ANIMAL" << RESET << std::endl;
-std::cout << "\n";
-const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound();
-j->makeSound();
-meta->makeSound();
-delete meta;
-delete j;
-delete i;
+int main() {
+    Dog a;
+    Cat b;
 
+    b.makeSound();
+    a.makeSound();
 
-std::cout << "\n";
-std::cout << PINK_BOLD_ITALIC << "TEST WITH WRONG ANIMAL" << RESET << std::endl;
-std::cout << "\n";
-const WrongAnimal* arr[2];
-arr[0] = new WrongCat();
-arr[1] = new WrongAnimal();
+    a.getBrain();
 
-for (int i = 0; i < 2; ++i) {
-    arr[i]->makeSound();
-}
+    Dog* j = new Dog();
+    j->getBrain().setIdea(1, "hello");
+    std::cout << YELLOW << j->getType() << RESET << " ideas: ";
+    std::cout << YELLOW << j->getBrain().getIdea(1) << RESET << std::endl;
 
-for (int i = 0; i < 2; ++i) {
-    delete arr[i];
-}
+    delete j;
 
-return 0;
+    return 0;
 }

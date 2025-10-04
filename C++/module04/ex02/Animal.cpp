@@ -5,46 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-09-28 14:10:51 by csalamit          #+#    #+#             */
-/*   Updated: 2025-09-28 14:10:51 by csalamit         ###   ########.fr       */
+/*   Created: 2025-10-04 13:54:09 by csalamit          #+#    #+#             */
+/*   Updated: 2025-10-04 13:54:09 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() {
+Aanimal::Aanimal() {
     std::cout << "Animal default constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& other) {
+Aanimal::Aanimal(const Aanimal& other) {
     std::cout << "Animal copy constructor" << std::endl;
     *this = other;
 };
 
-Animal::Animal(const std::string& type) : type(type) {
+Aanimal::Aanimal(const std::string& type) : type(type) {
     std::cout << "Animal constructor type" << std::endl;
  }
 
 
-Animal& Animal::operator=(const Animal& other) {
+Aanimal& Aanimal::operator=(const Aanimal& other) {
     if (this != &other) {
         this->type = other.type;
     }
     return *this;
 };
 
-void Animal::makeSound() const {
-std::cout << GREEN_BOLD_ITALIC << "Animal sound" << RESET << std::endl;
-}
-
-const std::string& Animal::getType() const {
+const std::string& Aanimal::getType() const {
 return type;
 }
 
-void Animal::setType(const std::string& _type) {
+void Aanimal::setType(const std::string& _type) {
     this->type = _type;
 };
 
-Animal::~Animal() {
+Aanimal::~Aanimal() {
     std::cout << "Animal destructor called" << std::endl;
 }

@@ -1,6 +1,6 @@
 .PHONY: all clean fclean re
 
-NAME = Brain
+NAME = Abstract
 SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++

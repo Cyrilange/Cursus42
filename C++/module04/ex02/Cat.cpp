@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-10-04 13:55:08 by csalamit          #+#    #+#             */
-/*   Updated: 2025-10-04 13:55:08 by csalamit         ###   ########.fr       */
+/*   Created: 2025-10-04 13:54:29 by csalamit          #+#    #+#             */
+/*   Updated: 2025-10-04 13:54:29 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Cat.hpp"
 
 
-WrongCat::WrongCat() : WrongAnimal("Wrong Cat") {
+Cat::Cat() : Aanimal("Cat") {
 std::cout << this->getType() << " Default contructor called" << std::endl;
+this->brain = new Brain();
+
 }
 
-WrongCat::WrongCat(const WrongCat&) : WrongAnimal("Wrong Cat") {
+Cat::Cat(const Cat& other) : Aanimal("Cat") {
     std::cout << this->getType() << " Copy contructor called" << std::endl;
+    this->brain = new Brain(*other.brain);
 }
 
-void WrongCat::makeSound() const {
-    std::cout << MAUVE_BOLD_ITALIC << "Quack Quack" << RESET << std::endl;
+Aanimal& Cat::operator=(const Cat& other) {
+    if (this != &other) {
+        Aanimal::operator=(other); 
+        *this->brain = *other.brain;
+    }
+    return *this;
 }
 
-WrongCat::~WrongCat() {
+Brain& Cat::getBrain() const {
+    return *brain;
+}
+
+void Cat::makeSound() const  {
+    std::cout << BOLD_YELLOW << "Meow Meow" << RESET << std::endl;
+}
+
+Cat::~Cat() {
 std::cout << "Destructor  " << this->getType() << std::endl;
+delete brain;
 }

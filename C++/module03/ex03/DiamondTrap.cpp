@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-09-28 14:10:07 by csalamit          #+#    #+#             */
+/*   Updated: 2025-09-28 14:10:07 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap() {

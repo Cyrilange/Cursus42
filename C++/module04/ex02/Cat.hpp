@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-10-04 13:54:02 by csalamit          #+#    #+#             */
-/*   Updated: 2025-10-04 13:54:02 by csalamit         ###   ########.fr       */
+/*   Created: 2025-10-04 13:54:32 by csalamit          #+#    #+#             */
+/*   Updated: 2025-10-04 13:54:32 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include <iostream>
 #include <string>
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-#define MAUVE_BOLD_ITALIC "\033[1;3;35m"
-#define VIOLET_BOLD_ITALIC "\033[1;3;95m"
-#define RESET "\033[0m"
+#define BOLD_YELLOW "\033[1;33m"
+#define RESET       "\033[0m"
 
 
-
-class WrongCat : public WrongAnimal {
+class Cat : public Aanimal {
     public:
 
-    WrongCat();
-    WrongCat(const WrongCat& other);
-    virtual ~WrongCat();
+    Cat();
+    Cat(const Cat& other);
+    virtual ~Cat();
 
-    using WrongAnimal::operator=;
-    void makeSound() const;
+    Aanimal& operator=(const Cat& other);
+    Brain& getBrain() const;
+    void makeSound() const ;
+
+    private:
+
+    Brain* brain;
 };
 
 #endif
