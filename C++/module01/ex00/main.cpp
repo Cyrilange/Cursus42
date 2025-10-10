@@ -17,10 +17,10 @@ Zombie::Zombie() : name("") {}
 int main(void) {
     
     std::string prompt;
+    std::cout << "enter a name: ";
     if (!std::getline(std::cin, prompt))
         return - 1; 
     std::cout << "\n";
-    system("clear"); 
     randomChump(prompt);
    
     return 0;

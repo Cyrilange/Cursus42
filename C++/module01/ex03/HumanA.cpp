@@ -16,6 +16,10 @@ HumanA::HumanA(std::string n, Weapon& w) : name(n), weapon(&w) {};
 
 HumanA::HumanA() : name(" "), weapon(NULL) {};
 
+std::string HumanA::getName(void) {return this->name;};
+      
+void HumanA::setName(std::string n) {this->name = n;};
+
 HumanA::~HumanA() {};
 
 void HumanA::attack() {

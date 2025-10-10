@@ -26,8 +26,8 @@ class Weapon {
     Weapon();
     Weapon(std::string t);
     ~Weapon();
-    std::string getType() {return this->type;};
-    void setType(std::string t) { this->type = t;};
+    std::string getType();
+    void setType(std::string t);
 };
 
 # endif

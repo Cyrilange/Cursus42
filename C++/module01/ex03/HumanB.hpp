@@ -25,9 +25,9 @@ class HumanB {
         HumanB(std::string n);
         HumanB();
         ~HumanB();
-        std::string getName() {return this->name;};
+        std::string getName();
        
-        void setName(std::string n) {this->name = n;};
+        void setName(std::string n);
         void setWeapon(Weapon& w);
        void attack();
         

@@ -17,6 +17,5 @@
 void randomChump( std::string name ) {
     Zombie* newZ = newZombie(name);
     newZ->announce();
-    usleep(100);
     delete newZ;
 };

@@ -27,9 +27,9 @@ class HumanA {
         HumanA(std::string n, Weapon& w);
 
         ~HumanA();
-        std::string getName(void) {return this->name;};
+        std::string getName(void);
       
-        void setName(std::string n) {this->name = n;};
+        void setName(std::string n);
         void attack();
 };
 

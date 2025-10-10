@@ -24,8 +24,8 @@ class Zombie {
     std::string	name;
 
 	public: 
-		void setName(std::string name) {  this->name = name;};
-		std::string getName () const {return this->name;};
+		void setName(std::string name);
+		std::string getName () const;
         Zombie();
 		Zombie(std::string n);
 		void announce( void );

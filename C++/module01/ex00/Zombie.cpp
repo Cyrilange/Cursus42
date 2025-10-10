@@ -13,7 +13,12 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie(std::string n) : name(n) {
+    std::cout << "The zombie called " << this->name << " is created!!!!" << std::endl;
 };
+
+std::string Zombie::setName(std::string name) { return this->name = name;};
+std::string Zombie::getName () const {return this->name;};
+
 Zombie::~Zombie() {
 std::cout << "The zombie called " << this->name << " is destroyed!!!!" << std::endl;
 };

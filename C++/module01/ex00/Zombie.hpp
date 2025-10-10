@@ -15,16 +15,15 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
-#include <unistd.h>
+
 
 class Zombie {
     private:
     std::string	name;
 
 	public: 
-		std::string setName(std::string name) { return this->name = name;};
-		std::string getName () const {return this->name;};
+		std::string setName(std::string name);
+		std::string getName () const;
 
 		Zombie(std::string n);
 		Zombie();

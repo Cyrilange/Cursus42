@@ -12,11 +12,21 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() :name("") {};
+Zombie::Zombie() : name("") {
+  static  int index = 1;
+    std::cout << "Default constructor numero: " << index++ << std::endl;
+}
+
 Zombie::Zombie(std::string n) : name(n) {
+    std::cout << "The zombie called " << this->name << " is created!!!!" << std::endl;
 };
 
+
+void Zombie::setName(std::string name) {  this->name = name; std::cout << "The zombie called " << this->name << " is created!!!!" << std::endl;};
+std::string Zombie::getName () const {return this->name;};
+
 Zombie::~Zombie() {
+std::cout << "Destructor called : ";
 std::cout << "The zombie called " << this->name << " is destroyed!!!!" << std::endl;
 };
 

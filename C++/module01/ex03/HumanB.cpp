@@ -22,6 +22,10 @@ void HumanB::setWeapon(Weapon& w) {
     weapon = &w;
 }
 
+std::string HumanB::getName() {return this->name;};
+       
+void HumanB::setName(std::string n) {this->name = n;};
+
 void HumanB::attack() {
     if (weapon)
         std::cout << getName() << " attacks with their " << weapon->getType() << std::endl;
