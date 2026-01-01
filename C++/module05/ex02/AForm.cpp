@@ -1,6 +1,6 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(const std::string name, const int gradeSign, const int gradeExec) 
+AForm::AForm(const std::string name, const int gradeSign, const int gradeExec) 
 : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec), _isSigned(false) 
 {
 	std::cout << "Parametric constructor called" << std::endl;
@@ -21,22 +21,22 @@ const char *Form::GradeTooHighException::what() const throw() {
 	return "Error: Grade is too high";
 }
 
-Form::Form(const Form &other)
+AForm::AForm(const AForm &other)
 : _name(other._name), _gradeSign(other._gradeSign), _gradeExec(other._gradeExec), _isSigned(false) 
 {
 	std::cout << "Copy constructor for the form " << this->getName() << std::endl;
 }
 
-Form& Form::operator=(const Form& src) {
+AForm& AForm::operator=(const AForm& src) {
 	if(this != &src) {
 		this->_isSigned = src._isSigned;
 	}
 	return *this;
 }
-void Form::beSigned(Bureaucrat& bureaucrat)
+void AForm::beSigned(Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() < this->_gradeSign)
-		throw Form::GradeTooLowException();
+	if (bureaucrat.getGrade() > this->_gradeSign)
+		throw AForm::GradeTooLowException();
 
 	this->_isSigned = true;
 }
@@ -44,24 +44,24 @@ void Form::beSigned(Bureaucrat& bureaucrat)
 
 //getters
 
-int Form::getGradeSign() const {
+int AForm::getGradeSign() const {
 	return this->_gradeSign;
 }
-int Form::getGradeExec() const {
+int AForm::getGradeExec() const {
 	return this->_gradeExec;
 }
-bool Form::getIsSigned() const {
+bool AForm::getIsSigned() const {
 	return this->_isSigned;
 }
-std::string Form::getName() const {
+std::string AForm::getName() const {
 	return this->_name;
 }
 
-Form::~Form() {
+AForm::~AForm() {
 	std::cout << "Destructor called to " << this->getName() << std::endl;
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& obj)
+std::ostream& operator<<(std::ostream& os, const AForm& obj)
 {
 	os << "Form name: " << obj.getName() << '\n'
 	   << "Grade required to sign: " << obj.getGradeSign() << '\n'

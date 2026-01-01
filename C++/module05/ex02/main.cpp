@@ -20,20 +20,6 @@ int main()
 	anne.signForm(fine);
 
 	std::cout << "==============================================" << std::endl;
-	std::cout << "=============  Karen and the shop ============" << std::endl;
-	std::cout << "==============================================" << std::endl;
-
-	try {
-		Bureaucrat Karen("Karen", 120);
-		std::cout << Karen.getName() << " wants to send 120 euro to Colombia." << std::endl;
-		Form Shop("Shop", 133, 133);
-		Karen.signForm(Shop);
-	} catch (const Form::GradeTooLowException& e) {
-		std::cerr << "Error " << e.what() << std::endl;
-
-	}
-
-	std::cout << "==============================================" << std::endl;
 	std::cout << "=============  End of the story   ============" << std::endl;
 	std::cout << "==============================================" << std::endl;
 
