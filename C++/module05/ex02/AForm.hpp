@@ -34,16 +34,20 @@ class AForm {
 	class GradeTooLowException : public std::exception {
 		public:
 		virtual const char *what() const throw();
-	};										
+	};
+	
+	virtual void execute(Bureaucrat const &executor) const = 0;
 
-	~AForm();
+	virtual ~AForm();
 
-	private :
+	protected :
 
 	const std::string	_name;
 	const int			_gradeSign;
 	const int			_gradeExec;
 	bool 				_isSigned;
+
+	private :
 	AForm(); //default constructor in private to avooid creating empty object
 
 };
