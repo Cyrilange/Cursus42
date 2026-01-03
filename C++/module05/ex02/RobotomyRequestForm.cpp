@@ -18,6 +18,10 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& c
 	return *this;
 }
 
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+	
+}
+
 RobotomyRequestForm::~RobotomyRequestForm() {
 	std::cout << "Destructor called(RobotomyRequestForm)" << std::endl;
 }
