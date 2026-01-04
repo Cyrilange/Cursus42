@@ -1,4 +1,4 @@
-NAME = Mommy
+NAME = "Mommy, when I grow up, I want to be a bureaucrat! "
 SRC = main.cpp Bureaucrat.cpp
 OBJ = $(SRC:.cpp=.o)
 

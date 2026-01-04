@@ -1,4 +1,4 @@
-NAME = Maggots
+NAME = "Form up, maggots!"
 SRC = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = $(SRC:.cpp=.o)
 
