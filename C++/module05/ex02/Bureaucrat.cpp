@@ -15,7 +15,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(oth
 	std::cout << _name << " with grade " << _grade << std::endl;
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(AForm& form)
 {
 	try
 	{
@@ -70,6 +70,10 @@ void Bureaucrat::decrement() {
 		throw Bureaucrat::GradeTooLowException();
 	}
 	this->_grade++;
+}
+
+void Bureaucrat::executeForm(AForm const &form) {
+	form.execute(*this);
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {

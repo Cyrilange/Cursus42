@@ -1,5 +1,10 @@
-NAME = Maggots
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+NAME = "No, you need form 28B, not 28C..."
+SRC = AForm.cpp \
+		Bureaucrat.cpp \
+		main.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CXX = c++

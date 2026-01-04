@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <string>
 #include <cstdlib>
+#include <fstream>
 class Bureaucrat;
 
 #define HIGHEST_GRADE 1
@@ -23,6 +24,7 @@ class AForm {
 	int getGradeExec() const;
 	bool getIsSigned() const;
 	std::string getName() const;
+	const std::string& getTarget() const;
 
 	void beSigned(Bureaucrat& bureaucrat);
 
@@ -35,6 +37,11 @@ class AForm {
 		public:
 		virtual const char *what() const throw();
 	};
+
+	class FormNotSignedException : public std::exception {
+		public:
+		virtual const char* what() const throw();
+		};
 	
 	virtual void execute(Bureaucrat const &executor) const = 0;
 

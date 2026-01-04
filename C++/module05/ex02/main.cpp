@@ -1,27 +1,79 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
 
-int main()
-{
-	std::cout << "==============================================" << std::endl;
-	std::cout << "=============  Bob tax form  =================" << std::endl;
-	std::cout << "==============================================" << std::endl;
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
 
-	Bureaucrat bob("Bob", 50);
-	Form contract("Contract", 45, 30);
-	bob.signForm(contract);
+int main() {
+    std::srand(std::time(NULL));
 
-	std::cout << "==============================================" << std::endl;
-	std::cout << "=============  Anne and the fine  ============" << std::endl;
-	std::cout << "==============================================" << std::endl;
+    std::cout << CYAN << "==============================================" << RESET << std::endl;
+    std::cout << CYAN << "=============== BUREAUCRAT TESTS =============" << RESET << std::endl;
+    std::cout << CYAN << "==============================================" << RESET << std::endl;
 
-	Bureaucrat anne("Anne", 87);
-	Form fine("Fine", 90, 45);
-	anne.signForm(fine);
+    try {
+        Bureaucrat alice("Alice", 1);
+        Bureaucrat bob("Bob", 150);
+        Bureaucrat charlie("Charlie", 50);
 
-	std::cout << "==============================================" << std::endl;
-	std::cout << "=============  End of the story   ============" << std::endl;
-	std::cout << "==============================================" << std::endl;
+        std::cout << GREEN << alice << bob << charlie << RESET << std::endl;
 
-	return 0;
+        std::cout << YELLOW << "\n--- SHRUBBERY CREATION FORM ---" << RESET << std::endl;
+        ShrubberyCreationForm shrub("home");
+        alice.signForm(shrub);
+        alice.executeForm(shrub);
+        try { bob.executeForm(shrub); }
+        catch (std::exception &e) { std::cerr << RED << "Bob failed: " << e.what() << RESET << std::endl; }
+
+        std::cout << MAGENTA << "\n--- ROBOTOMY REQUEST FORM ---" << RESET << std::endl;
+        RobotomyRequestForm robot("Marvin");
+        alice.signForm(robot);
+        for (int i = 0; i < 10; ++i) { 
+			std::cout << MAGENTA << "\n" << i << " ---TESTS FOR ALICE ---" << RESET << std::endl;
+			alice.executeForm(robot); 
+		}
+        RobotomyRequestForm robot2("Marvin2");
+        try { alice.executeForm(robot2); }
+        catch (std::exception &e) { std::cerr << RED << "Execute unsigned form: " << e.what() << RESET << std::endl; }
+
+        std::cout << BLUE << "\n--- PRESIDENTIAL PARDON FORM ---" << RESET << std::endl;
+        PresidentialPardonForm pardon("Ford");
+        alice.signForm(pardon);
+        alice.executeForm(pardon);
+        try { bob.executeForm(pardon); }
+        catch (std::exception &e) { std::cerr << RED << "Bob failed to execute pardon: " << e.what() << RESET << std::endl; }
+
+        std::cout << CYAN << "\n--- COPY TESTS ---" << RESET << std::endl;
+        RobotomyRequestForm robotCopy(robot);
+        RobotomyRequestForm robotAssign("Temp");
+        robotAssign = robot;
+        alice.executeForm(robotCopy);
+        alice.executeForm(robotAssign);
+
+        std::cout << CYAN << "\n--- EDGE CASES ---" << RESET << std::endl;
+        ShrubberyCreationForm edgeCase("office");
+        try { charlie.executeForm(edgeCase); }
+        catch (std::exception &e) { std::cerr << RED << "Charlie execute unsigned shrub: " << e.what() << RESET << std::endl; }
+        charlie.signForm(edgeCase);
+        charlie.executeForm(edgeCase);
+
+    } catch (std::exception &e) {
+        std::cerr << RED << "Exception caught in main: " << e.what() << RESET << std::endl;
+    }
+
+    std::cout << CYAN << "\n==============================================" << RESET << std::endl;
+    std::cout << CYAN << "=============== END OF TESTS =================" << RESET << std::endl;
+    std::cout << CYAN << "==============================================" << RESET << std::endl;
+
+    return 0;
 }

@@ -5,20 +5,24 @@ AForm::AForm(const std::string name, const int gradeSign, const int gradeExec)
 {
 	std::cout << "Parametric constructor called" << std::endl;
 	if (gradeSign < HIGHEST_GRADE || gradeExec < HIGHEST_GRADE)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	if (gradeSign > LOWER_GRADE || gradeExec > LOWER_GRADE)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	std::cout << "Form " << this->getName() << " with grade to sign "
 	<< this->getGradeSign() << " and grade to execute " << this->getGradeExec() << std::endl;
 	
 }
 
-const char *Form::GradeTooLowException::what() const throw() {
+const char *AForm::GradeTooLowException::what() const throw() {
 	return "Error: Grade is too low";
 }
 
-const char *Form::GradeTooHighException::what() const throw() {
+const char *AForm::GradeTooHighException::what() const throw() {
 	return "Error: Grade is too high";
+}
+
+const char *AForm::FormNotSignedException::what() const throw() {
+	return "Form is not signed";
 }
 
 AForm::AForm(const AForm &other)
