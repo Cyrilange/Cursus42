@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 18:28:35 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/05 18:28:36 by csalamit         ###   ########.fr       */
+/*   Created: 2026/01/05 18:03:51 by csalamit          #+#    #+#             */
+/*   Updated: 2026/01/05 18:17:37 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
-#include "AForm.hpp"
-class AForm;
+#pragma once
 
-class Intern {
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <climits>
+#include <cfloat>
+#include <cmath>
+#include <iomanip>
+#include <limits>
+#include <stdint.h>
 
-public:
-
-Intern();
-Intern(const Intern& copy);
-Intern& operator=(const Intern& copy);
-AForm* makeForm(const std::string& nameForm, const std::string& targetForm) const;
-~Intern();
-
-
+struct Data {
+	int x;
+	std::string name;
 };

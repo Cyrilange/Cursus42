@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 18:27:40 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/05 18:27:41 by csalamit         ###   ########.fr       */
+/*   Created: 2026/01/05 18:04:41 by csalamit          #+#    #+#             */
+/*   Updated: 2026/01/05 18:04:42 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "AForm.hpp"
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <climits>
+#include <cfloat>
+#include <cmath>
+#include <iomanip>
+#include <limits>
 
-class RobotomyRequestForm : public AForm {
-	
-	private : 
-	RobotomyRequestForm();
-	std::string	_target;
 
-	
+class ScalarConverter {
 	public:
-
-	RobotomyRequestForm(std::string const& target);
-	RobotomyRequestForm(const RobotomyRequestForm& copy);
-	RobotomyRequestForm& operator=(const RobotomyRequestForm& copy);
-	void execute(Bureaucrat const & executor) const;
-	const std::string& getTarget() const;
-	virtual ~RobotomyRequestForm();
+		static void convert(const std::string& str);
+	private:
+		ScalarConverter();
+		~ScalarConverter();
+		ScalarConverter(const ScalarConverter &);
+		ScalarConverter &operator=(const ScalarConverter &);
 };

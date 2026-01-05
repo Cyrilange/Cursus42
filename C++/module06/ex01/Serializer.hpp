@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 18:27:40 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/05 18:27:41 by csalamit         ###   ########.fr       */
+/*   Created: 2026/01/05 18:04:23 by csalamit          #+#    #+#             */
+/*   Updated: 2026/01/05 18:12:28 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "AForm.hpp"
+#include "Data.hpp"
 
-class RobotomyRequestForm : public AForm {
-	
-	private : 
-	RobotomyRequestForm();
-	std::string	_target;
+class Serializer {
 
-	
 	public:
 
-	RobotomyRequestForm(std::string const& target);
-	RobotomyRequestForm(const RobotomyRequestForm& copy);
-	RobotomyRequestForm& operator=(const RobotomyRequestForm& copy);
-	void execute(Bureaucrat const & executor) const;
-	const std::string& getTarget() const;
-	virtual ~RobotomyRequestForm();
+	static uintptr_t serialize(Data* ptr);
+	static Data* deserialize(uintptr_t raw);
+
+	private:
+	Serializer();
+	Serializer(const Serializer& );
+	Serializer &operator=(const Serializer&);
+	~Serializer();
 };

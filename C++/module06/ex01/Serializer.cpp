@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 18:28:35 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/05 18:28:36 by csalamit         ###   ########.fr       */
+/*   Created: 2026/01/05 18:04:16 by csalamit          #+#    #+#             */
+/*   Updated: 2026/01/05 18:10:52 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
-#include "AForm.hpp"
-class AForm;
+#include "Serializer.hpp"
 
-class Intern {
+uintptr_t Serializer::serialize(Data* ptr) {
+	return reinterpret_cast<uintptr_t>(ptr);
+}
 
-public:
-
-Intern();
-Intern(const Intern& copy);
-Intern& operator=(const Intern& copy);
-AForm* makeForm(const std::string& nameForm, const std::string& targetForm) const;
-~Intern();
-
-
-};
+Data* Serializer::deserialize(uintptr_t raw) {
+	return reinterpret_cast<Data*>(raw);
+}
