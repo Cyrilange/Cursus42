@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 18:28:39 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/05 18:28:40 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:27:25 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
+#include <ctime>
 
 int main() {
+    std::srand(std::time(NULL));
     std::cout << "==============================================" << std::endl;
     std::cout << "=============== Bureaucrats ==================" << std::endl;
     std::cout << "==============================================" << std::endl;
