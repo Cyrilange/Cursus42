@@ -1,5 +1,5 @@
 NAME = "Identify real type"
-SRC = main.cpp Base.cpp
+SRC = Base.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CXX = c++

@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 18:32:53 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/05 18:36:14 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:45:20 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <iomanip>
 #include <limits>
 #include <stdint.h>
+#include <ctime>
 
 class Base {
 	public:
