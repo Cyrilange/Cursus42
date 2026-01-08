@@ -1,4 +1,4 @@
-NAME = "No, you need form 28B, not 28C..."
+NAME = 28BNot28C
 SRC = AForm.cpp \
 		Bureaucrat.cpp \
 		main.cpp \

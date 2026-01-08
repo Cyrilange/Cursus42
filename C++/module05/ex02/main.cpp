@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 18:27:20 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/05 18:27:21 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:39:22 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,13 @@ int main() {
         RobotomyRequestForm robotCopy(robot);
         RobotomyRequestForm robotAssign("Temp");
         robotAssign = robot;
-        alice.executeForm(robotCopy);
-        alice.executeForm(robotAssign);
+        try {
+            alice.executeForm(robotCopy);
+            alice.executeForm(robotAssign);
+        } catch (std::exception &e) {
+            std::cerr << CYAN << "THE " << e.what() << RESET << std::endl;
+        }
+        
 
         std::cout << CYAN << "\n--- EDGE CASES ---" << RESET << std::endl;
         ShrubberyCreationForm edgeCase("office");

@@ -1,4 +1,4 @@
-NAME = "Conversion of scalar types"
+NAME = Conversion
 SRC = main.cpp ScalarConverter.cpp
 OBJ = $(SRC:.cpp=.o)
 

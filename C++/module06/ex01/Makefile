@@ -1,4 +1,4 @@
-NAME = "Serialization"
+NAME = Serialization
 SRC = main.cpp Serializer.cpp
 OBJ = $(SRC:.cpp=.o)
 

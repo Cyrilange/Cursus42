@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 18:26:45 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/05 18:26:46 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:30:50 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Form& Form::operator=(const Form& src) {
 }
 void Form::beSigned(Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() < this->_gradeSign)
+	if (bureaucrat.getGrade() > this->_gradeSign)
 		throw Form::GradeTooLowException();
 
 	this->_isSigned = true;

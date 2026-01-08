@@ -1,4 +1,4 @@
-NAME = "At least this beats coffee-making"
+NAME = coffeeMaking
 SRC = AForm.cpp \
 		Bureaucrat.cpp \
 		main.cpp \
@@ -14,7 +14,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 YELLOW := \033[1;33m
 RESET  := \033[0m
 
-RM = rm -rf
+RM = rm -f
 
 .PHONY: all clean fclean re
 

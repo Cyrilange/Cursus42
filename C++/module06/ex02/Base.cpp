@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:30:03 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/06 13:44:29 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:48:38 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ static void identify(Base* p) {
 }
 
 static void identify(Base& p) {
-	//A
+
 	try {
         (void)dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
         return;
     } catch (std::exception &e) {}
-	//B
+
     try {
         (void)dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
         return;
     } catch (std::exception &e) {}
-	//C
+	
     try {
         (void)dynamic_cast<C&>(p);
         std::cout << "C" << std::endl;
