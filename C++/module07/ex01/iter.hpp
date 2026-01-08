@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:57:43 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/08 17:02:33 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/08 17:12:08 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	iter(const T *arr, size_t len,void (*func)(const T&)) {
 	}
 }
 
-//functions to taste iter 
+//functions to test iter 
 
 template <typename T>
 void increment(T& i) {
