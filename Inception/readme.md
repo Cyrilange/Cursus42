@@ -4,7 +4,7 @@
 # Inception
 
 
-<br>
+
 
 ## **Description**
 <br>
@@ -15,7 +15,7 @@ The project focuses on deploying a WordPress website served by NGINX, using Mari
 
 ---
 
-<br>
+
 
 ### Virtual Machines vs Docker
 
@@ -172,28 +172,39 @@ Bind mounts map a specific directory or file from the host machine into a contai
 | Use in Inception | Used                    | Not recommended       |
 
 
-## Instructions
+## Instructions & Resources
 
-###### Requirements
+### Requirements
 - Docker
 - Docker Compose
 
-###### Installation
-
-Clone the repository:
-```bash
+### Installation
+Clone the repository and move into the project directory:
 git clone <repository_url>
 cd inception
 
+Create and configure the environment variables:
+cp .env.example .env
+Edit the `.env` file and set your own credentials and configuration values.
 
-## **Resources**
+### Build and Run
+Build and start the infrastructure:
+docker-compose up --build
+Stop the containers:
+docker-compose down
+All persistent data is stored using Docker volumes, so stopping or restarting containers will **not** result in data loss.
 
-Docker Documentation: https://docs.docker.com/
+### Resources
 
-Docker Compose Documentation: https://docs.docker.com/compose/
+**Documentation**
+- Docker: [https://docs.docker.com/](https://docs.docker.com/)
+- Docker Compose: [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
+- NGINX: [https://nginx.org/en/docs/](https://nginx.org/en/docs/)
+- WordPress: [https://wordpress.org/documentation/](https://wordpress.org/documentation/)
+- MariaDB: [https://mariadb.com/kb/en/documentation/](https://mariadb.com/kb/en/documentation/)
 
-NGINX Documentation: https://nginx.org/en/docs/
-
-WordPress Documentation: https://wordpress.org/documentation/
-
-MariaDB Documentation: https://mariadb.com/kb/en/documentation/
+**Video Tutorials**
+- Docker for Beginners – TechWorld with Nana: [https://www.youtube.com/watch?v=fqMOX6JJhGo](https://www.youtube.com/watch?v=fqMOX6JJhGo)
+- Docker Compose Tutorial – TechWorld with Nana: [https://www.youtube.com/watch?v=Qw9zlE3t8Ko](https://www.youtube.com/watch?v=Qw9zlE3t8Ko)
+- Docker + WordPress + MariaDB – DevOps Directive: [https://www.youtube.com/watch?v=0evGgx2bV_0](https://www.youtube.com/watch?v=0evGgx2bV_0)
+- Docker Volumes Explained – TechWorld with Nana: [https://www.youtube.com/watch?v=Ue6jX1Wl8wM](https://www.youtube.com/watch?v=Ue6jX1Wl8wM)
