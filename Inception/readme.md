@@ -7,11 +7,30 @@
 
 
 ## **Description**
-<br>
+
 The Inception project aims to introduce the fundamentals of system administration and DevOps practices using Docker and Docker Compose.  
 The goal of this project is to build a secure, modular, and reproducible infrastructure composed of multiple services running in isolated containers.
 
 The project focuses on deploying a WordPress website served by NGINX, using MariaDB as the database, all running inside Docker containers and communicating through a dedicated Docker network. Special attention is given to security, data persistence, and proper service separation.
+
+what is **Docker** ?
+
+It is a container engine that uses the Linux Kernel features to create containers on top of an operating system.
+
+Docker is used to set up and deploy applications using containers.
+
+The basic structure of Docker relies on images and containers
+
+What is **container** ? 
+
+A way to package application with all the necessary dependancies and configuration
+
+A container is an isolated system that holds everything required to run a specific application
+
+What is **image** ?
+
+A Docker image is basically a snapshot of a filesystem and configuration that defines what a container will look like when it runs.
+
 
 ---
 
