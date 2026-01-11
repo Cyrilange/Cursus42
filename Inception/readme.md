@@ -202,6 +202,7 @@ Clone the repository and move into the project directory:
 git clone <repository_url>
 cd inception
 
+
 Create and configure the environment variables:
 cp .env.example .env
 Edit the `.env` file and set your own credentials and configuration values.
