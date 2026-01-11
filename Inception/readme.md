@@ -33,7 +33,7 @@ A Docker image is basically a snapshot of a filesystem and configuration that de
 
 exemple of a **Dockerfile** , an image nginx (for inception we will use bullseye)
 
-FROM		alpine:3.12
+	FROM		alpine:3.12
 
 						RUN			apk update && apk upgrade && apk add	\
 													openssl			\
@@ -56,14 +56,20 @@ FROM		alpine:3.12
 
 
 
+
+
 FROM
 Specifies the base OS for the container.
+
 RUN
 Executes commands in the container (like SSH + bash).
+
 COPY
 Copies files from your project into the container.
+
 EXPOSE
 Declares the network ports the container listens on.
+
 ENTRYPOINT / CMD
 Defines the default command when the container starts					
 ---
