@@ -38,7 +38,17 @@ The project focuses on deploying a WordPress website served by NGINX, using Mari
 
 	cons :  Weaker isolation compared to VMs
 			Requires the same OS kernel as the host
-			
+
+
+	| Feature         | Virtual Machines      | Docker                 |
+|-----------------|-----------------------|------------------------|
+| OS              | Full OS per VM        | Shared host OS         |
+| Startup Time    | Slow (minutes)        | Fast (seconds)         |
+| Resource Usage  | High                  | Low                    |
+| Isolation Level | Very strong           | Process-level          |
+| Portability     | Limited               | High                   |
+| Use Case        | Full system isolation | Application deployment |
+
  <br>
 
 ##### Secrets vs Environment Variables
