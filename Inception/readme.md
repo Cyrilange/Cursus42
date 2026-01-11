@@ -15,7 +15,7 @@ The project focuses on deploying a WordPress website served by NGINX, using Mari
 
 what is **Docker** ?
 
-It is a container engine that uses the Linux Kernel features to create containers on top of an operating system.
+It is a container engine that uses the Linux Kernel features to create containers on top of an operating system created on 20 mars 2013 by Salomon Hykes
 
 Docker is used to set up and deploy applications using containers.
 
