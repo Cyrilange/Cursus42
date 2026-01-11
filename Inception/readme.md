@@ -31,7 +31,7 @@ What is **image** ?
 
 A Docker image is basically a snapshot of a filesystem and configuration that defines what a container will look like when it runs.
 
-exemple of a **Dockerfile** , an image nginx
+exemple of a **Dockerfile** , an image nginx (for inception we will use bullseye)
 
 FROM		alpine:3.12
 
@@ -52,6 +52,20 @@ FROM		alpine:3.12
 						EXPOSE		443
 
 						ENTRYPOINT	["sh", "setup_nginx.sh"]
+
+
+
+
+FROM
+Specifies the base OS for the container.
+RUN
+Executes commands in the container (like SSH + bash).
+COPY
+Copies files from your project into the container.
+EXPOSE
+Declares the network ports the container listens on.
+ENTRYPOINT / CMD
+Defines the default command when the container starts					
 ---
 
 
