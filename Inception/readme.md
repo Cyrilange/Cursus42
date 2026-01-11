@@ -172,12 +172,28 @@ Bind mounts map a specific directory or file from the host machine into a contai
 | Use in Inception | Used                    | Not recommended       |
 
 
-<br>
+## Instructions
 
-## **Instructions**
-<br>
+###### Requirements
+- Docker
+- Docker Compose
 
+###### Installation
 
-<br>
+Clone the repository:
+```bash
+git clone <repository_url>
+cd inception
+
 
 ## **Resources**
+
+Docker Documentation: https://docs.docker.com/
+
+Docker Compose Documentation: https://docs.docker.com/compose/
+
+NGINX Documentation: https://nginx.org/en/docs/
+
+WordPress Documentation: https://wordpress.org/documentation/
+
+MariaDB Documentation: https://mariadb.com/kb/en/documentation/
