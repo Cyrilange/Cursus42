@@ -204,7 +204,6 @@ All persistent data is stored using Docker volumes, so stopping or restarting co
 - MariaDB: [https://mariadb.com/kb/en/documentation/](https://mariadb.com/kb/en/documentation/)
 
 **Video Tutorials**
-- Docker for Beginners – TechWorld with Nana: [https://www.youtube.com/watch?v=fqMOX6JJhGo](https://www.youtube.com/watch?v=fqMOX6JJhGo)
-- Docker Compose Tutorial – TechWorld with Nana: [https://www.youtube.com/watch?v=Qw9zlE3t8Ko](https://www.youtube.com/watch?v=Qw9zlE3t8Ko)
-- Docker + WordPress + MariaDB – DevOps Directive: [https://www.youtube.com/watch?v=0evGgx2bV_0](https://www.youtube.com/watch?v=0evGgx2bV_0)
-- Docker Volumes Explained – TechWorld with Nana: [https://www.youtube.com/watch?v=Ue6jX1Wl8wM](https://www.youtube.com/watch?v=Ue6jX1Wl8wM)
+- Docker for Beginners – Learn docker in 1hour: [https://youtu.be/GFgJkfScVNU?si=984k2PcTeiA4IcjE]
+- Docker Compose Tutorial – TechWorld with Nana: [https://www.youtube.com/watch?v=zFa9_K8BS8I]
+
