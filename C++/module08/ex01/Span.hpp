@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 22:04:23 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/13 23:46:37 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/14 17:26:31 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 #include <string>
 #include <exception>
 #include <vector>
-#include <cstdint>
+
+#include <limits>
+#include <ctime>
+
+
 
 
 class Span {
@@ -29,10 +33,15 @@ class Span {
 		const char* what() const throw();
 	};
 
+	class sizeTooSmall : public std::exception {
+		public: 
+		const char* what() const throw();
+	};
+
 	void addNumber(int n);
-	void addMultipleNumbers(const std::vector<int>& n);
-	int shortestSpan();
-	int longestSpan();
+	void generateNumbers(int n);
+	int shortestSpan() const;
+	int longestSpan() const;
 	~Span();
 	
 
@@ -42,3 +51,4 @@ class Span {
 	unsigned int _maxSize;
 	std::vector<int> _numbers;
 };
+
