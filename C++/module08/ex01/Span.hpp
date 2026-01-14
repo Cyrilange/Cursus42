@@ -6,9 +6,11 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 22:04:23 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/14 20:39:39 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/14 23:35:35 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include <algorithm>
