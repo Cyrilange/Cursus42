@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 22:04:26 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/14 17:35:39 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/14 20:39:33 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int Span::longestSpan() const{
 	//std::cout << max << " - " << min << " = "<< std::endl;
 	return max - min;
 }
+
 
 void Span::generateNumbers(int n) {
 	for (int i = 0; i < n; i++) {

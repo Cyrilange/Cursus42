@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 22:03:52 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/14 20:26:21 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/14 20:39:19 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main()
 	sp.addNumber(11);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+
+	
 
 	std::cout << "===============TEST 1001 NUM================" << std::endl;
 	std::srand(std::time(NULL));
