@@ -1,0 +1,6 @@
+{
+	"C_Cpp.copilotHover": "enabled",
+	"github.copilot.editor.enableCodeActions": true,
+	"github.copilot.chat.edits.codesearch.enabled": true,
+	"github.copilot.chat.scopeSelection": true
+}
