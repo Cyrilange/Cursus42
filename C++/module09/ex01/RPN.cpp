@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:31:27 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/17 18:00:50 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/17 18:16:53 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,30 @@ RPN::~RPN() {}
 bool RPN::isOperator(const std::string &op) const {
 	return (op == "+" || op == "-" || op == "/" || op == "*");
 }
-bool RPN::isDigit(const std::string &op) const
+bool RPN::ft_isDigit(const std::string &op) const
 {
     if (op.empty())
         return false;
-    
     size_t start = 0;
-    
-    if (op[0] == '-')
-    {
-        if (op.length() < 2)
+    bool isNegative = false;
+    if (op[0] == '-') {
+        if (op.length() != 2)
             return false;
         start = 1;
-    }
-    for (size_t i = start; i < op.length(); ++i)
-    {
-        if (!std::isdigit(op[i]))
+        isNegative = true;
+    } else {
+        if (op.length() != 1)
             return false;
     }
-    return true;
+    if (!std::isdigit(op[start]))
+        return false;
+    int value = op[start] - '0';
+    if (isNegative)
+        value = -value;
+
+    return (value >= -9 && value <= 9);
 }
+
 
 int RPN::calculate(int a, int b, const std::string &op) const
 {
@@ -76,7 +80,7 @@ int RPN::solve(const std::string& op) {
     
     while (iss >> token)
     {
-        if (isDigit(token))
+        if (ft_isDigit(token) == true)
         {
             int digit = atoi(token.c_str());
             _number.push_back(digit);
