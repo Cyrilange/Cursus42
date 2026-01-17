@@ -6,11 +6,12 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:43:23 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/17 16:20:45 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/17 17:28:03 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #include <map>
 #include <string>
 #include <exception>
@@ -18,7 +19,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <sstream>
-//lower_bound()  upper_bound() std::map<std::string, float>
+
 
 #define ERR_POSITIVE "Error: not a positive number."
 #define ERR_INPUT "Error: bad input => "
