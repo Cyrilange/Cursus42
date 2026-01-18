@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 19:50:18 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/18 20:15:13 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:39:58 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 #define ERR_NUM   "At least 2 numeros needed"
 #define ERR_INT   "number too big"
 #define ERR_EMPTY "empty"
+
+#define MICRO_SEC 1000000.0
 
 /*
 
