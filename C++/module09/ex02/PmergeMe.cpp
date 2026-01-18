@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:08:04 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/18 19:34:16 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:14:23 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,50 @@ void PmergeMe::makePairList(std::list<int> &data, std::list<int> &sorted) {
 
 
 void PmergeMe::sortBigElementsDeque() {
-	
+    for (std::deque<int>::iterator it = dataDeque.begin(); it != dataDeque.end(); ++it) {
+        int n = *it;
+        std::deque<int>::iterator pos = std::lower_bound(sortedDeque.begin(), sortedDeque.end(), n);
+        sortedDeque.insert(pos, n);
+    }
+    dataDeque.clear();
 }
+
 
 void PmergeMe::sortBigElementsList() {
-	
+    for (std::list<int>::iterator it = dataList.begin(); it != dataList.end(); ++it) {
+        int n = *it;
+        std::list<int>::iterator pos = sortedList.begin();
+        while (pos != sortedList.end() && *pos < n) {
+            ++pos;
+        }
+        sortedList.insert(pos, n);
+    }
+    dataList.clear();
 }
+
 
 void PmergeMe::insertSmallDeque() {
-	
+    for (std::deque<int>::iterator it = dataDeque.begin(); it != dataDeque.end(); ++it) {
+        int n = *it;
+        std::deque<int>::iterator pos = std::lower_bound(sortedDeque.begin(), sortedDeque.end(), n);
+        sortedDeque.insert(pos, n);
+    }
+    dataDeque.clear();
 }
 
+
 void PmergeMe::insertSmallList() {
-	
+    for (std::list<int>::iterator it = dataList.begin(); it != dataList.end(); ++it) {
+        int n = *it;
+        std::list<int>::iterator pos = sortedList.begin();
+        while (pos != sortedList.end() && *pos < n) {
+            ++pos;
+        }
+        sortedList.insert(pos, n);
+    }
+    dataList.clear();
 }
+
 
 
 //public:
@@ -122,9 +152,30 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& copy)
 PmergeMe::~PmergeMe() {}
 
 std::deque<int> PmergeMe::algoWithDeque() {
-	
+    // separate big and small
+    makePairDeque(dataDeque, sortedDeque);
+
+    // sorting big elements
+    sortBigElementsDeque();
+
+    // insert the small ones
+    insertSmallDeque();
+
+    // return the  result
+    return sortedDeque;
 }
 
+
 std::list<int> PmergeMe::algoWithList() {
+	    // separate big and small
+	makePairList(dataList, sortedList);
+
+		// sorting big elements
+	sortBigElementsList();
 	
+		// insert the small ones
+	insertSmallList();
+	
+		// return the  result
+	return sortedList;
 }

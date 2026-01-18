@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 19:50:18 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/18 19:33:04 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:15:13 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <exception>
 #include <algorithm>
 #include <climits>
+#include <ctime>
 
 #define ERR_DIGIT "only numbers accepted"
 #define ERR_NUM   "At least 2 numeros needed"
@@ -34,11 +35,12 @@ step:
 
 class PmergeMe {
 	private:
+	std::list<int> dataList;
+    std::list<int> sortedList;
     std::deque<int> dataDeque;
     std::deque<int> sortedDeque;
 
-    std::list<int> dataList;
-    std::list<int> sortedList;
+
 	
 	void makePairDeque(std::deque<int> &data, std::deque<int> &sorted);
 	void makePairList(std::list<int> &data, std::list<int> &sorted);
