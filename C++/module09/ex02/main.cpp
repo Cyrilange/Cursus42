@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:23:36 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/18 20:40:32 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:53:25 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ int main(int argc, char **argv) {
         clock_t endList = clock();
 
         std::cout << "After: ";
-        for (std::list<int>::iterator it = sortedList.begin(); it != sortedList.end(); ++it)
+        for (std::deque<int>::iterator it = sortedDeque.begin(); it != sortedDeque.end(); ++it)
             std::cout << *it << " ";
         std::cout << std::endl;
 
-        double durationDeque = ((double)endDeque - (double)startDeque) * MICRO_SEC / CLOCKS_PER_SEC;
-        double durationList = ((double)endList - (double)startList) * MICRO_SEC / CLOCKS_PER_SEC;
+        double durationDeque = ((double)endDeque - (double)startDeque) * 1000000.0 / CLOCKS_PER_SEC;
+        double durationList = ((double)endList - (double)startList) * 1000000.0 / CLOCKS_PER_SEC;
 
         std::cout << "Time to process a range of " << sortedDeque.size()
-                  << " elements with std::deque : " << durationDeque << " us" << std::endl;
+                  << " elements with std::deque : " << durationDeque << " microsecondes" << std::endl;
 
         std::cout << "Time to process a range of " << sortedList.size()
-                  << " elements with std::list : " << durationList << " us" << std::endl;
+                  << " elements with std::list : " << durationList << " microsecondes" << std::endl;
 
     } catch (std::runtime_error &e) {
         std::cerr << "Error: " << e.what() << std::endl;
