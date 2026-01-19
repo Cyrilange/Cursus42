@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: csalamit <csalamit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:31:24 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/17 18:12:41 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:50:34 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sstream>
 #include <cstdlib>
 #include <exception>
+#include <climits>
 
 
 #define ERROR_ARG "Invalid number of arguments."
@@ -28,18 +29,18 @@
 class RPN {
 	private:
 	
-	std::vector<int> _number;
+	std::vector<double> _number;
 	
 	bool isOperator(const std::string &op) const;
 	bool ft_isDigit(const std::string &op) const;
-	int calculate(int a, int b, const std::string &op) const;
+	double calculate(double a, double b, const std::string &op) const;
 	
 	public:
 	
 	RPN();
 	RPN(const RPN& copy);
 	RPN& operator=(const RPN& copy);
-	int solve(const std::string& op);
+	double solve(const std::string& op);
 	~RPN();
 	
 };

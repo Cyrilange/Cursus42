@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: csalamit <csalamit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:23:36 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/18 20:53:25 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/19 18:14:31 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ int main(int argc, char **argv) {
 
         std::cout << "After: ";
         for (std::deque<int>::iterator it = sortedDeque.begin(); it != sortedDeque.end(); ++it)
+            std::cout << *it << " ";
+        std::cout << std::endl;
+
+         std::cout << "after list evrsion: ";
+        for (std::list<int>::iterator it = sortedList.begin(); it != sortedList.end(); ++it)
             std::cout << *it << " ";
         std::cout << std::endl;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: csalamit <csalamit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:31:17 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/17 18:05:01 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:49:45 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     try
     {
         RPN rpn;
-        int result = rpn.solve(argv[1]);
+        double result = rpn.solve(argv[1]);
         std::cout << result << std::endl;
     }
     catch (std::exception &e)
@@ -30,5 +30,6 @@ int main(int argc, char **argv)
         std::cerr << e.what() << std::endl;
         return 1;
     }
+
     return 0;
 }

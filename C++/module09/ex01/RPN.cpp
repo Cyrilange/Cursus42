@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: csalamit <csalamit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:31:27 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/17 18:16:53 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:17:35 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,19 @@ bool RPN::ft_isDigit(const std::string &op) const
     if (op.empty())
         return false;
     size_t start = 0;
-    bool isNegative = false;
-    if (op[0] == '-') {
-        if (op.length() != 2)
+    if (op.length() != 1)
             return false;
-        start = 1;
-        isNegative = true;
-    } else {
-        if (op.length() != 1)
-            return false;
-    }
+    
     if (!std::isdigit(op[start]))
         return false;
-    int value = op[start] - '0';
-    if (isNegative)
-        value = -value;
+    double value = op[start] - '0';
 
-    return (value >= -9 && value <= 9);
+
+    return (value >= 0 && value <= 9);
 }
 
 
-int RPN::calculate(int a, int b, const std::string &op) const
+double RPN::calculate(double a, double b, const std::string &op) const
 {
     if (op == "+")
         return a + b;
@@ -72,7 +64,7 @@ int RPN::calculate(int a, int b, const std::string &op) const
 
 //public method solve 
 
-int RPN::solve(const std::string& op) {
+double RPN::solve(const std::string& op) {
     std::istringstream iss(op);
     std::string token;
     
@@ -90,11 +82,11 @@ int RPN::solve(const std::string& op) {
             if (_number.size() < 2)
                 throw std::runtime_error(std::string(ERROR_MSG) + " " + ERROR_EXP);
             
-            int b = _number.back();
+            double b = _number.back();
             _number.pop_back();      
-            int a = _number.back();
+            double a = _number.back();
             _number.pop_back();         
-            int result = calculate(a, b, token);
+            double result = calculate(a, b, token);
             _number.push_back(result);
         }
         else
@@ -105,6 +97,6 @@ int RPN::solve(const std::string& op) {
     
     if (_number.size() != 1)
         throw std::runtime_error(std::string(ERROR_MSG) + " " + ERROR_EXP);
-    
+   
     return _number.back();
 }
