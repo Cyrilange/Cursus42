@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csalamit <csalamit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 19:50:18 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/19 18:12:13 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/19 23:45:08 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ class PmergeMe {
 	void fordJohnsonDeque(std::deque<int> &data);
 	void fordJohnsonList(std::list<int> &data);
 
-
-	void insertSmallDeque();
-	void insertSmallList();
 	
 	public:
 	PmergeMe(char **argv);
@@ -53,10 +50,69 @@ class PmergeMe {
 	PmergeMe& operator=(const PmergeMe& copy);
 	~PmergeMe();
 
-	std::deque<int> algoWithDeque();
-	std::list<int> algoWithList();
+	std::deque<int> algoWithDeque() ;
+	std::list<int> algoWithList()  ;
 
 };
+
+/*.Before: 4 3 8 98 12 123 2345
+# Initial state: the list is unsorted.
+
+Step 1: Make pairs
+Big: 4 98 123
+Small: 3 8 12 2345
+# Step 1: creating pairs.
+# For each pair of numbers, the larger goes into 'Big', the smaller into 'Small'.
+# Here: (4,3) → Big=4, Small=3 ; (8,98) → Big=98, Small=8 ; (12,123) → Big=123, Small=12
+# The last element 2345 has no pair → it goes into Small.
+
+Step 1: Make pairs
+Big: 98
+Small: 4 123
+# Recursion on 'Big': repeat the same pairing on the initial Big (4,98,123)
+# New pair: (4,98) → Big=98, Small=4 ; 123 remains alone → Small=123
+
+Step 2: After sorting big recursively
+98
+# Step 2: recursive sorting of Big
+# Here Big=98 is already sorted because it contains only one element.
+
+Step 3: Insert first small (4)
+4 98
+# Step 3: insert the first element from Small (4)
+# It is placed in the correct position in the sorted Big.
+
+Step 4: Insert small[1] = 123
+4 98 123
+# Step 4: insert the next element from Small (123)
+# It is inserted in its correct position.
+
+Step 2: After sorting big recursively
+4 98 123
+# Return from the previous recursion: Big=4 98 123 is now sorted.
+
+Step 3: Insert first small (3)
+3 4 98 123
+# Insert the first element from the current Small (3)
+# 3 is placed at the beginning because it is smaller than all existing elements.
+
+Step 4: Insert small[1] = 8
+3 4 8 98 123
+# Insert the next Small element (8)
+# 8 is placed between 4 and 98 to maintain sorted order.
+
+Step 4: Insert small[2] = 12
+3 4 8 12 98 123
+# Insert Small element 12 between 8 and 98
+
+Step 4: Insert small[3] = 2345
+3 4 8 12 98 123 2345
+# Insert the last Small element (2345) at the end because it is the largest.
+
+after : 3 4 8 12 98 123 2345
+# Final result: the list is fully sorted
+# Each step is now clearly visible for review.
+*/
 
 /*Ford–Johnson Algorithm — Step by Step
 1. Input validation
