@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:08:04 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/19 18:32:49 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/19 18:56:44 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,19 +117,23 @@ if (data.size() <= 1)
 }
 
 
-void PmergeMe::fordJohnsonList(std::list<int> &data) {
-if (data.size() <= 1)
+void PmergeMe::fordJohnsonList(std::list<int> &data)
+{
+    if (data.size() <= 1)
         return;
 
-    std::deque<int> big, small;
-    makePairDeque(data, big, small);
-    fordJohnsonDeque(big);
+    std::list<int> big;
+    std::list<int> small;
+    makePairList(data, big, small);
+    fordJohnsonList(big);
     data = big;
     if (!small.empty())
     {
-        data.insert(
-            std::lower_bound(data.begin(), data.end(), small[0]),
-            small[0]);
+        int first = small.front();
+        std::list<int>::iterator pos = data.begin();
+        while (pos != data.end() && *pos < first)
+            ++pos;
+        data.insert(pos, first);
     }
     size_t index = 1;
     size_t j = 1;
@@ -137,15 +141,23 @@ if (data.size() <= 1)
     while (index < small.size())
     {
         size_t next = jacobsthal(j++);
-        for (; index < small.size() && index < next; ++index)
+        size_t limit = (next < small.size()) ? next : small.size();
+
+        for (; index < limit; ++index)
         {
-            int value = small[index];
-            std::deque<int>::iterator pos =
-                std::lower_bound(data.begin(), data.end(), value);
+            std::list<int>::iterator it = small.begin();
+            std::advance(it, index);// to immitate an index
+            int value = *it;
+
+            std::list<int>::iterator pos = data.begin();
+            while (pos != data.end() && *pos < value)
+                ++pos;
+
             data.insert(pos, value);
         }
     }
 }
+
 
 
 //public:
