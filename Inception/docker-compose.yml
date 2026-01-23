@@ -3,13 +3,11 @@ version: '3.8'
 services:
   mariadb:
     build: ./srcs/requirements/mariaDb
-    container_name: mariadb
     env_file: .env
+    ports:
+      - "3306:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
-    networks:
-      - inception
-    restart: always
 
   wordpress:
     build: ./srcs/requirements/wordPress
@@ -36,9 +34,9 @@ services:
       - inception
     restart: always
 
-networks:
-  inception:
-
 volumes:
   mariadb_data:
   wordpress_data:
+
+networks:
+  inception:

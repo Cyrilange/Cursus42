@@ -1,24 +1,32 @@
-COMPOSE_FILE = srcs/docker-compose.yml
+COMPOSE_FILE = docker-compose.yml
 
 all: up
 
 up: $(COMPOSE_FILE)
-	@ sudo docker-compose -f $(COMPOSE_FILE) up --build -d
-	@ touch up
-	@ echo >up Inception succesfully up !
+	@echo "[i] Starting Inception..."
+	@sudo docker compose -f $(COMPOSE_FILE) up --build -d
+	@touch up
+	@echo "[i] Inception successfully up !"
 
 down:
-	@ sudo docker-compose -f $(COMPOSE_FILE) down
-	@ rm -f up
+	@echo "[i] Stopping Inception..."
+	@sudo docker compose -f $(COMPOSE_FILE) down
+	@rm -f up
 
 clean:
-	@ sudo docker-compose -f $(COMPOSE_FILE) down -v --remove-orphans
-	@ sudo docker system prune -f --volumes
-	@ rm -f up
+	@echo "[i] Cleaning Inception..."
+	@sudo docker compose -f $(COMPOSE_FILE) down -v --remove-orphans
+	@sudo docker system prune -f --volumes
+	@rm -f up
 
 fclean:
-	docker stop $$(docker ps -qa); docker rm $$(docker ps -qa); docker rmi -f $$(docker images -qa); docker volume rm $$(docker volume ls -q); docker network rm $$(docker network ls -q) 2>/dev/null 
+	@echo "[i] Force cleaning everything..."
+	@docker stop $$(docker ps -qa) 2>/dev/null || true
+	@docker rm $$(docker ps -qa) 2>/dev/null || true
+	@docker rmi -f $$(docker images -qa) 2>/dev/null || true
+	@docker volume rm $$(docker volume ls -q) 2>/dev/null || true
+	@docker network rm $$(docker network ls -q) 2>/dev/null || true
 
-re: clean all
+re: fclean all
 
-.PHONY: all down clean re
+.PHONY: all up down clean fclean re
