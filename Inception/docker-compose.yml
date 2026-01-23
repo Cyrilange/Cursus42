@@ -3,6 +3,9 @@ version: '3.8'
 services:
   mariadb:
     build: ./srcs/requirements/mariaDb
+    #image_name: mariaDb
+    restart: always
+    container_name: mariadb
     env_file: .env
     ports:
       - "3306:3306"
@@ -12,6 +15,7 @@ services:
   wordpress:
     build: ./srcs/requirements/wordPress
     container_name: wordpress
+    #image_name: wordpress
     env_file: .env
     depends_on:
       - mariadb
@@ -24,6 +28,7 @@ services:
   nginx:
     build: ./srcs/requirements/nginx
     container_name: nginx
+    #image_name: nginx
     depends_on:
       - wordpress
     volumes:
