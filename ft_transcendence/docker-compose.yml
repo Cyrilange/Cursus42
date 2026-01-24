@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./srcs/frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./srcs/backend
+    ports:
+      - "5000:5000"
+
+  blockchain:
+    build: ./srcs/blockchain
+    ports:
+      - "8545:8545"
