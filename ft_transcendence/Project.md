@@ -57,6 +57,12 @@ Perfect with react as it is a components base
 
 Minor: Implement advanced search functionality with filters, sorting, and pagination.
 
+-------------------------------------
+minor module , auth with google ect.....
+
+npm install next-auth
+
+
 
 --------------------------------------
 
