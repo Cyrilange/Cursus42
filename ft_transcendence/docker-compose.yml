@@ -7,13 +7,32 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    volumes:
+      - ./srcs/frontend:/app    
+      - /app/node_modules     
+    working_dir: /app
+    command: npm run dev   
+    environment:
+      - NODE_ENV=development
 
   backend:
     build: ./srcs/backend
     ports:
       - "5000:5000"
+    volumes:
+      - ./srcs/backend:/app
+      - /app/node_modules
+    working_dir: /app
+    command: npm run dev 
+    environment:
+      - NODE_ENV=development
 
   blockchain:
     build: ./srcs/blockchain
     ports:
       - "8545:8545"
+    volumes:
+      - ./srcs/blockchain:/app
+      - /app/node_modules
+    working_dir: /app
+    command: npm run dev    
