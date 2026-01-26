@@ -1,4 +1,4 @@
-COMPOSE_FILE = docker-compose.yml
+COMPOSE_FILE = srcs/docker-compose.yml
 
 all: up
 

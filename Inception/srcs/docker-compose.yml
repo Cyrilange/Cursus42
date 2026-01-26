@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mariadb:
-    build: ./srcs/requirements/mariaDb
+    build: requirements/mariaDb
     
     restart: always
     container_name: mariadb
@@ -14,7 +14,7 @@ services:
       - mariadb_data:/var/lib/mysql
 
   wordpress:
-    build: ./srcs/requirements/wordPress
+    build: requirements/wordPress
     container_name: wordpress
   
     env_file: .env
@@ -27,7 +27,7 @@ services:
     restart: always
 
   nginx:
-    build: ./srcs/requirements/nginx
+    build: requirements/nginx
     container_name: nginx
    
     depends_on:

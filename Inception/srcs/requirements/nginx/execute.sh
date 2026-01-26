@@ -1,2 +1,0 @@
-docker build -t inception . >/dev/null 2>&1
-if [ $? -eq 0 ]; then

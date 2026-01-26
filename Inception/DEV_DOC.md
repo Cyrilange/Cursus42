@@ -1,10 +1,12 @@
- Developer documentation This file must describe how a developer can:
-◦ Set up the environment from scratch (prerequisites, configuration files, secrets).
-◦ Build and launch the project using the Makefile and Docker Compose.
-◦ Use relevant commands to manage the containers and volumes.
-◦ Identify where the project data is stored and how it persists.
+# Developer documentation 
 
-# General system requirements
+-------------
+
+
+
+# 1-Set up the environment from scratch (prerequisites, configuration files, secrets).
+
+### General system requirements
 
 To install Docker Desktop successfully, your Linux host must meet the following general requirements:
 
@@ -19,12 +21,11 @@ Enable configuring ID mapping in user namespaces, see File sharing. Note that fo
 Recommended: Initialize pass for credentials management.
 
 
----------------------------------------------------------------------------------------
-
-## Set up 
+### Set up 
 for the subject we need to use a VM :
 open the VM , create a new Vm with your settings and the image of your choice ( I took debian)
-make your basic instalation , remenber to use sudo 
+make your basic instalation
+to make things easier I create a remote vs-code using ssh ex : (ssh:localhost:2222)
 
 install docker 
 install docker compose : 
@@ -34,32 +35,69 @@ create a source file, inside create the directories you need with each of them a
 create a file .env so you can store your password and not push them, they need to stay private
 
 
-commands you will need 
-On the terminal write make 
-It should make all the sub commands like build working so your project is running 
-write docker ps to see if it is running and the title you need 
-
-Build : docker compose build {$req}
-        docker compose up -d {$req}
+--------------------------------
 
 
+# 2-Build and launch the project using the Makefile and Docker Compose.
+
+because of the makefile then the docker-compose.yml and then the differents dockerfile
+To build it you shall open the terminal and write make 
 
 
-check docker : docker ps
+# 3-Use relevant commands to manage the containers and volumes.
 
 
-test if up : docker logs -f {$req}
+check if it is on and the name of the differents informations with : 
+------------------
+#### docker ps
+--------------------------
+
+you will have the name of container Id, image, command , when it is created , the ports and finally the names
+
+Build : 
+------------------------------
+#### docker compose build {name}
+#### docker compose up -d {name}
+----------------------------------
+
+It allows you to build only one directory
+
+test if up : 
+----------------------------------
+#### docker logs -f {name} (via an other terminal )
+----------------------------------------
 
 
 
-Delete container : docker compose down -v
+Delete container : 
+------------------------------
+#### docker compose down -v
+-------------------------------
 
 if you do (  docker compose down -v && \ docker compose build --no-cache mariadb && \ docker compose up mariadb
 ) you will delete a container and start again .
+--------------------------------
 
 
-Open a new terminal to connect to the data base : docker exec -it mariadb mysql -u root -p or docker exec -it mariadb mysql -u wp_user -p
+Open a new terminal to connect to the data base : 
+--------------------------------------------
 
-to see what happen in our container : docker logs {$IMAGE}
+docker exec -it mariadb mysql -u root -p or docker exec -it mariadb mysql -u wp_user -p
 
-when you are in other terminal you shall write sudo before docker ps
+---------------------------
+
+to see what happen in our container : 
+
+#### docker logs {$IMAGE}
+------------------------------
+
+
+# 4-Identify where the project data is stored and how it persists.
+
+
+
+---------------------------------------------------------------------------------------
+
+
+
+
