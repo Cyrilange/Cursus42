@@ -91,6 +91,23 @@ to see what happen in our container :
 #### docker logs {$IMAGE}
 ------------------------------
 
+test wordpress :
+
+### curl -k https://localhost
+
+-------------------------------
+
+connect in mariaDb container :
+
+### docker exec -it mariadb bash
+### mysql -u root -p
+ name and rootpassword
+
+ once you have =>    MariaDB [(none)]>
+
+### SHOW DATABASES;
+
+
 
 # 4-Identify where the project data is stored and how it persists.
 
