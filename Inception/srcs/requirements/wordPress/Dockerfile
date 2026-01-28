@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir -p /run/php
 
+RUN sed -i 's|^listen = .*|listen = 9000|' /etc/php/7.4/fpm/pool.d/www.conf
+
 COPY tools/setup_wordpress.sh /setup_wordpress.sh
 RUN chmod +x /setup_wordpress.sh
 
