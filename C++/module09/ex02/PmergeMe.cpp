@@ -6,7 +6,7 @@
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:08:04 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/19 23:46:06 by csalamit         ###   ########.fr       */
+/*   Updated: 2026/01/19 23:58:27 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,19 +133,16 @@ if (data.size() <= 1)
         //     std::cout << data[i] << " ";
         // std::cout << "\n\n";
     }
-
-
-    size_t index = 1;
+    size_t i = 1;
     size_t j = 1;
-
-    while (index < small.size())
+    while (i < small.size())
     {
         size_t next = jacobsthal(j++);
         if (next > small.size())
             next = small.size();
-        for (; index < small.size() && index < next; ++index)
+        for (; i < small.size() && i < next; ++i)
         {
-            int value = small[index];
+            int value = small[i];
             std::deque<int>::iterator pos =
                 std::lower_bound(data.begin(), data.end(), value);
             data.insert(pos, value);
