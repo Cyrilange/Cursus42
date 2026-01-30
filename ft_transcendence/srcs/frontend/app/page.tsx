@@ -1,6 +1,11 @@
-
+'use client'
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const goToChat = () => {
+    router.push("/chat/home");
+  }
   return (
     <div className="flex min-h-screen items-center justify-center bg-black text-white font-sans">
       <main className="
@@ -32,6 +37,9 @@ export default function Home() {
           </li>
           <li className="cursor-pointer hover:text-gray-400">
           <a href="/auth/signup">Sign-up</a>
+          </li>
+          <li className="cursor-pointer hover:text-gray-400">
+           <button onClick={goToChat}>dev test</button>
           </li>
         </ul>
 

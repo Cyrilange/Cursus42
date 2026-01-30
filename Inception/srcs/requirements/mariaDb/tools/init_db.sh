@@ -3,30 +3,56 @@ set -e
 
 DATADIR="/var/lib/mysql"
 
-chown -R mysql:mysql $DATADIR
-mkdir -p /run/mysqld
-chown -R mysql:mysql /run/mysqld
+mkdir -p /run/mysqld "$DATADIR" /var/log/mysql
+chown -R mysql:mysql /run/mysqld "$DATADIR" /var/log/mysql
 
+# Toujours initialiser si le dossier system n'existe pas
 if [ ! -d "$DATADIR/mysql" ]; then
-    mysql_install_db --user=mysql --datadir=$DATADIR
+    echo "→ Initialisation de la base MariaDB..."
 
-    mysqld --user=mysql --datadir=$DATADIR &
-    pid="$!"
+    mysql_install_db --user=mysql --datadir="$DATADIR"
 
-    until mysqladmin ping --silent; do
+    # Démarrage temporaire sans réseau
+    mysqld --user=mysql --datadir="$DATADIR" --skip-networking &
+    pid=$!
+
+    # Attente plus robuste avec root password
+    echo "→ Attente que MariaDB soit prêt..."
+    until mysqladmin ping -h localhost -u root --silent; do
         sleep 1
     done
 
-    mysql -u root << EOF
-CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};
-CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';
-GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'%';
-ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
+    echo "→ Configuration des utilisateurs et base..."
+
+    mysql -u root <<EOSQL
+-- Create WordPress database
+CREATE DATABASE IF NOT EXISTS `wordpress`
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+-- Secure root user
+DROP USER IF EXISTS 'root'@'%';
+CREATE USER 'root'@'%' IDENTIFIED BY 'rootpass';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+
+-- WordPress user (hardcodé pour debug)
+DROP USER IF EXISTS 'csalamit'@'%';
+CREATE USER 'csalamit'@'%' IDENTIFIED BY 'user';
+GRANT ALL PRIVILEGES ON `wordpress`.* TO 'csalamit'@'%';
+
+-- Optional admin user
+DROP USER IF EXISTS 'admin'@'%';
+CREATE USER 'admin'@'%' IDENTIFIED BY 'user';
+GRANT ALL PRIVILEGES ON `wordpress`.* TO 'admin'@'%';
+
 FLUSH PRIVILEGES;
-EOF
+EOSQL
 
     mysqladmin shutdown
     wait "$pid"
+else
+    echo "→ Base déjà initialisée, skip init users."
 fi
 
-exec mysqld --user=mysql --datadir=$DATADIR
+# Démarrage final
+exec mysqld --user=mysql --datadir="$DATADIR" --bind-address=0.0.0.0

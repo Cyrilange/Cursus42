@@ -9,7 +9,7 @@ export default function SignUpPage() {
     <div className="flex min-h-screen items-center justify-center bg-black text-white">
       <main className="flex flex-col items-center gap-8 px-8">
 
-        <h1 className="    font-bold text-center
+        <h1 className="font-bold text-center
           text-4xl sm:text-6xl md:text-8xl lg:text-9xl">Sign Up</h1>
         <p className="text-gray-400 text-center">Choose a method to create your account</p>
 
