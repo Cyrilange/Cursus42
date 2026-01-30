@@ -1,31 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/29 23:53:46 by csalamit          #+#    #+#             */
-/*   Updated: 2026/01/30 00:56:58 by csalamit         ###   ########.fr       */
+/*   Created: 2026/01/30 01:06:21 by csalamit          #+#    #+#             */
+/*   Updated: 2026/01/30 01:06:30 by csalamit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
-#include <string>
-#include <iostream>
-#include "ICharacter.hpp"
-#include "AMateria.hpp"
-#include "IMateriaSource.hpp"
-
-class Cure : public AMateria {
-	public:
-		Cure();
-		Cure(const Cure& copy);
-		Cure& operator=(const Cure& copy);
-		AMateria* clone() const;
-		void use(ICharacter& target);
-		~Cure();
-
-		
-};
