@@ -1,4 +1,5 @@
 COMPOSE_FILE = srcs/docker-compose.yml
+PROJECT_NAME = srcs
 
 all: up
 
@@ -21,11 +22,14 @@ clean:
 
 fclean:
 	@echo "[i] Force cleaning everything..."
-	@docker stop $$(docker ps -qa) 2>/dev/null || true
-	@docker rm $$(docker ps -qa) 2>/dev/null || true
-	@docker rmi -f $$(docker images -qa) 2>/dev/null || true
-	@docker volume rm $$(docker volume ls -q) 2>/dev/null || true
-	@docker network rm $$(docker network ls -q) 2>/dev/null || true
+	@sudo docker compose -f $(COMPOSE_FILE) down -v --remove-orphans 2>/dev/null || true
+	@sudo docker stop $$(sudo docker ps -qa) 2>/dev/null || true
+	@sudo docker rm $$(sudo docker ps -qa) 2>/dev/null || true
+	@sudo docker rmi -f $$(sudo docker images -qa) 2>/dev/null || true
+	@sudo docker volume rm $$(sudo docker volume ls -q) 2>/dev/null || true
+	@sudo docker network rm $$(sudo docker network ls -q) 2>/dev/null || true
+	@sudo docker system prune -af --volumes 2>/dev/null || true
+	@rm -f up
 
 re: fclean all
 

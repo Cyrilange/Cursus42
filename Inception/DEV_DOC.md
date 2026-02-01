@@ -88,7 +88,7 @@ docker exec -it mariadb mysql -u root -p or docker exec -it mariadb mysql -u wp_
 
 to see what happen in our container : 
 
-#### docker logs {$IMAGE}
+#### docker logs {$IMAGE} ex: docker logs mariadb
 ------------------------------
 
 test wordpress :
@@ -96,6 +96,12 @@ test wordpress :
 ### curl -k https://localhost
 
 -------------------------------
+
+
+exemple to check if users has been created :
+
+### docker exec mariadb mysql -u root -prootpass -e "SELECT user, host FROM mysql.user WHERE user='csalamit';"
+
 
 connect in mariaDb container :
 
