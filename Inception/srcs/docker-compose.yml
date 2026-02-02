@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mariadb:
     build: requirements/mariaDb
@@ -10,6 +8,8 @@ services:
       - mariadb_data:/var/lib/mysql
     networks:
       - inception
+    ports:
+      - "3306"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
       interval: 5s
@@ -26,6 +26,8 @@ services:
         condition: service_healthy
     volumes:
       - wordpress_data:/var/www/html
+    ports:
+      - "9000"
     networks:
       - inception
     restart: always
@@ -45,7 +47,17 @@ services:
 
 volumes:
   mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ~/data/mariadb
+      o: bind
   wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ~/data/wordpress
+      o: bind
 
 networks:
   inception:
