@@ -70,18 +70,8 @@ exemple to check if users has been created :
 docker exec mariadb mysql -u root -prootpass -e "SELECT user, host FROM mysql.user WHERE user='csalamit';"
 
 connect in mariaDb container :
-docker exec -it mariadb bash
-mysql -u root -p
-name and rootpassword
-
- 
-docker exec -it mariadb bash/sh (go in the shell)
-mysql -u root -p
-
-if you want just do docker exec -it mariadb mysql -u root -p ( straight to the database sql)
-
-enter with user : docker exec -it mariadb mysql -u$MYSQL_USER -p$MYSQL_PASSWORD
-
+1-docker exec -it mariadb bash
+2-mysql -u $MYSQL_USER -p
 
 ###### MariaDB / mysql [(none)]>
 
@@ -91,6 +81,7 @@ USE wordpress;
 SHOW TABLES;
 SELECT user, host FROM mysql.user;
 
+CREATE USER 'test'@'%' IDENTIFIED BY 'testpass';
 
 
 MySQL / MariaDB quick usage tutorial:

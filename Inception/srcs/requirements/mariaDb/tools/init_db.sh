@@ -7,14 +7,24 @@ if [ ! -d "/var/lib/mysql/${MYSQL_DATABASE}" ]; then
 	cat << EOF > /tmp/create_db.sql
 USE mysql;
 FLUSH PRIVILEGES;
+
+-- Root local
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
+
+-- Root global 
+CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+
 
 CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};
 ALTER DATABASE ${MYSQL_DATABASE} CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';
 GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'%';
+
 FLUSH PRIVILEGES;
 EOF
+
 
 	mysqld --user=mysql --bootstrap < /tmp/create_db.sql
 	chown -R www-data /var/lib/mysql

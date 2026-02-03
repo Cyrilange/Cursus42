@@ -38,7 +38,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - wordpress_data:/var/www/html:cached
+      - wordpress_data:/var/www/html
     ports:
       - "443:443"
     networks:
@@ -50,13 +50,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: ~/data/mariadb
+      device: /home/csalamit/data/mariadb
       o: bind
   wordpress_data:
     driver: local
     driver_opts:
       type: none
-      device: ~/data/wordpress
+      device: /home/csalamit/data/wordpress
       o: bind
 
 networks:

@@ -6,10 +6,9 @@ all: up
 up: $(COMPOSE_FILE)
 	@echo "[i] Starting Inception..."
 	@echo "[i] Creating volumes..."
-	@mkdir -p ~/data/mariadb
-	@mkdir -p ~/data/wordpress
-# 	@sudo chmod 777 ~/data/mariadb
-# 	@chmod 777 ~/data/wordpress
+	@mkdir -p /home/csalamit/data/mariadb
+	@mkdir -p /home/csalamit/data/wordpress
+	@chmod -R 755 /home/csalamit/data
 	@echo "[i] Bringing up Inception services..."
 	@docker compose -f $(COMPOSE_FILE) up --build -d
 	@echo "[i] Inception successfully up !"
@@ -33,8 +32,8 @@ fclean:
 	@sudo docker volume rm $$(sudo docker volume ls -q) 2>/dev/null || true
 	@sudo docker network rm $$(sudo docker network ls -q) 2>/dev/null || true
 	@sudo docker system prune -af --volumes 2>/dev/null || true
-	@sudo rm -rf ~/data/mariadb
-	@sudo rm -rf ~/data/wordpress
+	@sudo rm -rf /home/csalamit/data/mariadb
+	@sudo rm -rf /home/csalamit/data/wordpress
 
 re: fclean all
 
