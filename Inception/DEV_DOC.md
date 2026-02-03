@@ -19,14 +19,34 @@ Enable configuring ID mapping in user namespaces, see File sharing. Note that fo
 Recommended: Initialize pass for credentials management.
 
 ### Set up 
-for the subject we need to use a VM :
-open the VM , create a new Vm with your settings and the image of your choice ( I took debian)
-make your basic instalation
-to make things easier I create a remote vs-code using ssh ex :
-ssh:localhost:2222
 
 install docker 
 install docker compose : 
+
+sudo apt update
+sudo apt install docker.io docker-compose
+
+for the subject we need to use a VM :
+open the VM , create a new Vm with your settings and the image of your choice ( I took debian)
+make your basic instalation like create a group docker ( with su) 
+to make things easier I create a remote vs-code using ssh ex :
+ssh:localhost:2222
+also I change my user from vboxuser to my loginname  
+
+sudo adduser loginname
+sudo groupadd docker
+getent group docker
+sudo usermod -aG docker loginname
+groups loginname
+groups loginname
+
+if youi want to delete vboxuser , sudo deluser --remove-home vboxuser
+
+
+then power off the vm and then open up 
+
+
+
 create a makefile + a docker-compose.yml
 create a source file, inside create the directories you need with each of them a Dockerfile
 
