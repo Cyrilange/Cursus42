@@ -1,0 +1,17 @@
+NO ./Include/assets/walls/Texturelabs_Brick_123S.png
+SO ./Include/assets/walls/Texturelabs_InkPaint_306S.png
+WE ./Include/assets/walls/Texturelabs_Grunge_190S.png
+EA ./Include/assets/walls/Texturelabs_Paper_278S.png
+
+
+F 50,50,50
+C 150,150,200
+
+11111111111111111111
+10000000000000000001
+10000000000000000001
+11111111101101111111
+11111111101101111111
+10000010000000000001
+100000100N0000000001
+11111111111111111111

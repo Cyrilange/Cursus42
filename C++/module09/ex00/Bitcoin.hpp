@@ -1,0 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bitcoin.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csalamit <csalamit@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/16 16:43:23 by csalamit          #+#    #+#             */
+/*   Updated: 2026/01/17 17:28:03 by csalamit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
+
+#include <map>
+#include <string>
+#include <exception>
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <sstream>
+
+
+#define ERR_POSITIVE "Error: not a positive number."
+#define ERR_INPUT "Error: bad input => "
+#define ERR_INT "Error: too large a number."
+#define ERR_FILE "Error: could not open file."
+#define ERR_DAY_MONTH "Day out of range for month: "
+#define ERR_MONTH "Month out of range: "
+#define ERR_DAY "Day invalid: "
+#define ERR_MONTH_INV "Month invalid: "
+#define ERR_YEAR "Year invalid: "
+#define ERR_DATE "Date format invalid: "
+#define MAX_VALUE 1000.0f
+
+class Bitcoin {
+private:
+    std::map<std::string, float> _data;  
+public:
+    Bitcoin();
+    Bitcoin(const Bitcoin& other);
+    Bitcoin& operator=(const Bitcoin& other);
+    
+    void    loadData(const std::string& filename);
+    void    parseLine(const std::string& line);
+    float   getValue(const std::string& date) const;
+    void    loadDB(const std::string& dbFilename);
+    
+    class   DataNotFoundException : public std::exception {
+    public:
+        const char* what() const throw();
+    };
+    ~Bitcoin();
+};

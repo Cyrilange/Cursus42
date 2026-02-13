@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "configurations": [
+
+        {
+            "name": "Debug map3d",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/push_swap", // Path to your existing executable
+            "args": ["3", "2", "1"], // Arguments to pass to your program, if any
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}", // Working directory
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb", // Path to gdb
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "logging": {
+                "engineLogging": true
+            },
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}

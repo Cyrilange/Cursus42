@@ -1,0 +1,64 @@
+services:
+  mariadb:
+    build: requirements/mariaDb
+    container_name: mariadb
+    restart: always
+    env_file: .env
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - inception
+    ports:
+      - "3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+  wordpress:
+    build: requirements/wordPress
+    container_name: wordpress
+    env_file: .env
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - "9000"
+    networks:
+      - inception
+    restart: always
+
+  nginx:
+    build: requirements/nginx
+    container_name: nginx
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - "443:443"
+    networks:
+      - inception
+    restart: always
+
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/csalamit/data/mariadb
+      o: bind
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/csalamit/data/wordpress
+      o: bind
+
+networks:
+  inception:
+    driver: bridge

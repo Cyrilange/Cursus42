@@ -1,0 +1,2240 @@
+desc: --massif-out-file=massif.out
+cmd: ./so_long ./includes/maps/map1.ber
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=681389
+mem_heap_B=13214639
+mem_heap_extra_B=3121
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=119614057
+mem_heap_B=13214735
+mem_heap_extra_B=3129
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=119620692
+mem_heap_B=13214752
+mem_heap_extra_B=3152
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=238553232
+mem_heap_B=13214832
+mem_heap_extra_B=3176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=238558939
+mem_heap_B=13214761
+mem_heap_extra_B=3183
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=357491351
+mem_heap_B=13214825
+mem_heap_extra_B=3191
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=357496253
+mem_heap_B=13214770
+mem_heap_extra_B=3214
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=476428537
+mem_heap_B=13214818
+mem_heap_extra_B=3222
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=476432634
+mem_heap_B=13214779
+mem_heap_extra_B=3229
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=595364790
+mem_heap_B=13214811
+mem_heap_extra_B=3237
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=595368082
+mem_heap_B=13214788
+mem_heap_extra_B=3244
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=714300110
+mem_heap_B=13214804
+mem_heap_extra_B=3268
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=714302470
+mem_heap_B=13214796
+mem_heap_extra_B=3308
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=833234378
+mem_heap_B=13214797
+mem_heap_extra_B=3331
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=840415411
+mem_heap_B=295981
+mem_heap_extra_B=16411
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=854566366
+mem_heap_B=1012270
+mem_heap_extra_B=32322
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=862475183
+mem_heap_B=1012277
+mem_heap_extra_B=32339
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=872093861
+mem_heap_B=1034085
+mem_heap_extra_B=33387
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=907941605
+mem_heap_B=1032933
+mem_heap_extra_B=33387
+mem_stacks_B=0
+heap_tree=detailed
+n11: 1032933 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 360192 0x58E67A6: ???
+  n2: 360192 0x58E77CF: ???
+   n1: 247296 0x58E7A92: ???
+    n1: 247296 0x58F64A0: ???
+     n1: 247296 0x58E7F80: ???
+      n1: 247296 0x58E4ADB: ???
+       n1: 247296 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+        n1: 247296 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+         n1: 247296 0x10BEEF: window_control (check.c:72)
+          n0: 247296 0x10CC05: main (main.c:61)
+   n1: 112896 0x58E79CC: ???
+    n1: 112896 0x58F64A0: ???
+     n1: 112896 0x58E7F80: ???
+      n1: 112896 0x58E4ADB: ???
+       n1: 112896 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+        n1: 112896 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+         n1: 112896 0x10BEEF: window_control (check.c:72)
+          n0: 112896 0x10CC05: main (main.c:61)
+ n1: 288216 0x10E281: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+  n1: 288216 0x10BEEF: window_control (check.c:72)
+   n0: 288216 0x10CC05: main (main.c:61)
+ n0: 129645 in 268 places, all below massif's threshold (1.00%)
+ n1: 96775 0x4880B96: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+  n1: 96775 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+   n1: 96775 0x10BEEF: window_control (check.c:72)
+    n0: 96775 0x10CC05: main (main.c:61)
+ n1: 54365 0x400DA02: calloc (rtld-malloc.h:44)
+  n1: 54365 0x400DA02: _dl_new_object (dl-object.c:92)
+   n1: 54365 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+    n2: 54365 0x400A600: _dl_map_object (dl-load.c:2327)
+     n1: 43472 0x4003494: openaux (dl-deps.c:64)
+      n1: 43472 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 43472 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+        n1: 43472 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+         n1: 43472 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 43472 0x400DF99: dl_open_worker (dl-open.c:782)
+           n1: 43472 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 43472 0x400E34D: _dl_open (dl-open.c:883)
+             n1: 43472 0x496163B: dlopen_doit (dlopen.c:56)
+              n1: 43472 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+               n1: 43472 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                n1: 43472 0x496112D: _dlerror_run (dlerror.c:138)
+                 n1: 43472 0x49616C7: dlopen_implementation (dlopen.c:71)
+                  n3: 43472 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 22935 0x59023F9: ???
+                    n1: 22935 0x59024EC: ???
+                     n1: 22935 0x58E0454: ???
+                      n1: 22935 0x58F651B: ???
+                       n1: 22935 0x58E7F80: ???
+                        n1: 22935 0x58E4ADB: ???
+                         n1: 22935 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                          n1: 22935 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                           n1: 22935 0x10BEEF: window_control (check.c:72)
+                            n0: 22935 0x10CC05: main (main.c:61)
+                   n1: 14502 0x58971A2: ???
+                    n1: 14502 0x5899869: ???
+                     n1: 14502 0x589A711: ???
+                      n1: 14502 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                       n1: 14502 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                        n1: 14502 0x10BEEF: window_control (check.c:72)
+                         n0: 14502 0x10CC05: main (main.c:61)
+                   n0: 6035 in 4 places, all below massif's threshold (1.00%)
+     n1: 10893 0x400E9A8: dl_open_worker_begin (dl-open.c:534)
+      n1: 10893 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 10893 0x400DF99: dl_open_worker (dl-open.c:782)
+        n1: 10893 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 10893 0x400E34D: _dl_open (dl-open.c:883)
+          n1: 10893 0x496163B: dlopen_doit (dlopen.c:56)
+           n1: 10893 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 10893 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+             n1: 10893 0x496112D: _dlerror_run (dlerror.c:138)
+              n1: 10893 0x49616C7: dlopen_implementation (dlopen.c:71)
+               n1: 10893 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n0: 10893 in 9 places, all below massif's threshold (1.00%)
+ n1: 28224 0x4C11290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 28224 0x487FDF7: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+   n1: 28224 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+    n1: 28224 0x10BEEF: window_control (check.c:72)
+     n0: 28224 0x10CC05: main (main.c:61)
+ n1: 21168 0x4D32204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 21168 0x4D32E6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 21168 0x4C20EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 21168 0x4C10B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 21168 0x487FDF7: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+      n1: 21168 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+       n1: 21168 0x10BEEF: window_control (check.c:72)
+        n0: 21168 0x10CC05: main (main.c:61)
+ n1: 16384 0x4C10EBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 16384 0x487FDF7: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+   n1: 16384 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+    n1: 16384 0x10BEEF: window_control (check.c:72)
+     n0: 16384 0x10CC05: main (main.c:61)
+ n1: 13224 0x40162DC: calloc (rtld-malloc.h:44)
+  n1: 13224 0x40162DC: _dl_check_map_versions (dl-version.c:273)
+   n1: 13224 0x400ED13: dl_open_worker_begin (dl-open.c:600)
+    n1: 13224 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+     n1: 13224 0x400DF99: dl_open_worker (dl-open.c:782)
+      n1: 13224 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 13224 0x400E34D: _dl_open (dl-open.c:883)
+        n1: 13224 0x496163B: dlopen_doit (dlopen.c:56)
+         n1: 13224 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 13224 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+           n1: 13224 0x496112D: _dlerror_run (dlerror.c:138)
+            n1: 13224 0x49616C7: dlopen_implementation (dlopen.c:71)
+             n1: 13224 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+              n0: 13224 in 8 places, all below massif's threshold (1.00%)
+ n1: 12432 0x58E9031: ???
+  n0: 12432 in 3 places, all below massif's threshold (1.00%)
+ n1: 12308 0x4D324FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+  n1: 12308 0x4D32E6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+   n1: 12308 0x4C20EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 12308 0x4C10B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 12308 0x487FDF7: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+      n1: 12308 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+       n1: 12308 0x10BEEF: window_control (check.c:72)
+        n0: 12308 0x10CC05: main (main.c:61)
+#-----------
+snapshot=20
+#-----------
+time=920301500
+mem_heap_B=1455212
+mem_heap_extra_B=87684
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=930726445
+mem_heap_B=1482147
+mem_heap_extra_B=91853
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=946857858
+mem_heap_B=2379463
+mem_heap_extra_B=119809
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=955157349
+mem_heap_B=2414263
+mem_heap_extra_B=122209
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=967752815
+mem_heap_B=2443263
+mem_heap_extra_B=124209
+mem_stacks_B=0
+heap_tree=detailed
+n22: 2443263 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 676483 in 1094 places, all below massif's threshold (1.00%)
+ n1: 360192 0x58E67A6: ???
+  n2: 360192 0x58E77CF: ???
+   n1: 247296 0x58E7A92: ???
+    n1: 247296 0x58F64A0: ???
+     n1: 247296 0x58E7F80: ???
+      n1: 247296 0x58E4ADB: ???
+       n1: 247296 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+        n1: 247296 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+         n1: 247296 0x10BEEF: window_control (check.c:72)
+          n0: 247296 0x10CC05: main (main.c:61)
+   n1: 112896 0x58E79CC: ???
+    n1: 112896 0x58F64A0: ???
+     n1: 112896 0x58E7F80: ???
+      n1: 112896 0x58E4ADB: ???
+       n1: 112896 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+        n1: 112896 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+         n1: 112896 0x10BEEF: window_control (check.c:72)
+          n0: 112896 0x10CC05: main (main.c:61)
+ n1: 288216 0x10E281: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+  n1: 288216 0x10BEEF: window_control (check.c:72)
+   n0: 288216 0x10CC05: main (main.c:61)
+ n1: 97904 0x58E0802: ???
+  n1: 97904 0x58F69C4: ???
+   n1: 97904 0x58E7F80: ???
+    n1: 97904 0x58E4ADB: ???
+     n1: 97904 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+      n1: 97904 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+       n1: 97904 0x10BEEF: window_control (check.c:72)
+        n0: 97904 0x10CC05: main (main.c:61)
+ n1: 96775 0x4880B96: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+  n1: 96775 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+   n1: 96775 0x10BEEF: window_control (check.c:72)
+    n0: 96775 0x10CC05: main (main.c:61)
+ n2: 85192 0x88EC97D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n2: 85057 0x88ECB6D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 84635 0x88DE7BA: llvm::cl::Option::addArgument() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n0: 84635 in 2078 places, all below massif's threshold (1.00%)
+   n0: 422 in 4 places, all below massif's threshold (1.00%)
+  n0: 135 in 1 place, below massif's threshold (1.00%)
+ n1: 82160 0x4916791: __new_exitfn (cxa_atexit.c:114)
+  n1: 82160 0x491690A: __internal_atexit (cxa_atexit.c:44)
+   n1: 82160 0x491690A: __cxa_atexit (cxa_atexit.c:70)
+    n0: 82160 in 79 places, all below massif's threshold (1.00%)
+ n1: 72704 0xECCD939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+      n1: 72704 0x400DFF5: dl_open_worker (dl-open.c:808)
+       n1: 72704 0x400DFF5: dl_open_worker (dl-open.c:771)
+        n1: 72704 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 72704 0x400E34D: _dl_open (dl-open.c:883)
+          n1: 72704 0x496163B: dlopen_doit (dlopen.c:56)
+           n1: 72704 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 72704 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+             n1: 72704 0x496112D: _dlerror_run (dlerror.c:138)
+              n1: 72704 0x49616C7: dlopen_implementation (dlopen.c:71)
+               n1: 72704 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n1: 72704 0x59023F9: ???
+                 n1: 72704 0x59024EC: ???
+                  n1: 72704 0x58E0454: ???
+                   n1: 72704 0x58F651B: ???
+                    n1: 72704 0x58E7F80: ???
+                     n1: 72704 0x58E4ADB: ???
+                      n1: 72704 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                       n1: 72704 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                        n1: 72704 0x10BEEF: window_control (check.c:72)
+                         n0: 72704 0x10CC05: main (main.c:61)
+ n1: 66560 0x8B1767F: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 66560 0x8B0EC28: llvm::PMTopLevelManager::setLastUser(llvm::ArrayRef<llvm::Pass*>, llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 66560 0x8B12D4F: llvm::PMDataManager::add(llvm::Pass*, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n2: 66560 0x8B10CD5: llvm::PMTopLevelManager::schedulePass(llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 53248 0x8F990C2: llvm::TargetPassConfig::addPass(llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 53248 0x8F9A13B: llvm::TargetPassConfig::addMachinePasses() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 53248 0x8CE9AA2: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 53248 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 53248 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 53248 0x6280E40: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 53248 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 53248 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 53248 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 53248 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 53248 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 53248 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 53248 0x58F65E1: ???
+                  n1: 53248 0x58E7F80: ???
+                   n1: 53248 0x58E4ADB: ???
+                    n1: 53248 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                     n1: 53248 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                      n1: 53248 0x10BEEF: window_control (check.c:72)
+                       n0: 53248 0x10CC05: main (main.c:61)
+     n0: 13312 in 3 places, all below massif's threshold (1.00%)
+ n1: 66144 0x631E6D3: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 66144 0x627FC70: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 66144 0x628146B: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 66144 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 66144 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 66144 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 66144 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 66144 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 66144 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 66144 0x58F65E1: ???
+           n1: 66144 0x58E7F80: ???
+            n1: 66144 0x58E4ADB: ???
+             n1: 66144 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+              n1: 66144 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+               n1: 66144 0x10BEEF: window_control (check.c:72)
+                n0: 66144 0x10CC05: main (main.c:61)
+ n1: 65536 0x627FD1E: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 65536 0x628146B: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 65536 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 65536 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 65536 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 65536 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 65536 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 65536 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 65536 0x58F65E1: ???
+          n1: 65536 0x58E7F80: ???
+           n1: 65536 0x58E4ADB: ???
+            n1: 65536 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+             n1: 65536 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+              n1: 65536 0x10BEEF: window_control (check.c:72)
+               n0: 65536 0x10CC05: main (main.c:61)
+ n1: 65536 0x62FED64: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 65536 0x627FE42: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 65536 0x628146B: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 65536 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 65536 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 65536 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 65536 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 65536 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 65536 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 65536 0x58F65E1: ???
+           n1: 65536 0x58E7F80: ???
+            n1: 65536 0x58E4ADB: ???
+             n1: 65536 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+              n1: 65536 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+               n1: 65536 0x10BEEF: window_control (check.c:72)
+                n0: 65536 0x10CC05: main (main.c:61)
+ n2: 58384 0x8EBF571: llvm::createGreedyRegisterAllocator(std::function<bool (llvm::TargetRegisterInfo const&, llvm::TargetRegisterClass const&)>) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 29192 0xA8834D2: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 29192 0x8F9ACFB: llvm::TargetPassConfig::addOptimizedRegAlloc() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 29192 0x8F9A2C0: llvm::TargetPassConfig::addMachinePasses() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 29192 0x8CE9AA2: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 29192 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 29192 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 29192 0x6280E40: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 29192 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 29192 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 29192 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 29192 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 29192 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 29192 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 29192 0x58F65E1: ???
+                n1: 29192 0x58E7F80: ???
+                 n1: 29192 0x58E4ADB: ???
+                  n1: 29192 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                   n1: 29192 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                    n1: 29192 0x10BEEF: window_control (check.c:72)
+                     n0: 29192 0x10CC05: main (main.c:61)
+  n1: 29192 0xA8835E2: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 29192 0x8F9ACFB: llvm::TargetPassConfig::addOptimizedRegAlloc() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 29192 0x8F9A2C0: llvm::TargetPassConfig::addMachinePasses() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 29192 0x8CE9AA2: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 29192 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 29192 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 29192 0x6280E40: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 29192 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 29192 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 29192 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 29192 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 29192 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 29192 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 29192 0x58F65E1: ???
+                n1: 29192 0x58E7F80: ???
+                 n1: 29192 0x58E4ADB: ???
+                  n1: 29192 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                   n1: 29192 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                    n1: 29192 0x10BEEF: window_control (check.c:72)
+                     n0: 29192 0x10CC05: main (main.c:61)
+ n1: 55320 0x8964597: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n2: 55320 0x8964CD0: llvm::StringMapImpl::RehashTable(unsigned int) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 49164 0x88EC9BC: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 49164 0x88ECB6D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n2: 49164 0x88DE7BA: llvm::cl::Option::addArgument() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 49164 0x884B21A: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 49164 0x400647D: call_init.part.0 (dl-init.c:70)
+        n1: 49164 0x4006567: call_init (dl-init.c:33)
+         n1: 49164 0x4006567: _dl_init (dl-init.c:117)
+          n1: 49164 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+           n1: 49164 0x400DFF5: dl_open_worker (dl-open.c:808)
+            n1: 49164 0x400DFF5: dl_open_worker (dl-open.c:771)
+             n1: 49164 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+              n1: 49164 0x400E34D: _dl_open (dl-open.c:883)
+               n1: 49164 0x496163B: dlopen_doit (dlopen.c:56)
+                n1: 49164 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 49164 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 49164 0x496112D: _dlerror_run (dlerror.c:138)
+                   n1: 49164 0x49616C7: dlopen_implementation (dlopen.c:71)
+                    n1: 49164 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                     n1: 49164 0x59023F9: ???
+                      n1: 49164 0x59024EC: ???
+                       n1: 49164 0x58E0454: ???
+                        n1: 49164 0x58F651B: ???
+                         n1: 49164 0x58E7F80: ???
+                          n1: 49164 0x58E4ADB: ???
+                           n1: 49164 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                            n1: 49164 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                             n1: 49164 0x10BEEF: window_control (check.c:72)
+                              n0: 49164 0x10CC05: main (main.c:61)
+      n0: 0 in 7 places, all below massif's threshold (1.00%)
+   n0: 6156 in 1 place, below massif's threshold (1.00%)
+ n1: 54365 0x400DA02: calloc (rtld-malloc.h:44)
+  n1: 54365 0x400DA02: _dl_new_object (dl-object.c:92)
+   n1: 54365 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+    n2: 54365 0x400A600: _dl_map_object (dl-load.c:2327)
+     n1: 43472 0x4003494: openaux (dl-deps.c:64)
+      n1: 43472 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 43472 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+        n1: 43472 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+         n1: 43472 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 43472 0x400DF99: dl_open_worker (dl-open.c:782)
+           n1: 43472 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 43472 0x400E34D: _dl_open (dl-open.c:883)
+             n1: 43472 0x496163B: dlopen_doit (dlopen.c:56)
+              n1: 43472 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+               n1: 43472 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                n1: 43472 0x496112D: _dlerror_run (dlerror.c:138)
+                 n1: 43472 0x49616C7: dlopen_implementation (dlopen.c:71)
+                  n1: 43472 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n0: 43472 in 6 places, all below massif's threshold (1.00%)
+     n0: 10893 in 1 place, below massif's threshold (1.00%)
+ n2: 54000 0x5AAF224: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 32400 0x5AAFD56: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 32400 0x5AA7FAB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 32400 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 32400 0x58F65E1: ???
+      n1: 32400 0x58E7F80: ???
+       n1: 32400 0x58E4ADB: ???
+        n1: 32400 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+         n1: 32400 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+          n1: 32400 0x10BEEF: window_control (check.c:72)
+           n0: 32400 0x10CC05: main (main.c:61)
+  n0: 21600 in 1 place, below massif's threshold (1.00%)
+ n1: 49824 0x627FB22: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 49824 0x628146B: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 49824 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 49824 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 49824 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 49824 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 49824 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 49824 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 49824 0x58F65E1: ???
+          n1: 49824 0x58E7F80: ???
+           n1: 49824 0x58E4ADB: ???
+            n1: 49824 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+             n1: 49824 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+              n1: 49824 0x10BEEF: window_control (check.c:72)
+               n0: 49824 0x10CC05: main (main.c:61)
+ n2: 37488 0x6833A9E: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 37424 0x683E8DA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 37424 0x682F101: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 37424 0x632B932: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 37424 0x6318C59: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 37424 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 37424 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 37424 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 37424 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 37424 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 37424 0x58F65E1: ???
+            n1: 37424 0x58E7F80: ???
+             n1: 37424 0x58E4ADB: ???
+              n1: 37424 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+               n1: 37424 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                n1: 37424 0x10BEEF: window_control (check.c:72)
+                 n0: 37424 0x10CC05: main (main.c:61)
+  n0: 64 in 1 place, below massif's threshold (1.00%)
+ n1: 28672 0x890B407: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 28672 0x8B0F897: llvm::PMTopLevelManager::findAnalysisUsage(llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 28672 0x8B0FFD7: llvm::PMTopLevelManager::schedulePass(llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n0: 28672 in 5 places, all below massif's threshold (1.00%)
+ n1: 28224 0x4C11290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 28224 0x487FDF7: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+   n1: 28224 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+    n1: 28224 0x10BEEF: window_control (check.c:72)
+     n0: 28224 0x10CC05: main (main.c:61)
+ n1: 26960 0x5AB8D44: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n0: 26960 in 8 places, all below massif's threshold (1.00%)
+ n1: 26624 0x667C436: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 26624 0x6318DC6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 26624 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 26624 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 26624 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 26624 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 26624 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 26624 0x58F65E1: ???
+         n1: 26624 0x58E7F80: ???
+          n1: 26624 0x58E4ADB: ???
+           n1: 26624 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+            n1: 26624 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+             n1: 26624 0x10BEEF: window_control (check.c:72)
+              n0: 26624 0x10CC05: main (main.c:61)
+#-----------
+snapshot=25
+#-----------
+time=979681602
+mem_heap_B=2472263
+mem_heap_extra_B=126209
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=994171392
+mem_heap_B=2541863
+mem_heap_extra_B=131009
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=1006677105
+mem_heap_B=2569471
+mem_heap_extra_B=132913
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=1015384932
+mem_heap_B=2588263
+mem_heap_extra_B=134209
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=1025433336
+mem_heap_B=2623063
+mem_heap_extra_B=136609
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=1037084498
+mem_heap_B=2646263
+mem_heap_extra_B=138209
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=1043807739
+mem_heap_B=2657863
+mem_heap_extra_B=139009
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=1054939525
+mem_heap_B=2692663
+mem_heap_extra_B=141409
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=1069751510
+mem_heap_B=2456539
+mem_heap_extra_B=148141
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=1098319283
+mem_heap_B=2527267
+mem_heap_extra_B=148157
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=1098636726
+mem_heap_B=2541395
+mem_heap_extra_B=148461
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=1127203935
+mem_heap_B=2532563
+mem_heap_extra_B=148453
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=1137605276
+mem_heap_B=4112395
+mem_heap_extra_B=179061
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=1148619450
+mem_heap_B=7121818
+mem_heap_extra_B=218430
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=1160355750
+mem_heap_B=13844343
+mem_heap_extra_B=569801
+mem_stacks_B=0
+heap_tree=detailed
+n13: 13844343 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 6558976 0x5AB8D44: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n8: 6004672 0x5AB8DAD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n0: 4020560 in 1264 places, all below massif's threshold (1.00%)
+   n2: 656832 0x5E03319: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 418176 in 153 places, all below massif's threshold (1.00%)
+    n1: 238656 0x5E124BB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n0: 238656 in 1243 places, all below massif's threshold (1.00%)
+   n1: 283104 0x5E56409: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 283104 in 121 places, all below massif's threshold (1.00%)
+   n1: 238656 0x5E12437: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 238656 in 1243 places, all below massif's threshold (1.00%)
+   n1: 238656 0x5E12464: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 238656 in 1243 places, all below massif's threshold (1.00%)
+   n1: 218768 0x5E124E3: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 218768 in 1243 places, all below massif's threshold (1.00%)
+   n1: 188160 0x5E562E4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 188160 in 96 places, all below massif's threshold (1.00%)
+   n1: 159936 0x5E56467: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 159936 in 308 places, all below massif's threshold (1.00%)
+  n2: 392704 0x5AB9933: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n2: 327136 0x5AB9A0D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 163632 in 2 places, all below massif's threshold (1.00%)
+    n1: 163504 0x5EDDD30: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 163504 0x5F5942D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 163504 0x5F5ACB4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n0: 163504 in 3 places, all below massif's threshold (1.00%)
+   n0: 65568 in 2 places, all below massif's threshold (1.00%)
+  n0: 161600 in 17 places, all below massif's threshold (1.00%)
+ n0: 3368831 in 1678 places, all below massif's threshold (1.00%)
+ n1: 907848 0x8CCDB33: llvm::LiveIntervalUnion::Array::init(llvm::RecyclingAllocator<llvm::BumpPtrAllocatorImpl<llvm::MallocAllocator, 4096ul, 4096ul, 128ul>, char, 192ul, 64ul>&, unsigned int) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 907848 0x8CDD534: llvm::LiveRegMatrix::runOnMachineFunction(llvm::MachineFunction&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 907848 0x8D5FF4B: llvm::MachineFunctionPass::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 907848 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 907848 0x9D44701: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 907848 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 907848 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 907848 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 907848 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 907848 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 907848 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 907848 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 907848 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 907848 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 907848 0x67CA4B8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 907848 0x6683F7D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 907848 0x6684039: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 907848 0x62ED0DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 907848 0x6054D92: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 907848 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 907848 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 907848 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 907848 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 907848 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                         n1: 907848 0x5904291: ???
+                          n1: 907848 0x58F5DF4: ???
+                           n1: 907848 0x58E53FE: ???
+                            n1: 907848 0x487AE78: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                             n1: 907848 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                              n0: 907848 0x10BEEF: window_control (check.c:72)
+ n1: 739752 0x8CDD436: llvm::LiveRegMatrix::runOnMachineFunction(llvm::MachineFunction&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 739752 0x8D5FF4B: llvm::MachineFunctionPass::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 739752 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 739752 0x9D44701: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 739752 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 739752 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 739752 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 739752 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 739752 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 739752 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 739752 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 739752 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 739752 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 739752 0x67CA4B8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 739752 0x6683F7D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 739752 0x6684039: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 739752 0x62ED0DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 739752 0x6054D92: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 739752 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 739752 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 739752 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 739752 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 739752 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 739752 0x5904291: ???
+                         n1: 739752 0x58F5DF4: ???
+                          n1: 739752 0x58E53FE: ???
+                           n1: 739752 0x487AE78: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                            n1: 739752 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                             n1: 739752 0x10BEEF: window_control (check.c:72)
+                              n0: 739752 0x10CC05: main (main.c:61)
+ n2: 392320 0xA87E3B2: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 196160 0xA778A1F: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 196160 0xA7787E9: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 196160 0xA779F9F: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 196160 0x8D5FF4B: llvm::MachineFunctionPass::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 196160 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 196160 0x8B142A2: llvm::FPPassManager::runOnModule(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 196160 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 196160 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 196160 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 196160 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 196160 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 196160 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 196160 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 196160 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 196160 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 196160 0x67CA4B8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 196160 0x6683F7D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 196160 0x6684039: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 196160 0x62ED0DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 196160 0x6054D92: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 196160 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 196160 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 196160 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                         n1: 196160 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                          n1: 196160 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                           n1: 196160 0x5904291: ???
+                            n1: 196160 0x58F5DF4: ???
+                             n1: 196160 0x58E53FE: ???
+                              n0: 196160 0x487AE78: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+  n1: 196160 0xA8936C7: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 196160 0xA87E478: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 196160 0xA57519C: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 196160 0x9F43728: llvm::TargetTransformInfoWrapperPass::getTTI(llvm::Function const&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 196160 0x9CF23B5: llvm::AssumptionCacheTracker::getAssumptionCache(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 196160 0x9836E7B: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 196160 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 196160 0x8B142A2: llvm::FPPassManager::runOnModule(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+          n1: 196160 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+           n1: 196160 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 196160 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 196160 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 196160 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 196160 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 196160 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 196160 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 196160 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 196160 0x67CA4B8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 196160 0x6683F7D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 196160 0x6684039: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 196160 0x62ED0DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 196160 0x6054D92: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 196160 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                         n1: 196160 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                          n1: 196160 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                           n1: 196160 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                            n1: 196160 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                             n1: 196160 0x5904291: ???
+                              n0: 196160 0x58F5DF4: ???
+ n2: 373056 0x58E0802: ???
+  n1: 256128 0x58F69C4: ???
+   n1: 256128 0x58E7F80: ???
+    n1: 256128 0x58E4ADB: ???
+     n1: 256128 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+      n1: 256128 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+       n1: 256128 0x10BEEF: window_control (check.c:72)
+        n0: 256128 0x10CC05: main (main.c:61)
+  n0: 116928 in 1 place, below massif's threshold (1.00%)
+ n1: 288216 0x10E281: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+  n1: 288216 0x10BEEF: window_control (check.c:72)
+   n0: 288216 0x10CC05: main (main.c:61)
+ n1: 265072 0x5B628B9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 265072 0x5B70E2E: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 265072 0x5AACC19: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 265072 0x5AB0660: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 265072 0x58F6338: ???
+      n1: 265072 0x58E0120: ???
+       n1: 265072 0x5899A83: ???
+        n1: 265072 0x487BC7C: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+         n1: 265072 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+          n1: 265072 0x10BEEF: window_control (check.c:72)
+           n0: 265072 0x10CC05: main (main.c:61)
+ n1: 214056 0x605F34E: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 214056 0x6280874: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 214056 0x5B70DD5: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 214056 0x5AACC19: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 214056 0x5AB0660: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 214056 0x58F6338: ???
+       n1: 214056 0x58E0120: ???
+        n1: 214056 0x5899A83: ???
+         n1: 214056 0x487BC7C: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+          n1: 214056 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+           n1: 214056 0x10BEEF: window_control (check.c:72)
+            n0: 214056 0x10CC05: main (main.c:61)
+ n1: 200432 0xA878982: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 200432 0xA87E3D4: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n0: 200432 in 2 places, all below massif's threshold (1.00%)
+ n1: 199680 0x8B1767F: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 199680 0x8B0EC28: llvm::PMTopLevelManager::setLastUser(llvm::ArrayRef<llvm::Pass*>, llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 199680 0x8B12D4F: llvm::PMDataManager::add(llvm::Pass*, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n2: 199680 0x8B10CD5: llvm::PMTopLevelManager::schedulePass(llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 159744 0x8F990C2: llvm::TargetPassConfig::addPass(llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 159744 0x8F9A13B: llvm::TargetPassConfig::addMachinePasses() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 159744 0x8CE9AA2: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 159744 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 159744 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n0: 159744 in 3 places, all below massif's threshold (1.00%)
+     n0: 39936 in 3 places, all below massif's threshold (1.00%)
+ n1: 175152 0x8EBF571: llvm::createGreedyRegisterAllocator(std::function<bool (llvm::TargetRegisterInfo const&, llvm::TargetRegisterClass const&)>) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n0: 175152 in 2 places, all below massif's threshold (1.00%)
+ n1: 160952 0xEB5FE88: ZSTD_createDCtx_advanced (in /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8)
+  n1: 160952 0xEB5FFBE: ZSTD_createDCtx (in /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8)
+   n1: 160952 0xEB662DC: ZSTD_decompress (in /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8)
+    n1: 160952 0x5ABE25E: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 160952 0x5AB1EAD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 160952 0x5AB2734: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n2: 160952 0x5AB1731: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n2: 160952 0x62AFEBC: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 160952 0x62B015F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 160952 0x5ABA977: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 160952 0x5B0A45A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 160952 0x4965AC2: start_thread (pthread_create.c:442)
+             n0: 160952 0x49F6A03: clone (clone.S:100)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=40
+#-----------
+time=1170211273
+mem_heap_B=13746737
+mem_heap_extra_B=584863
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=1178376379
+mem_heap_B=14029128
+mem_heap_extra_B=588584
+mem_stacks_B=0
+heap_tree=peak
+n13: 14029128 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 6121712 0x5AB8D44: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n8: 5989232 0x5AB8DAD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n0: 4005120 in 1267 places, all below massif's threshold (1.00%)
+   n2: 656832 0x5E03319: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 418176 in 153 places, all below massif's threshold (1.00%)
+    n1: 238656 0x5E124BB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n0: 238656 in 1243 places, all below massif's threshold (1.00%)
+   n1: 283104 0x5E56409: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 283104 in 121 places, all below massif's threshold (1.00%)
+   n1: 238656 0x5E12437: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 238656 in 1243 places, all below massif's threshold (1.00%)
+   n1: 238656 0x5E12464: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 238656 in 1243 places, all below massif's threshold (1.00%)
+   n1: 218768 0x5E124E3: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 218768 in 1243 places, all below massif's threshold (1.00%)
+   n1: 188160 0x5E562E4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 188160 in 96 places, all below massif's threshold (1.00%)
+   n1: 159936 0x5E56467: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n0: 159936 in 308 places, all below massif's threshold (1.00%)
+  n0: 132480 in 20 places, all below massif's threshold (1.00%)
+ n0: 3687520 in 1730 places, all below massif's threshold (1.00%)
+ n1: 907848 0x8CCDB33: llvm::LiveIntervalUnion::Array::init(llvm::RecyclingAllocator<llvm::BumpPtrAllocatorImpl<llvm::MallocAllocator, 4096ul, 4096ul, 128ul>, char, 192ul, 64ul>&, unsigned int) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 907848 0x8CDD534: llvm::LiveRegMatrix::runOnMachineFunction(llvm::MachineFunction&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 907848 0x8D5FF4B: llvm::MachineFunctionPass::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 907848 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 907848 0x9D44701: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 907848 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 907848 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 907848 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 907848 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 907848 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 907848 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 907848 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 907848 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 907848 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 907848 0x67CA4B8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 907848 0x6683F7D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 907848 0x6684039: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 907848 0x62ED0DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 907848 0x6054D92: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 907848 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 907848 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 907848 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 907848 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 907848 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                         n1: 907848 0x5904291: ???
+                          n1: 907848 0x58F5DF4: ???
+                           n1: 907848 0x58E53FE: ???
+                            n1: 907848 0x487AE78: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                             n1: 907848 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                              n0: 907848 0x10BEEF: window_control (check.c:72)
+ n1: 739752 0x8CDD436: llvm::LiveRegMatrix::runOnMachineFunction(llvm::MachineFunction&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 739752 0x8D5FF4B: llvm::MachineFunctionPass::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 739752 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 739752 0x9D44701: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 739752 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 739752 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+       n1: 739752 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+        n1: 739752 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 739752 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 739752 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 739752 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 739752 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 739752 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 739752 0x67CA4B8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 739752 0x6683F7D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 739752 0x6684039: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 739752 0x62ED0DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 739752 0x6054D92: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 739752 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 739752 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 739752 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 739752 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 739752 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 739752 0x5904291: ???
+                         n1: 739752 0x58F5DF4: ???
+                          n1: 739752 0x58E53FE: ???
+                           n1: 739752 0x487AE78: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                            n1: 739752 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                             n1: 739752 0x10BEEF: window_control (check.c:72)
+                              n0: 739752 0x10CC05: main (main.c:61)
+ n2: 588480 0xA87E3B2: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 392320 0xA8936C7: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 392320 0xA87E478: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 392320 0xA57519C: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 392320 0x9F43728: llvm::TargetTransformInfoWrapperPass::getTTI(llvm::Function const&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 392320 0x9CF23B5: llvm::AssumptionCacheTracker::getAssumptionCache(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 392320 0x9836E7B: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 392320 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 392320 0x8B142A2: llvm::FPPassManager::runOnModule(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+          n1: 392320 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+           n1: 392320 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 392320 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 392320 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 392320 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 392320 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 392320 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 392320 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n2: 392320 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 196160 0x605ACB5: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 196160 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 196160 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 196160 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 196160 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 196160 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                         n1: 196160 0x5904291: ???
+                          n1: 196160 0x58F5DF4: ???
+                           n1: 196160 0x58E53FE: ???
+                            n1: 196160 0x10EBAA: mlx_loop (in /home/csalamit/so_lllllong/so_long/so_long)
+                             n1: 196160 0x10BF56: window_control (check.c:81)
+                              n0: 196160 0x10CC05: main (main.c:61)
+                   n1: 196160 0x67CA4B8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 196160 0x6683F7D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 196160 0x6684039: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 196160 0x62ED0DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 196160 0x6054D92: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 196160 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                         n1: 196160 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                          n1: 196160 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                           n1: 196160 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                            n1: 196160 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                             n1: 196160 0x5904291: ???
+                              n0: 196160 0x58F5DF4: ???
+  n1: 196160 0xA778A1F: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 196160 0xA7787E9: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 196160 0xA779F9F: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 196160 0x8D5FF4B: llvm::MachineFunctionPass::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 196160 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 196160 0x8B142A2: llvm::FPPassManager::runOnModule(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 196160 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 196160 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n1: 196160 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+           n1: 196160 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 196160 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 196160 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 196160 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 196160 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 196160 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 196160 0x67CA4B8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 196160 0x6683F7D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 196160 0x6684039: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 196160 0x62ED0DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 196160 0x6054D92: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                      n1: 196160 0x60559A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                       n1: 196160 0x605610A: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                        n1: 196160 0x605D153: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                         n1: 196160 0x5B7139F: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                          n1: 196160 0x5AADE38: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                           n1: 196160 0x5904291: ???
+                            n1: 196160 0x58F5DF4: ???
+                             n1: 196160 0x58E53FE: ???
+                              n0: 196160 0x487AE78: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+ n2: 373056 0x58E0802: ???
+  n1: 256128 0x58F69C4: ???
+   n1: 256128 0x58E7F80: ???
+    n1: 256128 0x58E4ADB: ???
+     n1: 256128 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+      n1: 256128 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+       n1: 256128 0x10BEEF: window_control (check.c:72)
+        n0: 256128 0x10CC05: main (main.c:61)
+  n0: 116928 in 1 place, below massif's threshold (1.00%)
+ n1: 300648 0xA878982: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n2: 300648 0xA87E3D4: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 200432 0xA8936C7: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 200432 0xA87E478: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 200432 0xA57519C: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 200432 0x9F43728: llvm::TargetTransformInfoWrapperPass::getTTI(llvm::Function const&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 200432 0x9CF23B5: llvm::AssumptionCacheTracker::getAssumptionCache(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 200432 0x9836E7B: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 200432 0x8B0CCE1: llvm::FPPassManager::runOnFunction(llvm::Function&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+          n1: 200432 0x8B142A2: llvm::FPPassManager::runOnModule(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+           n1: 200432 0x8B0D885: llvm::legacy::PassManagerImpl::run(llvm::Module&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+            n1: 200432 0x63685C9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 200432 0x62901A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 200432 0x62864B0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 200432 0x628D5F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 200432 0x62AEECD: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 200432 0x62B33A6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 200432 0x67CFCF4: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 200432 0x67E1990: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n0: 200432 in 2 places, all below massif's threshold (1.00%)
+   n0: 100216 in 1 place, below massif's threshold (1.00%)
+ n1: 288216 0x10E281: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+  n1: 288216 0x10BEEF: window_control (check.c:72)
+   n0: 288216 0x10CC05: main (main.c:61)
+ n1: 265072 0x5B628B9: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 265072 0x5B70E2E: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 265072 0x5AACC19: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 265072 0x5AB0660: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 265072 0x58F6338: ???
+      n1: 265072 0x58E0120: ???
+       n1: 265072 0x5899A83: ???
+        n1: 265072 0x487BC7C: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+         n1: 265072 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+          n1: 265072 0x10BEEF: window_control (check.c:72)
+           n0: 265072 0x10CC05: main (main.c:61)
+ n1: 214056 0x605F34E: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+  n1: 214056 0x6280874: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+   n1: 214056 0x5B70DD5: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+    n1: 214056 0x5AACC19: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+     n1: 214056 0x5AB0660: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+      n1: 214056 0x58F6338: ???
+       n1: 214056 0x58E0120: ???
+        n1: 214056 0x5899A83: ???
+         n1: 214056 0x487BC7C: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+          n1: 214056 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+           n1: 214056 0x10BEEF: window_control (check.c:72)
+            n0: 214056 0x10CC05: main (main.c:61)
+ n1: 199680 0x8B1767F: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 199680 0x8B0EC28: llvm::PMTopLevelManager::setLastUser(llvm::ArrayRef<llvm::Pass*>, llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 199680 0x8B12D4F: llvm::PMDataManager::add(llvm::Pass*, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n2: 199680 0x8B10CD5: llvm::PMTopLevelManager::schedulePass(llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 159744 0x8F990C2: llvm::TargetPassConfig::addPass(llvm::Pass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 159744 0x8F9A13B: llvm::TargetPassConfig::addMachinePasses() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 159744 0x8CE9AA2: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 159744 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+         n1: 159744 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+          n0: 159744 in 3 places, all below massif's threshold (1.00%)
+     n0: 39936 in 3 places, all below massif's threshold (1.00%)
+ n1: 175152 0x8EBF571: llvm::createGreedyRegisterAllocator(std::function<bool (llvm::TargetRegisterInfo const&, llvm::TargetRegisterClass const&)>) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n0: 175152 in 2 places, all below massif's threshold (1.00%)
+ n1: 167936 0x890B407: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n0: 167936 in 20 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=42
+#-----------
+time=1190604648
+mem_heap_B=13854517
+mem_heap_extra_B=584555
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=1202989751
+mem_heap_B=13853757
+mem_heap_extra_B=584371
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=1215334371
+mem_heap_B=13853605
+mem_heap_extra_B=584347
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=1229060466
+mem_heap_B=13854157
+mem_heap_extra_B=584491
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=1243311890
+mem_heap_B=13868757
+mem_heap_extra_B=585451
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=1257779808
+mem_heap_B=13869721
+mem_heap_extra_B=586015
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=1273725994
+mem_heap_B=13870352
+mem_heap_extra_B=586528
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=1287577030
+mem_heap_B=422650
+mem_heap_extra_B=55550
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=1287581020
+mem_heap_B=420570
+mem_heap_extra_B=55534
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=1287584936
+mem_heap_B=418490
+mem_heap_extra_B=55518
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=1287588909
+mem_heap_B=416410
+mem_heap_extra_B=55502
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=1287592776
+mem_heap_B=414330
+mem_heap_extra_B=55486
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=1287596650
+mem_heap_B=412250
+mem_heap_extra_B=55470
+mem_stacks_B=0
+heap_tree=detailed
+n12: 412250 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 91477 in 1742 places, all below massif's threshold (1.00%)
+ n2: 85192 0x88EC97D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n2: 85057 0x88ECB6D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 84635 0x88DE7BA: llvm::cl::Option::addArgument() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n0: 84635 in 2078 places, all below massif's threshold (1.00%)
+   n0: 422 in 4 places, all below massif's threshold (1.00%)
+  n0: 135 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0xECCD939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+      n1: 72704 0x400DFF5: dl_open_worker (dl-open.c:808)
+       n1: 72704 0x400DFF5: dl_open_worker (dl-open.c:771)
+        n1: 72704 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 72704 0x400E34D: _dl_open (dl-open.c:883)
+          n1: 72704 0x496163B: dlopen_doit (dlopen.c:56)
+           n1: 72704 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 72704 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+             n1: 72704 0x496112D: _dlerror_run (dlerror.c:138)
+              n1: 72704 0x49616C7: dlopen_implementation (dlopen.c:71)
+               n1: 72704 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n1: 72704 0x59023F9: ???
+                 n1: 72704 0x59024EC: ???
+                  n1: 72704 0x58E0454: ???
+                   n1: 72704 0x58F651B: ???
+                    n1: 72704 0x58E7F80: ???
+                     n1: 72704 0x58E4ADB: ???
+                      n1: 72704 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                       n1: 72704 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                        n1: 72704 0x10BEEF: window_control (check.c:72)
+                         n0: 72704 0x10CC05: main (main.c:61)
+ n1: 55320 0x8964597: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n3: 55320 0x8964CD0: llvm::StringMapImpl::RehashTable(unsigned int) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 49164 0x88EC9BC: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 49164 0x88ECB6D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n2: 49164 0x88DE7BA: llvm::cl::Option::addArgument() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 49164 0x884B21A: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 49164 0x400647D: call_init.part.0 (dl-init.c:70)
+        n1: 49164 0x4006567: call_init (dl-init.c:33)
+         n1: 49164 0x4006567: _dl_init (dl-init.c:117)
+          n1: 49164 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+           n1: 49164 0x400DFF5: dl_open_worker (dl-open.c:808)
+            n1: 49164 0x400DFF5: dl_open_worker (dl-open.c:771)
+             n1: 49164 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+              n1: 49164 0x400E34D: _dl_open (dl-open.c:883)
+               n1: 49164 0x496163B: dlopen_doit (dlopen.c:56)
+                n1: 49164 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 49164 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 49164 0x496112D: _dlerror_run (dlerror.c:138)
+                   n1: 49164 0x49616C7: dlopen_implementation (dlopen.c:71)
+                    n1: 49164 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                     n1: 49164 0x59023F9: ???
+                      n1: 49164 0x59024EC: ???
+                       n1: 49164 0x58E0454: ???
+                        n1: 49164 0x58F651B: ???
+                         n1: 49164 0x58E7F80: ???
+                          n1: 49164 0x58E4ADB: ???
+                           n1: 49164 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                            n1: 49164 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                             n1: 49164 0x10BEEF: window_control (check.c:72)
+                              n0: 49164 0x10CC05: main (main.c:61)
+      n0: 0 in 7 places, all below massif's threshold (1.00%)
+   n1: 6156 0x8B496E6: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n2: 6156 0x8B48AE0: llvm::PassRegistry::registerPass(llvm::PassInfo const&, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 6156 0x8D6F7C4: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 6156 0x496AEE7: __pthread_once_slow (pthread_once.c:116)
+       n1: 6156 0x8D6F6CF: llvm::initializeEarlyMachineLICMPass(llvm::PassRegistry&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 6156 0x8BFB210: llvm::initializeCodeGen(llvm::PassRegistry&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 6156 0x8F985F4: llvm::TargetPassConfig::TargetPassConfig(llvm::LLVMTargetMachine&, llvm::legacy::PassManagerBase&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+          n1: 6156 0xA87F0A5: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+           n1: 6156 0x8CE9A54: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+            n1: 6156 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 6156 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 6156 0x6280E40: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 6156 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 6156 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 6156 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 6156 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 6156 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 6156 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 6156 0x58F65E1: ???
+                      n1: 6156 0x58E7F80: ???
+                       n1: 6156 0x58E4ADB: ???
+                        n1: 6156 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                         n1: 6156 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                          n1: 6156 0x10BEEF: window_control (check.c:72)
+                           n0: 6156 0x10CC05: main (main.c:61)
+     n0: 0 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 3 places, all below massif's threshold (1.00%)
+ n1: 28998 0x400DA02: calloc (rtld-malloc.h:44)
+  n1: 28998 0x400DA02: _dl_new_object (dl-object.c:92)
+   n1: 28998 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+    n2: 28998 0x400A600: _dl_map_object (dl-load.c:2327)
+     n1: 27760 0x4003494: openaux (dl-deps.c:64)
+      n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 27760 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+        n1: 27760 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+         n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 27760 0x400DF99: dl_open_worker (dl-open.c:782)
+           n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 27760 0x400E34D: _dl_open (dl-open.c:883)
+             n1: 27760 0x496163B: dlopen_doit (dlopen.c:56)
+              n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+               n1: 27760 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                n1: 27760 0x496112D: _dlerror_run (dlerror.c:138)
+                 n1: 27760 0x49616C7: dlopen_implementation (dlopen.c:71)
+                  n3: 27760 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 22935 0x59023F9: ???
+                    n1: 22935 0x59024EC: ???
+                     n1: 22935 0x58E0454: ???
+                      n1: 22935 0x58F651B: ???
+                       n1: 22935 0x58E7F80: ???
+                        n1: 22935 0x58E4ADB: ???
+                         n1: 22935 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                          n1: 22935 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                           n1: 22935 0x10BEEF: window_control (check.c:72)
+                            n0: 22935 0x10CC05: main (main.c:61)
+                   n1: 4825 0x58971A2: ???
+                    n1: 4825 0x5899869: ???
+                     n1: 4825 0x589A711: ???
+                      n1: 4825 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                       n1: 4825 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                        n1: 4825 0x10BEEF: window_control (check.c:72)
+                         n0: 4825 0x10CC05: main (main.c:61)
+                   n0: 0 in 4 places, all below massif's threshold (1.00%)
+     n0: 1238 in 1 place, below massif's threshold (1.00%)
+ n1: 24960 0x4916791: __new_exitfn (cxa_atexit.c:114)
+  n1: 24960 0x491690A: __internal_atexit (cxa_atexit.c:44)
+   n1: 24960 0x491690A: __cxa_atexit (cxa_atexit.c:70)
+    n0: 24960 in 79 places, all below massif's threshold (1.00%)
+ n1: 10632 0x40162DC: calloc (rtld-malloc.h:44)
+  n1: 10632 0x40162DC: _dl_check_map_versions (dl-version.c:273)
+   n1: 10632 0x400ED13: dl_open_worker_begin (dl-open.c:600)
+    n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+     n1: 10632 0x400DF99: dl_open_worker (dl-open.c:782)
+      n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 10632 0x400E34D: _dl_open (dl-open.c:883)
+        n1: 10632 0x496163B: dlopen_doit (dlopen.c:56)
+         n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 10632 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+           n1: 10632 0x496112D: _dlerror_run (dlerror.c:138)
+            n1: 10632 0x49616C7: dlopen_implementation (dlopen.c:71)
+             n2: 10632 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+              n1: 9960 0x59023F9: ???
+               n1: 9960 0x59024EC: ???
+                n1: 9960 0x58E0454: ???
+                 n1: 9960 0x58F651B: ???
+                  n1: 9960 0x58E7F80: ???
+                   n1: 9960 0x58E4ADB: ???
+                    n1: 9960 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                     n1: 9960 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                      n1: 9960 0x10BEEF: window_control (check.c:72)
+                       n0: 9960 0x10CC05: main (main.c:61)
+              n0: 672 in 7 places, all below massif's threshold (1.00%)
+ n1: 10231 0x8B496A8: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 10231 0x8B48AE0: llvm::PassRegistry::registerPass(llvm::PassInfo const&, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n0: 10231 in 307 places, all below massif's threshold (1.00%)
+ n2: 8192 0x4C13F8A: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8192 0x4C3CCEB: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8192 0x4C2989A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8192 0x4C32F0B: _XlcOpenConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 8192 0x4C42439: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 8192 0x4C45A5F: _XimProtoOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 8192 0x4C42A8F: _XimOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+        n1: 8192 0x4881205: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+         n1: 8192 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+          n1: 8192 0x10BEEF: window_control (check.c:72)
+           n0: 8192 0x10CC05: main (main.c:61)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n2: 8192 0x8B17CC7: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 8192 0x8B495C3: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n2: 8192 0x8B48ACD: llvm::PassRegistry::registerPass(llvm::PassInfo const&, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 8192 0x8C467B4: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 8192 0x496AEE7: __pthread_once_slow (pthread_once.c:116)
+      n1: 8192 0x8C466CF: llvm::initializeEarlyIfPredicatorPass(llvm::PassRegistry&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 8192 0x8BFB208: llvm::initializeCodeGen(llvm::PassRegistry&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 8192 0x8F985F4: llvm::TargetPassConfig::TargetPassConfig(llvm::LLVMTargetMachine&, llvm::legacy::PassManagerBase&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 8192 0xA87F0A5: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+          n1: 8192 0x8CE9A54: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+           n1: 8192 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 8192 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 8192 0x6280E40: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 8192 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 8192 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 8192 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 8192 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 8192 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 8192 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 8192 0x58F65E1: ???
+                     n1: 8192 0x58E7F80: ???
+                      n1: 8192 0x58E4ADB: ???
+                       n1: 8192 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                        n1: 8192 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                         n1: 8192 0x10BEEF: window_control (check.c:72)
+                          n0: 8192 0x10CC05: main (main.c:61)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 8176 0x4C12D95: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8176 0x4C14105: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8176 0x4C27CB3: XrmInitialize (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8176 0x487FDF0: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+     n1: 8176 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+      n1: 8176 0x10BEEF: window_control (check.c:72)
+       n0: 8176 0x10CC05: main (main.c:61)
+ n1: 8176 0x4C14299: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8176 0x4C34691: _XlcGetLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8176 0x4C36491: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8176 0x4C372D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 8176 0x4C312DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 8176 0x4C568C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 8176 0x4C3E685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+        n1: 8176 0x4C3EA9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+         n1: 8176 0x4C28A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+          n1: 8176 0x4C28DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+           n1: 8176 0x487FE52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+            n1: 8176 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+             n1: 8176 0x10BEEF: window_control (check.c:72)
+              n0: 8176 0x10CC05: main (main.c:61)
+#-----------
+snapshot=55
+#-----------
+time=1287600517
+mem_heap_B=410170
+mem_heap_extra_B=55454
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=1287604413
+mem_heap_B=408090
+mem_heap_extra_B=55438
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=1287608328
+mem_heap_B=406010
+mem_heap_extra_B=55422
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=1287612275
+mem_heap_B=403930
+mem_heap_extra_B=55406
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=1287616192
+mem_heap_B=401850
+mem_heap_extra_B=55390
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=1287618555
+mem_heap_B=399290
+mem_heap_extra_B=55134
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=1287620934
+mem_heap_B=394410
+mem_heap_extra_B=54646
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=1287623313
+mem_heap_B=389530
+mem_heap_extra_B=54142
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=1287625692
+mem_heap_B=384650
+mem_heap_extra_B=53654
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=1287628071
+mem_heap_B=379770
+mem_heap_extra_B=53166
+mem_stacks_B=0
+heap_tree=detailed
+n14: 379770 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 85192 0x88EC97D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n2: 85057 0x88ECB6D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 84635 0x88DE7BA: llvm::cl::Option::addArgument() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n0: 84635 in 2078 places, all below massif's threshold (1.00%)
+   n0: 422 in 4 places, all below massif's threshold (1.00%)
+  n0: 135 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0xECCD939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+      n1: 72704 0x400DFF5: dl_open_worker (dl-open.c:808)
+       n1: 72704 0x400DFF5: dl_open_worker (dl-open.c:771)
+        n1: 72704 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 72704 0x400E34D: _dl_open (dl-open.c:883)
+          n1: 72704 0x496163B: dlopen_doit (dlopen.c:56)
+           n1: 72704 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 72704 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+             n1: 72704 0x496112D: _dlerror_run (dlerror.c:138)
+              n1: 72704 0x49616C7: dlopen_implementation (dlopen.c:71)
+               n1: 72704 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n1: 72704 0x59023F9: ???
+                 n1: 72704 0x59024EC: ???
+                  n1: 72704 0x58E0454: ???
+                   n1: 72704 0x58F651B: ???
+                    n1: 72704 0x58E7F80: ???
+                     n1: 72704 0x58E4ADB: ???
+                      n1: 72704 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                       n1: 72704 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                        n1: 72704 0x10BEEF: window_control (check.c:72)
+                         n0: 72704 0x10CC05: main (main.c:61)
+ n0: 60181 in 1740 places, all below massif's threshold (1.00%)
+ n1: 55320 0x8964597: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n3: 55320 0x8964CD0: llvm::StringMapImpl::RehashTable(unsigned int) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 49164 0x88EC9BC: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 49164 0x88ECB6D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n2: 49164 0x88DE7BA: llvm::cl::Option::addArgument() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 49164 0x884B21A: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 49164 0x400647D: call_init.part.0 (dl-init.c:70)
+        n1: 49164 0x4006567: call_init (dl-init.c:33)
+         n1: 49164 0x4006567: _dl_init (dl-init.c:117)
+          n1: 49164 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+           n1: 49164 0x400DFF5: dl_open_worker (dl-open.c:808)
+            n1: 49164 0x400DFF5: dl_open_worker (dl-open.c:771)
+             n1: 49164 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+              n1: 49164 0x400E34D: _dl_open (dl-open.c:883)
+               n1: 49164 0x496163B: dlopen_doit (dlopen.c:56)
+                n1: 49164 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 49164 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 49164 0x496112D: _dlerror_run (dlerror.c:138)
+                   n1: 49164 0x49616C7: dlopen_implementation (dlopen.c:71)
+                    n1: 49164 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                     n1: 49164 0x59023F9: ???
+                      n1: 49164 0x59024EC: ???
+                       n1: 49164 0x58E0454: ???
+                        n1: 49164 0x58F651B: ???
+                         n1: 49164 0x58E7F80: ???
+                          n1: 49164 0x58E4ADB: ???
+                           n1: 49164 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                            n1: 49164 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                             n1: 49164 0x10BEEF: window_control (check.c:72)
+                              n0: 49164 0x10CC05: main (main.c:61)
+      n0: 0 in 7 places, all below massif's threshold (1.00%)
+   n1: 6156 0x8B496E6: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n2: 6156 0x8B48AE0: llvm::PassRegistry::registerPass(llvm::PassInfo const&, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 6156 0x8D6F7C4: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 6156 0x496AEE7: __pthread_once_slow (pthread_once.c:116)
+       n1: 6156 0x8D6F6CF: llvm::initializeEarlyMachineLICMPass(llvm::PassRegistry&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 6156 0x8BFB210: llvm::initializeCodeGen(llvm::PassRegistry&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 6156 0x8F985F4: llvm::TargetPassConfig::TargetPassConfig(llvm::LLVMTargetMachine&, llvm::legacy::PassManagerBase&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+          n1: 6156 0xA87F0A5: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+           n1: 6156 0x8CE9A54: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+            n1: 6156 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 6156 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 6156 0x6280E40: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 6156 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 6156 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 6156 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 6156 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 6156 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 6156 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                     n1: 6156 0x58F65E1: ???
+                      n1: 6156 0x58E7F80: ???
+                       n1: 6156 0x58E4ADB: ???
+                        n1: 6156 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                         n1: 6156 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                          n1: 6156 0x10BEEF: window_control (check.c:72)
+                           n0: 6156 0x10CC05: main (main.c:61)
+     n0: 0 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 3 places, all below massif's threshold (1.00%)
+ n1: 28998 0x400DA02: calloc (rtld-malloc.h:44)
+  n1: 28998 0x400DA02: _dl_new_object (dl-object.c:92)
+   n1: 28998 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+    n2: 28998 0x400A600: _dl_map_object (dl-load.c:2327)
+     n1: 27760 0x4003494: openaux (dl-deps.c:64)
+      n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 27760 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+        n1: 27760 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+         n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 27760 0x400DF99: dl_open_worker (dl-open.c:782)
+           n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 27760 0x400E34D: _dl_open (dl-open.c:883)
+             n1: 27760 0x496163B: dlopen_doit (dlopen.c:56)
+              n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+               n1: 27760 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                n1: 27760 0x496112D: _dlerror_run (dlerror.c:138)
+                 n1: 27760 0x49616C7: dlopen_implementation (dlopen.c:71)
+                  n3: 27760 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 22935 0x59023F9: ???
+                    n1: 22935 0x59024EC: ???
+                     n1: 22935 0x58E0454: ???
+                      n1: 22935 0x58F651B: ???
+                       n1: 22935 0x58E7F80: ???
+                        n1: 22935 0x58E4ADB: ???
+                         n1: 22935 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                          n1: 22935 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                           n1: 22935 0x10BEEF: window_control (check.c:72)
+                            n0: 22935 0x10CC05: main (main.c:61)
+                   n1: 4825 0x58971A2: ???
+                    n1: 4825 0x5899869: ???
+                     n1: 4825 0x589A711: ???
+                      n1: 4825 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                       n1: 4825 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                        n1: 4825 0x10BEEF: window_control (check.c:72)
+                         n0: 4825 0x10CC05: main (main.c:61)
+                   n0: 0 in 4 places, all below massif's threshold (1.00%)
+     n0: 1238 in 1 place, below massif's threshold (1.00%)
+ n1: 14560 0x4916791: __new_exitfn (cxa_atexit.c:114)
+  n1: 14560 0x491690A: __internal_atexit (cxa_atexit.c:44)
+   n1: 14560 0x491690A: __cxa_atexit (cxa_atexit.c:70)
+    n0: 14560 in 79 places, all below massif's threshold (1.00%)
+ n1: 10632 0x40162DC: calloc (rtld-malloc.h:44)
+  n1: 10632 0x40162DC: _dl_check_map_versions (dl-version.c:273)
+   n1: 10632 0x400ED13: dl_open_worker_begin (dl-open.c:600)
+    n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+     n1: 10632 0x400DF99: dl_open_worker (dl-open.c:782)
+      n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 10632 0x400E34D: _dl_open (dl-open.c:883)
+        n1: 10632 0x496163B: dlopen_doit (dlopen.c:56)
+         n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 10632 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+           n1: 10632 0x496112D: _dlerror_run (dlerror.c:138)
+            n1: 10632 0x49616C7: dlopen_implementation (dlopen.c:71)
+             n2: 10632 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+              n1: 9960 0x59023F9: ???
+               n1: 9960 0x59024EC: ???
+                n1: 9960 0x58E0454: ???
+                 n1: 9960 0x58F651B: ???
+                  n1: 9960 0x58E7F80: ???
+                   n1: 9960 0x58E4ADB: ???
+                    n1: 9960 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                     n1: 9960 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                      n1: 9960 0x10BEEF: window_control (check.c:72)
+                       n0: 9960 0x10CC05: main (main.c:61)
+              n0: 672 in 7 places, all below massif's threshold (1.00%)
+ n1: 10231 0x8B496A8: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 10231 0x8B48AE0: llvm::PassRegistry::registerPass(llvm::PassInfo const&, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n0: 10231 in 307 places, all below massif's threshold (1.00%)
+ n2: 8192 0x4C13F8A: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8192 0x4C3CCEB: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8192 0x4C2989A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8192 0x4C32F0B: _XlcOpenConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 8192 0x4C42439: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 8192 0x4C45A5F: _XimProtoOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 8192 0x4C42A8F: _XimOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+        n1: 8192 0x4881205: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+         n1: 8192 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+          n1: 8192 0x10BEEF: window_control (check.c:72)
+           n0: 8192 0x10CC05: main (main.c:61)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n2: 8192 0x8B17CC7: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 8192 0x8B495C3: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n2: 8192 0x8B48ACD: llvm::PassRegistry::registerPass(llvm::PassInfo const&, bool) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 8192 0x8C467B4: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 8192 0x496AEE7: __pthread_once_slow (pthread_once.c:116)
+      n1: 8192 0x8C466CF: llvm::initializeEarlyIfPredicatorPass(llvm::PassRegistry&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 8192 0x8BFB208: llvm::initializeCodeGen(llvm::PassRegistry&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+        n1: 8192 0x8F985F4: llvm::TargetPassConfig::TargetPassConfig(llvm::LLVMTargetMachine&, llvm::legacy::PassManagerBase&) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+         n1: 8192 0xA87F0A5: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+          n1: 8192 0x8CE9A54: llvm::LLVMTargetMachine::addPassesToEmitFile(llvm::legacy::PassManagerBase&, llvm::raw_pwrite_stream&, llvm::raw_pwrite_stream*, llvm::CodeGenFileType, bool, llvm::MachineModuleInfoWrapperPass*) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+           n1: 8192 0x6368BB6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+            n1: 8192 0x62809E0: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+             n1: 8192 0x6280E40: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+              n1: 8192 0x63189F6: amdgpu_winsys_create (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+               n1: 8192 0x6281A5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                n1: 8192 0x5AA62BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                 n1: 8192 0x60FD5E6: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                  n1: 8192 0x5AA7F54: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                   n1: 8192 0x5AB0265: ??? (in /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so)
+                    n1: 8192 0x58F65E1: ???
+                     n1: 8192 0x58E7F80: ???
+                      n1: 8192 0x58E4ADB: ???
+                       n1: 8192 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                        n1: 8192 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                         n1: 8192 0x10BEEF: window_control (check.c:72)
+                          n0: 8192 0x10CC05: main (main.c:61)
+    n0: 0 in 3 places, all below massif's threshold (1.00%)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 8176 0x4C12D95: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8176 0x4C14105: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8176 0x4C27CB3: XrmInitialize (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8176 0x487FDF0: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+     n1: 8176 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+      n1: 8176 0x10BEEF: window_control (check.c:72)
+       n0: 8176 0x10CC05: main (main.c:61)
+ n1: 8176 0x4C14299: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8176 0x4C34691: _XlcGetLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8176 0x4C36491: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8176 0x4C372D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 8176 0x4C312DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 8176 0x4C568C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 8176 0x4C3E685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+        n1: 8176 0x4C3EA9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+         n1: 8176 0x4C28A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+          n1: 8176 0x4C28DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+           n1: 8176 0x487FE52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+            n1: 8176 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+             n1: 8176 0x10BEEF: window_control (check.c:72)
+              n0: 8176 0x10CC05: main (main.c:61)
+ n1: 4608 0x4005D97: malloc (rtld-malloc.h:56)
+  n1: 4608 0x4005D97: _dlfo_mappings_segment_allocate (dl-find_object.c:217)
+   n1: 4608 0x4005D97: _dl_find_object_update_1 (dl-find_object.c:671)
+    n1: 4608 0x4005D97: _dl_find_object_update (dl-find_object.c:804)
+     n1: 4608 0x400ECCF: dl_open_worker_begin (dl-open.c:735)
+      n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 4608 0x400DF99: dl_open_worker (dl-open.c:782)
+        n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 4608 0x400E34D: _dl_open (dl-open.c:883)
+          n1: 4608 0x496163B: dlopen_doit (dlopen.c:56)
+           n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 4608 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+             n1: 4608 0x496112D: _dlerror_run (dlerror.c:138)
+              n1: 4608 0x49616C7: dlopen_implementation (dlopen.c:71)
+               n1: 4608 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n0: 4608 in 2 places, all below massif's threshold (1.00%)
+ n1: 4608 0x88FA017: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 4608 0x8D2892A: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 4608 0x8D28458: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 4608 0x881A2BF: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 4608 0x400647D: call_init.part.0 (dl-init.c:70)
+      n1: 4608 0x4006567: call_init (dl-init.c:33)
+       n1: 4608 0x4006567: _dl_init (dl-init.c:117)
+        n1: 4608 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+         n1: 4608 0x400DFF5: dl_open_worker (dl-open.c:808)
+          n1: 4608 0x400DFF5: dl_open_worker (dl-open.c:771)
+           n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 4608 0x400E34D: _dl_open (dl-open.c:883)
+             n1: 4608 0x496163B: dlopen_doit (dlopen.c:56)
+              n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+               n1: 4608 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                n1: 4608 0x496112D: _dlerror_run (dlerror.c:138)
+                 n1: 4608 0x49616C7: dlopen_implementation (dlopen.c:71)
+                  n1: 4608 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 4608 0x59023F9: ???
+                    n1: 4608 0x59024EC: ???
+                     n1: 4608 0x58E0454: ???
+                      n1: 4608 0x58F651B: ???
+                       n1: 4608 0x58E7F80: ???
+                        n1: 4608 0x58E4ADB: ???
+                         n1: 4608 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                          n1: 4608 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                           n1: 4608 0x10BEEF: window_control (check.c:72)
+                            n0: 4608 0x10CC05: main (main.c:61)
+#-----------
+snapshot=65
+#-----------
+time=1287630441
+mem_heap_B=372867
+mem_heap_extra_B=52509
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=1287632820
+mem_heap_B=371129
+mem_heap_extra_B=51663
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=1287635199
+mem_heap_B=369414
+mem_heap_extra_B=50898
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=1287637581
+mem_heap_B=367806
+mem_heap_extra_B=50194
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=1287639966
+mem_heap_B=366302
+mem_heap_extra_B=49498
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=1287642336
+mem_heap_B=364597
+mem_heap_extra_B=48739
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=1287646474
+mem_heap_B=347175
+mem_heap_extra_B=48249
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=1287650468
+mem_heap_B=345095
+mem_heap_extra_B=48233
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=1287654564
+mem_heap_B=343015
+mem_heap_extra_B=48217
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=1287658384
+mem_heap_B=340935
+mem_heap_extra_B=48201
+mem_stacks_B=0
+heap_tree=detailed
+n14: 340935 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 85192 0x88EC97D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n2: 85057 0x88ECB6D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 84635 0x88DE7BA: llvm::cl::Option::addArgument() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n0: 84635 in 2078 places, all below massif's threshold (1.00%)
+   n0: 422 in 4 places, all below massif's threshold (1.00%)
+  n0: 135 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0xECCD939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+      n1: 72704 0x400DFF5: dl_open_worker (dl-open.c:808)
+       n1: 72704 0x400DFF5: dl_open_worker (dl-open.c:771)
+        n1: 72704 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 72704 0x400E34D: _dl_open (dl-open.c:883)
+          n1: 72704 0x496163B: dlopen_doit (dlopen.c:56)
+           n1: 72704 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 72704 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+             n1: 72704 0x496112D: _dlerror_run (dlerror.c:138)
+              n1: 72704 0x49616C7: dlopen_implementation (dlopen.c:71)
+               n1: 72704 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n1: 72704 0x59023F9: ???
+                 n1: 72704 0x59024EC: ???
+                  n1: 72704 0x58E0454: ???
+                   n1: 72704 0x58F651B: ???
+                    n1: 72704 0x58E7F80: ???
+                     n1: 72704 0x58E4ADB: ???
+                      n1: 72704 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                       n1: 72704 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                        n1: 72704 0x10BEEF: window_control (check.c:72)
+                         n0: 72704 0x10CC05: main (main.c:61)
+ n1: 49164 0x8964597: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n2: 49164 0x8964CD0: llvm::StringMapImpl::RehashTable(unsigned int) (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 49164 0x88EC9BC: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 49164 0x88ECB6D: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n2: 49164 0x88DE7BA: llvm::cl::Option::addArgument() (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+      n1: 49164 0x884B21A: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+       n1: 49164 0x400647D: call_init.part.0 (dl-init.c:70)
+        n1: 49164 0x4006567: call_init (dl-init.c:33)
+         n1: 49164 0x4006567: _dl_init (dl-init.c:117)
+          n1: 49164 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+           n1: 49164 0x400DFF5: dl_open_worker (dl-open.c:808)
+            n1: 49164 0x400DFF5: dl_open_worker (dl-open.c:771)
+             n1: 49164 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+              n1: 49164 0x400E34D: _dl_open (dl-open.c:883)
+               n1: 49164 0x496163B: dlopen_doit (dlopen.c:56)
+                n1: 49164 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 49164 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 49164 0x496112D: _dlerror_run (dlerror.c:138)
+                   n1: 49164 0x49616C7: dlopen_implementation (dlopen.c:71)
+                    n1: 49164 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                     n1: 49164 0x59023F9: ???
+                      n1: 49164 0x59024EC: ???
+                       n1: 49164 0x58E0454: ???
+                        n1: 49164 0x58F651B: ???
+                         n1: 49164 0x58E7F80: ???
+                          n1: 49164 0x58E4ADB: ???
+                           n1: 49164 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                            n1: 49164 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                             n1: 49164 0x10BEEF: window_control (check.c:72)
+                              n0: 49164 0x10CC05: main (main.c:61)
+      n0: 0 in 7 places, all below massif's threshold (1.00%)
+   n0: 0 in 4 places, all below massif's threshold (1.00%)
+ n0: 46221 in 1740 places, all below massif's threshold (1.00%)
+ n1: 28998 0x400DA02: calloc (rtld-malloc.h:44)
+  n1: 28998 0x400DA02: _dl_new_object (dl-object.c:92)
+   n1: 28998 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+    n2: 28998 0x400A600: _dl_map_object (dl-load.c:2327)
+     n1: 27760 0x4003494: openaux (dl-deps.c:64)
+      n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 27760 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+        n1: 27760 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+         n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 27760 0x400DF99: dl_open_worker (dl-open.c:782)
+           n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 27760 0x400E34D: _dl_open (dl-open.c:883)
+             n1: 27760 0x496163B: dlopen_doit (dlopen.c:56)
+              n1: 27760 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+               n1: 27760 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                n1: 27760 0x496112D: _dlerror_run (dlerror.c:138)
+                 n1: 27760 0x49616C7: dlopen_implementation (dlopen.c:71)
+                  n3: 27760 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 22935 0x59023F9: ???
+                    n1: 22935 0x59024EC: ???
+                     n1: 22935 0x58E0454: ???
+                      n1: 22935 0x58F651B: ???
+                       n1: 22935 0x58E7F80: ???
+                        n1: 22935 0x58E4ADB: ???
+                         n1: 22935 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                          n1: 22935 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                           n1: 22935 0x10BEEF: window_control (check.c:72)
+                            n0: 22935 0x10CC05: main (main.c:61)
+                   n1: 4825 0x58971A2: ???
+                    n1: 4825 0x5899869: ???
+                     n1: 4825 0x589A711: ???
+                      n1: 4825 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                       n1: 4825 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                        n1: 4825 0x10BEEF: window_control (check.c:72)
+                         n0: 4825 0x10CC05: main (main.c:61)
+                   n0: 0 in 4 places, all below massif's threshold (1.00%)
+     n0: 1238 in 1 place, below massif's threshold (1.00%)
+ n1: 10632 0x40162DC: calloc (rtld-malloc.h:44)
+  n1: 10632 0x40162DC: _dl_check_map_versions (dl-version.c:273)
+   n1: 10632 0x400ED13: dl_open_worker_begin (dl-open.c:600)
+    n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+     n1: 10632 0x400DF99: dl_open_worker (dl-open.c:782)
+      n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 10632 0x400E34D: _dl_open (dl-open.c:883)
+        n1: 10632 0x496163B: dlopen_doit (dlopen.c:56)
+         n1: 10632 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 10632 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+           n1: 10632 0x496112D: _dlerror_run (dlerror.c:138)
+            n1: 10632 0x49616C7: dlopen_implementation (dlopen.c:71)
+             n2: 10632 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+              n1: 9960 0x59023F9: ???
+               n1: 9960 0x59024EC: ???
+                n1: 9960 0x58E0454: ???
+                 n1: 9960 0x58F651B: ???
+                  n1: 9960 0x58E7F80: ???
+                   n1: 9960 0x58E4ADB: ???
+                    n1: 9960 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                     n1: 9960 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                      n1: 9960 0x10BEEF: window_control (check.c:72)
+                       n0: 9960 0x10CC05: main (main.c:61)
+              n0: 672 in 7 places, all below massif's threshold (1.00%)
+ n2: 8192 0x4C13F8A: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8192 0x4C3CCEB: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8192 0x4C2989A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8192 0x4C32F0B: _XlcOpenConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 8192 0x4C42439: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 8192 0x4C45A5F: _XimProtoOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 8192 0x4C42A8F: _XimOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+        n1: 8192 0x4881205: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+         n1: 8192 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+          n1: 8192 0x10BEEF: window_control (check.c:72)
+           n0: 8192 0x10CC05: main (main.c:61)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 8176 0x4C12D95: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8176 0x4C14105: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8176 0x4C27CB3: XrmInitialize (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8176 0x487FDF0: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+     n1: 8176 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+      n1: 8176 0x10BEEF: window_control (check.c:72)
+       n0: 8176 0x10CC05: main (main.c:61)
+ n1: 8176 0x4C14299: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n1: 8176 0x4C34691: _XlcGetLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+   n1: 8176 0x4C36491: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+    n1: 8176 0x4C372D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+     n1: 8176 0x4C312DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+      n1: 8176 0x4C568C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+       n1: 8176 0x4C3E685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+        n1: 8176 0x4C3EA9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+         n1: 8176 0x4C28A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+          n1: 8176 0x4C28DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+           n1: 8176 0x487FE52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+            n1: 8176 0x10E24F: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+             n1: 8176 0x10BEEF: window_control (check.c:72)
+              n0: 8176 0x10CC05: main (main.c:61)
+ n1: 6240 0x4916791: __new_exitfn (cxa_atexit.c:114)
+  n1: 6240 0x491690A: __internal_atexit (cxa_atexit.c:44)
+   n1: 6240 0x491690A: __cxa_atexit (cxa_atexit.c:70)
+    n0: 6240 in 79 places, all below massif's threshold (1.00%)
+ n1: 4608 0x4005D97: malloc (rtld-malloc.h:56)
+  n1: 4608 0x4005D97: _dlfo_mappings_segment_allocate (dl-find_object.c:217)
+   n1: 4608 0x4005D97: _dl_find_object_update_1 (dl-find_object.c:671)
+    n1: 4608 0x4005D97: _dl_find_object_update (dl-find_object.c:804)
+     n1: 4608 0x400ECCF: dl_open_worker_begin (dl-open.c:735)
+      n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+       n1: 4608 0x400DF99: dl_open_worker (dl-open.c:782)
+        n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 4608 0x400E34D: _dl_open (dl-open.c:883)
+          n1: 4608 0x496163B: dlopen_doit (dlopen.c:56)
+           n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 4608 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+             n1: 4608 0x496112D: _dlerror_run (dlerror.c:138)
+              n1: 4608 0x49616C7: dlopen_implementation (dlopen.c:71)
+               n1: 4608 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                n0: 4608 in 2 places, all below massif's threshold (1.00%)
+ n1: 4608 0x88FA017: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+  n1: 4608 0x8D2892A: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+   n1: 4608 0x8D28458: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+    n1: 4608 0x881A2BF: ??? (in /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1)
+     n1: 4608 0x400647D: call_init.part.0 (dl-init.c:70)
+      n1: 4608 0x4006567: call_init (dl-init.c:33)
+       n1: 4608 0x4006567: _dl_init (dl-init.c:117)
+        n1: 4608 0x4A45AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+         n1: 4608 0x400DFF5: dl_open_worker (dl-open.c:808)
+          n1: 4608 0x400DFF5: dl_open_worker (dl-open.c:771)
+           n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 4608 0x400E34D: _dl_open (dl-open.c:883)
+             n1: 4608 0x496163B: dlopen_doit (dlopen.c:56)
+              n1: 4608 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+               n1: 4608 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                n1: 4608 0x496112D: _dlerror_run (dlerror.c:138)
+                 n1: 4608 0x49616C7: dlopen_implementation (dlopen.c:71)
+                  n1: 4608 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 4608 0x59023F9: ???
+                    n1: 4608 0x59024EC: ???
+                     n1: 4608 0x58E0454: ???
+                      n1: 4608 0x58F651B: ???
+                       n1: 4608 0x58E7F80: ???
+                        n1: 4608 0x58E4ADB: ???
+                         n1: 4608 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                          n1: 4608 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                           n1: 4608 0x10BEEF: window_control (check.c:72)
+                            n0: 4608 0x10CC05: main (main.c:61)
+ n1: 4064 0x400BEA6: calloc (rtld-malloc.h:44)
+  n1: 4064 0x400BEA6: do_lookup_unique (dl-lookup.c:271)
+   n1: 4064 0x400BEA6: do_lookup_x (dl-lookup.c:556)
+    n1: 4064 0x400C210: _dl_lookup_symbol_x (dl-lookup.c:860)
+     n1: 4064 0x40114E7: elf_machine_rela (dl-machine.h:294)
+      n1: 4064 0x40114E7: elf_dynamic_do_Rela (do-rel.h:142)
+       n1: 4064 0x40114E7: _dl_relocate_object (dl-reloc.c:288)
+        n1: 4064 0x400EBAD: dl_open_worker_begin (dl-open.c:702)
+         n1: 4064 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+          n1: 4064 0x400DF99: dl_open_worker (dl-open.c:782)
+           n1: 4064 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+            n1: 4064 0x400E34D: _dl_open (dl-open.c:883)
+             n1: 4064 0x496163B: dlopen_doit (dlopen.c:56)
+              n1: 4064 0x4A45A97: _dl_catch_exception (dl-error-skeleton.c:208)
+               n1: 4064 0x4A45B62: _dl_catch_error (dl-error-skeleton.c:227)
+                n1: 4064 0x496112D: _dlerror_run (dlerror.c:138)
+                 n1: 4064 0x49616C7: dlopen_implementation (dlopen.c:71)
+                  n1: 4064 0x49616C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+                   n1: 4064 0x59023F9: ???
+                    n1: 4064 0x59024EC: ???
+                     n1: 4064 0x58E0454: ???
+                      n1: 4064 0x58F651B: ???
+                       n1: 4064 0x58E7F80: ???
+                        n1: 4064 0x58E4ADB: ???
+                         n1: 4064 0x487B404: glfwCreateWindow (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+                          n1: 4064 0x10E35E: mlx_init (in /home/csalamit/so_lllllong/so_long/so_long)
+                           n1: 4064 0x10BEEF: window_control (check.c:72)
+                            n0: 4064 0x10CC05: main (main.c:61)
+ n1: 3960 0x4C326B6: _XlcCreateDefaultCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+  n0: 3960 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=75
+#-----------
+time=1287661581
+mem_heap_B=337658
+mem_heap_extra_B=47814
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=1287665764
+mem_heap_B=334626
+mem_heap_extra_B=47782
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=1287669660
+mem_heap_B=332546
+mem_heap_extra_B=47766
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=1287672955
+mem_heap_B=331452
+mem_heap_extra_B=47732
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=1287683067
+mem_heap_B=331126
+mem_heap_extra_B=47658
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=1287685441
+mem_heap_B=326459
+mem_heap_extra_B=47381
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=1287688291
+mem_heap_B=322947
+mem_heap_extra_B=46957
+mem_stacks_B=0
+heap_tree=empty

@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"libft.h": "c",
+		"get_next_line.c": "cpp",
+		"system_error": "c",
+		"array": "c",
+		"functional": "c",
+		"tuple": "c",
+		"type_traits": "c",
+		"utility": "c"
+	}
+}
