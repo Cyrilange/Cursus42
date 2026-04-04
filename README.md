@@ -61,8 +61,13 @@ A series of C++ modules (00–09) covering Object-Oriented Programming: classes,
 
 ---
 
+### 💬 ft_irc
+A fully functional IRC server written in C++98. Supports multiple simultaneous clients using `poll()` for non-blocking I/O. Implements the IRC protocol (RFC 1459/2812) with commands: `PASS`, `NICK`, `USER`, `JOIN`, `PART`, `QUIT`, `PRIVMSG`, `MODE` (+i +t +k +l +o), `TOPIC`, `KICK`, `INVITE`. Includes a built-in bot (ircbot) with commands like `!help`, `!time`, `!joke`, `!quote`. Compatible with HexChat and irssi.
+
+---
+
 ### 🏓 ft_transcendence
-The final 42 project. A full-stack web application featuring a real-time multiplayer Pong game, OAuth2 login with the 42 API, user profiles, chat, and a tournament system. Built with Node.js/Express backend, SQLite database, and a JavaScript frontend, served over HTTPS via NGINX.
+The final 42 project. A full-stack web application featuring a real-time multiplayer game, OAuth2 login with the 42 API, user profiles and a tournament system. Built with Node.js/Express backend, SQLite database, and a JavaScript frontend, served over HTTPS via NGINX.
 
 ---
 
